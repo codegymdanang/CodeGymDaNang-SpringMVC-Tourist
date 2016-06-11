@@ -20,15 +20,7 @@
    <!-- ContactUs Page -->
    <definition name="contactusPage" extends="definition">  
        <put-attribute name="body" value="/WEB-INF/bodyfragments/_contactus.jsp" />  
-   </definition>  
-   
-     <!-- ContactUs Page -->
-   <definition name="userPage" extends="definition">  
-       <put-attribute name="body" value="/WEB-INF/bodyfragments/userpage.jsp" />  
-   </definition>  
-   
-   
-   
+   </definition>    
  </tiles-definitions>  
  
  
