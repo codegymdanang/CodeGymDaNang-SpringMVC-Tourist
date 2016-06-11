@@ -1,5 +1,11 @@
 package guru.tour.daos;
 
-public class DAOImpl implements DAO{
+import guru.tour.entity.AddressEntity;
+
+public class DAOImpl implements DAO {
+
+	public void create(AddressEntity address) {
+
+	}
 
 }

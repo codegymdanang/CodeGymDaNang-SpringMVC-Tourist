@@ -1,5 +1,7 @@
 package guru.tour.daos;
 
-public interface DAO {
+import guru.tour.entity.AddressEntity;
 
+public interface DAO {
+	void create(AddressEntity address);
 }
