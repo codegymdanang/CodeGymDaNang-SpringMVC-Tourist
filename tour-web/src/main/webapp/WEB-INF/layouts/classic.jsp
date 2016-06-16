@@ -1,7 +1,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <html>
 <head>
-<title>Jerry</title>
+<title>Guru</title>
 </head>
  
 <body>
