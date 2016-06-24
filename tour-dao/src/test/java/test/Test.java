@@ -12,13 +12,14 @@ import guru.tour.service.AddressEntityManager;
 
 @ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
+
 public class Test {
 	@Autowired
 	AddressEntityManager add;
 	
 	@org.junit.Test
 	public void show(){
-		List<AddressEntity> list = add.getAllAdress();
+		List<AddressEntity> list = add.getAllAddress();
 		for (AddressEntity addressEntity : list) {
 			System.out.println(addressEntity.getAddress());
 		}
