@@ -13,7 +13,7 @@ public class AddressManagerImpl implements AddressEntityManager {
 
 	@Autowired
 	AddressEntityRepository addEntity;
-	public List<AddressEntity> getAllAdress() {
+	public List<AddressEntity> getAllAddress() {
 		// TODO Auto-generated method stub
 		return addEntity.findAll();
 	}
