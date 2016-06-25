@@ -4,25 +4,25 @@
 <tiles-definitions>
 
 	<!-- Base Define -->
-	<definition name="definition" template="/WEB-INF/layouts/template.jsp">
-		<put-attribute name="header" value="/WEB-INF/basefragments/_header.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/basefragments/_menu.jsp" />
+	<definition name="definition" template="/template/layout/template.jsp">
+		<put-attribute name="header" value="/template/layout/_header.jsp" />
+		<put-attribute name="menu" value="/template/layout/_menu.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/basefragments/_footer.jsp" />
+		<put-attribute name="footer" value="/template/layout/_footer.jsp" />
 	</definition>
 
 	<definition name="homePage" extends="definition">
-		<put-attribute name="body" value="/WEB-INF/bodyfragments/_home.jsp" />
+		<put-attribute name="body" value="/user/_home.jsp" />
 	</definition>
 
 	<!-- ContactUs Page -->
 	<definition name="contactusPage" extends="definition">
 		<put-attribute name="body"
-			value="/WEB-INF/bodyfragments/_contactus.jsp" />
+			value="/user/_contactus.jsp" />
 	</definition>
 	<definition name="register" extends="definition">
 		<put-attribute name="body"
-			value="/WEB-INF/bodyfragments/_register.jsp" />
+			value="/user/_register.jsp" />
 	</definition>
 </tiles-definitions>  
  
