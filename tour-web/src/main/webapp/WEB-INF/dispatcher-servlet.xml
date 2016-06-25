@@ -13,8 +13,6 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="guru.tour" />
 
-	<!-- This helps in mapping the logical view names to directly view files 
-		under a certain pre-configured directory -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass">
@@ -28,7 +26,7 @@
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>
-				<value>/WEB-INF/layouts/tiles.xml</value>
+				<value>/WEB-INF/tiles.xml</value>
 			</list>
 		</property>
 	</bean>

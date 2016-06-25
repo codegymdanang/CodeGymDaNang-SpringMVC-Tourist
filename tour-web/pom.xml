@@ -8,10 +8,8 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<groupId>guru</groupId>
 	<artifactId>tour-web</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0-SNAPSHOT</version>
 	<name>tour-web</name>
 	<url>http://maven.apache.org</url>
 
