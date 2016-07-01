@@ -117,7 +117,7 @@
                         <a class="btn btn-danger btn-responsive" href="#" style="box-shadow:10px 5px 2px #FF6347 ">Report</a>
                     </div>
                 </div>
-                <img src="resource/images/map.png">
+                <img src="resource/images/map.png" class="img-responsive">
 
             </div>
         </div>
