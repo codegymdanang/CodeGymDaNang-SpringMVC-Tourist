@@ -24,6 +24,10 @@
 		<put-attribute name="body"
 			value="/view/user/_register.jsp" />
 	</definition>
+	<definition name="servicefriend" extends="definition">
+		<put-attribute name="body"
+			value="/view/service_friend.jsp" />
+	</definition>
 </tiles-definitions>  
  
  

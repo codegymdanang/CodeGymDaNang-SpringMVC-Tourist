@@ -12,6 +12,10 @@ public class HomepageController {
 		return "homePage";
 	}
 
+	@RequestMapping(value = "/servicefriend")
+	public String service_friend() {
+		return "servicefriend";
+	}
 	@RequestMapping(value = "/contact")
 	public String contact() {
 		return "contactusPage";
