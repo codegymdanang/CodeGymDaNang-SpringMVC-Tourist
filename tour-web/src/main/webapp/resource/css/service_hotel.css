@@ -1,0 +1,194 @@
+@CHARSET "UTF-8";
+*{
+
+    box-sizing: border-box;
+    -moz-box-sizing :border-box;
+    -webkit-box-sizing :border-box;
+}
+.mycontainer{
+    margin-top: 15px;
+}
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.254;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color:  #3b8bba;
+    transition: all 0.5s;
+}
+
+.gi-1x{font-size: 0.5em;}
+.gi-2x{font-size: 2em;}
+.gi-3x{font-size: 3em;}
+.gi-4x{font-size: 4em;}
+.gi-5x{font-size: 5em;}
+
+
+/*---------Menu------ */
+/*
+#menu{
+    position: fixed;
+    height: 100%;
+    background-color: black;
+    width: 270px;
+    left: 0;
+}
+
+#menu ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#menu ul li{
+    padding: 5px;   
+    transition: all 1s;
+}
+#menu ul li a{
+    display: block;
+    color: #fff;
+    padding: 0 1em;
+    border-bottom: 1px solid #333;
+}
+#menu ul li:hover{
+    background-color: azure;
+    color: black;
+}
+*/
+
+#searchName{
+    display: inline-block;
+}
+
+.menuinner{
+    position: relative;
+}
+.menuininner{
+    position: fixed;
+}
+/*---------Menu------ */
+
+/*---------content---------*/
+#content{
+    padding: 1em 6em;
+}
+#header ,.call-to-action{
+    text-align: center;
+}
+
+#header #slogan{
+    color: aqua;
+    font-size: 0.8em;
+}
+
+.call-to-action{
+    padding: 1.5em 20%;
+    background-color: burlywood;
+    border: 1px solid #e8e8e8;
+    padding-left: 50px;
+}
+
+.row{
+	overflow:hidden;
+	position:inline-block;
+	padding:2.5em;
+	margin:1.5em auto;
+}
+.row .col{
+	float :left;
+	width :30.3333%;
+	padding :2em;
+	margin: 0.5em;
+}
+.row .col:last-child{
+    float: right;
+    margin-right: 0;
+}
+.row .col img{
+    float: left;
+}
+
+/*---------content---------*/
+
+#footer{
+    font: 85%;
+    border-top: 1px solid #e8e8e8;
+    color: 838383;
+    padding: 1em 3em    ;
+}
+
+
+.box{
+    border: 1px solid #e8e8e8;
+    width: 1000px;
+    height: 180px;
+    position: relative;
+}
+
+.boxHeader{
+    border: 1px solid #e8e8e8;
+    position: relative;
+    width: 1000px;
+    background-color: beige;
+}
+
+.boxinner{
+    margin: 15px;
+    float:left;
+    width: 1000px;
+}
+
+
+.buttoninner{
+    float:right;
+     margin-top: 100px;
+    margin-right: 30px;
+}
+
+
+
+
+
+@media (min-width: 979px) {
+
+  #midCol.affix-top {
+      position:fixed;
+  	  width:265px;
+  	  margin-right:10px;
+  	  
+  }
+  
+  #midCol.affix {
+      position:static;
+      width:100%;
+  }
+
+}
+
+@media (min-width: 767px) {
+  .affix,.affix-top {
+      position:fixed;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

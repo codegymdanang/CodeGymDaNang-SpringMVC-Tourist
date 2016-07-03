@@ -6,6 +6,7 @@
 <script  src="resource/angular.min.js"></script>
 <script  src="resource/javascrip.js"></script>
 <link rel="stylesheet" href="resource/css/service_friend.css" type="text/css">
+<link rel="stylesheet" href="resource/css/service_hotel.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -30,8 +31,6 @@
 			<td colspan="2"><tiles:insertAttribute name="header" /></td>
 		</tr>
 		<tr>
-			<td width="20%" nowrap="nowrap"><tiles:insertAttribute
-					name="menu" /></td>
 			<td width="80%"><tiles:insertAttribute name="body" /></td>
 		</tr>
 		<tr>

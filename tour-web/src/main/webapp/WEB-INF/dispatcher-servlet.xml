@@ -12,7 +12,7 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan base-package="guru.tour" />
-
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass">
@@ -30,6 +30,6 @@
 			</list>
 		</property>
 	</bean>
-	<mvc:resources mapping="/resource/**" location="/resource/"></mvc:resources>
+	<mvc:resources mapping="/resource/**" location="/resource/" cache-period="31556926"></mvc:resources>
 	<mvc:annotation-driven />
 </beans>

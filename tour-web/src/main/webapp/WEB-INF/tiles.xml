@@ -6,7 +6,6 @@
 	<!-- Base Define -->
 	<definition name="definition" template="/view/template/layout/template.jsp">
 		<put-attribute name="header" value="/view/template/layout/_header.jsp" />
-		<put-attribute name="menu" value="/view/template/layout/_menu.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/view/template/layout/_footer.jsp" />
 	</definition>
@@ -27,6 +26,10 @@
 	<definition name="servicefriend" extends="definition">
 		<put-attribute name="body"
 			value="/view/user/service_friend.jsp" />
+	</definition>
+	<definition name="servicehotel" extends="definition">
+		<put-attribute name="body"
+			value="/view/user/service_hotel.jsp" />
 	</definition>
 </tiles-definitions>  
  
