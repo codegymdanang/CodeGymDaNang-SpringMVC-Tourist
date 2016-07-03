@@ -5,24 +5,16 @@
 
 	<!-- Base Define -->
 	<definition name="definition" template="/view/template/layout/template.jsp">
-		<put-attribute name="header" value="/view/template/layout/_header.jsp" />
+		<put-attribute name="header" value="/view/template/layout/header.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/view/template/layout/_footer.jsp" />
+		<put-attribute name="footer" value="/view/template/layout/footer.jsp" />
 	</definition>
 
 	<definition name="homePage" extends="definition">
-		<put-attribute name="body" value="/view/user/_home.jsp" />
+		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
 
 	<!-- ContactUs Page -->
-	<definition name="contactusPage" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/_contactus.jsp" />
-	</definition>
-	<definition name="register" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/_register.jsp" />
-	</definition>
 	<definition name="servicefriend" extends="definition">
 		<put-attribute name="body"
 			value="/view/user/service_friend.jsp" />
