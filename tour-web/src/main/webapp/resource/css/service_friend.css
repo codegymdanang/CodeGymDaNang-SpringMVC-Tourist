@@ -12,7 +12,7 @@ body{
     border-width: 1px;
     width: 90%;
 }
-.row .col-md-9{
+.container-fluid>.row >.col-md-9{
     border-style: solid;
     border-width: 3px;
     padding: 20px;
