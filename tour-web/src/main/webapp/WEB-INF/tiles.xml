@@ -27,6 +27,19 @@
 		<put-attribute name="body"
 			value="/view/user/search.jsp" />
 	</definition>
+	
+	<definition name="login" extends="definition">
+		<put-attribute name="body"
+			value="/view/user/form-login.jsp" />
+	</definition>
+	<definition name="find" extends="definition">
+		<put-attribute name="body"
+			value="/view/user/form-find.jsp" />
+	</definition>
+	<definition name="register" extends="definition">
+		<put-attribute name="body"
+			value="/view/user/form-register.jsp" />
+	</definition>
 </tiles-definitions>  
  
  
