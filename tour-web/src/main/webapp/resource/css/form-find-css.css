@@ -1,0 +1,31 @@
+
+.top .row .col-md-6 {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.top .row .col-md-6 .search{
+    height: 30px;
+    width: 40%;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.body-find {
+    background-color: #d5d5d5;
+    border-radius: 4px;
+    padding: 5px;
+    margin-top: 50px;
+}
+.body-find-email {
+    margin-left: 40px;
+}
+#footer {
+    height: 200px;
+    background-color: #9d9d9d;
+    color: #204d74;
+    clear:both;
+    text-align:center;
+    margin-top: 100px;
+    padding: 10px;
+}
