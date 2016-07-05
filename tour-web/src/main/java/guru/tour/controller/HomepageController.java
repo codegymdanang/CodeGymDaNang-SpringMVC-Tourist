@@ -25,8 +25,4 @@ public class HomepageController {
 	public String register() {
 		return "register";
 	}
-	@RequestMapping(value = "/servicehotel")
-	public String service_hotel() {
-		return "servicehotel";
-	}
 }

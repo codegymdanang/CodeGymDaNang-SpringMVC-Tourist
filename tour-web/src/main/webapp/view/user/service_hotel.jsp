@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,20 +6,17 @@
     <head>
         <title>Service Hotel</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-			<link href="<c:url value="resource/css/service_hotel.css" />" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-            
+			 <link rel="stylesheet" href="resource/css/service_hotel.css" type="text/css">  
             </head>
-            <body> --%>
+            <body>
+            
                 <div class="mycontainer">
                 <div id="container">
                     <div class="col-md-1"></div>
                      <div class="menuinner">    
                             <div class="menuininer">
                     <div class="col-md-2">
-                        <ul class="list-group affix">
+                        <ul class="list-group "><!-- affix -->
                             <li class="list-group-item">
                                 <h4>Filter by Name</h4>
                                 <input type="text" placeholder="Name of Hotel or Motel"> 
@@ -207,5 +204,5 @@
                    
                 </div>
                     </div>
-<!-- </body>
-</html>  -->
+</body>
+</html> 
