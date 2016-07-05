@@ -21,8 +21,4 @@ public class HomepageController {
 		return "contactusPage";
 	}
 
-	@RequestMapping(value = "/servicehotel")
-	public String service_hotel() {
-		return "servicehotel";
-	}
 }

@@ -4,8 +4,8 @@
 <title>Guru</title>
 <link rel="stylesheet" href="resource/css/service_friend.css"
 	type="text/css">
-<link rel="stylesheet" href="resource/css/service_hotel.css"
-	type="text/css">
+<!-- <link rel="stylesheet" href="resource/css/service_hotel.css"
+	type="text/css"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"

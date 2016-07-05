@@ -1,4 +1,4 @@
-<div id="footer">
+<footer>
     <div class="container">
         <div class="foot">           
             <br>
@@ -28,4 +28,4 @@
               </div>
             </div>           
     </div>
-</div>
+</footer>

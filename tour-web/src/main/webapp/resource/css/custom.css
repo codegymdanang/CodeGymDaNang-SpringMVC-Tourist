@@ -109,10 +109,9 @@ border-bottom-color: #FBB917;
 
 /* div line */
 .text{
-    margin-top: 25px;
-    margin-bottom: 25px;
+   
     font-family: Arial;
-    text-align:center;
+    text-align:left;
 }
 
 .foot{
