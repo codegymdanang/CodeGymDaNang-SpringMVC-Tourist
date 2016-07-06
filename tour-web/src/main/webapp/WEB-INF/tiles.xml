@@ -40,6 +40,18 @@
 		<put-attribute name="body"
 			value="/view/user/form-register.jsp" />
 	</definition>
+	<definition name="servicehost" extends="definition">
+		<put-attribute name="body"
+		value="/view/user/host.jsp"></put-attribute>
+	</definition>
+	<definition name="profile" extends="definition">
+		<put-attribute name="body"
+		value="/view/user/profile.jsp"></put-attribute>
+	</definition>
+	<definition name="detail_profile" extends="definition">
+		<put-attribute name="body"
+		value="/view/user/detail_profile.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  
