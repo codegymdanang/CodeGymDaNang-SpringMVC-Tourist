@@ -27,6 +27,10 @@
 		<put-attribute name="body"
 			value="/view/user/search.jsp" />
 	</definition>
+	<definition name="place" extends="definition">
+		<put-attribute name="body"
+			value="/view/user/placedetail.jsp" />
+			</definition>
 </tiles-definitions>  
  
  
