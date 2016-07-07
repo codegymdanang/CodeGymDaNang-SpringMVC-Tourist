@@ -23,6 +23,10 @@
 		<put-attribute name="body"
 			value="/view/user/service_hotel.jsp" />
 	</definition>
+	<definition name="detailhotel" extends="definition">
+		<put-attribute name="body"
+			value="/view/user/detailhotel.jsp" />
+	</definition>
 	<definition name="search" extends="definition">
 		<put-attribute name="body"
 			value="/view/user/search.jsp" />

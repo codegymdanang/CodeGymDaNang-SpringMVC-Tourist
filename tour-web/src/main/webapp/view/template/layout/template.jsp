@@ -24,6 +24,16 @@
 <link href="resource/css/responsive.css" rel="stylesheet"
 	type="text/css">
 
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	crossorigin="anonymous"></script>
+<script src="resource/js/jquery.js"></script>
+<script src="resource/js/price-range.js"></script>
+<script src="resource/js/jquery.scrollUp.min.js"></script>
+<script src="resource/js/bootstrap.min.js"></script>
+<script src="resource/js/search.js"></script>
+<script src="resource/js/search_friends.js"></script>
 
 <!-- HoangLong -->
 <link href="resource/css/a.css" rel="stylesheet">

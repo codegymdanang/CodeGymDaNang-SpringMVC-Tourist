@@ -13,5 +13,8 @@ public class ServiceHotelController {
 		return "searchhotel";
 	}
 	
-	
+	@RequestMapping(value="/detailhotel")
+	public String detailhotel(){
+		return "detailhotel";
+	}
 }
