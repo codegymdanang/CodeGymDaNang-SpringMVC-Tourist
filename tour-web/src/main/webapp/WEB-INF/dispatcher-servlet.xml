@@ -13,7 +13,7 @@
 	<import resource="classpath*:/resource/Test-context.xml" />
 	<mvc:annotation-driven />
 	<context:component-scan base-package="guru.tour" />
-	<import resource="classpath:spring-data.xml" />
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass">
