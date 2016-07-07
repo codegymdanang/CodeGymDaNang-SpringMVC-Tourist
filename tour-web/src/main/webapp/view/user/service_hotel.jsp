@@ -9,7 +9,6 @@
 			 <link rel="stylesheet" href="resource/css/service_hotel.css" type="text/css">  
             </head>
             <body>
-            
                 <div class="mycontainer">
                 <div id="container">
                     <div class="col-md-1"></div>
@@ -19,7 +18,7 @@
                         <ul class="list-group "><!-- affix -->
                             <li class="list-group-item">
                                 <h4>Filter by Name</h4>
-                                <input type="text" placeholder="Name of Hotel or Motel"> 
+                                <input type="text" placeholder="Hotel or Motel" style = "width:164px;"> 
                             </li>
                             <li class="list-group-item">
                                 <h4>Choose Price</h4>

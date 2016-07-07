@@ -20,7 +20,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body> -->
-
+<head>
+	<link rel="stylesheet" href="resource/css/service_friend.css"
+	type="text/css">
+</head>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">

@@ -4,8 +4,8 @@
 <title>Guru</title>
 <link rel="stylesheet" href="resource/css/service_friend.css"
 	type="text/css">
-<!-- <link rel="stylesheet" href="resource/css/service_hotel.css"
-	type="text/css"> -->
+<link rel="stylesheet" href="resource/css/service_hotel.css"
+	type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -23,6 +23,7 @@
 <link href="resource/css/search.css" rel="stylesheet" type="text/css">
 <link href="resource/css/responsive.css" rel="stylesheet"
 	type="text/css">
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
@@ -38,6 +39,26 @@
 <link href="resource/css/a.css" rel="stylesheet">
 <link href="resource/css/custom.css" rel="stylesheet">
 
+	<link rel="stylesheet" href="resource/css/service_friend.css"
+		type="text/css">
+	<!-- <link rel="stylesheet" href="resource/css/service_hotel.css"
+		type="text/css"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link href="resource/css/font-awesome.min.css" rel="stylesheet"
+		type="text/css">
+	<link href="resource/css/animate.css" rel="stylesheet" type="text/css">
+	<link href="resource/css/search.css" rel="stylesheet" type="text/css">
+	<link href="resource/css/responsive.css" rel="stylesheet"
+		type="text/css">
+	<!-- HoangLong -->
+	<link href="resource/css/a.css" rel="stylesheet">
+	<link href="resource/css/custom.css" rel="stylesheet">
 </head>
 
 <body ng-app="Application" ng-controller="Controller">
@@ -53,4 +74,9 @@
 		</tr>
 	</table>
 </body>
+<script src="resource/js/jquery.js"></script>
+<script src="resource/js/price-range.js"></script>
+<script src="resource/js/bootstrap.min.js"></script>
+<script src="resource/js/jquery.scrollUp.min.js"></script>
+<script src="resource/js/search.js"></script>
 </html>
