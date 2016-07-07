@@ -32,6 +32,7 @@
 <script src="resource/js/jquery.scrollUp.min.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
 <script src="resource/js/search.js"></script>
+<script src="resource/js/search_friends.js"></script>
 
 <!-- HoangLong -->
 <link href="resource/css/a.css" rel="stylesheet">

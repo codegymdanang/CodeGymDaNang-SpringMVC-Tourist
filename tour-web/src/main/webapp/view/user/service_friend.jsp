@@ -57,9 +57,9 @@
                             <form class="form-horizontal">
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                    <input type="text" class="form-control" name="name" placeholder="Input here">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Input here">
                                     </div>
-                                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                                    <button id="search_friends" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
                                 </div>
                             </form>
                     </div>
