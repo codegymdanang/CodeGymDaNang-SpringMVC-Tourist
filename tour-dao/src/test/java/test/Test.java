@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import guru.tour.entity.AddressEntity;
 import guru.tour.service.AddressEntityManager;
 
-@ContextConfiguration(locations = { "file:src/test/resource/Test-context.xml" })
+@ContextConfiguration(locations = { "file:src/test/resources/Test-context.xml" })
 //@ContextConfiguration("Test-context.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 
