@@ -1,0 +1,76 @@
+.header img {
+	width: 1350px;
+	height: 500px;
+}
+
+.list h1 {
+	text-align: center;
+	text-decoration-color: red;
+	text-indent: 40px;
+}
+
+.image {
+	width: 100%;
+	height: 200px;
+	border-radius: 20px;
+}
+
+.col-sm-3 {
+	text-align: center;
+	margin-top: 50px;
+	border: 1px;
+}
+
+.about-activity {
+	background-color: #f6f6f6;
+}
+
+.about-activity .col-md-4 {
+	background-color: transparent;
+}
+
+.about-activity .col-md-4 .center {
+	text-align: center;
+}
+
+.activity .col-md-8 .col-md-3 img {
+	border-radius: 100%;
+	vertical-align: middle;
+	text-align: center;
+	width: 100%;
+	height: 200px;
+}
+
+.activity .col-md-8 .col-md-3 p {
+	text-align: center;
+}
+
+.share {
+	text-align: center;
+	position: relative;
+	bottom: -80px;
+}
+
+.share .face {
+	width: 60px;
+	height: 60px;
+}
+
+.content {
+	background-color: #f6f6f6;
+}
+
+.col-md-4 {
+	background-color: transparent;
+}
+
+.col-md-8 {
+	background-color: transparent;
+}
+
+#profile {
+	width: 50%;
+	height: 278px;
+	margin-left: 100px;
+	margin-top: 20px;
+}

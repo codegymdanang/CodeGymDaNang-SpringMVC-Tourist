@@ -14,7 +14,6 @@ public class AddressManagerImpl implements AddressEntityManager {
 	@Autowired
 	AddressEntityRepository addEntity;
 	public List<AddressEntity> getAllAddress() {
-		// TODO Auto-generated method stub
 		return addEntity.findAll();
 	}
 

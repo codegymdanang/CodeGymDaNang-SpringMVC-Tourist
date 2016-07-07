@@ -21,12 +21,4 @@ public class HomepageController {
 		return "contactusPage";
 	}
 
-	@RequestMapping(value = "/register")
-	public String register() {
-		return "register";
-	}
-	@RequestMapping(value = "/servicehotel")
-	public String service_hotel() {
-		return "servicehotel";
-	}
 }
