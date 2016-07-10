@@ -1,90 +1,92 @@
 <head>
-	<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="resource/css/form-login-css.css">
 </head>
 
 <div class="top">
-    <a class="btn btn-link" href="#" role="button">
-    <!-- Trigger/Open The Modal -->
-        <button id="myBtn" class="">Login</button>
-    </a>
-    
+	<a class="btn btn-link" href="#" role="button"> <!-- Trigger/Open The Modal -->
+		<button id="myBtn" class="">Login</button>
+	</a>
+
 </div>
-    
+
 
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    
-    <div class="box">
-    
-    <div class="row">
-        <span class="close">×</span>
+	<!-- Modal content -->
+	<div class="modal-content">
 
-            <div class="image">
-                <div class="col-md-6">
-                    <img src="resource/images/login/image_login.jpg" width="300" height="300px">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="namelogin">
-                
-                    <h4>Login</h4>
-                </div>
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">  
+		<div class="box">
 
-                <div class="col-md-6">
-                    <input type="checkbox" name="remember" id="remember" />
-                    <label class="check" for="remember"><span></span>Remember Me</label>
-                </div>
-                
-                <div class="col-md-6">
-                    <p class = "p1">
-                        <a class="text_right" href="find">Forgotten account?</a>
-                    </p>
-                </div>
+			<div class="row">
+				<span class="close">×</span>
 
-                <!-- <div class="login"> -->
-                    <input type="submit" value="Login">
-                <!-- </div> -->
-                <div class="logo">
-                    <div class="col-md-6">
-                        <a href="#">
-                            <div class="face">
-                                <img src="resource/images/login/i_face.png" width="30" height="30">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="google">
-                                <img src="resource/images/login/i_google.png" width="30" height="30">
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="twi">
-                                <img src="resource/images/login/i_twi.png" width="30" height="30">
-                            </div>
-                        </a>
-                    <!--    <a href="#"><img src="image/i_face.png" width="30" height="30"> </a>
+				<div class="image">
+					<div class="col-md-6">
+						<img src="resource/images/login/image_login.jpg" width="300"
+							height="300px">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="namelogin">
+
+						<h4>Login</h4>
+					</div>
+					<input type="email" name="email" placeholder="Email"> <input
+						type="password" name="password" placeholder="Password">
+
+					<div class="col-md-6">
+						<input type="checkbox" name="remember" id="remember" /> <label
+							class="check" for="remember"><span></span>Remember Me</label>
+					</div>
+
+					<div class="col-md-6">
+						<p class="p1">
+							<a class="text_right" href="find">Forgotten account?</a>
+						</p>
+					</div>
+
+					<!-- <div class="login"> -->
+					<input type="submit" value="Login">
+					<!-- </div> -->
+					<div class="logo">
+						<div class="col-md-6">
+							<a href="#">
+								<div class="face">
+									<img src="resource/images/login/i_face.png" width="30"
+										height="30">
+								</div>
+							</a> <a href="#">
+								<div class="google">
+									<img src="resource/images/login/i_google.png" width="30"
+										height="30">
+								</div>
+							</a> <a href="#">
+								<div class="twi">
+									<img src="resource/images/login/i_twi.png" width="30"
+										height="30">
+								</div>
+							</a>
+							<!--    <a href="#"><img src="image/i_face.png" width="30" height="30"> </a>
                         <a href="#"><img src="image/i_google.png" width="30" height="30"> </a>
                         <a href="#"><img src="image/i_twi.png" width="30" height="30"></a> -->
-                    </div>
-                    <div class="col-md-6">
-                        <p class = "p1">
-                            <a id="my_register" class="text_right" href="register">CREATE NEW ACCOUNT</a>
-                        </p>
-                    </div>
-                </div>
-            
-        </div>
-        
+						</div>
+						<div class="col-md-6">
+							<p class="p1">
+								<a id="my_register" class="text_right" href="register">CREATE
+									NEW ACCOUNT</a>
+							</p>
+						</div>
+					</div>
 
-        </div>
-    </div>
-  </div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
 
 </div>
 
