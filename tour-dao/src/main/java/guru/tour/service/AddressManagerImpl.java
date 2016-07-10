@@ -16,5 +16,4 @@ public class AddressManagerImpl implements AddressEntityManager {
 	public List<AddressEntity> getAllAddress() {
 		return addEntity.findAll();
 	}
-
 }
