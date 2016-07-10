@@ -61,6 +61,10 @@
 		<put-attribute name="body"
 		value="/view/user/detail_profile.jsp"></put-attribute>
 	</definition>
+	<definition name="findfriend" extends="definition">
+		<put-attribute name="body"
+		value="/view/user/findfriend.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  

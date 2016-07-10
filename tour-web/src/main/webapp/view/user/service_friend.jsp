@@ -41,28 +41,24 @@
                 <p><a href="#" class="a">Friends</a></p>
             </div>
              <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-3">
-                        <form role="form">
-                            <div class="form-group">
-                                <select class="form-control" id="search" name="search">
-                                    <option>Name</option>
-                                    <option>Age</option>
-                                    <option>Favorites</option>
-                                    <option>Phone</option>
-                                </select>
-                            </div>
-                        </form>
-
-
-                    </div>
-                    <div class="col-md-9">
-                            <form class="form-horizontal">
+                <div class="row">                
+                    <div class="col-md-12">
+                            <form class="form-horizontal" method="post" action="findfriends" >
                                 <div class="form-group">
-                                    <div class="col-md-10">
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Input here">
-                                    </div>
-                                    <button id="search_friends" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                                	<div class="col-md-2">
+		                                <select class="form-control" id="search" name="search">
+		                                    <option>Name</option>
+		                                    <option>Age</option>
+		                                    <option>Favorites</option>
+		                                    <option>Phone</option>
+		                                </select>
+	                                </div>
+	                                <div class="col-md-8">
+	                                    <input type="text" class="form-control" name="name" id="name" placeholder="Input here">                                   
+	                                </div>
+	                                <div class="col-md-2">
+	                                	<button id="search_friends" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+	                                </div>
                                 </div>
                             </form>
                     </div>

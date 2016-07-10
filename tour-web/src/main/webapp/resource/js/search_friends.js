@@ -2,14 +2,14 @@ $(document).ready(function(){
 	
     $("#search_friends").click(function(){
     	$.ajax({
-    		url : rootUrl + "/findfriend",
+    		url :  "/servicefriend/findfriend",
     		type : "POST",
     		data : {
     		name : $("#name").val(),
     		search: $("#search").val()
     		},
     		success : function(response) {
-    		alert(response);
+    		alert("duy");
     		},
     		error : function(error) {
     		console.log(error);
