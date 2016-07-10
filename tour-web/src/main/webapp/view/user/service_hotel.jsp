@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-=======
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" isELIgnored="false"
-    pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> branch 'master' of https://github.com/levunguyen/touristinvietnam
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	isELIgnored="false" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="vi">
 <head>
@@ -59,7 +53,6 @@
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 
-<<<<<<< HEAD
 								</button>
 								<br>
 								<button type="button3" class="btn btn-default ">
@@ -105,174 +98,30 @@
 
 					</div>
 				</div>
-				<div class="box">
-					<div class="boxinner">
-						<div class="col-md-3">
-							<image src="resource/images/hotel.jpg" width="150px"
-								height="150px">
-						</div>
-						<div class="col-md-6">
-							<p>Name</p>
-							<p>Rating</p>
-							<p>Attributes</p>
-						</div>
-						<div class="col-md-3 ">
-							<div class="buttoninner">
-								<button type="button" class="btn btn-warning">View
-									Details</button>
+				<c:forEach items="${list}" var="hotel">
+					<div class="box">
+						<div class="boxinner">
+							<div class="col-md-3">
+								<image src="resource/images/hotel.jpg" width="150px"
+									height="150px">
+							</div>
+							<div class="col-md-6">
+								<p>${hotel.name }</p>
+								<p>${hotel.price }</p>
+								<p>${hotel.description }</p>
+							</div>
+							<div class="col-md-3 ">
+								<div class="buttoninner">
+									<button type="button" class="btn btn-warning">View
+										Details</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="box">
-					<div class="boxinner">
-						<div class="col-md-3">
-							<image src="resource/images/hotel.jpg" width="150px"
-								height="150px">
-						</div>
-						<div class="col-md-6">
-							<p>Name</p>
-							<p>Rating</p>
-							<p>Attributes</p>
-						</div>
-						<div class="col-md-3 ">
-							<div class="buttoninner">
-								<button type="button" class="btn btn-warning">View
-									Details</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="box">
-					<div class="boxinner">
-						<div class="col-md-3">
-							<image src="resource/images/hotel.jpg" width="150px"
-								height="150px">
-						</div>
-						<div class="col-md-6">
-							<p>Name</p>
-							<p>Rating</p>
-							<p>Attributes</p>
-						</div>
-						<div class="col-md-3 ">
-							<div class="buttoninner">
-								<button type="button" class="btn btn-warning">View
-									Details</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="box">
-					<div class="boxinner">
-						<div class="col-md-3">
-							<image src="resource/images/hotel.jpg" width="150px"
-								height="150px">
-						</div>
-						<div class="col-md-6">
-							<p>Name</p>
-							<p>Rating</p>
-							<p>Attributes</p>
-						</div>
-						<div class="col-md-3 ">
-							<div class="buttoninner">
-								<button type="button" class="btn btn-warning">View
-									Details</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="box">
-					<div class="boxinner">
-						<div class="col-md-3">
-							<image src="resource/images/hotel.jpg" width="150px"
-								height="150px">
-						</div>
-						<div class="col-md-6">
-							<p>Name</p>
-							<p>Rating</p>
-							<p>Attributes</p>
-						</div>
-						<div class="col-md-3 ">
-							<div class="buttoninner">
-								<button type="button" class="btn btn-warning">View
-									Details</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="box">
-					<div class="boxinner">
-						<div class="col-md-3">
-							<image src="resource/images/hotel.jpg" width="150px"
-								height="150px">
-						</div>
-						<div class="col-md-6">
-							<p>Name</p>
-							<p>Rating</p>
-							<p>Attributes</p>
-						</div>
-						<div class="col-md-3 ">
-							<div class="buttoninner">
-								<button type="button" class="btn btn-warning">View
-									Details</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="box">
-					<div class="boxinner">
-						<div class="col-md-3">
-							<image src="resource/images/hotel.jpg" width="150px"
-								height="150px">
-						</div>
-						<div class="col-md-6">
-							<p>Name</p>
-							<p>Rating</p>
-							<p>Attributes</p>
-						</div>
-						<div class="col-md-3 ">
-							<div class="buttoninner">
-								<button type="button" class="btn btn-warning">View
-									Details</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				</c:forEach>
 			</div>
 
 		</div>
 	</div>
-=======
-    </div>
-                         </div>
-             <c:forEach items="${list}" var="hotel">
-                    <div class="box">
-                    <div class="boxinner">
-                    <div class="col-md-3"> 
-                        <image src="resource/images/hotel.jpg" width="150px" height="150px"></div>
-                        <div class="col-md-6"> 
-                        <p>${hotel.name }</p>
-                        <p>${hotel.price }</p>
-                        <p>${hotel.description }</p>
-                        </div>
-                        <div class="col-md-3 "><div class="buttoninner">
-                        <button type="button" class="btn btn-warning">View Details</button>
-                            </div>
-                        </div> 
-                    </div>
-                    </div>   
-                    </c:forEach>
-                </div>
-                   
-                </div>
-                    </div>
->>>>>>> branch 'master' of https://github.com/levunguyen/touristinvietnam
 </body>
 </html>
