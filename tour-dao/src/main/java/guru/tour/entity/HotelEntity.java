@@ -31,12 +31,12 @@ public class HotelEntity implements Serializable {
 		super();
 	}
 
-	public HotelEntity(int id, String name, double price, String image, int phone, String description) {
+	public HotelEntity(int id, String name, double price, String images, int phone, String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.images = image;
+		this.images = images;
 		this.phone = phone;
 		this.description = description;
 	}
