@@ -20,8 +20,8 @@ public class HotelEntity implements Serializable {
 	private String name;
 	@Column(name = "price")
 	private double price;
-	@Column(name = "image")
-	private String image;
+	@Column(name = "images")
+	private String images;
 	@Column(name = "phone")
 	private int phone;
 	@Column(name = "description")
@@ -36,7 +36,7 @@ public class HotelEntity implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.image = image;
+		this.images = image;
 		this.phone = phone;
 		this.description = description;
 	}
@@ -66,11 +66,11 @@ public class HotelEntity implements Serializable {
 	}
 
 	public String getImage() {
-		return image;
+		return images;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage(String images) {
+		this.images = images;
 	}
 
 	public int getPhone() {
