@@ -1,13 +1,39 @@
 package guru.tour.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import guru.tour.entity.HotelEntity;
+import guru.tour.entity.PlaceEntity;
+import guru.tour.service.HotelEntityManager;
+import guru.tour.service.PlaceEntityManager;
 
 @Controller
 @RequestMapping(value = "/")
 public class PlaceController {
-	@RequestMapping(value = "/place")
-	public String place() {
-		return "place";
+	@Autowired
+	HotelEntityManager hotel;
+	@Autowired
+	PlaceEntityManager placeEntityManager;
+	
+	@RequestMapping(value = "/place",method = RequestMethod.GET)
+	public ModelAndView getPlaceByID(){
+		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(1);
+		System.out.println(placeEntity.getName());
+		ModelAndView model = new ModelAndView("place");
+		model.addObject("Place", placeEntity);
+		return model;
+	}
+	@RequestMapping(value = "/place",method=RequestMethod.GET)
+	public ModelAndView getHotel() {
+		List<HotelEntity> hotelList = hotel.getAllHotel();
+		ModelAndView model = new ModelAndView();
+		model.addObject("list",hotelList);
+		return model;
 	}
 }

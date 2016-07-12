@@ -19,7 +19,7 @@
 		<put-attribute name="body"
 			value="/view/user/service_friend.jsp" />
 	</definition>
-	<definition name="searchhotel" extends="definition">
+	<definition name="hotel" extends="definition">
 		<put-attribute name="body"
 			value="/view/user/service_hotel.jsp" />
 	</definition>
@@ -34,7 +34,7 @@
 
 	<definition name="place" extends="definition">
 		<put-attribute name="body"
-			value="/view/user/placedetail.jsp" />
+			value="/view/user/hoteldemo.jsp" />
 			</definition>
 
 		<definition name="login" extends="definition">

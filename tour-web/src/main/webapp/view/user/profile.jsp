@@ -1,8 +1,12 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	isELIgnored="false" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="vi-VN">
 <head>
 <meta charset="utf-8">
-<meta name="author" content="Bùi Ngọc Quốc">
 <link rel="stylesheet" href="resource/css/service_host.css"
 	type="text/css">
 </head>
@@ -75,5 +79,22 @@
 			</div>
 		</div>
 	</div>
+	<sf:form action="show" method="GET">
+		<table id=profile border="1">
+			<tr>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Phone</td>
+			</tr>
+			<c:forEach items="${list}" var="host">
+				<tr>
+					<td>${host.id}</td>
+					<td>${host.name}</td>
+					<td>${host.phone}</td>
+				</tr>
+			</c:forEach>
+		</table>
+
+	</sf:form>
 </body>
 </html>
