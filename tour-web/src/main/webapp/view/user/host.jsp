@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	isELIgnored="false" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,6 +31,12 @@
 					src="resource/images/danang.jpg"></a> <a href="profile"><h1>Đà Nẵng</h1></a>
 			</div>
 		</div>
+		 <c:forEach items="${lists}" var="host">    
+      <tr>
+        <td>${host.name}</td>
+       <td>${host.phone}</td>
+      </tr>
+    </c:forEach>
 	</div>
 </body>
 </html>
