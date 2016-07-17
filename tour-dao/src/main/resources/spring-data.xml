@@ -13,7 +13,7 @@
 	<context:component-scan base-package="guru.tour" />
 
 	<!-- This allow for dispatching requests to Controllers -->
-	
+
 	<!-- This helps in mapping the logical view names to directly view files 
 		under a certain pre-configured directory -->
 
