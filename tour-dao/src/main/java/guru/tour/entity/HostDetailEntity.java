@@ -24,8 +24,8 @@ public class HostDetailEntity implements Serializable {
 	@Column(name = "price")
 	private String price;
 	
-	@OneToOne
-	private ServiceHostEntity serviceHostEntity;
+//	@OneToOne
+//	private ServiceHostEntity serviceHostEntity;
 
 	public HostDetailEntity() {
 

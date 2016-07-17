@@ -89,8 +89,8 @@
 			<c:forEach items="${list}" var="host">
 				<tr>
 					<td>${host.id}</td>
-					<td>${host.name}</td>
-					<td>${host.phone}</td>
+					<td>${host.title}</td>
+					<td>${host.price}</td>
 				</tr>
 			</c:forEach>
 		</table>
