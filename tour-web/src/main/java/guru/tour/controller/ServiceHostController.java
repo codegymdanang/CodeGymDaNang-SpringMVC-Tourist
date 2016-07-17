@@ -34,30 +34,33 @@ public class ServiceHostController {
 	
 	@RequestMapping(value = "/servicehost", method = RequestMethod.GET)
 	public String service_host(ModelMap save){
-		List<ServiceHostEntity> employees = hostmanager.findByName("Quoc");
-		for (ServiceHostEntity host : employees) {
-			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-		}
+//		List<ServiceHostEntity> employees = hostmanager.findByName("SAI GON");
+//		for (ServiceHostEntity host : employees) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
 //		ModelAndView model = new ModelAndView("servicehost");
-		save.addAttribute("lists", employees);
+//		save.addAttribute("lists", employees);
 		
-		List<ServiceHostEntity> imagesHaNoi = hostmanager.findByName("Quy");
-		for (ServiceHostEntity host : imagesHaNoi) {
-			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-		}
-		save.addAttribute("lists", imagesHaNoi);
-		
-		List<ServiceHostEntity> imagesQuangNam = hostmanager.findByName("QUANG NAM");
-		for (ServiceHostEntity host : imagesQuangNam) {
-			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-		}
-		save.addAttribute("lists", imagesQuangNam);
-		
-		List<ServiceHostEntity> imagesDaNang = hostmanager.findByName("DA NANG");
-		for (ServiceHostEntity host : imagesDaNang) {
-			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-		}
-		save.addAttribute("lists", imagesDaNang);
+//		List<ServiceHostEntity> imagesHaNoi = hostmanager.findByName("HA NOI");
+//		for (ServiceHostEntity host : imagesHaNoi) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
+//		save.addAttribute("lists", imagesHaNoi);
+//		
+//		List<ServiceHostEntity> imagesQuangNam = hostmanager.findByName("QUANG NAM");
+//		for (ServiceHostEntity host : imagesQuangNam) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
+//		save.addAttribute("lists", imagesQuangNam);
+//		
+//		List<ServiceHostEntity> imagesDaNang = hostmanager.findByName("DA NANG");
+//		for (ServiceHostEntity host : imagesDaNang) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
+//		save.addAttribute("lists", imagesDaNang);
+//		return "servicehost";
+		List<ServiceHostEntity> images = hostmanager.getAllHost();
+		save.addAttribute("lists", images);
 		return "servicehost";
 	}
 	@RequestMapping(value = "/detail_profile")
