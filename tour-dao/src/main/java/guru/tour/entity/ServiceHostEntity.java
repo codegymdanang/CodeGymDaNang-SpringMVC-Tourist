@@ -21,9 +21,13 @@ public class ServiceHostEntity implements Serializable {
 	
 	@Column(name = "name")
 	private String name;
+
+	@Column(name = "images")
+	private String images;
 	
 	@Column(name = "phone")
 	private int phone;
+	
 
 	public ServiceHostEntity() {
 		super();
@@ -33,6 +37,19 @@ public class ServiceHostEntity implements Serializable {
 		this.id =  id;
 		this.name =  name;
 		this.phone = phone;
+	}
+	public ServiceHostEntity(int id, String name, String images, int phone) {
+		this.id =  id;
+		this.name =  name;
+		this.phone = phone;
+	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
 	}
 
 	public int getId() {

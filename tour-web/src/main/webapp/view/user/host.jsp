@@ -13,29 +13,27 @@
 		<h1>List Host</h1>
 	</div>
 	<div class="container">
+	<c:forEach items="${lists}" var="host"> 
 		<div class="row">
 			<div class="col-sm-3">
 				<a href="profile"><img class="image"
-					src="resource/images/saigon.jpg"></a> <a href="profile"><h1>Sài Gòn</h1></a>
+					src="${host.images }"></a> <a href="profile"><h1>Sài Gòn</h1></a>
 			</div>
 			<div class="col-sm-3">
 				<a href="profile"><img class="image"
-					src="resource/images/hanoi.jpg"></a> <a href="profile"><h1>Hà Nội</h1></a>
+					src="${host.images }"></a> <a href="profile"><h1>Hà Nội</h1></a>
 			</div>
 			<div class="col-sm-3">
 				<a href="profile"><img class="image"
-					src="resource/images/quangnam.jpg"></a> <a href="profile"><h1>Quảng Nam</h1></a>
+					src="${host.images }"></a> <a href="profile"><h1>Quảng Nam</h1></a>
 			</div>
 			<div class="col-sm-3">
 				<a href="profile"><img class="image"
-					src="resource/images/danang.jpg"></a> <a href="profile"><h1>Đà Nẵng</h1></a>
+					src="${host.images }"></a> <a href="profile"><h1>Đà Nẵng</h1></a>
 			</div>
 		</div>
-		 <c:forEach items="${lists}" var="host">    
-      <tr>
-        <td>${host.name}</td>
-       <td>${host.phone}</td>
-      </tr>
+		    
+      
     </c:forEach>
 	</div>
 </body>
