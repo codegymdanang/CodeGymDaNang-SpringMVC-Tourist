@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import guru.tour.entity.HotelEntity;
+import guru.tour.entity.LocationEntity;
 import guru.tour.service.HotelEntityManager;
+import guru.tour.service.LocationEntityManager;
 
 
 @Controller
@@ -20,6 +22,8 @@ public class ServiceHotelController {
 	@Autowired
 	HotelEntityManager hotel;
 	
+	@Autowired
+	LocationEntityManager location;
 	@RequestMapping(value="/hotel",method = RequestMethod.GET)
 	public String searchHotel(ModelMap mm){
 		List<HotelEntity> list = hotel.getAllHotel();
@@ -29,7 +33,7 @@ public class ServiceHotelController {
 	
 	@RequestMapping(value="/detailhotel",method = RequestMethod.GET)
 	public String detailhotel(ModelMap mm){
-		List<HotelEntity> list = hotel.getAllHotel();
+		List<LocationEntity> list = location.getLocation();
 		mm.addAttribute("list", list);
 		return "detailhotel";
 	}

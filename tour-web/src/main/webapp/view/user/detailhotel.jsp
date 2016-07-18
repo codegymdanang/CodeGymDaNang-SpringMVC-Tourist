@@ -8,16 +8,15 @@
 	<tr>
 		<td>ID</td>
 		<td>Name</td>
-		<td>Price</td>
-		<td>description</td>
 
 	</tr>
-	<c:forEach items="${list}" var="hotel">
+	<c:forEach items="${list}" var="location">
 		<tr>
-			<td>${hotel.id}</td>
-			<td>${hotel.name}</td>
-			<td>${hotel.price}</td>
-			<td>${hotel.description}</td>
+			<td>${location.id}</td>
+		<%-- 	<c:forEach items="${location.ListHotel}" var="hotel">
+			<td>${hotel.name}</td> --%>
+			<%-- </c:forEach> --%>
+			<td>${location.name}</td>
 		</tr>
 	</c:forEach>
 </table>

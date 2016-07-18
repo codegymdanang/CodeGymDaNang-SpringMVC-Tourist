@@ -12,9 +12,11 @@ import guru.tour.repository.HotelEntityRepository;
 public class HotelManagerImpl implements HotelEntityManager {
 	@Autowired
 	HotelEntityRepository hotelEntityRepository;
+	
 	public List<HotelEntity> getAllHotel() {
 		// TODO Auto-generated method stub
 		return hotelEntityRepository.findAll();
 	}
+	
 	
 }
