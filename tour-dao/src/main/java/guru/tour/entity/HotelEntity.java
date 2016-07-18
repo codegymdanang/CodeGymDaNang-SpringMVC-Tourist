@@ -5,7 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,10 +16,10 @@ import javax.persistence.Table;
 public class HotelEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue
-	@Column(name = "id")
+	@GeneratedValue( strategy=GenerationType.AUTO )
+	@Column(name = "hotel_id")
 	private int id;
-	@Column(name = "name")
+	@Column(name = "hotel_name")
 	private String name;
 	@Column(name = "price")
 	private double price;
@@ -26,6 +29,10 @@ public class HotelEntity implements Serializable {
 	private int phone;
 	@Column(name = "description")
 	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name="location_id")
+	private LocationEntity lc;
 	
 	public HotelEntity() {
 		super();
@@ -88,5 +95,23 @@ public class HotelEntity implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
+	}
+
+	public LocationEntity getLc() {
+		return lc;
+	}
+
+	public void setLc(LocationEntity lc) {
+		this.lc = lc;
+	}
+
+		
 	
 }
