@@ -1,0 +1,123 @@
+/* div 0 */
+
+.effect2{
+    background-color: #fdf4d7;
+    margin-top: 15px;
+}
+
+/* div 1 */
+.teaser-big_img-wrapper {
+    min-height: 144px;
+}
+.teaser-big_img-wrapper {
+    position: relative !important;
+}
+.teaser-big_img-wrapper {
+    font-size: 0;
+    height: auto;
+    position: relative;
+}
+*::-moz-placeholder {
+    color: #353535 !important;
+}
+*::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+.teaser-big {
+    text-align: left;
+}
+
+
+
+
+
+
+
+/* link */
+.lazyloaded {
+    opacity: 1 !important;
+}
+.img_teaser_b {
+    background-color: #f444a9;
+    padding-bottom: 4px;
+    width: 100%;
+    z-index: 0;
+}
+img {
+    border: 0 none;
+}
+*::-moz-placeholder {
+    color: #353535 !important;
+}
+*::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+
+
+
+
+/* div 2 */
+
+section.all_highlight .teaser-big_detail::after {
+    border-bottom-color: #fdf4d7;
+}
+.teaser-big_detail::after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) #fff;
+    border-image: none;
+    border-style: solid;
+    border-width: 12px;
+    bottom: 100%;
+    content: " ";
+    height: 0;
+    left: 50%;
+    margin-left: -12px;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    z-index: 0;
+}
+section.all_highlight .teaser-big_detail {
+    background-color: #fdf4d7;
+    background-image: -moz-linear-gradient(center top , #fdf4d7 47%, #f4e7bf 99%);
+}
+.teaser-big_detail {
+    padding: 1.5em 1em 2.5em;
+
+}
+.teaser-big_detail {
+border-bottom-color: #FBB917;
+    box-shadow: 0 1px 1px 0 rgba(50, 50, 50, 0.2);
+    height: 175px;
+    position: relative;
+    text-overflow: ellipsis;
+}
+*::-moz-placeholder {
+    color: #353535 !important;
+}
+*::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+.teaser-big {
+    text-align: center;
+}
+
+
+/* div line */
+.abc{
+   /*  margin-top: 25px;
+    margin-bottom: 25px; */
+    padding:15px;
+    margin:auto; 
+    font-family: Arial;
+    text-align:center;
+}
+
+.foot{
+    padding-top: 20px;
+    padding-left: 20px;
+}

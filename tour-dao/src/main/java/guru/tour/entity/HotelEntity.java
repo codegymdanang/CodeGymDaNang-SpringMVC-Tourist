@@ -5,7 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +16,7 @@ import javax.persistence.Table;
 public class HotelEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue
+	@GeneratedValue( strategy=GenerationType.AUTO )
 	@Column(name = "hotel_id")
 	private int id;
 	@Column(name = "hotel_name")
@@ -27,36 +30,10 @@ public class HotelEntity implements Serializable {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name="location_id")
-	private int local_id;
+	@ManyToOne
+	@JoinColumn(name="location_id")
+	private LocationEntity lc;
 	
-	@Column(name="type_id")
-	private int type_id;
-	
-	public String getImages() {
-		return images;
-	}
-
-	public void setImages(String images) {
-		this.images = images;
-	}
-
-	public int getLocal_id() {
-		return local_id;
-	}
-
-	public void setLocal_id(int local_id) {
-		this.local_id = local_id;
-	}
-
-	public int getType_id() {
-		return type_id;
-	}
-
-	public void setType_id(int type_id) {
-		this.type_id = type_id;
-	}
-
 	public HotelEntity() {
 		super();
 	}
@@ -118,5 +95,23 @@ public class HotelEntity implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
+	}
+
+	public LocationEntity getLc() {
+		return lc;
+	}
+
+	public void setLc(LocationEntity lc) {
+		this.lc = lc;
+	}
+
+		
 	
 }
