@@ -17,6 +17,8 @@ public class ServiceHostEntityManagerImpl implements ServiceHostEntityManager{
 		return serviceHostEntityRepository.findByName(name);
 	}
 	
-	
+	public List<ServiceHostEntity> getAllHost() {		
+		return serviceHostEntityRepository.findAll();
+	}
 
 }

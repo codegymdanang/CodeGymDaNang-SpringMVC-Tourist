@@ -19,29 +19,57 @@ import guru.tour.service.ServiceHostEntityManager;
 @Controller
 @RequestMapping(value = "/")
 public class ServiceHostController {
+
+	@Autowired
+	ServiceHostEntityManager hostmanager;
 	
 	@Autowired
 	HostDetailManager manager;
+	
+	List<ServiceHostEntity> images;
+	
+	@RequestMapping(value = "/servicehost", method = RequestMethod.GET)
+	public String service_host(ModelMap save){
+//		List<ServiceHostEntity> employees = hostmanager.findByName("SAI GON");
+//		for (ServiceHostEntity host : employees) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
+//		ModelAndView model = new ModelAndView("servicehost");
+//		save.addAttribute("lists", employees);
+		
+//		List<ServiceHostEntity> imagesHaNoi = hostmanager.findByName("HA NOI");
+//		for (ServiceHostEntity host : imagesHaNoi) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
+//		save.addAttribute("lists", imagesHaNoi);
+//		
+//		List<ServiceHostEntity> imagesQuangNam = hostmanager.findByName("QUANG NAM");
+//		for (ServiceHostEntity host : imagesQuangNam) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
+//		save.addAttribute("lists", imagesQuangNam);
+//		
+//		List<ServiceHostEntity> imagesDaNang = hostmanager.findByName("DA NANG");
+//		for (ServiceHostEntity host : imagesDaNang) {
+//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
+//		}
+//		save.addAttribute("lists", imagesDaNang);
+//		return "servicehost";
+		images = hostmanager.getAllHost();
+//		save.addAttribute("lists", images);
+		return "servicehost";
+	}
+	
 	@RequestMapping(value = "/profile",method = RequestMethod.GET)
 	public String profile(ModelMap m){
 		List<HostDetailEntity> list = manager.getAllHost();
+		m.addAttribute("list", images);
 		m.addAttribute("list",list);
 		return "profile";
 	}
 	
-	@Autowired
-	ServiceHostEntityManager hostmanager;
 	
-	@RequestMapping(value = "/servicehost", method = RequestMethod.GET)
-	public String service_host(ModelMap save){
-		List<ServiceHostEntity> employees = hostmanager.findByName("Quoc");
-		for (ServiceHostEntity host : employees) {
-			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-		}
-//		ModelAndView model = new ModelAndView("servicehost");
-		save.addAttribute("lists", employees);
-		return "servicehost";
-	}
+	
 	@RequestMapping(value = "/detail_profile")
 	public String detail_profile(){
 		return "detail_profile";

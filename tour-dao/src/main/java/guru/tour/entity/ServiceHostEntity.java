@@ -2,11 +2,20 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "host")
@@ -15,15 +24,21 @@ public class ServiceHostEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue( strategy=GenerationType.AUTO )
 	@Column(name = "id")
 	private int id;
 	
 	@Column(name = "name")
 	private String name;
+
+	@Column(name = "images")
+	private String images;
 	
 	@Column(name = "phone")
 	private int phone;
+	
+	@OneToOne(  mappedBy="serviceHostEntity", fetch=FetchType.LAZY)
+    private HostDetailEntity hostDetailEntity;
 
 	public ServiceHostEntity() {
 		super();
@@ -33,6 +48,19 @@ public class ServiceHostEntity implements Serializable {
 		this.id =  id;
 		this.name =  name;
 		this.phone = phone;
+	}
+	public ServiceHostEntity(int id, String name, String images, int phone) {
+		this.id =  id;
+		this.name =  name;
+		this.phone = phone;
+	}
+
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
 	}
 
 	public int getId() {

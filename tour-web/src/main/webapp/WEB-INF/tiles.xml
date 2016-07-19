@@ -10,12 +10,6 @@
 		<put-attribute name="footer" value="/view/template/layout/footer.jsp" />
 	</definition>
 
-	<definition name="definition2" template="/view/template/layout/template.jsp">
-		<put-attribute name="header" value="/view/template/layout/menu.jsp" />
-		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/view/template/layout/footer.jsp" />
-	</definition>
-
 	<definition name="homePage" extends="definition">
 		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
@@ -33,11 +27,9 @@
 	<definition name="search" extends="definition">
 		<put-attribute name="body" value="/view/user/search.jsp" />
 	</definition>
-
-	<definition name="place" extends="definition2">
-		<put-attribute name="body" value="/view/user/placedetail.jsp" />
+	<definition name="food" extends="definition">
+		<put-attribute name="body" value="/view/user/hoteldemo.jsp" />
 	</definition>
-
 	<definition name="login" extends="definition">
 		<put-attribute name="body" value="/view/user/form-login.jsp" />
 	</definition>
@@ -55,12 +47,6 @@
 	</definition>
 	<definition name="detail_profile" extends="definition">
 		<put-attribute name="body" value="/view/user/detail_profile.jsp"></put-attribute>
-	</definition>
-	<definition name="findfriend" extends="definition">
-		<put-attribute name="body" value="/view/user/findfriend.jsp"></put-attribute>
-	</definition>
-	<definition name="service_rating" extends="definition">
-		<put-attribute name="body" value="/view/user/service_rating.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>  
  
