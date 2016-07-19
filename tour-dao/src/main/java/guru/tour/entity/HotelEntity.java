@@ -14,9 +14,9 @@ public class HotelEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
+	@Column(name = "hotel_id")
 	private int id;
-	@Column(name = "name")
+	@Column(name = "hotel_name")
 	private String name;
 	@Column(name = "price")
 	private double price;
@@ -27,6 +27,36 @@ public class HotelEntity implements Serializable {
 	@Column(name = "description")
 	private String description;
 	
+	@Column(name="location_id")
+	private int local_id;
+	
+	@Column(name="type_id")
+	private int type_id;
+	
+	public String getImages() {
+		return images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
+	}
+
+	public int getLocal_id() {
+		return local_id;
+	}
+
+	public void setLocal_id(int local_id) {
+		this.local_id = local_id;
+	}
+
+	public int getType_id() {
+		return type_id;
+	}
+
+	public void setType_id(int type_id) {
+		this.type_id = type_id;
+	}
+
 	public HotelEntity() {
 		super();
 	}
