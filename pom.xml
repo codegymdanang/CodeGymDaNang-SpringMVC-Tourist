@@ -8,5 +8,6 @@
   <modules>
   	<module>tour-dao</module>
   	<module>tour-web</module>
+  	<module>tour_service</module>
   </modules>
 </project>

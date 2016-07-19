@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-md-9">
 				<div>
-					<h1>Da Nang night life</h1>
+					<h1>DA NANG night life</h1>
 				</div>
 				<div>
 					<p>Party all night long till 6 a.m</p>
@@ -80,20 +80,18 @@
 		</div>
 	</div>
 	<sf:form action="show" method="GET">
-		<table id=profile border="1">
+
+		<c:forEach items="${list}" var="host">
+		<table>
 			<tr>
-				<td>ID</td>
-				<td>Name</td>
-				<td>Phone</td>
+				<td>${host.id}</td>
+				<td>${host.title}</td>
+				<td>${host.price}</td>
+				<td>${host.serviceHostEntity.name}</td>
 			</tr>
-			<c:forEach items="${list}" var="host">
-				<tr>
-					<td>${host.id}</td>
-					<td>${host.name}</td>
-					<td>${host.phone}</td>
-				</tr>
-			</c:forEach>
 		</table>
+		</c:forEach>
+
 
 	</sf:form>
 </body>

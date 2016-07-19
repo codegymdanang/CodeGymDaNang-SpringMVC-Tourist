@@ -32,7 +32,7 @@ public class HotelEntity implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="location_id")
-	private LocationEntity locationid;
+	private LocationEntity lc;
 	
 	public HotelEntity() {
 		super();
@@ -105,11 +105,11 @@ public class HotelEntity implements Serializable {
 	}
 
 	public LocationEntity getLc() {
-		return locationid;
+		return lc;
 	}
 
 	public void setLc(LocationEntity lc) {
-		this.locationid = lc;
+		this.lc = lc;
 	}
 
 		
