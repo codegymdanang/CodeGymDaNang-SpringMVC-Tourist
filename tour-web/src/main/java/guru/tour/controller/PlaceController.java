@@ -16,8 +16,8 @@ import guru.tour.service.PlaceEntityManager;
 @Controller
 @RequestMapping(value = "/")
 public class PlaceController {
-	@Autowired
-	HotelEntityManager hotel;
+//	@Autowired
+//	HotelEntityManager hotel;
 	@Autowired
 	PlaceEntityManager placeEntityManager;
 	
@@ -29,11 +29,11 @@ public class PlaceController {
 		model.addObject("Place", placeEntity);
 		return model;
 	}
-	@RequestMapping(value = "/place",method=RequestMethod.GET)
-	public ModelAndView getHotel() {
-		List<HotelEntity> hotelList = hotel.getAllHotel();
-		ModelAndView model = new ModelAndView();
-		model.addObject("list",hotelList);
-		return model;
-	}
+//	@RequestMapping(value = "/place",method=RequestMethod.GET)
+//	public ModelAndView getHotel() {
+//		List<HotelEntity> hotelList = hotel.getAllHotel();
+//		ModelAndView model = new ModelAndView();
+//		model.addObject("list",hotelList);
+//		return model;
+//	}
 }

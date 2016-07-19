@@ -1,11 +1,17 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +34,18 @@ public class UserEntity implements Serializable {
 	
 	@Column(name = "phone")
 	private String phone;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
+	private List<RatingEntity> list=new ArrayList<RatingEntity>();
+	
+	
+	public List<RatingEntity> getList() {
+		return list;
+	}
+
+	public void setList(List<RatingEntity> list) {
+		this.list = list;
+	}
 
 	public int getId() {
 		return id;
