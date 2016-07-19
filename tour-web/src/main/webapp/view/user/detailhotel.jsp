@@ -13,9 +13,9 @@
 	<c:forEach items="${list}" var="location">
 		<tr>
 			<td>${location.id}</td>
-		<%-- 	<c:forEach items="${location.ListHotel}" var="hotel">
-			<td>${hotel.name}</td> --%>
-			<%-- </c:forEach> --%>
+			<c:forEach items="${location.ListHotel}" var="hotel">
+			<td>${hotel.name}</td>
+			</c:forEach>
 			<td>${location.name}</td>
 		</tr>
 	</c:forEach>
