@@ -13,21 +13,23 @@
 	font-weight: bold;
 }
 
-#listOfEmployees tr:first-child {
+#listFood tr:first-child {
 	font-weight: bold;
 }
 </style>
 </head>
 <body>
-	<table id="listHotel" border="1">
+	<table id=foodList border="1">
 		<tr>
-			<td>Name</td>
-			<td>Phone</td>
+			<td>ID</td>
+			<td>NAME</td>
+			<td>LOCATION NAME</td>
 		</tr>
-		<c:forEach items="${list}" var="hotel">
+		<c:forEach items="${list}" var="food">
 			<tr>
-				<td>${hotel.getName()}</td>
-				<td>${hotel.getPhone()}</td>
+				<td>${food.id}</td>
+				<td>${food.name}</td>
+				<td>${food.locationEntity.name}</td>
 			</tr>
 		</c:forEach>
 	</table>

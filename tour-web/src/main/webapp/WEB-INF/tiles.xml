@@ -16,50 +16,37 @@
 
 	<!-- ContactUs Page -->
 	<definition name="servicefriend" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/service_friend.jsp" />
+		<put-attribute name="body" value="/view/user/service_friend.jsp" />
 	</definition>
 	<definition name="hotel" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/service_hotel.jsp" />
+		<put-attribute name="body" value="/view/user/service_hotel.jsp" />
 	</definition>
 	<definition name="detailhotel" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/detailhotel.jsp" />
+		<put-attribute name="body" value="/view/user/detailhotel.jsp" />
 	</definition>
 	<definition name="search" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/search.jsp" />
+		<put-attribute name="body" value="/view/user/search.jsp" />
 	</definition>
-
-	<definition name="place" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/hoteldemo.jsp" />
-			</definition>
-
-		<definition name="login" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/form-login.jsp" />
+	<definition name="food" extends="definition">
+		<put-attribute name="body" value="/view/user/hoteldemo.jsp" />
+	</definition>
+	<definition name="login" extends="definition">
+		<put-attribute name="body" value="/view/user/form-login.jsp" />
 	</definition>
 	<definition name="find" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/form-find.jsp" />
+		<put-attribute name="body" value="/view/user/form-find.jsp" />
 	</definition>
 	<definition name="register" extends="definition">
-		<put-attribute name="body"
-			value="/view/user/form-register.jsp" />
+		<put-attribute name="body" value="/view/user/form-register.jsp" />
 	</definition>
 	<definition name="servicehost" extends="definition">
-		<put-attribute name="body"
-		value="/view/user/host.jsp"></put-attribute>
+		<put-attribute name="body" value="/view/user/host.jsp"></put-attribute>
 	</definition>
 	<definition name="profile" extends="definition">
-		<put-attribute name="body"
-		value="/view/user/profile.jsp"></put-attribute>
+		<put-attribute name="body" value="/view/user/profile.jsp"></put-attribute>
 	</definition>
 	<definition name="detail_profile" extends="definition">
-		<put-attribute name="body"
-		value="/view/user/detail_profile.jsp"></put-attribute>
+		<put-attribute name="body" value="/view/user/detail_profile.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>  
  

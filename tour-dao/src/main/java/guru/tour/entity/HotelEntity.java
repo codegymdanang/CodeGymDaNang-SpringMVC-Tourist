@@ -1,13 +1,16 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,9 +19,9 @@ public class HotelEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
-	@Column(name = "id")
+	@Column(name = "hotel_id")
 	private int id;
-	@Column(name = "name")
+	@Column(name = "hotel_name")
 	private String name;
 	@Column(name = "price")
 	private double price;
@@ -28,7 +31,7 @@ public class HotelEntity implements Serializable {
 	private int phone;
 	@Column(name = "description")
 	private String description;
-	@Column(name="local_id")
+	@Column(name="location_id")
 
 	private int local;
 	public HotelEntity() {
@@ -108,5 +111,6 @@ public class HotelEntity implements Serializable {
 	public void setLocal(int local) {
 		this.local = local;
 	}
+	
 	
 }
