@@ -2,13 +2,21 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 @Entity
 @Table(name = "profile")
@@ -17,20 +25,29 @@ public class HostDetailEntity implements Serializable {
 
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
-	private Integer id;
+	@Column(name="id")
+	private int id;
 
 	@Column(name = "title")
 	private String title;
 	@Column(name = "price")
 	private String price;
-	
-//	@OneToOne
-//	private ServiceHostEntity serviceHostEntity;
+	@Column(name = "id_host")
+	private int hostId;
+
+//	cascade = {CascadeType.ALL},
+	@OneToOne()
+	@JoinColumn(name = "id_host",insertable = false, updatable = false)
+	private ServiceHostEntity serviceHostEntity;
 
 	public HostDetailEntity() {
 
 	}
 
+	public HostDetailEntity(ServiceHostEntity serviceHostEntity) {
+		this.serviceHostEntity = serviceHostEntity;
+	}
+	
 	public HostDetailEntity(Integer id, String title, String price) {
 		super();
 		this.id = id;
@@ -40,7 +57,27 @@ public class HostDetailEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ServiceHostDetailEntity [id=" + id + ", name=" + title + ", phone=" + price + "]";
+		return "ServiceHostDetailEntity [id=" + id + ", title=" + title + ", price=" + price + "]";
+	}
+
+	
+	
+	public ServiceHostEntity getServiceHostEntity() {
+		return serviceHostEntity;
+	}
+
+	public void setServiceHostEntity(ServiceHostEntity serviceHostEntity) {
+		this.serviceHostEntity = serviceHostEntity;
+	}
+	
+	@PrimaryKeyJoinColumn
+	public int getHostId() {
+		hostId = serviceHostEntity.getId();
+		return hostId;
+	}
+
+	public void setHostId(int hostId) {
+		this.hostId = hostId;
 	}
 
 	public Integer getId() {

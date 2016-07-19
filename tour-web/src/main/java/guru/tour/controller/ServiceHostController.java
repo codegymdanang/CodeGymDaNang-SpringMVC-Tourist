@@ -19,18 +19,14 @@ import guru.tour.service.ServiceHostEntityManager;
 @Controller
 @RequestMapping(value = "/")
 public class ServiceHostController {
+
+	@Autowired
+	ServiceHostEntityManager hostmanager;
 	
 	@Autowired
 	HostDetailManager manager;
-	@RequestMapping(value = "/profile",method = RequestMethod.GET)
-	public String profile(ModelMap m){
-		List<HostDetailEntity> list = manager.getAllHost();
-		m.addAttribute("list",list);
-		return "profile";
-	}
 	
-	@Autowired
-	ServiceHostEntityManager hostmanager;
+	List<ServiceHostEntity> images;
 	
 	@RequestMapping(value = "/servicehost", method = RequestMethod.GET)
 	public String service_host(ModelMap save){
@@ -59,10 +55,21 @@ public class ServiceHostController {
 //		}
 //		save.addAttribute("lists", imagesDaNang);
 //		return "servicehost";
-		List<ServiceHostEntity> images = hostmanager.getAllHost();
-		save.addAttribute("lists", images);
+		images = hostmanager.getAllHost();
+//		save.addAttribute("lists", images);
 		return "servicehost";
 	}
+	
+	@RequestMapping(value = "/profile",method = RequestMethod.GET)
+	public String profile(ModelMap m){
+		List<HostDetailEntity> list = manager.getAllHost();
+		m.addAttribute("list", images);
+		m.addAttribute("list",list);
+		return "profile";
+	}
+	
+	
+	
 	@RequestMapping(value = "/detail_profile")
 	public String detail_profile(){
 		return "detail_profile";
