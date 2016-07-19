@@ -38,7 +38,8 @@
 
 <!-- HoangLong -->
 <link href="resource/css/a.css" rel="stylesheet">
-<link href="resource/css/custom.css" rel="stylesheet">
+<link href="resource/css/custome1.css" rel="stylesheet">
+<link href="resource/css/custome2.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="resource/css/service_friend.css"
 		type="text/css">
