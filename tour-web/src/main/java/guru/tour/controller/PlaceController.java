@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import guru.tour.entity.HotelEntity;
-import guru.tour.service.HotelEntityManager;
+import guru.tour.entity.FoodEntity;
+import guru.tour.service.FoodEntityManager;
 
 @Controller
 @RequestMapping(value = "/")
 public class PlaceController {
 	@Autowired
-	HotelEntityManager hotel;
+	FoodEntityManager food;
 	
-	@RequestMapping(value = "/place",method=RequestMethod.GET)
-	public ModelAndView getHotel() {
-		List<HotelEntity> hotelList = hotel.getAllHotel();
+	@RequestMapping(value = "/food",method=RequestMethod.GET)
+	public ModelAndView getFood() {
+		List<FoodEntity> foodList = food.getAllHotel();
 		ModelAndView model = new ModelAndView();
-		model.addObject("list",hotelList);
+		model.addObject("list",foodList);
 		return model;
 	}
 }
