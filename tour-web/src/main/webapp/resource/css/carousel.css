@@ -12,6 +12,14 @@ body {
 
 /* try */
 
+.post-meta {
+  margin: auto;
+}
+
+.btnDetail span{
+	display:inline;
+	margin:auto;
+}
 .btnDetail{
     text-align: center;
 }
