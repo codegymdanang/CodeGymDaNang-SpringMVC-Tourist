@@ -25,7 +25,7 @@ public class PlaceController {
 //	HotelEntityManager hotel;
 	@Autowired
 	PlaceEntityManager placeEntityManager;
-
+	@Autowired
 	FoodEntityManager food;
 
 	@RequestMapping(value = "/place",method = RequestMethod.GET)
