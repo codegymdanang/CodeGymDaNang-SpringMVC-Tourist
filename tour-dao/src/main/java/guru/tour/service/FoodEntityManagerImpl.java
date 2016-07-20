@@ -11,7 +11,7 @@ import guru.tour.repository.FoodEntityRepository;
 public class FoodEntityManagerImpl implements FoodEntityManager{
 	@Autowired
 	FoodEntityRepository foodEntityRepository;
-	public List<FoodEntity> getAllHotel() {
+	public List<FoodEntity> findAll() {
 		return foodEntityRepository.findAll();
 	}
 }

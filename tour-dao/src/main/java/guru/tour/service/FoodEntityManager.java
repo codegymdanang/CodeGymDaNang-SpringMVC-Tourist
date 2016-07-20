@@ -5,5 +5,5 @@ import java.util.List;
 import guru.tour.entity.FoodEntity;
 
 public interface FoodEntityManager {
-	public List<FoodEntity> getAllHotel();
+	public List<FoodEntity> findAll();
 }

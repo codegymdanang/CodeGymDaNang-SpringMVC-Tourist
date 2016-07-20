@@ -27,8 +27,8 @@
 	<definition name="search" extends="definition">
 		<put-attribute name="body" value="/view/user/search.jsp" />
 	</definition>
-	<definition name="food" extends="definition">
-		<put-attribute name="body" value="/view/user/hoteldemo.jsp" />
+	<definition name="place" extends="definition">
+		<put-attribute name="body" value="/view/user/placedetail.jsp" />
 	</definition>
 	<definition name="login" extends="definition">
 		<put-attribute name="body" value="/view/user/form-login.jsp" />

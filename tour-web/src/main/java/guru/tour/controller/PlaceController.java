@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import guru.tour.entity.HotelEntity;
 import guru.tour.entity.PlaceEntity;
-import guru.tour.service.HotelEntityManager;
 import guru.tour.service.PlaceEntityManager;
 
 import guru.tour.entity.FoodEntity;
@@ -26,7 +23,7 @@ public class PlaceController {
 	@Autowired
 	PlaceEntityManager placeEntityManager;
 	@Autowired
-	FoodEntityManager food;
+	FoodEntityManager foodEntityManager;
 
 	@RequestMapping(value = "/place",method = RequestMethod.GET)
 	public ModelAndView getPlaceByID(){
@@ -34,13 +31,8 @@ public class PlaceController {
 		System.out.println(placeEntity.getName());
 		ModelAndView model = new ModelAndView("place");
 		model.addObject("Place", placeEntity);
-		return model;
-	}
-
-	@RequestMapping(value = "/food",method=RequestMethod.GET)
-	public ModelAndView getFood() {
-		List<FoodEntity> foodList = food.getAllHotel();
-		ModelAndView model = new ModelAndView();
+		List<FoodEntity> foodList = foodEntityManager.findAll();
+		model.addObject("list", foodList);
 		return model;
 	}
 //	@RequestMapping(value = "/place",method=RequestMethod.GET)
