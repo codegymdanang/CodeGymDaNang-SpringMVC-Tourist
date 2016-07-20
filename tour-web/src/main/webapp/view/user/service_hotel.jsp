@@ -109,7 +109,7 @@
 								<p>${hotel.name }</p>
 								<p>${hotel.price }</p>
 								<p>${hotel.description }</p>
-								<p>${hotel.locationid.name }</p>
+								<p>${hotel.lc.name }</p>
 							</div>
 							<div class="col-md-3 ">
 								<div class="buttoninner">
