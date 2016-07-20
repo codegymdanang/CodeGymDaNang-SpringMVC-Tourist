@@ -34,41 +34,20 @@ public class ServiceHostController {
 		
 		
 		List<ServiceHostEntity> imagesSG = hostmanager.findByName("SAI GON");
-//		ModelAndView model = new ModelAndView("servicehost");
 		save.addAttribute("imagesSG", imagesSG);
+		
 		List<ServiceHostEntity> imagesHN = hostmanager.findByName("HA NOI");
 		save.addAttribute("imagesHN", imagesHN);
+		
 		List<ServiceHostEntity> imagesQN = hostmanager.findByName("QUANG NAM");
 		save.addAttribute("imagesQN", imagesQN);
+		
 		List<ServiceHostEntity> imagesDN = hostmanager.findByName("DA NANG");
 		save.addAttribute("imagesDN", imagesDN);
-//		List<ServiceHostEntity> employees = hostmanager.findByName("SAI GON");
-//		for (ServiceHostEntity host : employees) {
-//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-//		}
-//		ModelAndView model = new ModelAndView("servicehost");
-//		save.addAttribute("lists", employees);
 		
-//		List<ServiceHostEntity> imagesHaNoi = hostmanager.findByName("HA NOI");
-//		for (ServiceHostEntity host : imagesHaNoi) {
-//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-//		}
-//		save.addAttribute("lists", imagesHaNoi);
-//		
-//		List<ServiceHostEntity> imagesQuangNam = hostmanager.findByName("QUANG NAM");
-//		for (ServiceHostEntity host : imagesQuangNam) {
-//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-//		}
-//		save.addAttribute("lists", imagesQuangNam);
-//		
-//		List<ServiceHostEntity> imagesDaNang = hostmanager.findByName("DA NANG");
-//		for (ServiceHostEntity host : imagesDaNang) {
-//			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
-//		}
-//		save.addAttribute("lists", imagesDaNang);
-//		return "servicehost";
 		images = hostmanager.getAllHost();
 		save.addAttribute("lists", images);
+		
 		return "servicehost";
 	}
 	
