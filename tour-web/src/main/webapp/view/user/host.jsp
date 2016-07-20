@@ -15,33 +15,30 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
-				<a href="profile"><img class="image" src=""></a> <a
-					href="profile"><h1>Sài Gòn</h1></a>
+				<c:forEach items="${imagesSG}" var="choose">
+					<a href="profile"><img class="image" src="${choose.images}"></a>
+					<a href="profile"><h1>Sài Gòn</h1></a>
+				</c:forEach>
 			</div>
 			<div class="col-sm-3">
-				<a href="profile"><img class="image" src=""></a> <a
-					href="profile"><h1>Hà Nội</h1></a>
+				<c:forEach items="${imagesHN}" var="choose">
+					<a href="profile"><img class="image" src="${choose.images}"></a>
+					<a href="profile"><h1>Hà Nội</h1></a>
+				</c:forEach>
 			</div>
 			<div class="col-sm-3">
-				<a href="profile"><img class="image" src=""></a> <a
-					href="profile"><h1>Quảng Nam</h1></a>
+				<c:forEach items="${imagesQN}" var="choose">
+					<a href="profile"><img class="image" src="${choose.images}"></a>
+					<a href="profile"><h1>Quảng Nam</h1></a>
+				</c:forEach>
 			</div>
 			<div class="col-sm-3">
-				<a href="profile"><img class="image" src=""></a> <a
-					href="profile"><h1>Đà Nẵng</h1></a>
+				<c:forEach items="${imagesDN}" var="choose">
+					<a href="profile"><img class="image" src="${choose.images}"></a>
+					<a href="profile"><h1>Đà Nẵng</h1></a>
+				</c:forEach>
 			</div>
 		</div>
-
-		<c:forEach items="${lists}" var="host">
-			<tr>
-				<td>
-						<div class="col-sm-3">
-							<a href="profile"> <img class="image" src="${host.images }"></a>
-							<a href="profile">${host.name} </a>
-						</div>
-				</td>
-			</tr>
-		</c:forEach>
 	</div>
 </body>
 </html>

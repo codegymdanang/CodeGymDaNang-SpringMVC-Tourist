@@ -30,6 +30,18 @@ public class ServiceHostController {
 	
 	@RequestMapping(value = "/servicehost", method = RequestMethod.GET)
 	public String service_host(ModelMap save){
+		
+		
+		
+		List<ServiceHostEntity> imagesSG = hostmanager.findByName("SAI GON");
+//		ModelAndView model = new ModelAndView("servicehost");
+		save.addAttribute("imagesSG", imagesSG);
+		List<ServiceHostEntity> imagesHN = hostmanager.findByName("HA NOI");
+		save.addAttribute("imagesHN", imagesHN);
+		List<ServiceHostEntity> imagesQN = hostmanager.findByName("QUANG NAM");
+		save.addAttribute("imagesQN", imagesQN);
+		List<ServiceHostEntity> imagesDN = hostmanager.findByName("DA NANG");
+		save.addAttribute("imagesDN", imagesDN);
 //		List<ServiceHostEntity> employees = hostmanager.findByName("SAI GON");
 //		for (ServiceHostEntity host : employees) {
 //			System.out.println("Name "+ host.getName() + ",Phone " + host.getPhone());
@@ -56,7 +68,7 @@ public class ServiceHostController {
 //		save.addAttribute("lists", imagesDaNang);
 //		return "servicehost";
 		images = hostmanager.getAllHost();
-//		save.addAttribute("lists", images);
+		save.addAttribute("lists", images);
 		return "servicehost";
 	}
 	
