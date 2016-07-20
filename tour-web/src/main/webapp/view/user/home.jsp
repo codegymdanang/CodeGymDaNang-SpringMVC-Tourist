@@ -72,8 +72,13 @@
                <a href="http://www.vietnamonline.com/destination/hanoi.html">
             <h3>Da Nang</h3>
           </a>        
-            <h4>Rating : *****</h4>
-            </div>
+            <div class="post-meta">
+          		<!-- <h4>Rating :</h4> -->
+				<span> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+					   <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i>
+				</span>
+			</div>            
+          </div>          
       </div>
       <div class="col-md-4">
       <ul class="ch-grid">
@@ -237,12 +242,13 @@
 </div>
 
      
-      <h2 class = "abc">First time in your trip? Here is the best of everything!</h2>
+      <h2 id = "typetext">First time in your trip? Here is the best of everything!</h2>
 
-       <div class="row">
+     <!--   <div class="row">
        <ul>
-    <li>
-
+    <li> -->
+   <div style="margin-botom:5px" >
+   
         <div class="col-lg-4">
            <div class="effect2">
 
@@ -263,7 +269,6 @@
               </div> 
           </div>              
         </div>
-
   
         <div class="col-lg-4">
            <div class="effect2">
@@ -305,9 +310,9 @@
           </div>              
         </div>
            
-    </li>
+    <!-- </li>
 
-    <li>
+    <li> -->
             
         <!-- row 2 -->
         <div class="col-lg-4">
@@ -370,15 +375,13 @@
           </div>              
         </div>
 
-    </li>
+   <!--  </li>
   </ul>
-           
+         -->   
 </div>
-<br>
-<br>
-<br>
-  <h2 class = "abc">Why you choose Phuot.com?Please let us know what you're thinking!</h2> 
-      <div class="row" align="center">
+
+  <h2 id = "typetext">Why you choose Phuot.com?Please let us know what you're thinking!</h2> 
+      <div align="center">
          <div class="col-lg-4">          
           <h3><img class="image" src="resource/images/smile.png" alt="smile.png"> You love travels</h3>            
          </div>
@@ -391,7 +394,7 @@
             <h3><img class="image" src="resource/images/ambulance.png" alt="ambulance.png"> Safe & reliable</h3>
         </div>        
      
-     <!-- row 2 -->
+   <!--   row 2 -->
         <div class="col-lg-4">
           <h3><img class="image" src="resource/images/heart.png" alt="heart.png"> You like freedom</h3>
         </div>

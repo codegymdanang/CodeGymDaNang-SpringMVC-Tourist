@@ -34,7 +34,7 @@
 <script src="resource/js/search_friends.js"></script>
 
 <!-- HoangLong -->
-<link href="resource/css/a.css" rel="stylesheet">
+<link href="resource/css/carousel.css" rel="stylesheet">
 <link href="resource/css/custome1.css" rel="stylesheet">
 <link href="resource/css/custome2.css" rel="stylesheet">
 
