@@ -9,7 +9,7 @@ import guru.tour.entity.RatingEntity;
 import guru.tour.repository.RatingRepository;
 
 @Service
-public class RatingImpl implements RatingManager{
+public class RatingEntityManagerImpl implements RatingEntityManager{
 
 	@Autowired
 	RatingRepository ratingRepository;

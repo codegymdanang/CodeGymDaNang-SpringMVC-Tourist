@@ -9,7 +9,7 @@ import guru.tour.entity.UserEntity;
 import guru.tour.repository.ServiceFriendsRepository;
 
 @Service
-public class UserEntityImpl implements UserEntityManager{
+public class UserEntityIManagermpl implements UserEntityManager{
 
 	@Autowired
 	ServiceFriendsRepository friendsRepository;
