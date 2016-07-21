@@ -38,8 +38,6 @@ public class HomepageController {
 		return "homePage";
 	}
 	
-	
-	
 	@ExceptionHandler(HomeException.class)
 	public ModelAndView handleEmployeeNotFoundException(HttpServletRequest request, Exception ex){
 		logger.error("Requested URL="+request.getRequestURL());
