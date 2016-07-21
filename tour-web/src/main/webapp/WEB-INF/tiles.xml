@@ -13,6 +13,10 @@
 	<definition name="homePage" extends="definition">
 		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
+	
+	<definition name="HomeError" extends="definition">
+		<put-attribute name="body" value="/view/user/HomeError.jsp"></put-attribute>
+	</definition>
 
 	<!-- ContactUs Page -->
 	<definition name="servicefriend" extends="definition">

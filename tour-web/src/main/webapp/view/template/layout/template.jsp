@@ -55,9 +55,6 @@
 	<link href="resource/css/search.css" rel="stylesheet" type="text/css">
 	<link href="resource/css/responsive.css" rel="stylesheet"
 		type="text/css">
-	<!-- HoangLong -->
-	<link href="resource/css/a.css" rel="stylesheet">
-	<link href="resource/css/custom.css" rel="stylesheet">
 </head>
 
 <body ng-app="Application" ng-controller="Controller">
