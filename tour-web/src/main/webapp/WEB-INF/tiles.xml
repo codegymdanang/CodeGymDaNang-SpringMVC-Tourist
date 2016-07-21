@@ -48,6 +48,9 @@
 	<definition name="detail_profile" extends="definition">
 		<put-attribute name="body" value="/view/user/detail_profile.jsp"></put-attribute>
 	</definition>
+	<definition name="error" extends="definition">
+		<put-attribute name="body" value="/view/error/error.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  
