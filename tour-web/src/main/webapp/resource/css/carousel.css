@@ -5,21 +5,22 @@
 body {
 	
   padding-bottom: 40px;
-
   color: #5a5a5a;
 }
 
 
 /* try */
+#typetext{
+	 margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: Arial;
+    text-align:center;
+}
 
 .post-meta {
   margin: auto;
 }
 
-.btnDetail span{
-	display:inline;
-	margin:auto;
-}
 .btnDetail{
     text-align: center;
 }
@@ -30,7 +31,7 @@ body {
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   right: 0;
   left: 0;
@@ -61,7 +62,7 @@ body {
 /* Carousel base class */
 .carousel {
   height: 500px;
-  margin-top: 40px;
+  margin-top: 0px;
   width:auto;
   margin-left:0px;
   margin-right:0px;
