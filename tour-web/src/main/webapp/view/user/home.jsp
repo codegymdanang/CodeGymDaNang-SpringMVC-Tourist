@@ -247,7 +247,7 @@
      <!--   <div class="row">
        <ul>
     <li> -->
-   <div style="margin-botom:5px" >
+
    
         <div class="col-lg-4">
            <div class="effect2">
@@ -378,7 +378,7 @@
    <!--  </li>
   </ul>
          -->   
-</div>
+
 
   <h2 id = "typetext">Why you choose Phuot.com?Please let us know what you're thinking!</h2> 
       <div align="center">
