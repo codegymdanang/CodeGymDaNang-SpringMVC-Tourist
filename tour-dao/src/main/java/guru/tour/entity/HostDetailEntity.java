@@ -24,20 +24,28 @@ public class HostDetailEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue( strategy=GenerationType.AUTO )
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private int id;
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Column(name = "title")
 	private String title;
+	@Column(name = "summary")
+	private String summary;
 	@Column(name = "price")
 	private String price;
+	@Column(name = "duration")
+	private String duration;
 	@Column(name = "id_host")
 	private int hostId;
 
-//	cascade = {CascadeType.ALL},
+	// cascade = {CascadeType.ALL},
 	@OneToOne()
-	@JoinColumn(name = "id_host",insertable = false, updatable = false)
+	@JoinColumn(name = "id_host", insertable = false, updatable = false)
 	private ServiceHostEntity serviceHostEntity;
 
 	public HostDetailEntity() {
@@ -47,21 +55,7 @@ public class HostDetailEntity implements Serializable {
 	public HostDetailEntity(ServiceHostEntity serviceHostEntity) {
 		this.serviceHostEntity = serviceHostEntity;
 	}
-	
-	public HostDetailEntity(Integer id, String title, String price) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.price = price;
-	}
 
-	@Override
-	public String toString() {
-		return "ServiceHostDetailEntity [id=" + id + ", title=" + title + ", price=" + price + "]";
-	}
-
-	
-	
 	public ServiceHostEntity getServiceHostEntity() {
 		return serviceHostEntity;
 	}
@@ -69,7 +63,7 @@ public class HostDetailEntity implements Serializable {
 	public void setServiceHostEntity(ServiceHostEntity serviceHostEntity) {
 		this.serviceHostEntity = serviceHostEntity;
 	}
-	
+
 	@PrimaryKeyJoinColumn
 	public int getHostId() {
 		hostId = serviceHostEntity.getId();
@@ -104,6 +98,25 @@ public class HostDetailEntity implements Serializable {
 		this.price = price;
 	}
 
-	
-	
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	@Override
+	public String toString() {
+		return "HostDetailEntity [id=" + id + ", title=" + title + ", summary=" + summary + ", price=" + price
+				+ ", duration=" + duration + ", hostId=" + hostId + ", serviceHostEntity=" + serviceHostEntity + "]";
+	}
 }

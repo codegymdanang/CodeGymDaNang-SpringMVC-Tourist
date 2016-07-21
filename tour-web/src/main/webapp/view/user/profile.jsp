@@ -80,19 +80,27 @@
 		</div>
 	</div>
 	<sf:form action="show" method="GET">
-
-		<c:forEach items="${list}" var="host">
-		<table>
+		<table border="1">
 			<tr>
-				<td>${host.id}</td>
-				<td>${host.title}</td>
-				<td>${host.price}</td>
-				<td>${host.serviceHostEntity.name}</td>
+				<td>ID</td>
+				<td>Title</td>
+				<td>Summary</td>
+				<td>Price</td>
+				<td>Duration</td>
+				<td>Place</td>
 			</tr>
+			<c:forEach items="${list}" var="host">
+
+				<tr>
+					<td>${host.id}</td>
+					<td>${host.title}</td>
+					<td>${host.summary}</td>
+					<td>${host.price}</td>
+					<td>${host.duration}</td>
+					<td>${host.serviceHostEntity.name}</td>
+				</tr>
+			</c:forEach>
 		</table>
-		</c:forEach>
-
-
 	</sf:form>
 </body>
 </html>
