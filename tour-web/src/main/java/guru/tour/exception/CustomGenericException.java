@@ -1,6 +1,7 @@
 package guru.tour.exception;
 
-public class CustomGenericException extends RuntimeException{
+public class CustomGenericException extends RuntimeException {
+
 	private static final long serialVersionUID = 1L;
 
 	private String errCode;
@@ -26,4 +27,5 @@ public class CustomGenericException extends RuntimeException{
 		this.errCode = errCode;
 		this.errMsg = errMsg;
 	}
+
 }
