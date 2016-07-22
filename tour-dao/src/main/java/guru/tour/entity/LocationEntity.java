@@ -27,6 +27,7 @@ public class LocationEntity implements Serializable {
 	private int id;
 	@Column(name = "location_name")
 	private String name;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "locationEntity")
 	private List<FoodEntity> food = new ArrayList<FoodEntity>();
 	public int getId() {

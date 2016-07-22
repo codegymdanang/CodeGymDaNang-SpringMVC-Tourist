@@ -13,6 +13,10 @@
 	<definition name="homePage" extends="definition">
 		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
+	
+	<definition name="HomeError" extends="definition">
+		<put-attribute name="body" value="/view/user/HomeError.jsp"></put-attribute>
+	</definition>
 
 	<!-- ContactUs Page -->
 	<definition name="servicefriend" extends="definition">
@@ -48,17 +52,18 @@
 	<definition name="detail_profile" extends="definition">
 		<put-attribute name="body" value="/view/user/detail_profile.jsp"></put-attribute>
 	</definition>
+	
 	<definition name="error" extends="definition">
-		<put-attribute name="body" value="/view/user/error.jsp"></put-attribute>
+		<put-attribute name="body" value="/view/error/error.jsp"></put-attribute>
 	</definition>
 	<definition name="generic_error" extends="definition">
-		<put-attribute name="body" value="/view/user/generic_error.jsp"></put-attribute>
+		<put-attribute name="body" value="/view/error/generic_error.jsp"></put-attribute>
 	</definition>
 	<definition name="database_error" extends="definition">
-		<put-attribute name="body" value="/view/user/database_error.jsp"></put-attribute>
+		<put-attribute name="body" value="/view/error/database_error.jsp"></put-attribute>
 	</definition>
 	<definition name="404" extends="definition">
-		<put-attribute name="body" value="resoure/404.jsp"></put-attribute>
+		<put-attribute name="body" value="resource/404.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>  
  

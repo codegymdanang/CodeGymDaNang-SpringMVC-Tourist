@@ -1,8 +1,8 @@
 <div class="navbar-wrapper">
-	<div class="container">
+	<!-- <div class="container"> -->
 
 		<nav class="navbar navbar-inverse navbar-static-top">
-			<div class="container">
+			<!-- <div class="container"> -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed"
 						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -18,8 +18,10 @@
 						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</div>
-			</div>
+				<br>
+				<br>
+			<!-- </div> -->
 		</nav>
-	</div>
+	<!-- </div> -->
 </div>
 
