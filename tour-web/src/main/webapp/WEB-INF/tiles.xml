@@ -68,6 +68,9 @@
 	<definition name="success" extends="definition">
 		<put-attribute name="body" value="/view/user/success.jsp"></put-attribute>
 	</definition>
+	<definition name="event" extends="definition">
+		<put-attribute name="body" value="/view/user/event.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  
