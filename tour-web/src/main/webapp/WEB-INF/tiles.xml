@@ -15,7 +15,7 @@
 	</definition>
 	
 	<definition name="HomeError" extends="definition">
-		<put-attribute name="body" value="/view/user/HomeError.jsp"></put-attribute>
+		<put-attribute name="body" value="/view/error/HomeError.jsp"></put-attribute>
 	</definition>
 
 	<!-- ContactUs Page -->
