@@ -65,6 +65,9 @@
 	<definition name="404" extends="definition">
 		<put-attribute name="body" value="resource/404.jsp"></put-attribute>
 	</definition>
+	<definition name="success" extends="definition">
+		<put-attribute name="body" value="/view/user/success"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  

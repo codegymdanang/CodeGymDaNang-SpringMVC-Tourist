@@ -21,5 +21,9 @@ public class UserEntityIManagermpl implements UserEntityManager{
 		// TODO Auto-generated method stub
 		return friendsRepository.findByPhone(phone);
 	}
+	public UserEntity saveUser(UserEntity user) {
+		// TODO Auto-generated method stub
+		return friendsRepository.save(user);
+	}
 
 }

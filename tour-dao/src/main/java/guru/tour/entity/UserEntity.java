@@ -86,6 +86,14 @@ public class UserEntity implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public UserEntity(String username, String password, String image, String phone) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.image = image;
+		this.phone = phone;
+	}
 	
 	
 }
