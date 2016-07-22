@@ -26,7 +26,7 @@
 					</div>
 					<br>
 					<hr>
-					<form action="saveuser">
+					<form action="saveuser" method="post">
 
 						<div class="username">
 							<input type="text" id="username" name="username" placeholder="Full Name">
