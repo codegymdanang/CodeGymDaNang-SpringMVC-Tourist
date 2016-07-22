@@ -18,10 +18,11 @@
 						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</div>
-				<br>
-				<br>
+				
 			<!-- </div> -->
 		</nav>
+		<br>
+				<br>
 	<!-- </div> -->
 </div>
 
