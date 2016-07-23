@@ -1,6 +1,6 @@
 <!-- banner -->
-	<div class="banner">
-		<div class="top-banner">
+	<div class="banner about-bg">
+		<div class="top-banner about-top-banner">
 			<div class="container">
 				<div class="top-banner-left">
 					<ul>
@@ -33,12 +33,12 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li><a class="active" href="index.html">Home</a></li>
+								<li><a href="index.html">Home</a></li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="services.html">Services</a></li>
 								<li><a href="codes.html">Codes</a></li>	
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="contact.html">Contact</a></li>
+								<li><a class="active" href="contact.html">Contact</a></li>
 								<div class="clearfix"> </div>
 							</ul>	
 						</div>	
