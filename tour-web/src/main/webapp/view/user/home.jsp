@@ -31,7 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="resource/js/bootstrap.js"></script>
 </head>
 <body>
-
+	
 	<div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
             <!-- Wrapper for Slides -->
             <div class="carousel-inner" role="listbox">
