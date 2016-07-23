@@ -108,6 +108,7 @@
 							whatever suits your pocket and style and the selection is wide -
 							from the five-star Palm Garden Resort Hoi An to simpler
 							accommodation choices such as the Phuoc An Hotel.</p>
+						<p>${Place.description}</p>
 					</div>
 					<table id=foodList border="1">
 					<tr>

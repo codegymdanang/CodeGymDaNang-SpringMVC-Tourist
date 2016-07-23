@@ -34,6 +34,21 @@ public class PlaceController {
 
 	/*@RequestMapping(value = "/place/{id}", method = RequestMethod.GET)
 	public ModelAndView getPlaceByID(@PathVariable("id") int id) throws Exception {
+<<<<<<< HEAD
+//		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
+//		if (!(id == placeEntity.getId())) {
+//			throw new PlaceNotFoundException(id);
+//		} else if (id == placeEntity.getId()) {
+//			ModelAndView model = new ModelAndView("place");
+//			model.addObject("Place", placeEntity);
+//			List<FoodEntity> foodList = foodEntityManager.findAll();
+//			model.addObject("list", foodList);
+//			return model;
+//		} else {
+//			throw new Exception("Generic Exception, id=" + id);
+//		}
+		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
+=======
 		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
 		if (!(id == placeEntity.getId())) {
 			throw new PlaceNotFoundException(id);
