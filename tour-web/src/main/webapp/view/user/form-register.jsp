@@ -26,18 +26,18 @@
 					</div>
 					<br>
 					<hr>
-					<form>
+					<form action="saveuser" method="post">
 
 						<div class="username">
-							<input type="text" name="username" placeholder="Full Name">
+							<input type="text" id="username" name="username" placeholder="Full Name">
 						</div>
 
-						<input type="email" name="email" placeholder="Email">
+						<input type="text" name="image" id="image" placeholder="image">
 						<div class="phone-css">
-							<input class="text" type="text" name="phone" placeholder="Phone">
+							<input class="text" type="text" name="phone" id="phone" placeholder="Phone">
 						</div>
-						<input type="password" name="password" placeholder="Password">
-						<div class="form-date">
+						<input type="password" name="password" id="password" placeholder="Password">
+						<!-- <div class="form-date">
 							<span>
 								<div class="row">
 									<div class="col-md-4" id="day-form-date">
@@ -84,37 +84,37 @@
 									</div>
 								</div>
 							</span>
-						</div>
+						</div> -->
 
 						<!--<label for="birthDate" class="col-sm-4 control-label">Date of Birth</label>-->
 						<!--<div class="col-sm-7">-->
 						<!--<input type="date" id="birthDate" class="form-control">-->
 						<!--</div>-->
 						<!--<div class="col-md-1"></div>-->
-						<div class="row">
-							<!--<div class="col-md-4">-->
-							<!--<form id="form-birthday">-->
-							<!--<input type="date" name="bday">-->
-							<!--</form>-->
-							<!--</div>-->
+						<!-- <div class="row">
+							<div class="col-md-4">
+							<form id="form-birthday">
+							<input type="date" name="bday">
+							</form>
+							</div>
 
 							<div class="col-md-6">
 								<label class="checkbox-inline"> <input type="checkbox"
-									id="choose-male" value="option1"> Male
+									id="male" value="option1"> Male
 								</label>
 							</div>
 							<div class="col-md-6">
 								<label class="checkbox-inline"> <input type="checkbox"
-									id="choose-female" value="option1"> Female
+									id="female" value="option1"> Female
 								</label>
 							</div>
-						</div>
+						</div> -->
 						<p class="role">
 							By clicking Create an account, you agree to our Terms and <br>
 							that you have read our Data Policy, including our Cookie Use.
 						</p>
 
-						<button type="button" id="join" class="btn btn-info btn-xs">JOIN
+						<button type="submit" id="join" class="btn btn-info btn-xs">JOIN
 							TOURSTUDENT</button>
 
 

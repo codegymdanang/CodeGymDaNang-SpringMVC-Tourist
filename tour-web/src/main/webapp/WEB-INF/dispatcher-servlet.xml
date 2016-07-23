@@ -34,6 +34,7 @@
 	<mvc:resources mapping="/resource/**" location="/resource/" cache-period="31556926"></mvc:resources>
 	<import resource="classpath:/spring-data.xml" />
 	
+	
 	<bean id="simpleMappingExceptionResolver" class="guru.tour.exception.MySimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<map>

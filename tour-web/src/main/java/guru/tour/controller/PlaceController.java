@@ -25,8 +25,6 @@ import guru.tour.service.FoodEntityManager;
 @Controller
 @RequestMapping(value = "/")
 public class PlaceController {
-	// @Autowired
-	// HotelEntityManager hotel;
 	@Autowired
 	PlaceEntityManager placeEntityManager;
 	@Autowired
@@ -34,8 +32,9 @@ public class PlaceController {
 	
 //	private static final Logger logger = LoggerFactory.getLogger(PlaceController.class);
 
-	@RequestMapping(value = "/place/{id}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/place/{id}", method = RequestMethod.GET)
 	public ModelAndView getPlaceByID(@PathVariable("id") int id) throws Exception {
+<<<<<<< HEAD
 //		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
 //		if (!(id == placeEntity.getId())) {
 //			throw new PlaceNotFoundException(id);
@@ -49,6 +48,23 @@ public class PlaceController {
 //			throw new Exception("Generic Exception, id=" + id);
 //		}
 		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
+=======
+		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
+		if (!(id == placeEntity.getId())) {
+			throw new PlaceNotFoundException(id);
+		} else if (id == placeEntity.getId()) {
+			ModelAndView model = new ModelAndView("place");
+			model.addObject("Place", placeEntity);
+			List<FoodEntity> foodList = foodEntityManager.findAll();
+			model.addObject("list", foodList);
+			return model;
+		} else {
+			throw new Exception("Generic Exception, id=" + id);
+		}
+	}*/
+	@RequestMapping(value = "/place", method = RequestMethod.GET)
+	public ModelAndView getPlaceByID() throws Exception {
+		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(1);
 		System.out.println(placeEntity.getName());
 		ModelAndView model = new ModelAndView("place");
 		model.addObject("Place", placeEntity);

@@ -1,11 +1,19 @@
 package guru.tour.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import guru.tour.entity.UserEntity;
+import guru.tour.service.UserEntityManager;
 
 @Controller
 @RequestMapping(value = "/")
 public class LoginController {
+	@Autowired
+	UserEntityManager user;
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "login";
@@ -17,5 +25,15 @@ public class LoginController {
 	@RequestMapping(value = "/register")
 	public String register() {
 		return "register";
+	}
+	@RequestMapping(value = "/saveuser")
+	public String saveuser(HttpServletRequest request) {
+		String username=request.getParameter("username");
+		String password=request.getParameter("password");
+		String phone=request.getParameter("phone");
+		String image=request.getParameter("image");
+		UserEntity userEntity=new UserEntity(username,password,image,phone);
+		user.saveUser(userEntity);
+		return "success";
 	}
 }
