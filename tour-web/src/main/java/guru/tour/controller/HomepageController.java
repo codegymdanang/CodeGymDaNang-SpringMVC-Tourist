@@ -45,6 +45,18 @@ public class HomepageController {
 	}
 	
 	
+	@RequestMapping(value = "/homedemo",method = RequestMethod.GET)	
+	public String homedemo() throws Exception{
+		List<HotNewsEntity> list = new ArrayList<HotNewsEntity>();
+		list = hotnews.getAllHotNews();				
+		if(list.isEmpty() == true){
+			throw new HomeException(1);
+		}
+							
+		return "homedemo";
+	}
+	
+	
 	@RequestMapping(value="/home/{id}", method=RequestMethod.GET)
 	public String getEmployee(@PathVariable("id") int id, Model model) throws Exception{
 		//deliberately throwing different types of exception

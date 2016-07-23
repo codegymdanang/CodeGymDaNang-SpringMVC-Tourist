@@ -958,7 +958,7 @@ h3.hdg {
   visibility: visible;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  z-index:100;
+  z-index: 0;
 }
 .badge-primary {
   background-color: #03a9f4;

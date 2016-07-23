@@ -34,9 +34,31 @@
 <script src="resource/js/search_friends.js"></script>
 
 <!-- HoangLong -->
-<link href="resource/css/carousel.css" rel="stylesheet">
+<!-- <link href="resource/css/carousel.css" rel="stylesheet">
 <link href="resource/css/custome1.css" rel="stylesheet">
-<link href="resource/css/custome2.css" rel="stylesheet">
+<link href="resource/css/custome2.css" rel="stylesheet"> -->
+<!-- bootstrap-css -->
+
+<!-- bootstrap-css -->
+<link href="resource/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="resource/css/style.css" type="text/css" media="all" />
+<!--// css -->
+<link rel="stylesheet" href="resource/css/ken-burns.css">
+<!-- font-awesome icons -->
+<!-- <link href="resource/css/font-awesome.css" rel="stylesheet"> --> 
+<!-- //font-awesome icons -->
+<!-- font -->
+<link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<!-- //font -->
+<script src="resource/js/jquery-1.11.1.min.js"></script>
+<script src="resource/js/bootstrap.js"></script>
+
+
+
+
 
 	<link rel="stylesheet" href="resource/css/service_friend.css"
 		type="text/css">
