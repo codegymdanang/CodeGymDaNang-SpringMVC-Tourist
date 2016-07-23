@@ -32,42 +32,42 @@ public class PlaceController {
 	@Autowired
 	FoodEntityManager foodEntityManager;
 	
-	private static final Logger logger = LoggerFactory.getLogger(PlaceController.class);
+//	private static final Logger logger = LoggerFactory.getLogger(PlaceController.class);
 
 	@RequestMapping(value = "/place/{id}", method = RequestMethod.GET)
 	public ModelAndView getPlaceByID(@PathVariable("id") int id) throws Exception {
-		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(1);
-		if (!(id == placeEntity.getId())) {
-			throw new PlaceNotFoundException(id);
-		} else if (id == placeEntity.getId()) {
-			ModelAndView model = new ModelAndView("place");
-			model.addObject("Place", placeEntity);
-			List<FoodEntity> foodList = foodEntityManager.findAll();
-			model.addObject("list", foodList);
-			return model;
-		} else {
-			throw new Exception("Generic Exception, id=" + id);
-		}
-		/*PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
+//		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
+//		if (!(id == placeEntity.getId())) {
+//			throw new PlaceNotFoundException(id);
+//		} else if (id == placeEntity.getId()) {
+//			ModelAndView model = new ModelAndView("place");
+//			model.addObject("Place", placeEntity);
+//			List<FoodEntity> foodList = foodEntityManager.findAll();
+//			model.addObject("list", foodList);
+//			return model;
+//		} else {
+//			throw new Exception("Generic Exception, id=" + id);
+//		}
+		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
 		System.out.println(placeEntity.getName());
 		ModelAndView model = new ModelAndView("place");
 		model.addObject("Place", placeEntity);
 		List<FoodEntity> foodList = foodEntityManager.findAll();
 		model.addObject("list", foodList);
-		return model;*/
+		return model;
 	}
 
-	@ExceptionHandler(PlaceNotFoundException.class)
-	public ModelAndView handleEmployeeNotFoundException(HttpServletRequest request, Exception ex) {
-		logger.error("Requested URL=" + request.getRequestURL());
-		logger.error("Exception Raised=" + ex);
-
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("exception", ex);
-		modelAndView.addObject("url", request.getRequestURL());
-
-		modelAndView.setViewName("error");
-		return modelAndView;
-	}
+//	@ExceptionHandler(PlaceNotFoundException.class)
+//	public ModelAndView handleEmployeeNotFoundException(HttpServletRequest request, Exception ex) {
+//		logger.error("Requested URL=" + request.getRequestURL());
+//		logger.error("Exception Raised=" + ex);
+//
+//		ModelAndView modelAndView = new ModelAndView();
+//		modelAndView.addObject("exception", ex);
+//		modelAndView.addObject("url", request.getRequestURL());
+//
+//		modelAndView.setViewName("error");
+//		return modelAndView;
+//	}
 
 }
