@@ -55,6 +55,11 @@ public class HomepageController {
 		}else if(id==3){
 			throw new IOException("IOException, id="+id);
 		}else if(id==10){			
+			List<HotNewsEntity> list = new ArrayList<HotNewsEntity>();
+			list = hotnews.getAllHotNews();				
+			if(list.isEmpty() == true){
+				throw new HomeException(1);
+			}
 			return "homePage";
 		}else {
 			throw new Exception("Generic Exception, id="+id);
