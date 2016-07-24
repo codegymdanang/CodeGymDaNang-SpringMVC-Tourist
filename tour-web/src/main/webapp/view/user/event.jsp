@@ -85,17 +85,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="resource/js/jquery.min.js"></script>
-	<script src="resource/js/jquery.rateyo.js"></script>
-
-	<script>
-		$(function() {
-
-			$(".rateYo").rateYo({
-				rating : 3.6
-			});
-		});
-	</script>
+	
 	<sf:form action="show" method="GET">
 		<table border="1">
 			<tr>
@@ -116,5 +106,15 @@
 			</c:forEach>
 		</table>
 	</sf:form>
+
+
+	<script>
+		$(function() {
+			
+			$(".rateYo").rateYo({
+				rating : 3.6
+			});
+		});
+	</script>
 </body>
 </html>
