@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "rating")
 public class RatingEntity implements Serializable {
@@ -35,6 +37,7 @@ public class RatingEntity implements Serializable {
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id",insertable=false, updatable=false)
+	@JsonManagedReference
 	private UserEntity userEntity;
 	
 	

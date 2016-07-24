@@ -67,4 +67,11 @@ public class ServiceFriendsController {
 		return new ResponseEntity<List<UserEntity>>(users, HttpStatus.OK);
 		// return "listEmployeeView";
 	}
+	@RequestMapping(value = "/getall", method = RequestMethod.GET)
+	public ResponseEntity<List<UserEntity>> getall() {
+		List<UserEntity> users=null;
+			 users= user.getAll();
+
+		return new ResponseEntity<List<UserEntity>>(users, HttpStatus.OK);
+	}
 }
