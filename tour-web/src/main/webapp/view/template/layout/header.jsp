@@ -5,7 +5,7 @@
 				<div class="top-banner-left">
 					<ul>
 						<li><i class="fa fa-phone" aria-hidden="true"></i> +1 234 567 8901</li>
-						<li><a href="mailto:example@email.com"><i class="fa fa-envelope" aria-hidden="true"></i> mail@example.com</a></li>
+						<li><a href="mailto:phuot@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> phuot@gmail.com</a></li>
 					</ul>
 				</div>
 				<div class="top-banner-right">

@@ -5,7 +5,7 @@
 				<div class="top-banner-left">
 					<ul>
 						<li><i class="fa fa-phone" aria-hidden="true"></i> +1 234 567 8901</li>
-						<li><a href="mailto:example@email.com"><i class="fa fa-envelope" aria-hidden="true"></i> mail@example.com</a></li>
+						<li><a href="mailto:phuot@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> phuot@gmail.com</a></li>
 					</ul>
 				</div>
 				<div class="top-banner-right">
@@ -36,9 +36,11 @@
 								<li><a class="active" href="index.html">Home</a></li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="services.html">Services</a></li>
-								<li><a href="codes.html">Codes</a></li>	
+								<li><a href="codes.html">News and Event</a></li>	
 								<li><a href="gallery.html">Gallery</a></li>
 								<li><a href="contact.html">Contact</a></li>
+								<li><a href="login">Sign in</a></li>
+								
 								<div class="clearfix"> </div>
 							</ul>	
 						</div>	
