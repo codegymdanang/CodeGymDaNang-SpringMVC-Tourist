@@ -39,7 +39,7 @@
 								<li><a href="codes.html">News and Event</a></li>	
 								<li><a href="gallery.html">Gallery</a></li>
 								<li><a href="contact.html">Contact</a></li>
-								<li><a href="login">Sign in</a></li>
+								<li><a href="servicefriend">Hello GuruTeam</a></li>
 								
 								<div class="clearfix"> </div>
 							</ul>	

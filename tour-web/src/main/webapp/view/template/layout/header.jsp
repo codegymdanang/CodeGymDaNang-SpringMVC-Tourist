@@ -39,6 +39,7 @@
 								<li><a href="codes.html">Codes</a></li>	
 								<li><a href="gallery.html">Gallery</a></li>
 								<li><a class="active" href="contact.html">Contact</a></li>
+								<li><a href="home">Sign in</a></li>
 								<div class="clearfix"> </div>
 							</ul>	
 						</div>	

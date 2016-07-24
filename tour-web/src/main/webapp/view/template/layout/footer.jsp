@@ -1,4 +1,4 @@
-<!-- footer -->SS
+<!-- footer -->
 	<div class="footer">
 		<div class="container">
 			<div class="footer-grids">
