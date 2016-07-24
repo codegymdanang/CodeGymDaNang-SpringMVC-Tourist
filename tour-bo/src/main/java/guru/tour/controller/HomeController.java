@@ -1,5 +1,10 @@
 package guru.tour.controller;
 
-public class HomeController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping(value="/")
+public class HomeController {
+	
 }
