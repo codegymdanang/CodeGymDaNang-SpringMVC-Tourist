@@ -7,4 +7,5 @@ public interface UserEntityManager {
 	List<UserEntity> getUserByName(String name);
 	List<UserEntity> getUserByPhone(String phone);
 	UserEntity saveUser(UserEntity user);
+	List<UserEntity> findAll();
 }

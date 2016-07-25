@@ -38,7 +38,7 @@ public class UserEntity implements Serializable {
 	@Column(name = "phone")
 	private String phone;
 
-
+	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "userEntity",cascade=CascadeType.ALL)
 	private List<RatingEntity> list=new ArrayList<RatingEntity>();
 	

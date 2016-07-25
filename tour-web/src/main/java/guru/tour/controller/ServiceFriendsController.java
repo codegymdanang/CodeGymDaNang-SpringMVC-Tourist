@@ -30,6 +30,7 @@ public class ServiceFriendsController {
 		return model;
 		// return "listEmployeeView";
 	}
+	
 	@RequestMapping(value = "/findfriends")
 	public ModelAndView findFriends(HttpServletRequest request) {
 		String search=request.getParameter("search");
@@ -63,6 +64,18 @@ public class ServiceFriendsController {
 		// model.addObject("allEmployees",employees);
 /*		ModelAndView model = new ModelAndView("findfriend");
 		model.addObject("lists", users);*/
+
+		return new ResponseEntity<List<UserEntity>>(users, HttpStatus.OK);
+		// return "listEmployeeView";
+	}
+	@RequestMapping(value = "/findAllUser")
+	public ResponseEntity<List<UserEntity>> findAll() {
+		List<UserEntity> users=null;
+			 users= user.findAll();
+		
+		for (UserEntity user : users) {
+			System.out.println("First Name " + user.getUsername() + " Phone: " + user.getPhone());
+		}
 
 		return new ResponseEntity<List<UserEntity>>(users, HttpStatus.OK);
 		// return "listEmployeeView";
