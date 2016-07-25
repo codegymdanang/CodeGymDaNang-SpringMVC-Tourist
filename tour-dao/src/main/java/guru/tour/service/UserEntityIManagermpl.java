@@ -25,9 +25,12 @@ public class UserEntityIManagermpl implements UserEntityManager{
 		// TODO Auto-generated method stub
 		return friendsRepository.save(user);
 	}
-	public List<UserEntity> findAll() {
+
+
+	public List<UserEntity> getAll() {
+
 		// TODO Auto-generated method stub
 		return friendsRepository.findAll();
 	}
-
+	
 }
