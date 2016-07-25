@@ -9,10 +9,15 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/view/template/layout/footer.jsp" />
 	</definition>
+	
+	<definition name="definitionHome"  extends="definition">
+		<put-attribute name="header" value="/view/template/layout/headerHome.jsp" />		
+	</definition>
 
-	<definition name="homePage" extends="definition">
+	<definition name="homePage" extends="definitionHome">
 		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
+	
 	
 	<definition name="HomeError" extends="definition">
 		<put-attribute name="body" value="/view/error/HomeError.jsp"></put-attribute>
@@ -70,6 +75,9 @@
 	</definition>
 	<definition name="success" extends="definition">
 		<put-attribute name="body" value="/view/user/success.jsp"></put-attribute>
+	</definition>
+	<definition name="event" extends="definition">
+		<put-attribute name="body" value="/view/user/event.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>  
  

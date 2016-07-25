@@ -1,6 +1,6 @@
 package guru.tour.exception;
-import java.io.IOException;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class GlobalException{
-private static final Logger logger = LoggerFactory.getLogger(GlobalException.class);
+public class GlobalExceptionHandler {
+
+	private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 	
 	@ExceptionHandler(SQLException.class)
 	public String handleSQLException(HttpServletRequest request, Exception ex){
@@ -24,9 +25,8 @@ private static final Logger logger = LoggerFactory.getLogger(GlobalException.cla
 	
 	@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="IOException occured")
 	@ExceptionHandler(IOException.class)
-	public void handleIOException() {
+	public void handleIOException(){
 		logger.error("IOException handler executed");
-//		return "error";
 		//returning 404 error code
 	}
 }

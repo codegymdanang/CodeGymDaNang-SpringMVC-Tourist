@@ -9,6 +9,6 @@ public class HomeException extends Exception{
 	private static final long serialVersionUID = -3332292346834265371L;
 	
 	public HomeException(int id){
-		super("HomepageNotFoundException occur with id="+id+"Please check again :(((((( ");
+		super("HomepageNotFoundException occur with id="+id+"when nothing data in server .Please check again :(((((( ");
 	}
 }
