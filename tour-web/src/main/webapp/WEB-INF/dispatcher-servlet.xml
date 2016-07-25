@@ -35,25 +35,29 @@
 	<import resource="classpath:/spring-data.xml" />
 	
 	
-	<bean id="simpleMappingExceptionResolver" class="guru.tour.exception.MySimpleMappingExceptionResolver">
+	<!-- <bean id="simpleMappingExceptionResolver" class="guru.tour.exception.MySimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<map>
 				<entry key="Exception" value="generic_error"></entry>
 			</map>
 		</property>
 		<property name="defaultErrorView" value="generic_error"/>
-	</bean>
+	</bean> -->
 	
 	<!-- Configure to plugin JSON as request and response in method handler -->
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="jsonMessageConverter"/>
+				<ref bean="jsonTemplate"/>
 			</list>
 		</property>
 	</bean>
 	
 	<!-- Configure bean to convert JSON to POJO and vice versa -->
-	<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	<!--  Json support-->
+	<bean id="jsonTemplate" name="jsonTemplate" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 	</bean>
+	
+	<!-- Json support -->
+	
 </beans>
