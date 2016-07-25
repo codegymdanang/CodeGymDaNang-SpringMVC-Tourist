@@ -2,14 +2,18 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "rating")
@@ -31,8 +35,9 @@ public class RatingEntity implements Serializable {
 	@Column(name="user_id")
 	private int user_id;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id",insertable=false, updatable=false)
+	@JsonManagedReference
 	private UserEntity userEntity;
 	
 	

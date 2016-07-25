@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +14,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.aspectj.internal.lang.annotation.ajcDeclareSoft;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "user")
@@ -35,7 +40,9 @@ public class UserEntity implements Serializable {
 	@Column(name = "phone")
 	private String phone;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userEntity")
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "userEntity",cascade=CascadeType.ALL)
+	@JsonBackReference
 	private List<RatingEntity> list=new ArrayList<RatingEntity>();
 	
 	
@@ -95,5 +102,7 @@ public class UserEntity implements Serializable {
 		this.phone = phone;
 	}
 	
-	
+	public UserEntity() {
+		// TODO Auto-generated constructor stub
+	}
 }

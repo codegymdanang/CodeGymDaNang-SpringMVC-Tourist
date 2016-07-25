@@ -1,3 +1,4 @@
+
 /*
     StyleSheet For Responsive Bootstrap Carousel Effect Ken Burns
     Author: Razboynik
@@ -24,6 +25,34 @@
 .kb_wrapper:hover .kb_control_left,.kb_wrapper:hover .kb_control_right
 {
     opacity:.8
+=======
+
+/*
+    StyleSheet For Responsive Bootstrap Carousel Effect Ken Burns
+    Author: Razboynik
+    Author URI: http://filwebs.ru
+    Description: Bootstrap Carousel Effect Ken Burns
+*/
+.kb_control_left,.kb_control_right
+{
+    top: 50%;
+    z-index: 2;
+    opacity: 0;
+    width: 55px;
+    line-height: 2.6em;
+    height: 55px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+    text-align: center;
+    -webkit-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+}
+.kb_wrapper:hover .kb_control_left,.kb_wrapper:hover .kb_control_right
+{
+    opacity:1
 }
 .kb_icons
 {

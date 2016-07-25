@@ -8,6 +8,11 @@
 <head>
 <meta charset="utf-8">
 <title>event</title>
+<link rel="stylesheet" type="text/css" href="resource/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="resource/css/jquery.rateyo.css">
 <link rel="stylesheet" type="text/css" href="resource/css/event.css">
 </head>
 <body>
@@ -50,7 +55,6 @@
 										</div>
 									</div>
 								</div>
-
 							</div>
 						</div>
 						<div class="row">
@@ -81,18 +85,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="resource/js/jquery.min.js"></script>
-	<script src="resource/js/jquery.rateyo.js"></script>
-
-	<script>
-		$(function() {
-
-			$(".rateYo").rateYo({
-				rating : 3.6
-			});
-
-		});
-	</script>
+	
 	<sf:form action="show" method="GET">
 		<table border="1">
 			<tr>
@@ -113,5 +106,15 @@
 			</c:forEach>
 		</table>
 	</sf:form>
+
+
+	<script>
+		$(function() {
+			
+			$(".rateYo").rateYo({
+				rating : 3.6
+			});
+		});
+	</script>
 </body>
 </html>

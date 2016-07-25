@@ -9,10 +9,15 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/view/template/layout/footer.jsp" />
 	</definition>
+	
+	<definition name="definitionHome"  extends="definition">
+		<put-attribute name="header" value="/view/template/layout/headerHome.jsp" />		
+	</definition>
 
-	<definition name="homePage" extends="definition">
+	<definition name="homePage" extends="definitionHome">
 		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
+	
 	
 	<definition name="HomeError" extends="definition">
 		<put-attribute name="body" value="/view/error/HomeError.jsp"></put-attribute>
@@ -21,6 +26,9 @@
 	<!-- ContactUs Page -->
 	<definition name="servicefriend" extends="definition">
 		<put-attribute name="body" value="/view/user/service_friend.jsp" />
+	</definition>
+	<definition name="findfriend" extends="definition">
+		<put-attribute name="body" value="/view/user/findfriend.jsp" />
 	</definition>
 	<definition name="hotel" extends="definition">
 		<put-attribute name="body" value="/view/user/service_hotel.jsp" />

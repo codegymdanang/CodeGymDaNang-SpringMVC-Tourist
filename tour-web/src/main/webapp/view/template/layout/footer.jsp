@@ -11,7 +11,7 @@
 							<span>St Dolore Place,Kingsport 56777.</span>
 						</p>
 						<p class="phone">Phone : +1 123 456 789
-							<span>Email : <a href="mailto:example@email.com">mail@example.com</a></span>
+							<span>Email : <a href="mailto:example@email.com">phuot@gmail.com</a></span>
 						</p>
 					</div>
 				</div>
@@ -34,7 +34,7 @@
 					</div>
 					<div class="social">
 						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://www.facebook.com/groups/1722588871302570/"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#"><i class="fa fa-rss"></i></a></li>
 							<li><a href="#"><i class="fa fa-vk"></i></a></li>
@@ -55,7 +55,7 @@
 				<div class="clearfix"> </div>
 			</div>
 			<div class="copyright">
-				<p>© 2016 My Trip . All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts</a> </p>
+				<p>© 2016 My Trip . All Rights Reserved | Design by <a href="http://guruteam@gmail.com/"> GuruTeam</a> </p>
 			</div>
 		</div>
 	</div>
