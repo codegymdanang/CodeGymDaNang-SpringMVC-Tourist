@@ -95,5 +95,7 @@ public class UserEntity implements Serializable {
 		this.phone = phone;
 	}
 	
-	
+	public UserEntity() {
+		// TODO Auto-generated constructor stub
+	}
 }

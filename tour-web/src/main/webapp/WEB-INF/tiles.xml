@@ -22,6 +22,9 @@
 	<definition name="servicefriend" extends="definition">
 		<put-attribute name="body" value="/view/user/service_friend.jsp" />
 	</definition>
+	<definition name="findfriend" extends="definition">
+		<put-attribute name="body" value="/view/user/findfriend.jsp" />
+	</definition>
 	<definition name="hotel" extends="definition">
 		<put-attribute name="body" value="/view/user/service_hotel.jsp" />
 	</definition>
