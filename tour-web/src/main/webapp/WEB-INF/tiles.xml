@@ -71,6 +71,9 @@
 	<definition name="event" extends="definition">
 		<put-attribute name="body" value="/view/user/event.jsp"></put-attribute>
 	</definition>
+	<definition name= "food" extends="definition">
+		<put-attribute name="body" value="/view/user/food.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  
