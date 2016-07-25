@@ -13,6 +13,19 @@ public class HotNewsEntity {
 		super();
 	}
 
+	public HotNewsEntity(int id, String name) {
+		this.hotnewsId = id;
+		this.name = name;
+	}
+
+	public HotNewsEntity(int i, String string, String string2, String string3) {
+	this.hotnewsId = i;
+	this.description = string;this.name = string2;
+	this.image = string3;
+	 
+	
+	}
+
 	@Id
 	@GeneratedValue
 	@Column(name = "hotnewsId")
