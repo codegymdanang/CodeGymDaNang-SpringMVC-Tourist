@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@RestController
+@Controller
 @RequestMapping(value = "/")
 public class HomepageController {
 
@@ -41,56 +41,7 @@ public class HomepageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomepageController.class);
 	
-	  //-------------------Retrieve All HotnewsEntity--------------------------------------------------------
-    
-    @RequestMapping(value = "/homedata", method = RequestMethod.GET)
-    public ResponseEntity<List<HotNewsEntity>> listAllUsers() {
-        List<HotNewsEntity> listhotnews = hotnews.getAllHotNews();
-        if(listhotnews.isEmpty()){
-            return new ResponseEntity<List<HotNewsEntity>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
-        }
-        return new ResponseEntity<List<HotNewsEntity>>(listhotnews, HttpStatus.OK);
-    }
-    
-    //-------------------Retrieve Single HotnewsEntity--------------------------------------------------------
-    
-    @RequestMapping(value = "/homedata/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HotNewsEntity> getUser(@PathVariable("id") int id) {
-        System.out.println("Fetching User with id " + id);
-        HotNewsEntity hotnew = hotnews.findById(id);
-        if (hotnew == null) {
-            System.out.println("User with id " + id + " not found");
-            return new ResponseEntity<HotNewsEntity>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<HotNewsEntity>(hotnew, HttpStatus.OK);
-    }
-    
-    
-    
-    //-------------------Create a HotnewsEntity--------------------------------------------------------
-    
-    @RequestMapping(value = "/homedata/create", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody HotNewsEntity hotnew,    UriComponentsBuilder ucBuilder) {    	
-        System.out.println("Creating User " + hotnew.getName());
- 
-        if (hotnews.isUserExist(hotnew)) {
-            System.out.println("A User with name " + hotnew.getName() + " already exist");
-            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-        }
- 
-        hotnews.saveHotNewsEntity(hotnew);
- 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/homedata/{id}").buildAndExpand(hotnew.getHotnewsId()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-    }
-    
-    
-    
-    
-    
-    
-	
+            	
 	@RequestMapping(value = "/home",method = RequestMethod.GET)	
 	public String homepage() throws Exception{
 		List<HotNewsEntity> list = new ArrayList<HotNewsEntity>();
