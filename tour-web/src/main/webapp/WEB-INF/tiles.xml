@@ -18,6 +18,13 @@
 		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
 	
+	<definition name="about" extends="definition">
+		<put-attribute name="body" value="/view/user/about.jsp" />
+	</definition>
+	
+	<definition name="contact" extends="definition">
+		<put-attribute name="body" value="/view/user/contact.jsp" />
+	</definition>
 	
 	<definition name="HomeError" extends="definition">
 		<put-attribute name="body" value="/view/error/HomeError.jsp"></put-attribute>

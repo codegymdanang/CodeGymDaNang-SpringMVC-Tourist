@@ -87,6 +87,19 @@ public class HomepageController {
 	    
 	    modelAndView.setViewName("HomeError");
 	    return modelAndView;
-	}	
+	}
+	
+	
+	@RequestMapping(value = "/about",method = RequestMethod.GET)	
+	public String about(){
+						
+		return "about";
+	}
+	
+	@RequestMapping(value = "/contact",method = RequestMethod.GET)	
+	public String contact(){
+						
+		return "contact";
+	}
 
 }
