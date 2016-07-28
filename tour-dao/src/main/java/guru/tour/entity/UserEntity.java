@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import org.aspectj.internal.lang.annotation.ajcDeclareSoft;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "user")
@@ -42,7 +43,8 @@ public class UserEntity implements Serializable {
 
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "userEntity",cascade=CascadeType.ALL)
-	@JsonBackReference
+	/*@JsonBackReference*/
+	@JsonIgnore
 	private List<RatingEntity> list=new ArrayList<RatingEntity>();
 	
 	
