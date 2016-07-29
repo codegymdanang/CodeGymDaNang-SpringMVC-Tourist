@@ -32,5 +32,18 @@ public class UserEntityIManagermpl implements UserEntityManager{
 		// TODO Auto-generated method stub
 		return friendsRepository.findAll();
 	}
+	public boolean isUserExist(UserEntity userEntity) {
+		// TODO Auto-generated method stub
+		return findByName(userEntity.getUsername())==true;
+	}
+	private boolean findByName(String username) {
+		// TODO Auto-generated method stub
+		for(UserEntity user : getAll()){
+            if(user.getUsername().equalsIgnoreCase(username)){
+                return true;
+            }
+        }
+        return false;
+	}
 	
 }
