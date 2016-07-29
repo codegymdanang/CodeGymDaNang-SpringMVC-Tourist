@@ -102,7 +102,6 @@ public class HomepageController {
 		return "homePage";
 	}
 	
-	
 	@RequestMapping(value="/home/{id}", method=RequestMethod.GET)
 	public String getEmployee(@PathVariable("id") int id, Model model) throws Exception{
 		//deliberately throwing different types of exception
