@@ -1,7 +1,9 @@
 package guru.tour.controller;
 
+import guru.tour.entity.EventEntity;
 import guru.tour.entity.HotNewsEntity;
 import guru.tour.entity.HotelEntity;
+import guru.tour.entity.PlaceEntity;
 import guru.tour.exception.HomeException;
 import guru.tour.exception.HotelNotFoundException;
 import guru.tour.service.HotNewsEntityManager;
@@ -37,68 +39,74 @@ public class HomepageController {
 
 	@Autowired
 	HotNewsEntityManager hotnews;
-	
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomepageController.class);
-	
-            	
-	@RequestMapping(value = "/home",method = RequestMethod.GET)	
-	public String homepage() throws Exception{
+
+	@Autowired
+	PlaceEntity place;
+
+	@Autowired
+	EventEntity event;
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(HomepageController.class);
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String homepage() throws Exception {
+		// returning list hotnew and event,place data load into homepage
 		List<HotNewsEntity> list = new ArrayList<HotNewsEntity>();
-		list = hotnews.getAllHotNews();				
-		if(list.isEmpty() == true){
+		list = hotnews.getAllHotNews();
+		if (list.isEmpty() == true) {
 			throw new HomeException(1);
 		}
-							
+
 		return "homePage";
 	}
-	
-	
-	@RequestMapping(value="/home/{id}", method=RequestMethod.GET)
-	public String getEmployee(@PathVariable("id") int id, Model model) throws Exception{
-		//deliberately throwing different types of exception
-		if(id==1){
+
+	@RequestMapping(value = "/home/{id}", method = RequestMethod.GET)
+	public String getEmployee(@PathVariable("id") int id, Model model)
+			throws Exception {
+		// deliberately throwing different types of exception
+		if (id == 1) {
 			throw new HomeException(id);
-		}else if(id==2){
-			throw new SQLException("SQLException, id="+id);
-		}else if(id==3){
-			throw new IOException("IOException, id="+id);
-		}else if(id==10){			
+		} else if (id == 2) {
+			throw new SQLException("SQLException, id=" + id);
+		} else if (id == 3) {
+			throw new IOException("IOException, id=" + id);
+		} else if (id == 10) {
 			List<HotNewsEntity> list = new ArrayList<HotNewsEntity>();
-			list = hotnews.getAllHotNews();				
-			if(list.isEmpty() == true){
+			list = hotnews.getAllHotNews();
+			if (list.isEmpty() == true) {
 				throw new HomeException(1);
 			}
 			return "homePage";
-		}else {
-			throw new Exception("Generic Exception, id="+id);
+		} else {
+			throw new Exception("Generic Exception, id=" + id);
 		}
-		
+
 	}
-	
+
 	@ExceptionHandler(HomeException.class)
-	public ModelAndView handleEmployeeNotFoundException(HttpServletRequest request, Exception ex){
-		logger.error("Requested URL="+request.getRequestURL());
-		logger.error("Exception Raised="+ex);
-		
+	public ModelAndView handleEmployeeNotFoundException(
+			HttpServletRequest request, Exception ex) {
+		logger.error("Requested URL=" + request.getRequestURL());
+		logger.error("Exception Raised=" + ex);
+
 		ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.addObject("exception", ex);
-	    modelAndView.addObject("url", request.getRequestURL());
-	    
-	    modelAndView.setViewName("HomeError");
-	    return modelAndView;
+		modelAndView.addObject("exception", ex);
+		modelAndView.addObject("url", request.getRequestURL());
+
+		modelAndView.setViewName("HomeError");
+		return modelAndView;
 	}
-	
-	
-	@RequestMapping(value = "/about",method = RequestMethod.GET)	
-	public String about(){
-						
+
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	public String about() {
+
 		return "about";
 	}
-	
-	@RequestMapping(value = "/contact",method = RequestMethod.GET)	
-	public String contact(){
-						
+
+	@RequestMapping(value = "/contact", method = RequestMethod.GET)
+	public String contact() {
+
 		return "contact";
 	}
 

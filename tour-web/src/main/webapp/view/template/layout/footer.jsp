@@ -1,4 +1,4 @@
-<!-- footer -->
+	<!-- footer -->
 	<div class="footer">
 		<div class="container">
 			<div class="footer-grids">
@@ -21,10 +21,10 @@
 					</div>
 					<div class="footer-grid-info">
 						<ul>
-							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Services</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="about">About</a></li>
+							<li><a href="services">Services</a></li>
+							<li><a href="gallery">Gallery</a></li>
+							<li><a href="contact">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 				<div class="clearfix"> </div>
 			</div>
 			<div class="copyright">
-				<p>© 2016 My Trip . All Rights Reserved | Design by <a href="http://guruteam@gmail.com/"> GuruTeam</a> </p>
+				<p>© 2016 My Trip . All Rights Reserved | Design by <a href="http://w3layouts.com/"> GuruTeam</a> </p>
 			</div>
 		</div>
 	</div>

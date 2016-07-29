@@ -11,5 +11,12 @@ public interface HotNewsEntityManager {
 
 	public void saveHotNewsEntity(HotNewsEntity hotnew);
 
-	public boolean isUserExist(HotNewsEntity hotnew);
+	public boolean isHotNewsEntity(HotNewsEntity hotnew);
+
+	public void updateHotnew(HotNewsEntity currentHotnew);
+	
+	public void deleteHotnewById(int id);
+
+	public void deleteAllHotnews();
+
 }
