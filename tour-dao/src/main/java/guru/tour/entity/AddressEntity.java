@@ -29,9 +29,27 @@ public class AddressEntity implements Serializable {
 	@JoinColumn(name="place_id",insertable=false, updatable=false)
 	/*@JsonManagedReference*/
 	private PlaceEntity placeEntity;
-	@Column(name = "place_id")
-	private int place_id;
 	
+	public int getPlaceId() {
+		return placeId;
+	}
+
+
+	public void setPlaceId(int placeId) {
+		this.placeId = placeId;
+	}
+
+
+	public PlaceEntity getPlaceEntity() {
+		return placeEntity;
+	}
+
+
+	public void setPlaceEntity(PlaceEntity placeEntity) {
+		this.placeEntity = placeEntity;
+	}
+
+
 	public AddressEntity() {
 		super();
 	}
@@ -41,7 +59,7 @@ public class AddressEntity implements Serializable {
 		super();
 		this.id = id;
 		this.address = address;
-		this.place_id = place_id;
+		this.placeId = place_id;
 	}
 
 	public int getId() {
@@ -57,10 +75,10 @@ public class AddressEntity implements Serializable {
 		this.address = address;
 	}
 	public int getPlace_id() {
-		return place_id;
+		return placeId;
 	}
 	public void setPlace_id(int place_id) {
-		this.place_id = place_id;
+		this.placeId = place_id;
 	}
 	
 }
