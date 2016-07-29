@@ -1,9 +1,9 @@
 
 /* using css attribute selector */
-.show-grid [class^="col-"]{
+/* .show-grid [class^="col-"]{
 	background-color: #2ecc71;
 	border: 1px solid;
-}
+} */
 
 .container-fluid{
 	 
