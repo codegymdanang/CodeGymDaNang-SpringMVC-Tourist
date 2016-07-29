@@ -29,9 +29,11 @@
 			</list>
 		</property>
 	</bean>
+	
 	<mvc:resources mapping="/resource/**" location="/resource/"
 		cache-period="31556926"></mvc:resources>
 	<import resource="classpath:/spring-data.xml" />
+	
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">

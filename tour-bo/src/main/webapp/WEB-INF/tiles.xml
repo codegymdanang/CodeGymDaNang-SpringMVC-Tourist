@@ -8,9 +8,10 @@
 		<put-attribute name="header" value="/view/template/header.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="aside" value="/view/template/aside.jsp" />
-		<put-attribute name="nav" value="/view/template/navbar.jsp" />
-		<!-- <put-attribute name="nav" value="/view/template/section.jsp" /> -->
+		<put-attribute name="navbar" value="/view/template/navbar.jsp" />
+		<put-attribute name="nav" value="/view/template/section.jsp" />
 	</definition>
+	
 	
 	<definition name="homePage" extends="definition">
 		<put-attribute name="body" value="/view/user/home.jsp" />
