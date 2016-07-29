@@ -40,11 +40,11 @@ public class HomepageController {
 	@Autowired
 	HotNewsEntityManager hotnews;
 
-	@Autowired
+/*	@Autowired
 	PlaceEntity place;
 
 	@Autowired
-	EventEntity event;
+	EventEntity event;*/
 
 	private static final Logger logger = LoggerFactory
 			.getLogger(HomepageController.class);
