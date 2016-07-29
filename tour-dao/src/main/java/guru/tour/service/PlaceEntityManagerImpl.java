@@ -36,4 +36,12 @@ public class PlaceEntityManagerImpl implements PlaceEntityManager{
 		
 	}
 
+	public PlaceEntity updatePlace(PlaceEntity p) {
+		return pl.save(p);
+	}
+
+	public void deletePlace(int id) {
+		pl.delete(id);
+	}
+
 }

@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -89,4 +90,27 @@ public class PlaceRestController {
         headers.setLocation(ucBuilder.path("/place/{id}").buildAndExpand(p.getId()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
+	@RequestMapping(value="/updatePlace/{id}", method = RequestMethod.POST)
+	public ResponseEntity<PlaceEntity> updatePlace(@PathVariable("id") int id, @RequestBody PlaceEntity p){
+		PlaceEntity currentPlace = placeEntityManager.getPlaceByID(id);
+		if(currentPlace == null){
+			return new ResponseEntity<PlaceEntity>(HttpStatus.NOT_FOUND);
+		}
+		currentPlace.setName(p.getName());
+		currentPlace.setLocalID(p.getLocalID());
+		currentPlace.setImages(p.getImages());
+		currentPlace.setDescription(p.getDescription());
+		currentPlace.setAddID(p.getAddID());
+		placeEntityManager.updatePlace(currentPlace);
+		return new ResponseEntity<PlaceEntity>(currentPlace, HttpStatus.OK);
+	}
+	@RequestMapping(value="/place/{id}", method = RequestMethod.POST)
+	public ResponseEntity<PlaceEntity> deletePlace(@PathVariable("id") int id, @RequestBody PlaceEntity p){
+		PlaceEntity currentPlace = placeEntityManager.getPlaceByID(id);
+		if(currentPlace == null){
+			return new ResponseEntity<PlaceEntity>(HttpStatus.NOT_FOUND);
+		}
+		placeEntityManager.deletePlace(id);
+		return new ResponseEntity<PlaceEntity>(HttpStatus.OK);
+	}
 }

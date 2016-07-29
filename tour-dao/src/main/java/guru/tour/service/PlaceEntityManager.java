@@ -12,4 +12,9 @@ public interface PlaceEntityManager {
 	public boolean isPlaceExist(PlaceEntity p);
 	
 	public PlaceEntity addPlace(PlaceEntity p);
+	
+	public PlaceEntity updatePlace(PlaceEntity p);
+	
+	public void deletePlace(int id);
+	
 }
