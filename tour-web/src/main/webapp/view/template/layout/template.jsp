@@ -37,7 +37,7 @@
 	
 	<link href="resource/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 
-	<link rel="stylesheet" href="resource/css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="resource/css/stylehome.css" type="text/css" media="all" />
 
 	<link rel="stylesheet" href="resource/css/ken-burns.css">
 
