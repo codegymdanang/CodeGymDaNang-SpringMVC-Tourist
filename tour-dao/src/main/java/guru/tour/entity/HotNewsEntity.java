@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "hotnews")
 public class HotNewsEntity {
@@ -18,12 +19,18 @@ public class HotNewsEntity {
 		this.name = name;
 	}
 
-	public HotNewsEntity(int i, String string, String string2, String string3) {
-	this.hotnewsId = i;
-	this.description = string;this.name = string2;
-	this.image = string3;
-	 
-	
+	public HotNewsEntity(String name, String description, String image) {
+		this.name = name;
+		this.description = description;
+		this.image = image;
+	}
+
+	public HotNewsEntity(int id, String name, String description, String image) {
+		this.hotnewsId = id;
+		this.description = description;
+		this.name = name;
+		this.image = image;
+
 	}
 
 	@Id
