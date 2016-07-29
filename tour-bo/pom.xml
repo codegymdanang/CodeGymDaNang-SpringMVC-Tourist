@@ -15,6 +15,8 @@
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<jackson.databind-version>2.2.3</jackson.databind-version>
 	</properties>
+	
+	
 	<groupId>guru</groupId>
 	<artifactId>tour-bo</artifactId>
 	<packaging>war</packaging>

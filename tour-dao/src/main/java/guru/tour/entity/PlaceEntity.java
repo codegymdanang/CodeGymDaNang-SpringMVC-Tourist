@@ -64,7 +64,7 @@ public class PlaceEntity implements Serializable {
 		super();
 	}
 	
-	public PlaceEntity(int id, String name, String images, String description, int localID, int addID) {
+	public PlaceEntity(int id, String name, String images, String description, int localID) {
 		super();
 		this.id = id;
 		this.name = name;

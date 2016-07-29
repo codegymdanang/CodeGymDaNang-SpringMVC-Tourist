@@ -100,7 +100,6 @@ public class PlaceRestController {
 		currentPlace.setLocalID(p.getLocalID());
 		currentPlace.setImages(p.getImages());
 		currentPlace.setDescription(p.getDescription());
-		currentPlace.setAddID(p.getAddID());
 		placeEntityManager.updatePlace(currentPlace);
 		return new ResponseEntity<PlaceEntity>(currentPlace, HttpStatus.OK);
 	}

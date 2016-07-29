@@ -1,3 +1,4 @@
+
 /* using css attribute selector */
 .show-grid [class^="col-"]{
 	background-color: #2ecc71;

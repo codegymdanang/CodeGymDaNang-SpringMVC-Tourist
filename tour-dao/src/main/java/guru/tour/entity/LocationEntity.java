@@ -30,7 +30,8 @@ public class LocationEntity implements Serializable {
 	@Column(name = "location_name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "locationEntity")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "locationEntity")
+	@JsonIgnore
 	private List<FoodEntity> food = new ArrayList<FoodEntity>();
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "locationEntity",cascade=CascadeType.ALL)
