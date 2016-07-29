@@ -1,12 +1,20 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name ="place")
@@ -24,10 +32,33 @@ public class PlaceEntity implements Serializable {
 	
 	@Column(name = "description")
 	private String description;
+	
 	@Column(name = "local_id")
 	private int localID;
-	@Column(name = "add_id")
-	private int addID;
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="local_id",insertable=false, updatable=false)
+	/*@JsonManagedReference*/
+	private LocationEntity local;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "placeEntity",cascade=CascadeType.ALL)
+	@JsonIgnore
+	private List<AddressEntity> listAddr;
+	public List<AddressEntity> getListAddr() {
+		return listAddr;
+	}
+
+	public void setListAddr(List<AddressEntity> listAddr) {
+		this.listAddr = listAddr;
+	}
+
+	public LocationEntity getLocal() {
+		return local;
+	}
+
+	public void setLocal(LocationEntity local) {
+		this.local = local;
+	}
 	
 	public PlaceEntity() {
 		super();
@@ -40,7 +71,6 @@ public class PlaceEntity implements Serializable {
 		this.images = images;
 		this.description = description;
 		this.localID = localID;
-		this.addID = addID;
 	}
 
 
@@ -84,14 +114,5 @@ public class PlaceEntity implements Serializable {
 	public void setLocalID(int localID) {
 		this.localID = localID;
 	}
-
-	public int getAddID() {
-		return addID;
-	}
-
-	public void setAddID(int addID) {
-		this.addID = addID;
-	}
-	
 	
 }
