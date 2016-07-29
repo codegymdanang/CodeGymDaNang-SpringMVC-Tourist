@@ -1,0 +1,140 @@
+
+#cover{
+    border: 0.5px;
+    border-style: solid;
+    border-color: #888888;
+    color: #ffffff;
+    width: 100%;
+    height: 300px;
+    background-image: url("../images/cover.jpg") ;
+    background-size: 100% 100%;
+}
+#avatar{
+	border-radius:50%;
+    box-shadow:3px 3px 3px black;
+    margin-top: 90px;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: #ffffff;
+}
+#name{
+    margin-top: 130px;
+    width: 200px;
+    height: 110px;
+}
+#rating{
+    color: #000000;
+}
+#about{
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*background-color: #dff0d8;*/
+    width: 700px;
+    height: 250px;
+}
+.food{
+	
+    margin-top: 10px;
+    margin-left:50px;
+}
+.item{
+    float: right;
+    width: 230px;
+    height: 150px;
+}
+.foodname{
+    text-align: left;
+}
+/* jssor slider bullet navigator skin 03 css */
+
+.jssorb03.div{(normal)}
+.jssorb03.div:hover{(normal mouseover)}
+.jssorb03 .av{(active)}
+.jssorb03 .av:hover     (active mouseover)
+.jssorb03 .dn{(mousedown)}
+
+.jssorb03 {
+    position: absolute;
+}
+.jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+    position: absolute;
+    /* size of bullet elment */
+    width: 21px;
+    height: 21px;
+    text-align: center;
+    line-height: 21px;
+    color: white;
+    font-size: 12px;
+    background: url("../images/b03.png") no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+}
+.jssorb03 div { background-position: -5px -4px; }
+.jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+.jssorb03 .av { background-position: -65px -4px; }
+.jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
+
+/* jssor slider arrow navigator skin 03 css */
+/*
+.jssora03l                  (normal)
+.jssora03r                  (normal)
+.jssora03l:hover            (normal mouseover)
+.jssora03r:hover            (normal mouseover)
+.jssora03l.jssora03ldn      (mousedown)
+.jssora03r.jssora03rdn      (mousedown)
+*/
+.jssora03l, .jssora03r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    background: url('') no-repeat;
+    overflow: hidden;
+}
+.jssora03l { background-position: -3px -33px; }
+.jssora03r { background-position: -63px -33px; }
+.jssora03l:hover { background-position: -123px -33px; }
+.jssora03r:hover { background-position: -183px -33px; }
+.jssora03l.jssora03ldn { background-position: -243px -33px; }
+.jssora03r.jssora03rdn { background-position: -303px -33px; }
+
+.jssor1
+{
+    border-radius: 5px;
+    position: relative;
+    margin-left: 0px;
+    margin-top: 5px;
+    width: 809px;
+    height: 150px;
+    overflow: hidden;
+    visibility: hidden;
+}
+#comment{
+    margin-left: -10px;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*background-color: #dff0d8;*/
+    width: 810px;
+    height: 300px;
+}
+.user{
+    width: 100px;
+    height: 110px;
+    text-align: center;
+}
+.usercomment{
+    padding-top: 5px;
+    padding-left: 10px;
+    background-color: #afd9ee;
+    border-radius: 10px;
+    height: 80px;
+    width: 600px;
+}
+.foo{
+    width: 200px;
+}

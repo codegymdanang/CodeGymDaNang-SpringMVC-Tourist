@@ -17,7 +17,7 @@
 }
 </style>
 <link rel="stylesheet" href="resource/css/bootstrap.min.css">
-<link rel="stylesheet" href="resource/css/style.css">
+<link rel="stylesheet" href="resource/css/stylePlace.css">
 <script type="text/javascript" src="resource/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="resource/js/jssor.slider.mini.js"></script>
 <script>
