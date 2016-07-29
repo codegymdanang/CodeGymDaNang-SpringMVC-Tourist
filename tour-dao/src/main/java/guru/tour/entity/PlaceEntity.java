@@ -26,21 +26,19 @@ public class PlaceEntity implements Serializable {
 	private String description;
 	@Column(name = "local_id")
 	private int localID;
-	@Column(name = "add_id")
-	private int addID;
+	
 	
 	public PlaceEntity() {
 		super();
 	}
 	
-	public PlaceEntity(int id, String name, String images, String description, int localID, int addID) {
+	public PlaceEntity(int id, String name, String images, String description, int localID) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.images = images;
 		this.description = description;
 		this.localID = localID;
-		this.addID = addID;
 	}
 
 
@@ -84,14 +82,5 @@ public class PlaceEntity implements Serializable {
 	public void setLocalID(int localID) {
 		this.localID = localID;
 	}
-
-	public int getAddID() {
-		return addID;
-	}
-
-	public void setAddID(int addID) {
-		this.addID = addID;
-	}
-	
 	
 }

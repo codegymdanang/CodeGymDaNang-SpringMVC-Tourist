@@ -69,7 +69,7 @@ public class PlaceController {
 		System.out.println(placeEntity.getName());
 		ModelAndView model = new ModelAndView("place");
 		model.addObject("Place", placeEntity);
-		List<FoodEntity> foodList = foodEntityManager.findAll();
+		List<FoodEntity> foodList = foodEntityManager.getAllFoods();
 		model.addObject("list", foodList);
 		return model;
 	}
