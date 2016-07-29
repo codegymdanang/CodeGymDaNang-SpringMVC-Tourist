@@ -114,15 +114,5 @@ public class HomepageRestController {
 		return new ResponseEntity<HotNewsEntity>(HttpStatus.NO_CONTENT);
 	}
 
-	// ------------------- Delete All Users
-	// --------------------------------------------------------
-
-	@RequestMapping(value = "/homedata/deleteAllHotnew", method = RequestMethod.DELETE)
-	public ResponseEntity<HotNewsEntity> deleteAllHotnews() {
-		System.out.println("Deleting All Hotnews");
-
-		hotNewsEntityManager.deleteAllHotnews();
-		return new ResponseEntity<HotNewsEntity>(HttpStatus.NO_CONTENT);
-	}
 
 }

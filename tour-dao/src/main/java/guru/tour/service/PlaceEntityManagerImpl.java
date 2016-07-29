@@ -22,4 +22,18 @@ public class PlaceEntityManagerImpl implements PlaceEntityManager{
 		return pl.findById(i);
 	}
 
+	public boolean isPlaceExist(PlaceEntity p) {
+		List<PlaceEntity> list = getAll();
+		if(list.contains(p)){
+			return true;
+		}
+		else 
+			return false;
+	}
+
+	public PlaceEntity addPlace(PlaceEntity p) {
+		return pl.save(p);
+		
+	}
+
 }
