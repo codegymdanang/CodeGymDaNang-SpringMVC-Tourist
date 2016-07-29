@@ -8,4 +8,5 @@ public interface UserEntityManager {
 	List<UserEntity> getUserByPhone(String phone);
 	UserEntity saveUser(UserEntity user);
 	List<UserEntity> getAll();
+	boolean isUserExist(UserEntity userEntity);
 }
