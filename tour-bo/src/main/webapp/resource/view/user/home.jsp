@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <section>
 							<div class="row">
 								<div class="col-md-12 well">
@@ -32,6 +31,3 @@
 								</div>
 							</div>
 						</section>
-=======
-hahaha
->>>>>>> branch 'master' of https://github.com/levunguyen/touristinvietnam
