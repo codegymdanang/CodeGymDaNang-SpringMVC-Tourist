@@ -38,6 +38,10 @@ public class LocationEntity implements Serializable {
 	@JsonIgnore
 	private List<PlaceEntity> listPlace;
 	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "addressEntity")
+	@JsonIgnore
+	private List<EventEntity> location_event = new ArrayList<EventEntity>();
+	
 	public List<PlaceEntity> getListPlace() {
 		return listPlace;
 	}
@@ -62,4 +66,11 @@ public class LocationEntity implements Serializable {
 	public void setFood(List<FoodEntity> food) {
 		this.food = food;
 	}
+	public List<EventEntity> getLocation_event() {
+		return location_event;
+	}
+	public void setLocation_event(List<EventEntity> location_event) {
+		this.location_event = location_event;
+	}
+	
 }
