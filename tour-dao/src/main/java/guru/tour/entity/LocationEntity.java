@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "location")
 public class LocationEntity implements Serializable {
@@ -28,8 +30,20 @@ public class LocationEntity implements Serializable {
 	@Column(name = "location_name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "locationEntity")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "locationEntity")
+	@JsonIgnore
 	private List<FoodEntity> food = new ArrayList<FoodEntity>();
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "locationEntity",cascade=CascadeType.ALL)
+	@JsonIgnore
+	private List<PlaceEntity> listPlace;
+	
+	public List<PlaceEntity> getListPlace() {
+		return listPlace;
+	}
+	public void setListPlace(List<PlaceEntity> listPlace) {
+		this.listPlace = listPlace;
+	}
 	public int getId() {
 		return id;
 	}

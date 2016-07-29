@@ -1,3 +1,4 @@
+
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
 </head>
 <body>
 	<div id="wrapper">
-		<tiles:insertAttribute name="nav" />
+		<tiles:insertAttribute name="navbar" />
 		<div id="page-wrapper">
 			<div class="container-fluid">
 				<div class="row show-grid">
