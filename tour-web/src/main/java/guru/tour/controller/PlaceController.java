@@ -27,6 +27,7 @@ import guru.tour.service.FoodEntityManager;
 public class PlaceController {
 	@Autowired
 	PlaceEntityManager placeEntityManager;
+	
 	@Autowired
 	FoodEntityManager foodEntityManager;
 	
