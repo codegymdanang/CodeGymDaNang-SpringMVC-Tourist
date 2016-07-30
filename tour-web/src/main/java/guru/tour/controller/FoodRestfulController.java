@@ -84,4 +84,19 @@ public class FoodRestfulController {
 		foodEntityManager.updateFood(currentFood);
 		return new ResponseEntity<FoodEntity>(currentFood, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/fooddata/deleteFood/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<FoodEntity> deleteFood(@PathVariable("id") int id) {
+		System.out.println("Fetching & Deleting Food with id " + id);
+
+		FoodEntity user = foodEntityManager.findById(id);
+		if (user == null) {
+			System.out.println("Unable to delete. Food with id " + id
+					+ " not found");
+			return new ResponseEntity<FoodEntity>(HttpStatus.NOT_FOUND);
+		}
+
+		foodEntityManager.deleteFoodById(id);
+		return new ResponseEntity<FoodEntity>(HttpStatus.NO_CONTENT);
+	}
 }
