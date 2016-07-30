@@ -10,6 +10,6 @@
   	<module>tour-web</module>
   	<module>tour-service</module>
 
-  	<module>tour-bo</module>
+  	<module>tour-bo-web</module>
   </modules>
 </project>
