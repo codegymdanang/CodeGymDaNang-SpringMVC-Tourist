@@ -36,10 +36,10 @@ public class PlaceEntity implements Serializable {
 	@Column(name = "local_id")
 	private int localID;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+/*	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="local_id",insertable=false, updatable=false)
-	/*@JsonManagedReference*/
-	private LocationEntity local;
+	@JsonManagedReference
+	private LocationEntity local;*/
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "placeEntity",cascade=CascadeType.ALL)
 	@JsonIgnore
@@ -52,14 +52,14 @@ public class PlaceEntity implements Serializable {
 		this.listAddr = listAddr;
 	}
 
-	public LocationEntity getLocal() {
+	/*public LocationEntity getLocal() {
 		return local;
-	}
+	}*/
 
-	public void setLocal(LocationEntity local) {
+	/*public void setLocal(LocationEntity local) {
 		this.local = local;
 	}
-	
+	*/
 	public PlaceEntity() {
 		super();
 	}

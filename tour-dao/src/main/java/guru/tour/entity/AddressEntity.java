@@ -67,19 +67,19 @@ public class AddressEntity implements Serializable {
 		this.placeId = place_id;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "addressEntity")
+/*	@OneToMany(fetch = FetchType.EAGER, mappedBy = "addressEntity")
 	@JsonIgnore
 	private List<EventEntity> address_event = new ArrayList<EventEntity>();
 	
 	public List<EventEntity> getAddress_event() {
 		return address_event;
-	}
+	}*/
 
 
-	public void setAddress_event(List<EventEntity> address_event) {
+	/*public void setAddress_event(List<EventEntity> address_event) {
 		this.address_event = address_event;
 	}
-	
+	*/
 	public int getId() {
 		return id;
 	}
