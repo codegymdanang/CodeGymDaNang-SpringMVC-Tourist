@@ -34,8 +34,7 @@ public class FoodEntity implements Serializable {
 	@JoinColumn(name = "local_id", insertable=false, updatable=false)
 	private LocationEntity locationEntity;
 	
-	public FoodEntity(int id, String name, double price, String images, String phone, String description, int local_id,
-			LocationEntity locationEntity) {
+	public FoodEntity(int id, String name, double price, String images, String phone, String description) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,8 +42,6 @@ public class FoodEntity implements Serializable {
 		this.images = images;
 		this.phone = phone;
 		this.description = description;
-		this.local_id = local_id;
-		this.locationEntity = locationEntity;
 	}
 	public int getId() {
 		return id;

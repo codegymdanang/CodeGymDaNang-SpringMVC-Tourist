@@ -43,7 +43,7 @@ public class FoodRestfulController {
 		return new ResponseEntity<FoodEntity>(hotnew, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/createFood", method = RequestMethod.POST)
+	@RequestMapping(value = "/fooddata/createFood", method = RequestMethod.POST)
 	public ResponseEntity<Void> createFood(@RequestBody FoodEntity food,
 			UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating Food " + food.getName());
