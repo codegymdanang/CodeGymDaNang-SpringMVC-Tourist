@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +24,29 @@ public class EventEntity implements Serializable {
 	@Column(name = "name")
 	private String name;
 
+	@Column(name = "description")
+	private String description;
+
+	@Column(name = "startday")
+	private Date startday;
+
+	@Column(name = "endday")
+	private Date endday;
+	
+	@Column(name = "local_id")
+	private int local_id;
+	
+	@Column(name = "add_id")
+	private int address_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "local_id", insertable=false, updatable=false)
+	private int event_location;
+	
+	@ManyToOne
+	@JoinColumn(name = "add_id", insertable=false, updatable=false)
+	private int event_address;
+	
 	@Override
 	public String toString() {
 		return "EventEntity [id=" + id + ", name=" + name + ", description=" + description + ", startday=" + startday
@@ -76,16 +101,13 @@ public class EventEntity implements Serializable {
 		this.local_id = local_id;
 	}
 
-	@Column(name = "description")
-	private String description;
+	public int getAddress_id() {
+		return address_id;
+	}
 
-	@Column(name = "startday")
-	private Date startday;
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
 
-	@Column(name = "endday")
-	private Date endday;
-
-	@Column(name = "local_id")
-	private int local_id;
-
+	
 }
