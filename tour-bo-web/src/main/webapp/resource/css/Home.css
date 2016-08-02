@@ -1,0 +1,52 @@
+
+/* using css attribute selector */
+/* .show-grid [class^="col-"]{
+	background-color: #2ecc71;
+	border: 1px solid;
+} */
+
+.container-fluid{
+	 
+}
+#wrapper {
+    width: 100%;
+    /* background-color: red; */
+
+}
+.col-md-2{
+	margin-left: 0px;
+	padding-left:0px;
+	padding-right:0px;
+}
+aside{
+	
+}
+#page-wrapper{
+	width: 100%;
+	/* padding-left: 0px; */
+}
+
+body{
+	min-height: 1000px;
+	/* overflow-x : hidden; */
+	
+}
+
+#wrapper nav{
+	margin-bottom: 0px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.glyphicon{
+	/* font-size:64px; */
+	color: #ecf0f1;
+}
+.glyphicon-fire{
+	color:#e74c3c;
+}
+.glyphicon-leaf{
+	color:#27ae59;
+}
+.navbar{
+	color: #ecf0f1;
+}

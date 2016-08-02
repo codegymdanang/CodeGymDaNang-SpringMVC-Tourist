@@ -1,0 +1,43 @@
+
+/* using css attribute selector */
+.show-grid [class^="col-"]{
+	background-color: #2ecc71;
+	border: 1px solid;
+}
+
+#wrapper{
+	 width: 800px;
+	 margin: auto;
+	 background-color: red;
+	 
+}
+header{
+	width: 600px;
+	height: 40px;
+	background-color: yellow;
+	float:left;
+}
+aside{
+	width: 200px;
+	height: 700px;
+	background-color: blue;
+	float:left;
+}
+#content{
+	width: 600px;
+	height: 600px;
+	background-color: pink;
+	float:left;
+}
+nav{
+	width: 600px;
+	height: 50px;
+	background-color: grey;
+	float:left;
+}
+article{
+	width: 600px;
+	height: 500px;
+	background-color: pink;
+	float:left;
+}
