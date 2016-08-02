@@ -1,23 +1,16 @@
-
-<section>
+<section ng-controller="controller1">
 	<div class="row">
 		<div class="col-md-12 well">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Firstname</th>
-						<th>Lastname</th>
-						<th>Email</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="person in people">
-						<td>{{person.id}}</td>
-						<td>{{person.firstName}}</td>
-						<td>{{person.lastName}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<div>
+     		<h1>xin chao {{data.user}}</h1>
+     	</div>
+     
+     	<script>
+     		angular.module("appLong",[]).controller("controller1",function($scope){
+     			$scope.data = {
+                 user : 'con cho quoc'
+             	};
+     		});
+     	</script>
 	</div>
 </section>

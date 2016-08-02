@@ -7,11 +7,12 @@
 <title>Bootstrap 101 Template</title>
 <link href="resource/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="resource/css/Home.css">
-<link rel="stylesheet" href="resource/js/angular.min.js">
+
+<script src="resource/js/angular.min.js"></script>
+
 </head>
-<body>
-	<div id="wrapper" ng-app="myApp">
-	<div ng-controller="PeopleCtrl">
+<body ng-app="appLong">
+	<div id="wrapper" >
 		<tiles:insertAttribute name="navbar" />
 		<div id="page-wrapper">
 			<div class="container-fluid">
@@ -25,10 +26,10 @@
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="resource/js/bootstrap.min.js"></script>
 </body>
+</html>
 
