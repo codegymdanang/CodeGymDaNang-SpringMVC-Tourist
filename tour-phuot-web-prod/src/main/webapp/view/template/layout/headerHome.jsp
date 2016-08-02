@@ -36,6 +36,13 @@
 								<li><a class="active" href="home">Home</a></li>
 								<li><a href="about">About</a></li>
 								<li><a href="services">Services</a></li>
+								<!-- try -->
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+									  <li><a href="#">Regular link</a></li>
+									  <li class="disabled"><a href="#">Disabled link</a></li>
+									  <li><a href="#">Another link</a></li>
+								</div>
+								<!-- try -->
 								<li><a href="codes">New & Event</a></li>	
 								<li><a href="gallery">Gallery</a></li>
 								<li><a href="contact">Contact</a></li>
