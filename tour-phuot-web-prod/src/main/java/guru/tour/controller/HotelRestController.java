@@ -53,7 +53,7 @@ public class HotelRestController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(value = "/hoteldata/all", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/hoteldata/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<HotelEntity>> getallhotel() {
 		List<HotelEntity> hotel = hotelmanager.getAllHotel();
 		if (hotel == null) {

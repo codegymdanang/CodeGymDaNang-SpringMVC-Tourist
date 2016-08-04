@@ -36,8 +36,8 @@ public class ServiceHotelController {
 	LocationEntityManager location;
 	@RequestMapping(value="/hotel",method = RequestMethod.GET)
 	public String searchHotel(ModelMap mm){
-		List<HotelEntity> list = hotel.getAllHotel();
-		mm.addAttribute("list", list);
+//		List<HotelEntity> list = hotel.getAllHotel();
+//		mm.addAttribute("list", list);
 		return "hotel";
 	}
 	

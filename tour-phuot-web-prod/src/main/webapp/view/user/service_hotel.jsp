@@ -10,6 +10,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="resource/css/service_hotel.css"
 	type="text/css">
+	
+	 <script type = "text/javascript" 
+         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+     <script type = "text/javascript" language = "javascript">
+     var ctx = "<%=request.getContextPath()%>"
+      $(document).ready(function() {
+            $.getJSON(ctx+'/hoteldata/all', function(data) {
+            	$.each(data, function( index, value ) {
+                  var row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
+                    $("#myData").append(row);
+                 });
+            	});  
+        	
+       });
+      </script>
+	
 </head>
 <body>
 	<div class="mycontainer">
@@ -98,7 +115,9 @@
 
 					</div>
 				</div>
-				<c:forEach items="${list}" var="hotel">
+				<span id="myData">
+				<%-- <c:forEach items="${list}" var="hotel">
+				<form>
 					<div class="box">
 						<div class="boxinner">
 							<div class="col-md-3">
@@ -119,7 +138,9 @@
 							</div>
 						</div>
 					</div>
-				</c:forEach>
+					</form>
+				</c:forEach> --%>
+				</span>
 			</div>
 
 		</div>
