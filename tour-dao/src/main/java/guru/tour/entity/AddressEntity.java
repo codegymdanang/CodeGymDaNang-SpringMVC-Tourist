@@ -15,12 +15,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "address")
 public class AddressEntity implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
@@ -28,38 +31,38 @@ public class AddressEntity implements Serializable {
 	private int id;
 	@Column(name = "address")
 	private String address;
-	@Column(name="place_id")
+	@Column(name = "place_id")
 	private int placeId;
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="place_id",insertable=false, updatable=false)
-	/*@JsonManagedReference*/
+	@JoinColumn(name = "place_id", insertable = false, updatable = false)
+	/* @JsonManagedReference */
 	private PlaceEntity placeEntity;
-	
+
+	@OneToMany(mappedBy = "event_add")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonIgnore
+	private List<EventEntity> address_event = new ArrayList<EventEntity>();
+
 	public int getPlaceId() {
 		return placeId;
 	}
-
 
 	public void setPlaceId(int placeId) {
 		this.placeId = placeId;
 	}
 
-
 	public PlaceEntity getPlaceEntity() {
 		return placeEntity;
 	}
-
 
 	public void setPlaceEntity(PlaceEntity placeEntity) {
 		this.placeEntity = placeEntity;
 	}
 
-
 	public AddressEntity() {
 		super();
 	}
-	
-	
+
 	public AddressEntity(int id, String address, int place_id) {
 		super();
 		this.id = id;
@@ -67,36 +70,37 @@ public class AddressEntity implements Serializable {
 		this.placeId = place_id;
 	}
 
-/*	@OneToMany(fetch = FetchType.EAGER, mappedBy = "addressEntity")
-	@JsonIgnore
-	private List<EventEntity> address_event = new ArrayList<EventEntity>();
-	
 	public List<EventEntity> getAddress_event() {
 		return address_event;
-	}*/
+	}
 
-
-	/*public void setAddress_event(List<EventEntity> address_event) {
+	public void setAddress_event(List<EventEntity> address_event) {
 		this.address_event = address_event;
 	}
-	*/
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	public int getPlace_id() {
 		return placeId;
 	}
+
 	public void setPlace_id(int place_id) {
 		this.placeId = place_id;
 	}
 	
+
 }
