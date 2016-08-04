@@ -17,7 +17,6 @@ import guru.tour.entity.FoodEntity;
 import guru.tour.service.FoodEntityManager;
 
 @Controller
-@RequestMapping(value = "/")
 public class FoodController {
 	@Autowired
 	FoodEntityManager foodEntityManager;

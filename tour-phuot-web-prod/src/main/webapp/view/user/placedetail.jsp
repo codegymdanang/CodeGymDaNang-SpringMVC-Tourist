@@ -60,6 +60,21 @@
 		//responsive code end
 	});
 </script>
+		
+<script type = "text/javascript" language = "javascript">
+     var ctx = "<%=request.getContextPath()%>"
+      $(document).ready(function() {
+            $.getJSON(ctx+'/fooddata', function(data) {
+            	$.each(data, function( index, value ) {
+                  var row = $("<div class='row'><div class='item'><img src='resource/images/my.jpg' width='100%' height='100%''></div></div><div class='foodname'><a>" + value.name + 
+                		  "</a> </br> <img src='resource/images/heart-review.png'width='30%'></div>"); 
+                    $("#foodData").append(row);
+                 });
+            	});  
+        	
+       });
+</script>
+
 </head>
 <body>
 	<section>
@@ -110,20 +125,6 @@
 							accommodation choices such as the Phuoc An Hotel.</p>
 						<p>${Place.description}</p>
 					</div>
-					<table id=foodList border="1">
-					<tr>
-						<td>ID</td>
-						<td>NAME</td>
-						<td>LOCATION NAME</td>
-					</tr>
-					<c:forEach items="${list}" var="food">
-						<tr>
-							<td>${food.id}</td>
-							<td>${food.name}</td>
-							<td>${food.locationEntity.name}</td>
-						</tr>
-					</c:forEach>
-					</table>
 				</div>
 				<h3>Images</h3>
 				<div class="row">
@@ -249,29 +250,8 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-
-				<div class="food">
-					<h3>Food</h3>
-					<div class="row">
-						<div class="item">
-							<img src="resource/images/my.jpg" width="100%" height="100%">
-						</div>
-					</div>
-					<div class="foodname">
-						<a>My Quang</a> </br> <img src="resource/images/heart-review.png"
-							width="30%">
-					</div>
-				</div>
-				<div class="food">
-					<div class="row">
-						<div class="item">
-							<img src="resource/images/cau.jpg" width="100%" height="100%">
-						</div>
-					</div>
-					<div class="foodname">
-						<a>Cao lau</a> </br> <img src="resource/images/heart-review.png"
-							width="30%">
-					</div>
+				<div class='food'><h3>Food</h3>
+					<span id = "foodData"></span>
 					<div class="foodname">
 						<br> <a>More >></a>
 					</div>
