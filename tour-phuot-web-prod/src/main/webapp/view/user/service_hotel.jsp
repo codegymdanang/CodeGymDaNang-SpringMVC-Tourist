@@ -11,19 +11,51 @@
 <link rel="stylesheet" href="resource/css/service_hotel.css"
 	type="text/css">
 	
-	 <script type = "text/javascript" 
-         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		
      <script type = "text/javascript" language = "javascript">
      var ctx = "<%=request.getContextPath()%>"
       $(document).ready(function() {
-            $.getJSON(ctx+'/hoteldata/all', function(data) {
-            	$.each(data, function( index, value ) {
-                  var row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
-                    $("#myData").append(row);
-                 });
-            	});  
-        	
+          var list;
+          var list2;
+          var row;
+          $.getJSON(ctx+'/hoteldata/all', function(data) {
+          	$.each(data, function( index, value ) {
+              		list=data;
+                var row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
+                  $("#myData").append(row);
+               });
+            
+          	}); 
+
+    	  $('input[type=radio][name=g-radio]').change(function() {
+        	  list2=list;
+    		$("#myData").html(""); 
+    		if (this.value == 'A') {//100000
+	        	for (i = 0; i < list2.length; i++) { 
+	        	    if(list2[i].price <=100000)
+    	        	    delete list2[i];
+	        	}
+	        }
+	        else if (this.value == 'B') {//100000-200000
+    	        	for (i = 0; i < list2.length; i++) { 
+    	        	    if(list2[i].price <=100000)
+        	        	    delete list2[i];
+    	        	}
+    	        }
+	         else if (this.value == 'C') {
+    	        	for (i = 0; i < list2.length; i++) { 
+    	        	    if(list2[i].price <200000)
+        	        	    delete list2[i];
+    	        	}
+    	        } 
+    		jQuery.ajaxSetup({async:true});
+	        $.each(list2, function( index, value ) {
+                var row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
+                  $("#myData").append(row);
+               });
+	        
+    	    });
+    	  
        });
       </script>
 	
@@ -44,13 +76,13 @@
 							<li class="list-group-item">
 								<h4>Choose Price</h4>
 								<div class="radio">
-									<label><input type="radio" name="optradio">>100000</label>
+									<label><input type="radio" value="A" name="g-radio">>100000</label>
 								</div>
 								<div class="radio">
-									<label><input type="radio" name="optradio">100000-200000</label>
+									<label><input type="radio" value="B" name="g-radio">100000-200000</label>
 								</div>
 								<div class="radio ">
-									<label><input type="radio" name="optradio">200000-300000
+									<label><input type="radio" value="C" name="g-radio">200000-300000
 									</label>
 								</div>
 							</li>
