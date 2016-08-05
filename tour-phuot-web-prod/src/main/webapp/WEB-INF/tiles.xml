@@ -90,6 +90,9 @@
 	<definition name= "food" extends="definition">
 		<put-attribute name="body" value="/view/user/food.jsp"></put-attribute>
 	</definition>
+	<definition name= "jspdemo" extends="definition">
+		<put-attribute name="body" value="/view/user/jspdemo.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  

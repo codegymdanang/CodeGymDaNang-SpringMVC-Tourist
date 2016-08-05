@@ -27,33 +27,7 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 public class ServiceFriendsController {
 	@Autowired
 	UserEntityManager user;
-	@RequestMapping(value = "/servicefriend", method = RequestMethod.GET)
-	public ModelAndView serviceFriends() {		
-		ModelAndView model = new ModelAndView("servicefriend");
-		return model;
-		// return "listEmployeeView";
-	}
-	@RequestMapping(value = "/findfriends")
-	public ModelAndView findFriends(HttpServletRequest request) {
-		String search=request.getParameter("search");
-		System.out.println("Search: "+search);
-		List<UserEntity> users=null;
-		if(search.equalsIgnoreCase("Name")){
-			 users= user.getUserByName(request.getParameter("name"));
-		}else{
-			 users= user.getUserByPhone(request.getParameter("name"));
-		}
-		
-		for (UserEntity user : users) {
-			System.out.println("First Name " + user.getUsername() + " Phone: " + user.getPhone());
-		}
-		// model.addObject("allEmployees",employees);
-		ModelAndView model = new ModelAndView("findfriend");
-		model.addObject("lists", users);
-
-		return model;
-		// return "listEmployeeView";
-	}
+	
 	@RequestMapping(value = "/findPhone/{phone}", method = RequestMethod.GET)
 	public ResponseEntity<List<UserEntity>> findPhone(@PathVariable("phone") String phone) {
 		List<UserEntity> users=null;
@@ -93,5 +67,5 @@ public class ServiceFriendsController {
         headers.setLocation(ucBuilder.path("/findPhone/{phone}").buildAndExpand(userEntity.getUsername()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
- 
+	
 }
