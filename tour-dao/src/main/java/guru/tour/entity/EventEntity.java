@@ -39,13 +39,13 @@ public class EventEntity implements Serializable {
 	@Column(name = "add_id")
 	private int address_id;
 	
-	/*@ManyToOne
+	@ManyToOne
 	@JoinColumn(name = "local_id", insertable=false, updatable=false)
-	private int event_location;
+	private LocationEntity event_location;
 	
 	@ManyToOne
 	@JoinColumn(name = "add_id", insertable=false, updatable=false)
-	private int event_address;*/
+	private AddressEntity event_add;
 	
 	@Override
 	public String toString() {
