@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.EventEntity;
@@ -73,4 +74,12 @@ public class EventRestFullController {
 		;
 		return new ResponseEntity<EventEntity>(HttpStatus.NO_CONTENT);
 	}
+	
+	//demo ajax in restfull
+	@RequestMapping(value="/eventajax",method = RequestMethod.GET)
+	public ModelAndView jspDemo() {		
+		ModelAndView model = new ModelAndView("eventajax");
+		return model;
+	}
+	
 }

@@ -93,6 +93,9 @@
 	<definition name= "jspdemo" extends="definition">
 		<put-attribute name="body" value="/view/user/jspdemo.jsp"></put-attribute>
 	</definition>
+	<definition name= "eventajax" extends="definition">
+		<put-attribute name="body" value="/view/user/eventajax.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  
