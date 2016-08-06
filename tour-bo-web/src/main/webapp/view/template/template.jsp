@@ -11,8 +11,8 @@
 <script src="resource/js/angular.min.js"></script>
 
 </head>
-<body ng-app="appLong">
-	<div id="wrapper" >
+<body ng-app="myapp">
+	<div id="wrapper"">
 		<tiles:insertAttribute name="navbar" />
 		<div id="page-wrapper">
 			<div class="container-fluid">
