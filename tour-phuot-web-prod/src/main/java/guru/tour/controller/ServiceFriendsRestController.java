@@ -24,7 +24,7 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 @RestController
 @RequestMapping(value = "/")
-public class ServiceFriendsController {
+public class ServiceFriendsRestController {
 	@Autowired
 	UserEntityManager user;
 	

@@ -21,7 +21,7 @@ import guru.tour.service.UserEntityManager;
 
 @RestController
 @RequestMapping(value = "/")
-public class ServiceFriendRestController {
+public class ServiceFriendController {
 	@Autowired
 	UserEntityManager user;
 	@RequestMapping(value = "/servicefriend", method = RequestMethod.GET)
@@ -55,6 +55,13 @@ public class ServiceFriendRestController {
 	@RequestMapping(value="/jspdemo",method = RequestMethod.GET)
 	public ModelAndView jspDemo() {		
 		ModelAndView model = new ModelAndView("jspdemo");
+		return model;
+		// return "listEmployeeView";
+	}
+	
+	@RequestMapping(value="/ajaxdemo",method = RequestMethod.POST)
+	public ModelAndView ajaxdemo() {		
+		ModelAndView model = new ModelAndView("ajaxdemo");
 		return model;
 		// return "listEmployeeView";
 	}
