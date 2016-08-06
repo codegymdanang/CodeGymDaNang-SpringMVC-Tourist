@@ -13,7 +13,10 @@
 				
                $.post( 
             		ctx+'/getall',
-                  { name: "Zara" },
+                  { username: "Zara",
+            		password:"234",
+            		image:"zara.png",
+            		phone:"9432"},
                   function(data) {
                      $('#stage').html(data);
                   }
