@@ -10,5 +10,6 @@
   	<module>tour-service</module>
   	<module>tour-bo-web</module>
   	<module>tour-phuot-web-prod</module>
+  	<module>tour-web</module>
   </modules>
 </project>
