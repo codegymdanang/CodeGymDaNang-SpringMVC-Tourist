@@ -14,49 +14,57 @@
 		
      <script type = "text/javascript" language = "javascript">
      var ctx = "<%=request.getContextPath()%>"
+    	 var list;
+     var list2;
+     var row;
       $(document).ready(function() {
-          var list;
-          var list2;
-          var row;
-          $.getJSON(ctx+'/hoteldata/all', function(data) {
-          	$.each(data, function( index, value ) {
-              		list=data;
-                var row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
-                  $("#myData").append(row);
-               });
-            
-          	}); 
+         
+          $.ajax( {
+              url: ctx+'/hoteldata/all',
+              success:function(data) {
+            	  list=data;
+            	  $.each(data, function( index, value ) {
+                    row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
+                     $("#myData").append(row);
+                 });
+              },
+              async: false
+           });
 
     	  $('input[type=radio][name=g-radio]').change(function() {
         	  list2=list;
     		$("#myData").html(""); 
     		if (this.value == 'A') {//100000
+    			
 	        	for (i = 0; i < list2.length; i++) { 
 	        	    if(list2[i].price <=100000)
-    	        	    delete list2[i];
+	        	    	list2.splice( i, 1 );
 	        	}
+	        	document.getElementById("myData").innerHTML = list2;
 	        }
 	        else if (this.value == 'B') {//100000-200000
     	        	for (i = 0; i < list2.length; i++) { 
     	        	    if(list2[i].price <=100000)
-        	        	    delete list2[i];
+    	        	    	list2.splice( i, 1 );
     	        	}
+    	        	document.getElementById("myData").innerHTML = list2;
     	        }
 	         else if (this.value == 'C') {
     	        	for (i = 0; i < list2.length; i++) { 
     	        	    if(list2[i].price <200000)
-        	        	    delete list2[i];
+    	        	    	list2.splice( i, 1 );
     	        	}
+    	        	 document.getElementById("myData").innerHTML = list2;
     	        } 
-    		jQuery.ajaxSetup({async:true});
 	        $.each(list2, function( index, value ) {
-                var row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
+	        	row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>");
                   $("#myData").append(row);
                });
 	        
     	    });
     	  
        });
+
       </script>
 	
 </head>
@@ -148,30 +156,7 @@
 					</div>
 				</div>
 				<span id="myData">
-				<%-- <c:forEach items="${list}" var="hotel">
-				<form>
-					<div class="box">
-						<div class="boxinner">
-							<div class="col-md-3">
-								<image src="resource/images/hotel.jpg" width="150px"
-									height="150px">
-							</div>
-							<div class="col-md-6">
-								<p>${hotel.name }</p>
-								<p>${hotel.price }</p>
-								<p>${hotel.description }</p>
-								<p>${hotel.lc.name }</p>
-							</div>
-							<div class="col-md-3 ">
-								<div class="buttoninner">
-									<button type="button" class="btn btn-warning">View
-										Details</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					</form>
-				</c:forEach> --%>
+				
 				</span>
 			</div>
 
