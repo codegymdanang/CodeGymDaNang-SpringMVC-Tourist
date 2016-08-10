@@ -52,20 +52,17 @@ public class ServiceFriendsRestController {
 		return new ResponseEntity<List<UserEntity>>(users, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/getall", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody UserEntity userEntity,    UriComponentsBuilder ucBuilder) {
+	@RequestMapping(value = "/addall", method = RequestMethod.POST)
+    public ResponseEntity<String> createUser(@RequestBody UserEntity userEntity,    UriComponentsBuilder ucBuilder) {
         System.out.println("Creating User " + userEntity.getUsername());
  
         if (user.isUserExist(userEntity)) {
             System.out.println("A User with name " + userEntity.getUsername() + " already exist");
-            return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+            return new ResponseEntity<String>("Username existss",HttpStatus.CONFLICT);
         }
  
         user.saveUser(userEntity);
- 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/findPhone/{phone}").buildAndExpand(userEntity.getUsername()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<String>("Create successful",HttpStatus.CREATED);
     }
 	
 }
