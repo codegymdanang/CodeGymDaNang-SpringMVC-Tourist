@@ -9,18 +9,23 @@
       var ctx = "<%=request.getContextPath()%>"
          $(document).ready(function() {
 			
-            $("#driver").click(function(event){
-				
-               $.post( 
-            		ctx+'/getall',
-                  { username: "Zara",
-            		password:"234",
-            		image:"zara.png",
-            		phone:"9432"},
-                  function(data) {
-                     $('#stage').html(data);
-                  }
-               );
+            $("#submit").click(function(event){
+            	 var ctx = "<%=request.getContextPath()%>"
+            	var data = {
+            		    username: $("#username").val(),
+            		    password: $("#password").val(),
+            		    image: $("#image").val(),
+            		    phone: $("#phone").val()
+            		};
+            	$.ajax({
+            	    type: "POST",
+            	    url: ctx+"/addall",
+            	    contentType: "application/json", // NOT dataType!
+            	    data: JSON.stringify(data),
+            	    success: function(response) {
+            	        $("#stage").html(response);
+            	    }
+            	});
 					
             });
 				
@@ -36,8 +41,14 @@
          STAGE
       </div>
 		
-      <input type = "button" id = "driver" value = "Load Data" />
-		
+      
+
+	    <input type="text" name="username" id="username"/>
+	    <input type="text" name="password" id="password"/>
+	    <input type="text" name="image" id="image" />
+	    <input type="text" name="phone" id="phone"/>
+	    <input type="button" name="submit" id="submit" value="Submit" />
+	
    </body>
 	
 </html>
