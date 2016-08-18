@@ -20,6 +20,7 @@
 		<org.aspectj-version>1.7.4</org.aspectj-version>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<jackson.databind-version>2.2.3</jackson.databind-version>
+		<spring.security.version>3.2.3.RELEASE</spring.security.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -175,7 +176,20 @@
 
 		<!-- Json -->
 		
+		<!-- Spring Security -->
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
 
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+
+	
 	</dependencies>
   
   <build>
