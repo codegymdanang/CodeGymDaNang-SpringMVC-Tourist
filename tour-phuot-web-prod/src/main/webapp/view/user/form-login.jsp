@@ -34,7 +34,7 @@
 
 						<h4>Login</h4>
 					</div>
-					
+					ko tin cai lo
 					<form action="" method="post">
 						<input type="email" name="email" placeholder="Email"> <input
 							type="password" name="password" placeholder="Password">
