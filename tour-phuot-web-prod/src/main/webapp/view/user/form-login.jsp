@@ -34,28 +34,33 @@
 
 						<h4>Login</h4>
 					</div>
-					<input type="email" name="email" placeholder="Email"> <input
-						type="password" name="password" placeholder="Password">
-
-					<div class="col-md-6">
-						<input type="checkbox" name="remember" id="remember" />
-						<label class="check" for="remember"><span>Remember Me</span></label>
-					</div>
-
-					<div class="col-md-6">
-						<p class="p1">
-							<a class="text_right" href="find">Forgotten account?</a>
-						</p>
-					</div>
-
-					<!-- <div class="login"> -->
-					<input type="submit" value="Login">
-					<!-- </div> -->
 					
+					<form action="" method="post">
+						<input type="email" name="email" placeholder="Email"> <input
+							type="password" name="password" placeholder="Password">
+	
+						<div class="row">
+								<div class="col-md-6">
+									<input type="checkbox" name="remember" id="remember" />
+									<label class="check" for="remember"><span>Remember Me</span></label>
+								</div>
+			
+								<div class="col-md-6">
+									<p class="p1">
+										<a class="text_right" href="find">Forgotten account?</a>
+									</p>
+								</div>
+						</div>
+	
+						<!-- <div class="login"> -->
+						<input type="submit" value="Login">
+						<!-- </div> -->
+					</form>
 					
 					
 					<div class="logo">
-						<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-6">
 							<a href="#">
 								<div class="face">
 									<img src="resource/images/login/i_face.png" width="25"
@@ -81,6 +86,7 @@
 								<a id="my_register" class="text_right" href="register">CREATE
 									NEW ACCOUNT</a>
 							</p>
+						</div>
 						</div>
 					</div>
 
