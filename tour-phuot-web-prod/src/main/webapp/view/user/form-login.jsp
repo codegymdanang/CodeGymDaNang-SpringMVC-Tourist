@@ -38,8 +38,8 @@
 						type="password" name="password" placeholder="Password">
 
 					<div class="col-md-6">
-						<input type="checkbox" name="remember" id="remember" /> <label
-							class="check" for="remember"><span></span>Remember Me</label>
+						<input type="checkbox" name="remember" id="remember" />
+						<label class="check" for="remember"><span>Remember Me</span></label>
 					</div>
 
 					<div class="col-md-6">
@@ -51,22 +51,25 @@
 					<!-- <div class="login"> -->
 					<input type="submit" value="Login">
 					<!-- </div> -->
+					
+					
+					
 					<div class="logo">
 						<div class="col-md-6">
 							<a href="#">
 								<div class="face">
-									<img src="resource/images/login/i_face.png" width="30"
-										height="30">
+									<img src="resource/images/login/i_face.png" width="25"
+										height="25">
 								</div>
 							</a> <a href="#">
 								<div class="google">
-									<img src="resource/images/login/i_google.png" width="30"
-										height="30">
+									<img src="resource/images/login/i_google.png" width="25"
+										height="25">
 								</div>
 							</a> <a href="#">
 								<div class="twi">
-									<img src="resource/images/login/i_twi.png" width="30"
-										height="30">
+									<img src="resource/images/login/i_twi.png" width="25"
+										height="25">
 								</div>
 							</a>
 							<!--    <a href="#"><img src="image/i_face.png" width="30" height="30"> </a>
@@ -82,7 +85,6 @@
 					</div>
 
 				</div>
-
 
 			</div>
 		</div>
