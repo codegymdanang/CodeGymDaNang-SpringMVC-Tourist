@@ -35,7 +35,7 @@
 						<h4>Login</h4>
 					</div>
 					<form
-						action="${pageContext.request.contextPath}/j_spring_security_check"
+						action="<%=request.getContextPath()%>/j_spring_security_check"
 						method="post">
 						<input type='text' name='username' value=''> 
 						<input type="password" name="password" placeholder="Password">
