@@ -22,18 +22,17 @@
              <div class="col-md-9">
                 <div class="row">                
                     <div class="col-md-12">
-                            <form class="form-horizontal" method="post" action="findfriends" >
+                            <form class="form-horizontal" method="post" action="getAllUsers" >
                                 <div class="form-group">
-                                	<div class="col-md-2">
+                                	<div class="col-md-2">Dia chi
 		                                <select class="form-control" id="search" name="search">
-		                                    <option>Name</option>
-		                                    <option>Age</option>
-		                                    <option>Favorites</option>
-		                                    <option>Phone</option>
+		                                    <option>Da nang</option>
+		                                    <option>Ha noi</option>
+		                                    <option>HCM</option>
 		                                </select>
 	                                </div>
 	                                <div class="col-md-8">
-	                                    <input type="text" class="form-control" name="name" id="name" placeholder="Input here">                                   
+	                                   <!--  <input type="text" class="form-control" name="name" id="name" placeholder="Input here">    -->                                
 	                                </div>
 	                                <div class="col-md-2">
 	                                	<button id="search_friends" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>

@@ -34,6 +34,12 @@
 	<definition name="servicefriend" extends="definition">
 		<put-attribute name="body" value="/view/user/service_friend.jsp" />
 	</definition>
+	<definition name="service_rating" extends="definition">
+		<put-attribute name="body" value="/view/user/service_rating.jsp" />
+	</definition>
+	<definition name="users" extends="definition">
+		<put-attribute name="body" value="/view/user/users.jsp" />
+	</definition>
 	<definition name="findfriend" extends="definition">
 		<put-attribute name="body" value="/view/user/findfriend.jsp" />
 	</definition>

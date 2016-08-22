@@ -66,4 +66,13 @@ public class ServiceFriendController {
 		return model;
 		// return "listEmployeeView";
 	}
+	
+	@RequestMapping(value="/getAllUsers",method = RequestMethod.POST)
+	public ModelAndView getUser(HttpServletRequest request) {		
+		List<UserEntity> users=user.getAllViaDiaDiem(request.getParameter("search"));
+		ModelAndView model = new ModelAndView("users");
+		model.addObject("users", users);
+		return model;
+		// return "listEmployeeView";
+	}
 }

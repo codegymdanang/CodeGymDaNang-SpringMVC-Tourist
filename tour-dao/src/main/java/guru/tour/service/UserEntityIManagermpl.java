@@ -30,7 +30,7 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	public List<UserEntity> getAll() {
 
 		// TODO Auto-generated method stub
-		return friendsRepository.findAll();
+		return friendsRepository.findByRoles_IdAndDiadiem(1,"da nang");
 	}
 	public boolean isUserExist(UserEntity userEntity) {
 		// TODO Auto-generated method stub
@@ -44,6 +44,10 @@ public class UserEntityIManagermpl implements UserEntityManager{
             }
         }
         return false;
+	}
+	public List<UserEntity> getAllViaDiaDiem(String diadiem) {
+		// TODO Auto-generated method stub
+	 return friendsRepository.findByRoles_IdAndDiadiem(3,diadiem);
 	}
 	
 }
