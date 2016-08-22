@@ -9,5 +9,8 @@ import guru.tour.entity.LocationEntity;
 public interface LocationEntityManager {
 	@Query("Select a from location a")
 	public List<LocationEntity> getLocation();
+
+	public LocationEntity findByLocation_name(String locationName);
 	
+
 }

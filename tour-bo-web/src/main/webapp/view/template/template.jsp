@@ -18,7 +18,6 @@
 			<div class="container-fluid">
 				<div class="row show-grid">
 					<tiles:insertAttribute name="aside" />
-					<!-- <div id="page-wrapper"> -->
 					<div class="col-md-10">
 						<tiles:insertAttribute name="header" />
 						<tiles:insertAttribute name="body" />
