@@ -16,6 +16,7 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
        String username = request.getParameter("username");
 
+       exception.printStackTrace();
         super.onAuthenticationFailure(request, response, exception);
     }
 }

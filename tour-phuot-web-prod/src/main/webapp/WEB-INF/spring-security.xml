@@ -17,23 +17,39 @@
         <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/other/**" access="isAuthenticated()" />
         <access-denied-handler error-page="/403" />
-        <form-login login-page='/login' login-processing-url="/j_spring_security_check"
-            default-target-url="/servicefriend" always-use-default-target="false"
-            authentication-failure-url="/login?error=true" username-parameter="username"
-            password-parameter="password" />
-        <logout logout-url="/logout" logout-success-url="/logoutSuccessful"
-            delete-cookies="JSESSIONID" invalidate-session="true" />
+        
+		<!-- login quy -->
+		<form-login login-page='/login' login-processing-url="/j_spring_security_check"
+           
+            username-parameter="username"
+            password-parameter="password"
+            
+            authentication-success-handler-ref="loginSuccessHandler"
+            authentication-failure-handler-ref="loginFailureHandler" 
+            always-use-default-target="false" />
  
     </http>
 
 
-    <authentication-manager >
-        <!-- authentication from database -->
+    <authentication-manager>
         <authentication-provider>
-            <jdbc-user-service data-source-ref="dataSource"
-                users-by-username-query="select username,password, enabled from users where username=?"
-                authorities-by-username-query="Select username, concat('ROLE_',user_role) user_role from user_roles where username=?" />
-        </authentication-provider>
-        
- </authentication-manager>
+			<jdbc-user-service data-source-ref="dataSource"
+			  users-by-username-query=
+			    "select username,password, enabled from user where username=?"
+			    authorities-by-username-query=
+		    	"select u.username, r.role from user_role ur inner join user u on  ur.user_id = u.id inner join role r on ur.role_id = r.id where u.username =?  " />
+		 </authentication-provider>
+    	
+    </authentication-manager>
+    
+    <!-- <beans:bean id="standardPasswordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+	    </beans:bean> -->
+	    <!-- <beans:bean id="encodedUserServiceImpl" class="guru.tour.security.EncodedUserServiceImpl"></beans:bean> -->
+	    
+ 		<beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
+	        <beans:property name="defaultTargetUrl" value="/servicefriend"></beans:property>
+	    </beans:bean>
+	    <beans:bean id="loginFailureHandler" class="guru.tour.security.LoginFailureHandler">
+	        <beans:property name="defaultFailureUrl" value="/login"/>
+	    </beans:bean>
 </beans:beans>
