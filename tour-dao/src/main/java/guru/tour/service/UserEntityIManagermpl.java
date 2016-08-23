@@ -30,7 +30,7 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	public List<UserEntity> getAll() {
 
 		// TODO Auto-generated method stub
-		return friendsRepository.findByRoles_IdAndDiadiem(1,"da nang");
+		return friendsRepository.findAll();
 	}
 	public boolean isUserExist(UserEntity userEntity) {
 		// TODO Auto-generated method stub

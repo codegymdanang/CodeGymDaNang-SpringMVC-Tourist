@@ -4,7 +4,7 @@
 <table border="1">
     <tr>
         <td>ID</td>
-        <td>Username</td>    
+        <td>Name:</td>    
         <td>Phone</td>
         <td>Dia chi</td>
         <td>Role</td>

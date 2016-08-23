@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                 	<div class="col-md-2">Dia chi
 		                                <select class="form-control" id="search" name="search">
-		                                    <option>Da nang</option>
+		                                    <option selected="selected">Da nang</option>
 		                                    <option>Ha noi</option>
 		                                    <option>HCM</option>
 		                                </select>
