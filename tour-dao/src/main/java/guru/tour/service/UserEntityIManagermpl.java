@@ -47,7 +47,7 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	}
 	public List<UserEntity> getAllViaDiaDiem(String diadiem) {
 		// TODO Auto-generated method stub
-	 return friendsRepository.findByRoles_IdAndDiadiem(3,diadiem);
+	 return friendsRepository.findByRoles_IdAndDiadiem(1,diadiem);
 	}
 	
 }
