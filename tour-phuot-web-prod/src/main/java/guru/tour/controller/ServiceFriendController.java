@@ -68,9 +68,19 @@ public class ServiceFriendController {
 	}
 	
 	@RequestMapping(value="/getAllUsers",method = RequestMethod.POST)
-	public ModelAndView getUser(HttpServletRequest request) {		
-		List<UserEntity> users=user.getAllViaDiaDiem(request.getParameter("search"));
-		ModelAndView model = new ModelAndView("users");
+	public ModelAndView getUser(HttpServletRequest request) {	
+		String button=request.getParameter("tim");
+		System.out.println("ten: "+button);
+		List<UserEntity> users=null;
+		ModelAndView model=null;
+		if(button.equals("timdiadiem")){
+			users=user.getAllViaDiaDiem(request.getParameter("search"));
+			 model = new ModelAndView("users");
+		}else{
+			users=user.getUserByName(request.getParameter("name"));
+			 model = new ModelAndView("users");
+		}
+		
 		model.addObject("users", users);
 		return model;
 		// return "listEmployeeView";

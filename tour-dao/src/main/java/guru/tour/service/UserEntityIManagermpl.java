@@ -15,7 +15,7 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	ServiceFriendsRepository friendsRepository;
 	public List<UserEntity> getUserByName(String name) {
 		// TODO Auto-generated method stub
-		return friendsRepository.findByUsername(name);
+		return friendsRepository.findByUsernameContaining(name);
 	}
 	public List<UserEntity> getUserByPhone(String phone) {
 		// TODO Auto-generated method stub
