@@ -14,8 +14,8 @@
 		
      <script type = "text/javascript" language = "javascript">
      var ctx = "<%=request.getContextPath()%>"
-    	 var list;
-     var list2;
+    	 var list2;
+	 var list;
      var row;
       $(document).ready(function() {
          
@@ -23,39 +23,39 @@
               url: ctx+'/hoteldata/all',
               success:function(data) {
             	  list=data;
+            	  
             	  $.each(data, function( index, value ) {
                     row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
                      $("#myData").append(row);
                  });
               },
-              async: false
+              async: true
            });
-
+			
     	  $('input[type=radio][name=g-radio]').change(function() {
-        	  list2=list;
     		$("#myData").html(""); 
+    		list2=$.extend([], list);
+    		
     		if (this.value == 'A') {//100000
     			
 	        	for (i = 0; i < list2.length; i++) { 
 	        	    if(list2[i].price <=100000)
 	        	    	list2.splice( i, 1 );
 	        	}
-	        	document.getElementById("myData").innerHTML = list2;
 	        }
-	        else if (this.value == 'B') {//100000-200000
+	        else if (this.value == 'B') {
     	        	for (i = 0; i < list2.length; i++) { 
-    	        	    if(list2[i].price <=100000)
+    	        	    if(list2[i].price <=150000)
     	        	    	list2.splice( i, 1 );
     	        	}
-    	        	document.getElementById("myData").innerHTML = list2;
     	        }
 	         else if (this.value == 'C') {
     	        	for (i = 0; i < list2.length; i++) { 
     	        	    if(list2[i].price <200000)
     	        	    	list2.splice( i, 1 );
     	        	}
-    	        	 document.getElementById("myData").innerHTML = list2;
-    	        } 
+    	        }
+	        
 	        $.each(list2, function( index, value ) {
 	        	row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>");
                   $("#myData").append(row);
