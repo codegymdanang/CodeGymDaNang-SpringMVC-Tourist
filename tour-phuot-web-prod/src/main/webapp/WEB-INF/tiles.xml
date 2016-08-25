@@ -31,7 +31,7 @@
 	</definition>
 	
 	<!-- try -->
-		<definition name="location" extends="definitionHome">
+		<definition name="location" extends="definition">
 			<put-attribute name="body" value="/view/user/location.jsp" />
 		</definition>
 	<!-- try -->

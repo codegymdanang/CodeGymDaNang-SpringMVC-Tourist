@@ -1,0 +1,10 @@
+.ss{
+    border: 5px;
+    border-color:red ;
+    /*background-color: #adadad;*/
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+}
+.hide{
+}
