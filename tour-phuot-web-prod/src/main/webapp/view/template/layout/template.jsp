@@ -49,6 +49,8 @@
 	<script src="resource/js/jquery-1.11.1.min.js"></script>
 	<script src="resource/js/bootstrap.js"></script>
 	
+	<!-- location -->
+	<link rel="stylesheet" href="resource/css/stylelocation.css">
 	
 	
 	<link rel="stylesheet" href="resource/css/service_friend.css"

@@ -15,6 +15,7 @@ public class HotNewsManagerImpl implements HotNewsEntityManager {
 	public List<HotNewsEntity> getAllHotNews() {
 		// TODO Auto-generated method stub
 		return loadHotNews.findAll();
+	
 	}
 
 	public HotNewsEntity findById(int id) {
