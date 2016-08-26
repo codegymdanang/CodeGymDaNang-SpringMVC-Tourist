@@ -29,6 +29,12 @@
 	<definition name="HomeError" extends="definition">
 		<put-attribute name="body" value="/view/error/HomeError.jsp"></put-attribute>
 	</definition>
+	
+	<!-- try -->
+		<definition name="location" extends="definitionHome">
+			<put-attribute name="body" value="/view/user/location.jsp" />
+		</definition>
+	<!-- try -->
 
 	<!-- ContactUs Page -->
 	<definition name="servicefriend" extends="definition">

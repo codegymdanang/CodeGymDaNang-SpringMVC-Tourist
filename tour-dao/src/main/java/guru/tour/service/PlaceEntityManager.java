@@ -16,5 +16,7 @@ public interface PlaceEntityManager {
 	public PlaceEntity updatePlace(PlaceEntity p);
 	
 	public void deletePlace(int id);
+
+	public PlaceEntity getPlaceByName(String placeName);
 	
 }

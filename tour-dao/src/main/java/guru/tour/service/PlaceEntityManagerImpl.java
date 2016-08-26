@@ -44,4 +44,8 @@ public class PlaceEntityManagerImpl implements PlaceEntityManager{
 		pl.delete(id);
 	}
 
+	public PlaceEntity getPlaceByName(String placeName ) {
+		return pl.findByName(placeName);
+	}
+	
 }

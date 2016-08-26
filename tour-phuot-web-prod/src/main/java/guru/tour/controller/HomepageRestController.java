@@ -16,13 +16,18 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.HotNewsEntity;
+import guru.tour.entity.LocationEntity;
 import guru.tour.service.HotNewsEntityManager;
+import guru.tour.service.LocationEntityManager;
 
 @RestController
 public class HomepageRestController {
 
 	@Autowired
 	HotNewsEntityManager hotNewsEntityManager;
+	
+
+	
 
 	// -------------------Retrieve All
 	// HotNews--------------------------------------------------------
@@ -41,7 +46,7 @@ public class HomepageRestController {
 	// -------------------Retrieve Single Hotnews Entity by
 	// id--------------------------------------------------------
 
-	@RequestMapping(value = "/homedata/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/homedata/{id}", method = RequestMethod.GET)
 	public ResponseEntity<HotNewsEntity> getHotnew(@PathVariable("id") int id) {
 		System.out.println("Fetching Hotnew with id " + id);
 		HotNewsEntity hotnew = hotNewsEntityManager.findById(id);

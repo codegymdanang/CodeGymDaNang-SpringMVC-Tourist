@@ -101,6 +101,43 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		<!-- try -->
+				<button id="btn-click" class="btn btn-primary" data-toggle="modal" data-show="true"
+		data-target ="#myModal"
+		 > >>More</button>
+
+			 <!-- Modal -->
+			 <div class="modal fade" id ="myModal" tabindex="-1" role="dialog" aria-labelledby="muModalLabel" arial-hidden="true" >
+			 	<div class="modal-dialog">
+			 		<div class="modal-content">
+			 			<div class="modal-header">
+			 			<button class="close" type="button" data-dismiss="modal"
+			 			arial-hidden="true">&times;</button>
+			 			<h4 class="modal-title" id="myModalLabel">Do you want travel this place?</h4>
+			 			</div>
+			 			<div class="modal-body">
+			 				<label class="radio-inline">
+								  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> yes
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> no
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> confuse
+								</label>			 			
+			 			</div>
+			 			<div class="modal-footer">
+			 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			 				<button type="button" class="btn btn-primary">Save changes</button>
+			 			</div>
+			 		</div> <!-- modal-content -->
+			 	</div> <!-- modal-dialog -->
+			 </div> <!-- modal -->
+		<!-- try -->
+
+		
 		<div class="row">
 			<h3>About</h3>
 			<div class="col-md-9">

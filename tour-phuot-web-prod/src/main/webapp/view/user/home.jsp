@@ -20,6 +20,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <script src="resource/js/jquery-1.11.1.min.js"></script>
 <script src="resource/js/bootstrap.js"></script>
+<script src="resource/js/homeAjax.js"></script>
+
 </head>
 <body>
 	<div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
@@ -68,6 +70,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <span class="sr-only">Next</span>
             </a>
     </div> 
+    
+    
+    <!-- try -->
+    <div id="searchbar">
+	<div class="container">
+		<div class="row">		
+			<form action="searchLocation" >
+				<div class="form-group col-xs-12 col-sm-5 col-sm-offset-2">
+					<label for="" class="sr-only">Search</label>
+					<input type="text" class="form-control input-lg" placeholder="Enter your place" name="locationName">		
+				</div>		
+
+				<div class="form-group col-xs-12 col-sm-3">
+					<button  type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+				</div>
+			</form>								
+		</div>
+		</div>
+	</div> <!-- feature4 -->
+	<!-- try -->
+	
+	
 	<!-- about -->
 	<div class="about">
 		<div class="container">
