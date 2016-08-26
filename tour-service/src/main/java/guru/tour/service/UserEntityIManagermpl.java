@@ -3,6 +3,7 @@ package guru.tour.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import guru.tour.entity.UserEntity;
@@ -10,6 +11,8 @@ import guru.tour.repository.ServiceFriendsRepository;
 
 @Service
 public class UserEntityIManagermpl implements UserEntityManager{
+	@Autowired
+	private PasswordEncoder passEncode;
 
 	@Autowired
 	ServiceFriendsRepository friendsRepository;
@@ -23,6 +26,8 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	}
 	public UserEntity saveUser(UserEntity user) {
 		// TODO Auto-generated method stub
+		String a=passEncode.encode(user.getPassword());
+		user.setPassword(a);
 		return friendsRepository.save(user);
 	}
 
