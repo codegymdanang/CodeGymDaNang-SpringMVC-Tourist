@@ -5,18 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.UriComponentsBuilder;
-
+	
 import guru.tour.entity.UserEntity;
 import guru.tour.service.UserEntityManager;
 
@@ -29,7 +22,6 @@ public class ServiceFriendController {
 	public ModelAndView serviceFriends() {		
 		ModelAndView model = new ModelAndView("servicefriend");
 		return model;
-		// return "listEmployeeView";
 	}
 	@RequestMapping(value = "/findfriends")
 	public ModelAndView findFriends(HttpServletRequest request) {
@@ -45,26 +37,22 @@ public class ServiceFriendController {
 		for (UserEntity user : users) {
 			System.out.println("First Name " + user.getUsername() + " Phone: " + user.getPhone());
 		}
-		// model.addObject("allEmployees",employees);
 		ModelAndView model = new ModelAndView("findfriend");
 		model.addObject("lists", users);
 
 		return model;
-		// return "listEmployeeView";
 	}
 	
 	@RequestMapping(value="/jspdemo",method = RequestMethod.GET)
 	public ModelAndView jspDemo() {		
 		ModelAndView model = new ModelAndView("jspdemo");
 		return model;
-		// return "listEmployeeView";
 	}
 	
 	@RequestMapping(value="/ajaxdemo",method = RequestMethod.GET)
 	public ModelAndView ajaxdemo() {		
 		ModelAndView model = new ModelAndView("ajaxdemo");
 		return model;
-		// return "listEmployeeView";
 	}
 	
 	@RequestMapping(value="/getAllUsers",method = RequestMethod.POST)
@@ -83,6 +71,28 @@ public class ServiceFriendController {
 		
 		model.addObject("users", users);
 		return model;
-		// return "listEmployeeView";
 	}
+	
+	@RequestMapping(value = "/updateprofile", method = RequestMethod.GET)
+	public ModelAndView updateprofile() {		
+		ModelAndView model = new ModelAndView("updateprofile");
+		model.addObject("user", new UserEntity("hai", "123", "haha.png", "01212129827","da nang"));
+		return model;
+	}
+	
+	@RequestMapping(value = "/getUser", method = RequestMethod.POST)
+	public ModelAndView updateprofile_request(HttpServletRequest request) {		
+		
+		ModelAndView model = new ModelAndView("homePage");
+		System.out.println(request.getParameter("username").toString());
+		System.out.println(request.getParameter("password").toString());
+		System.out.println(request.getParameter("phone").toString());
+		System.out.println(request.getParameter("location").toString());
+		UserEntity u = new UserEntity(request.getParameter("username").toString(), request.getParameter("password").toString(),"123123.jpg", request.getParameter("phone").toString(), request.getParameter("location").toString());
+		user.saveUser(u);
+		model.addObject("user", u);
+		return model;
+	}
+	
+	
 }

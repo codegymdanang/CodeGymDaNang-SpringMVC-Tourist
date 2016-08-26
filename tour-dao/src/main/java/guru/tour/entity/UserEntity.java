@@ -130,6 +130,15 @@ public class UserEntity implements Serializable {
 		this.phone = phone;
 	}
 	
+	public UserEntity(String username, String password, String image, String phone,String diadiem) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.image = image;
+		this.phone = phone;
+		this.diadiem =diadiem;
+	}
+	
 	public UserEntity() {
 		// TODO Auto-generated constructor stub
 	}

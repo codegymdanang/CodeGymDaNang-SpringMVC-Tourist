@@ -23,7 +23,6 @@
               url: ctx+'/hoteldata/all',
               success:function(data) {
             	  list=data;
-            	  
             	  $.each(data, function( index, value ) {
                     row = $("<form><div class='box'><div class='boxinner'><div class='col-md-3'><image src='resource/images/hotel.jpg' width='150px' height='150px'></div><div class='col-md-6'><p>"+value.name+"</p><p>"+value.price+"</p><p>"+value.description+"</p><p>"+value.lc.name+"</p></div><div class='col-md-3'><div class='buttoninner'><button type='button' class='btn btn-warning'>ViewDetails</button></div></div></div></div></form>"); 
                      $("#myData").append(row);

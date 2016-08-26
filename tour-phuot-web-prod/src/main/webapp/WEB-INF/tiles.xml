@@ -111,6 +111,9 @@
 	<definition name= "ajaxdemo" extends="definition">
 		<put-attribute name="body" value="/view/user/ajaxdemo.jsp"></put-attribute>
 	</definition>
+	<definition name= "updateprofile" extends="definition">
+		<put-attribute name="body" value="/view/user/updateprofile.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  
