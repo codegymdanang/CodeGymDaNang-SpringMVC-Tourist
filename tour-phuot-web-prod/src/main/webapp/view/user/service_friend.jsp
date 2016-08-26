@@ -24,24 +24,45 @@
                     <div class="col-md-12">
                             <form class="form-horizontal" method="post" action="getAllUsers" >
                                 <div class="form-group">
-                                	<div class="col-md-2">Dia chi
-		                                <select class="form-control" id="search" name="search">
+                                	<div class="col-md-2">Dia chi      
+	                                </div>
+	                                <div class="col-md-5">
+	                                <select class="form-control" id="search" name="search">
 		                                    <option selected="selected">Da nang</option>
 		                                    <option>Ha noi</option>
 		                                    <option>HCM</option>
 		                                </select>
 	                                </div>
-	                                <div class="col-md-8">
-	                                   <!--  <input type="text" class="form-control" name="name" id="name" placeholder="Input here">    -->                                
-	                                </div>
+	                               <!--  <div class="col-md-8">
+	                                    <input type="text" class="form-control" name="name" id="name" placeholder="Input here">                                   
+	                                </div> -->
 	                                <div class="col-md-2">
-	                                	<button id="search_friends" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+	                                	<button id="search_friends" name="tim" type="submit" value="timdiadiem" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+	                                	
 	                                </div>
                                 </div>
                             </form>
                     </div>
                     <!--<div class="col-md-4">-->
                     <!--</div>-->
+                </div>
+                <div class="row">                
+                    <div class="col-md-12">
+                            <form class="form-horizontal" method="post" action="getAllUsers" >
+                                <div class="form-group">
+                                	<div class="col-md-2">Tim ten
+		                               
+	                                </div>
+	                                <div class="col-md-8">
+	                                    <input type="text" class="form-control" name="name" id="name" placeholder="Input here">                                   
+	                                </div>
+	                                <div class="col-md-2">
+	                                	<button type="submit" name="tim" value="timten" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
+	                                </div>
+                                </div>
+                            </form>
+                    </div>
+                    
                 </div>
                 <hr class="distance">
                 <div class="row">
