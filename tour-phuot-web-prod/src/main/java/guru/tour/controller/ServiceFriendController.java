@@ -20,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import guru.tour.entity.UserEntity;
 import guru.tour.service.UserEntityManager;
 
+
 @Controller
 @RequestMapping(value = "/")
 public class ServiceFriendController {

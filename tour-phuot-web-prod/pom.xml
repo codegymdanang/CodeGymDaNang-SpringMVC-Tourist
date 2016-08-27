@@ -26,9 +26,13 @@
 		<dependency>
 			<groupId>guru</groupId>
 			<artifactId>tour-dao</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>guru</groupId>
+			<artifactId>tour-service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<!-- Servlet Library -->
 		<!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
