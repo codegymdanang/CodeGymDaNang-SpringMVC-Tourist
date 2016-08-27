@@ -102,7 +102,7 @@
                 <div>
                     <div class="col-sm-6 col-md-4">
                        <div class="thumbnail">
-                        <img src="resource/images/${placeName}.jpg"  alt="...">                                                                      		                      	
+                        	<img src="resource/images/${placeName}.jpg"  alt="...">                                                                      		                      	
                     	</div>
                     	
                     <div style="text-align: center;">
