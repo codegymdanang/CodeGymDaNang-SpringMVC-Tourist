@@ -1,3 +1,4 @@
+
 package guru.tour.controller;
 
 import java.util.List;
@@ -26,7 +27,7 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 @RequestMapping(value = "/")
 public class ServiceFriendsRestController {
 	@Autowired
-	private UserEntityManager user;
+	UserEntityManager user;
 	
 	@RequestMapping(value = "/findPhone/{phone}", method = RequestMethod.GET)
 	public ResponseEntity<List<UserEntity>> findPhone(@PathVariable("phone") String phone) {

@@ -1,3 +1,4 @@
+
 package guru.tour.controller;
 
 import java.util.List;
@@ -22,7 +23,7 @@ import guru.tour.service.HotelEntityManager;
 public class HotelRestController {
 	
 	@Autowired
-	private HotelEntityManager hotelmanager;
+	HotelEntityManager hotelmanager;
 	
 	@RequestMapping(value = "/hoteldata/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<HotelEntity> gethotel(@PathVariable("id") int id) {

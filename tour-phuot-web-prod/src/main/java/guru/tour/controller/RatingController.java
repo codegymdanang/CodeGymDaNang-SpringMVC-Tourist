@@ -1,3 +1,4 @@
+
 package guru.tour.controller;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import guru.tour.service.RatingEntityManager;
 @RequestMapping(value = "/")
 public class RatingController {
 	@Autowired
-	private RatingEntityManager ratingEntityManager;
+	RatingEntityManager ratingEntityManager;
 
 	@RequestMapping("/findAllRating")
 	public ModelAndView serviceRating() {

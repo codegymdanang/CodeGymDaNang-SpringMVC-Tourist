@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -39,12 +40,12 @@ public class HomepageController {
 
 	
 	@Autowired
-	private HotNewsEntityManager hotnews;
+	HotNewsEntityManager hotnews;
 	
 	
 
 	@Autowired
-	private LocationEntityManager locationEntityManager;
+	LocationEntityManager locationEntityManager;
 
 
 	private static final Logger logger = LoggerFactory
@@ -117,19 +118,20 @@ public class HomepageController {
 	
 /*	searchLocation*/
 	@RequestMapping(value = "/searchLocation", method = RequestMethod.GET)
-	public ModelAndView searchLocation(HttpServletRequest request) {
+	public String searchLocation(HttpServletRequest request,ModelMap model) {
 							
 		LocationEntity locationEntity;		
 		locationEntity =locationEntityManager.findByLocation_name(request.getParameter("locationName"));
-		ModelAndView modelAndView = new ModelAndView();
+		
 		if(locationEntity != null){
 			
-			modelAndView.addObject("locationEntity",locationEntity);
-			modelAndView.setViewName("location");			
-		}else{
-			modelAndView.setViewName("HomeError");
+			model.addAttribute("placeName", locationEntity.getName());
+			/*model.addAttribute("locationEntity", locationEntity);*/
+			/*model.put("placeName", locationEntity.getName());*/
+			System.out.println("aaaaaaaaaaa   "+ locationEntity.getName().toString());
+			return "location";			
 		}
 		
-		return modelAndView;
+		return "HomeError";
 	}	
 }

@@ -1,3 +1,4 @@
+
 package guru.tour.controller;
 
 import java.io.IOException;
@@ -30,10 +31,10 @@ import guru.tour.service.ServiceHostEntityManager;
 public class ServiceHostController {
 	private static final Logger logger = LoggerFactory.getLogger(ServiceHostController.class);
 	@Autowired
-	private ServiceHostEntityManager hostmanager;
+	ServiceHostEntityManager hostmanager;
 
 	@Autowired
-	private HostDetailManager manager;
+	HostDetailManager manager;
 
 	List<ServiceHostEntity> images;
 

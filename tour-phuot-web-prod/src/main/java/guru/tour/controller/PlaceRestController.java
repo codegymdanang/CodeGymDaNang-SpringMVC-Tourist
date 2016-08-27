@@ -1,3 +1,4 @@
+
 package guru.tour.controller;
 
 import java.util.List;
@@ -24,7 +25,7 @@ import guru.tour.service.PlaceEntityManager;
 //@RequestMapping(value = "/")
 public class PlaceRestController {
 	@Autowired
-	private PlaceEntityManager placeEntityManager;
+	PlaceEntityManager placeEntityManager;
 //	@Autowired
 //	FoodEntityManager foodEntityManager;
 	

@@ -35,6 +35,45 @@ public class PlaceController {
 
 	/*@RequestMapping(value = "/place/{id}", method = RequestMethod.GET)
 	public ModelAndView getPlaceByID(@PathVariable("id") int id) throws Exception {
+=======
+package guru.tour.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import guru.tour.entity.PlaceEntity;
+import guru.tour.exception.PlaceNotFoundException;
+import guru.tour.service.PlaceEntityManager;
+
+import guru.tour.entity.FoodEntity;
+import guru.tour.service.FoodEntityManager;
+
+@Controller
+@RequestMapping(value = "/")
+public class PlaceController {
+	@Autowired
+	PlaceEntityManager placeEntityManager;
+	
+	@Autowired
+	FoodEntityManager foodEntityManager;
+	
+//	private static final Logger logger = LoggerFactory.getLogger(PlaceController.class);
+
+	/*@RequestMapping(value = "/place/{id}", method = RequestMethod.GET)
+	public ModelAndView getPlaceByID(@PathVariable("id") int id) throws Exception {
+>>>>>>> branch 'master' of https://github.com/levunguyen/touristinvietnam
 <<<<<<< HEAD
 //		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(id);
 //		if (!(id == placeEntity.getId())) {

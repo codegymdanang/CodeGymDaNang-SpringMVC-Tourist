@@ -24,7 +24,7 @@ import guru.tour.service.LocationEntityManager;
 public class HomepageRestController {
 
 	@Autowired
-	private HotNewsEntityManager hotNewsEntityManager;
+	HotNewsEntityManager hotNewsEntityManager;
 	
 
 	
@@ -122,3 +122,4 @@ public class HomepageRestController {
 
 
 }
+

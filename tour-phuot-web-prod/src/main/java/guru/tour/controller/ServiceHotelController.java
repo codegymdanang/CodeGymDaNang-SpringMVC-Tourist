@@ -1,3 +1,4 @@
+
 package guru.tour.controller;
 
 import java.util.List;
@@ -28,7 +29,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ServiceHotelController {
 	
 	@Autowired
-	private HotelEntityManager hotel;
+	HotelEntityManager hotel;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ServiceHotelController.class);
 	

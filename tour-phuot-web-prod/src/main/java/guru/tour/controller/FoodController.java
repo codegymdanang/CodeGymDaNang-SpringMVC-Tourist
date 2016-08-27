@@ -1,3 +1,4 @@
+
 package guru.tour.controller;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import guru.tour.service.FoodEntityManager;
 @Controller
 public class FoodController {
 	@Autowired
-	private FoodEntityManager foodEntityManager;
+	FoodEntityManager foodEntityManager;
 	
 	@RequestMapping(value = "/fooddata", method = RequestMethod.GET)
 	public ResponseEntity<List<FoodEntity>> listAllFoods() {
