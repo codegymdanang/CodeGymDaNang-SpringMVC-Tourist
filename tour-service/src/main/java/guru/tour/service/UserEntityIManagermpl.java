@@ -54,5 +54,8 @@ public class UserEntityIManagermpl implements UserEntityManager{
 		// TODO Auto-generated method stub
 	 return friendsRepository.findByRoles_IdAndDiadiem(3,diadiem);
 	}
+	public void updateByUsername(String username, String password, String image, String phone, String diadiem) {
+		friendsRepository.updateUsername(username, password, image, phone, diadiem);
+	}
 	
 }

@@ -85,12 +85,8 @@ public class ServiceFriendController {
 	public ModelAndView updateprofile_request(HttpServletRequest request) {		
 		
 		ModelAndView model = new ModelAndView("homePage");
-		System.out.println(request.getParameter("username").toString());
-		System.out.println(request.getParameter("password").toString());
-		System.out.println(request.getParameter("phone").toString());
-		System.out.println(request.getParameter("location").toString());
 		UserEntity u = new UserEntity(request.getParameter("username").toString(), request.getParameter("password").toString(),"123123.jpg", request.getParameter("phone").toString(), request.getParameter("location").toString());
-		user.saveUser(u);
+		user.updateByUsername(u.getUsername(),u.getPassword(),u.getImage(),u.getPhone(),u.getDiadiem());
 		model.addObject("user", u);
 		return model;
 	}
