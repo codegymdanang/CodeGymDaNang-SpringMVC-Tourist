@@ -24,7 +24,7 @@ import guru.tour.service.PlaceEntityManager;
 //@RequestMapping(value = "/")
 public class PlaceRestController {
 	@Autowired
-	PlaceEntityManager placeEntityManager;
+	private PlaceEntityManager placeEntityManager;
 //	@Autowired
 //	FoodEntityManager foodEntityManager;
 	

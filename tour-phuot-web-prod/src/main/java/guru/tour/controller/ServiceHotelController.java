@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ServiceHotelController {
 	
 	@Autowired
-	HotelEntityManager hotel;
+	private HotelEntityManager hotel;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ServiceHotelController.class);
 	

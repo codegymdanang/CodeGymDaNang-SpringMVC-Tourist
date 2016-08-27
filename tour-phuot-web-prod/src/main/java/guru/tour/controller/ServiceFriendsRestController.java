@@ -26,7 +26,7 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 @RequestMapping(value = "/")
 public class ServiceFriendsRestController {
 	@Autowired
-	UserEntityManager user;
+	private UserEntityManager user;
 	
 	@RequestMapping(value = "/findPhone/{phone}", method = RequestMethod.GET)
 	public ResponseEntity<List<UserEntity>> findPhone(@PathVariable("phone") String phone) {

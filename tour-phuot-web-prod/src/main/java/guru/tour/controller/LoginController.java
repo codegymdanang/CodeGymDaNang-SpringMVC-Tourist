@@ -13,7 +13,7 @@ import guru.tour.service.UserEntityManager;
 @RequestMapping(value = "/")
 public class LoginController {
 	@Autowired
-	UserEntityManager user;
+	private UserEntityManager user;
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "login";

@@ -30,10 +30,10 @@ import guru.tour.service.ServiceHostEntityManager;
 public class ServiceHostController {
 	private static final Logger logger = LoggerFactory.getLogger(ServiceHostController.class);
 	@Autowired
-	ServiceHostEntityManager hostmanager;
+	private ServiceHostEntityManager hostmanager;
 
 	@Autowired
-	HostDetailManager manager;
+	private HostDetailManager manager;
 
 	List<ServiceHostEntity> images;
 

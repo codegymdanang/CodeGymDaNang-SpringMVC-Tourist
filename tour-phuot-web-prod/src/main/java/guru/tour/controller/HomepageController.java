@@ -39,12 +39,12 @@ public class HomepageController {
 
 	
 	@Autowired
-	HotNewsEntityManager hotnews;
+	private HotNewsEntityManager hotnews;
 	
 	
 
 	@Autowired
-	LocationEntityManager locationEntityManager;
+	private LocationEntityManager locationEntityManager;
 
 
 	private static final Logger logger = LoggerFactory

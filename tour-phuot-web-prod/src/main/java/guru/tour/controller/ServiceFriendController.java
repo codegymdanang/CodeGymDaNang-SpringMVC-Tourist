@@ -25,7 +25,7 @@ import guru.tour.service.UserEntityManager;
 @RequestMapping(value = "/")
 public class ServiceFriendController {
 	@Autowired
-	UserEntityManager user;
+	private UserEntityManager user;
 	@RequestMapping(value = "/servicefriend", method = RequestMethod.GET)
 	public ModelAndView serviceFriends() {		
 		ModelAndView model = new ModelAndView("servicefriend");

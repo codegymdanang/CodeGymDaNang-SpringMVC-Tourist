@@ -19,7 +19,7 @@ import guru.tour.service.EventEntityManager;
 public class EventController {
 	
 	@Autowired
-	EventEntityManager eventmanager;
+	private EventEntityManager eventmanager;
 	
 	@RequestMapping(value="/event",method = RequestMethod.GET)
 	public ModelAndView event() {

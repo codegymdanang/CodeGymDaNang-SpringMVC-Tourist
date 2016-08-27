@@ -21,7 +21,7 @@ import guru.tour.service.EventEntityManager;
 public class EventRestFullController {
 	
 	@Autowired
-	EventEntityManager eventmanager;
+	private EventEntityManager eventmanager;
 	
 	 @RequestMapping(value = "/restevent", method = RequestMethod.GET)
 	public ResponseEntity<List<EventEntity>> listAllEvent() {

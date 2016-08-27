@@ -26,10 +26,10 @@ import guru.tour.service.FoodEntityManager;
 @RequestMapping(value = "/")
 public class PlaceController {
 	@Autowired
-	PlaceEntityManager placeEntityManager;
+	private PlaceEntityManager placeEntityManager;
 	
 	@Autowired
-	FoodEntityManager foodEntityManager;
+	private FoodEntityManager foodEntityManager;
 	
 //	private static final Logger logger = LoggerFactory.getLogger(PlaceController.class);
 

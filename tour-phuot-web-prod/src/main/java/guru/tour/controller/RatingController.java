@@ -14,7 +14,7 @@ import guru.tour.service.RatingEntityManager;
 @RequestMapping(value = "/")
 public class RatingController {
 	@Autowired
-	RatingEntityManager ratingEntityManager;
+	private RatingEntityManager ratingEntityManager;
 
 	@RequestMapping("/findAllRating")
 	public ModelAndView serviceRating() {
