@@ -12,4 +12,5 @@ public interface UserEntityManager {
 	List<UserEntity> getAll();
 	List<UserEntity> getAllViaDiaDiem(String diadiem);
 	boolean isUserExist(UserEntity userEntity);
+	void updateByUsername(String username,String password,String image,String phone,String diadiem);
 }

@@ -47,16 +47,13 @@ public class EventEntityManagerImpl implements EventEntityManager {
 		eventEntities.clear();
 	}
 
-	
+	public EventEntity findByName(String name) {
+		return eventEntity.findByName(name);
+	}
 
 	public boolean isEventExist(EventEntity event) {
 		EventEntity findevent = findByName(event.getName());
 		return (findevent == null) ? false : true;
-	}
-
-	public EventEntity findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

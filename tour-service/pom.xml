@@ -16,6 +16,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+	  <dependency>
+	        <groupId>guru</groupId>
+	        <artifactId>tour-dao</artifactId>
+	        <version>${project.version}</version>
+	    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

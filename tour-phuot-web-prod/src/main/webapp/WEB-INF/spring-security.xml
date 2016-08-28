@@ -23,9 +23,7 @@
            
             username-parameter="username"
             password-parameter="password"
-            
-            authentication-success-handler-ref="loginSuccessHandler"
-            authentication-failure-handler-ref="loginFailureHandler" 
+           	authentication-failure-url="/login"
             always-use-default-target="false" />
  
     </http>
@@ -42,14 +40,4 @@
     	
     </authentication-manager>
     
-    <!-- <beans:bean id="standardPasswordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder">
-	    </beans:bean> -->
-	    <!-- <beans:bean id="encodedUserServiceImpl" class="guru.tour.security.EncodedUserServiceImpl"></beans:bean> -->
-	    
- 		<beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
-	        <beans:property name="defaultTargetUrl" value="/servicefriend"></beans:property>
-	    </beans:bean>
-	    <beans:bean id="loginFailureHandler" class="guru.tour.security.LoginFailureHandler">
-	        <beans:property name="defaultFailureUrl" value="/login"/>
-	    </beans:bean>
 </beans:beans>

@@ -1,9 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	 pageEncoding="UTF-8"%>
-	<%@ page
-	isELIgnored="false" %>
+	isELIgnored="false" pageEncoding="UTF-8"%> --%>
+	
 <!DOCTYPE html>
 <html>
 <head >        
@@ -102,11 +101,7 @@
                 <div>
                     <div class="col-sm-6 col-md-4">
                        <div class="thumbnail">
-                        <%-- <img src="resource/images/" + ${placeName} + ".jpg"  alt="..."> --%>
-                        <h1>${placeName}</h1>
-                        <c:out value="${placeName}"></c:out>
-                        <!-- <img src="resource/images/danang.jpg" alt="..."> -->
-                                              		                      		
+                        	<img src="resource/images/${placeName}.jpg"  alt="...">                                                                      		                      	
                     	</div>
                     	
                     <div style="text-align: center;">
