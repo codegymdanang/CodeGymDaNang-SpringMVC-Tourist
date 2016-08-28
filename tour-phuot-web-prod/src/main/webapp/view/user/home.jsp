@@ -18,10 +18,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
-<script src="resource/js/jquery-1.11.1.min.js"></script>
+
 <script src="resource/js/bootstrap.js"></script>
 <script src="resource/js/homeAjax.js"></script>
-
+<script type = "text/javascript" language = "javascript">
+     var ctx = "<%=request.getContextPath()%>"
+      $(function() {
+    	  var location =[];
+            $.getJSON(ctx+'/allLocation', function(data) {
+            	$.each(data, function(index) {
+            		location.push(data[index].name);
+                 });
+            	
+            });
+            $("#tags").autocomplete({
+        		source:location
+        	}); 
+/*             $("#search").click(function(){
+                alert(location)
+            }); */
+       });
+</script>
 </head>
 <body>
 	<div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
@@ -79,19 +96,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<form action="searchLocation" >
 				<div class="form-group col-xs-12 col-sm-5 col-sm-offset-2">
 					<label for="" class="sr-only">Search</label>
-					<input type="text" class="form-control input-lg" placeholder="Enter your place" name="locationName">		
+					<input type="text" class="form-control input-lg" id ="tags" placeholder="Enter your location" name="locationName">		
 				</div>		
 
 				<div class="form-group col-xs-12 col-sm-3">
-					<button  type="submit" class="btn btn-success btn-lg btn-block">Search</button>
+					<button  type="submit" id="search"class="btn btn-success btn-lg btn-block">Search</button>
 				</div>
 			</form>								
 		</div>
 		</div>
 	</div> <!-- feature4 -->
-	<!-- try -->
-	
-	
+	<!-- try -->	
 	<!-- about -->
 	<div class="about">
 		<div class="container">

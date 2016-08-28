@@ -26,7 +26,8 @@
 	type="text/css">
 
 
-<script src="resource/js/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="resource/js/price-range.js"></script>
 <script src="resource/js/jquery.scrollUp.min.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
@@ -46,7 +47,6 @@
 	<link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
 	<link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
-	<script src="resource/js/jquery-1.11.1.min.js"></script>
 	<script src="resource/js/bootstrap.js"></script>
 	
 	<!-- location -->
@@ -70,6 +70,7 @@
 	<link href="resource/css/search.css" rel="stylesheet" type="text/css">
 	<link href="resource/css/responsive.css" rel="stylesheet"
 		type="text/css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 </head>
 
 <body ng-app="Application" ng-controller="Controller">
@@ -85,7 +86,6 @@
 		</tr>
 	</table>
 </body>
-	<script src="resource/js/jquery.js"></script>
 	<script src="resource/js/price-range.js"></script>
 	<script src="resource/js/bootstrap.min.js"></script>
 	<script src="resource/js/jquery.scrollUp.min.js"></script>

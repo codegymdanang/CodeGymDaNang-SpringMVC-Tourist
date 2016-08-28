@@ -19,7 +19,12 @@ import guru.tour.service.FoodEntityManager;
 @Controller
 public class FoodController {
 	@Autowired
-	FoodEntityManager foodEntityManager;
+	private FoodEntityManager foodEntityManager;
+	
+	@RequestMapping(value = "/food", method = RequestMethod.GET)
+	public String Foods() { 
+		return "food";
+	}
 	
 	@RequestMapping(value = "/fooddata", method = RequestMethod.GET)
 	public ResponseEntity<List<FoodEntity>> listAllFoods() {
