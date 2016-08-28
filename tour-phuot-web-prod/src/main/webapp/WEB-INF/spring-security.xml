@@ -23,6 +23,7 @@
            
             username-parameter="username"
             password-parameter="password"
+             authentication-success-handler-ref="loginSuccessHandler"
            	authentication-failure-url="/login"
             always-use-default-target="false" />
  
@@ -39,5 +40,7 @@
 		 </authentication-provider>
     	
     </authentication-manager>
-    
+    <beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
+        <beans:property name="defaultTargetUrl" value="/home"></beans:property>
+    </beans:bean>
 </beans:beans>
