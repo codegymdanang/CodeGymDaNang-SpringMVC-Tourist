@@ -13,10 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import guru.tour.entity.UserEntity;
 import guru.tour.service.UserEntityManager;
@@ -85,13 +83,14 @@ public class ServiceFriendController  {
 	@RequestMapping(value = "/updateprofile", method = RequestMethod.GET)
 	public ModelAndView updateprofile() {		
 		ModelAndView model = new ModelAndView("updateprofile");
-		model.addObject("user", new UserEntity("hai", "123", "001.jpg", "01212129827","da nang"));
+		model.addObject("user", new UserEntity("hai", "123", null, "01212129827","da nang"));
 		return model;
 	}
 	
 	@RequestMapping(value = "/getUser", method = RequestMethod.POST)
 	public ModelAndView updateprofile_request(HttpServletRequest request,@RequestParam("file") CommonsMultipartFile[] file) throws IllegalStateException, IOException {	
 		 String saveDirectory = "E:/tour/tour-parent/tour-phuot-web-prod/src/main/webapp/resource/images/";
+		 String path = request.getContextPath()+"/src/main/webapp/resource/images/";
 		 String a ="";
 		 if (file != null && file.length > 0) {
 	            for (CommonsMultipartFile aFile : file){
@@ -108,6 +107,7 @@ public class ServiceFriendController  {
 		UserEntity u = new UserEntity(request.getParameter("username").toString(), request.getParameter("password").toString(),a, request.getParameter("phone").toString(), request.getParameter("location").toString());
 		user.updateByUsername(u.getUsername(),u.getPassword(),u.getImage(),u.getPhone(),u.getDiadiem());
 		model.addObject("user", u);
+		/*System.err.println(path);*/
 		return model;
 	}
 	
