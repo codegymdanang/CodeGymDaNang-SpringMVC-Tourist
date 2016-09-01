@@ -3,12 +3,12 @@
 	href="resource/css/form-login-css.css">
 </head>
 
-<div class="top">
-	<a class="btn btn-link" href="#" role="button"> <!-- Trigger/Open The Modal -->
+<!-- <div class="top">
+	<a class="btn btn-link" href="#" role="button"> Trigger/Open The Modal
 		<button id="myBtn" class="">Login</button>
 	</a>
 
-</div>
+</div> -->
 
 
 

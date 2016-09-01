@@ -13,6 +13,10 @@
 			</div>
 			<div class="top-banner-right">
 				<ul>
+					<li><a class="btn btn-link" href="#" role="button"> <!-- Trigger/Open The Modal -->
+							<button id="myBtn" class="">Login</button>
+						</a>
+					</li>
 					<li><a class="facebook"
 						href="https://www.facebook.com/groups/1722588871302570/"><i
 							class="fa fa-facebook" aria-hidden="true"></i></a></li>
