@@ -1,6 +1,5 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
-<<<<<<< HEAD
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -8,7 +7,7 @@
 <script src="resource/js/jquery.scrollUp.min.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
 <script src="resource/js/search.js"></script>
-=======
+
 <html>
 <head>
 <title>Guru</title>
@@ -40,9 +39,9 @@
 <script src="resource/js/jquery.scrollUp.min.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
 <script src="resource/js/search.js"></script>
->>>>>>> branch 'master' of https://github.com/levunguyen/touristinvietnam
+
 <script src="resource/js/search_friends.js"></script>
-<<<<<<< HEAD
+
 
 	<!-- HoangLong -->
 	
@@ -103,7 +102,6 @@
 	
 	<!-- event -->
 	<script src="resource/js/jquery.rateyo.js"></script>
-=======
 
 	<!-- HoangLong -->
 	
@@ -165,5 +163,5 @@
 	
 	<!-- event -->
 	<script src="resource/js/jquery.rateyo.js"></script>
->>>>>>> branch 'master' of https://github.com/levunguyen/touristinvietnam
+
 </html>

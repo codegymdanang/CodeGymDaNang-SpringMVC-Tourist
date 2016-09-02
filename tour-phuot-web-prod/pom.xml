@@ -8,9 +8,7 @@
 		<artifactId>tour-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<groupId>guru</groupId>
 	<artifactId>tour-phuot-web-prod</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>tour-phuot-web-prod Maven Webapp</name>
 	<url>http://maven.apache.org</url>
