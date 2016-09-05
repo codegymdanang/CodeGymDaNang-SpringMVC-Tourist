@@ -119,7 +119,6 @@ public class ServiceFriendController  {
 	public ModelAndView changepassword(Principal principal) {		
 		List<UserEntity> list  = user.getUserByName(principal.getName());
 		UserEntity users= list.get(0);
-		System.err.println(principal.getName());
 		ModelAndView model = new ModelAndView("changepassword");
 		model.addObject("user",users);
 		return model;
