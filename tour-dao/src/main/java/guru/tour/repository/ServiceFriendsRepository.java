@@ -16,9 +16,15 @@ public interface ServiceFriendsRepository extends JpaRepository<UserEntity, Inte
 	public List<UserEntity> findByPhone(String phone);
 	List<UserEntity> findByRoles_IdAndDiadiem(Integer roleId,String diadiem);
 	public List<UserEntity> findByUsernameContaining(String name);
+	public UserEntity findById(int id);
 	
 	@Modifying
 	@Transactional
-	@Query("UPDATE UserEntity u SET u.password = :password , u.phone = :phone, u.image = :image ,u.diadiem = :diadiem WHERE u.username = :username ")
-	public void updateUsername(@Param("username")String username, @Param("password")String password,@Param("image")String image,@Param("phone")String phone,@Param("diadiem")String diadiem);
+	@Query("UPDATE UserEntity u SET  u.phone = :phone, u.image = :image ,u.diadiem = :diadiem WHERE u.username = :username ")
+	public void updateUsername(@Param("username")String username,@Param("image")String image,@Param("phone")String phone,@Param("diadiem")String diadiem);
+	
+	@Modifying
+	@Transactional
+	@Query("UPDATE UserEntity u SET u.password = :password WHERE u.username = :username ")
+	public void updatePasswordByUsername(@Param("username")String username, @Param("password")String password);
 }

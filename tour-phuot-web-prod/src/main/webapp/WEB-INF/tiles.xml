@@ -114,6 +114,9 @@
 	<definition name= "updateprofile" extends="definition">
 		<put-attribute name="body" value="/view/user/updateprofile.jsp"></put-attribute>
 	</definition>
+	<definition name= "changepassword" extends="definition">
+		<put-attribute name="body" value="/view/user/changepassword.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  

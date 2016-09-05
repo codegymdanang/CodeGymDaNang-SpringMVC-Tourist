@@ -69,6 +69,11 @@ public class UserEntity implements Serializable {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -139,6 +144,15 @@ public class UserEntity implements Serializable {
 		this.diadiem =diadiem;
 	}
 	
+	
+	public UserEntity(String username, String image, String phone, String diadiem,int a) {
+		super();
+		this.username = username;
+		this.image = image;
+		this.phone = phone;
+		this.diadiem = diadiem;
+	}
+
 	public UserEntity() {
 		// TODO Auto-generated constructor stub
 	}

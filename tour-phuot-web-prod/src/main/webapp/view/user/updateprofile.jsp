@@ -74,21 +74,6 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-3 control-label">Password:</label>
-						<div class="col-md-8">
-							<input class="form-control" type="password" id="password" name ="password"
-								placeholder="***********">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-md-3 control-label">Confirm password:</label>
-						<div class="col-md-8">
-							<input class="form-control" type="password" id="confirmpassword" name="confirmpassword"
-								placeholder="***********">
-						</div>
-					</div>
-
-					<div class="form-group">
 						<label class="col-xs-3 control-label">Location</label>
 						<div class="col-xs-5 selectContainer">
 							<select class="form-control" name="location" id="location">
