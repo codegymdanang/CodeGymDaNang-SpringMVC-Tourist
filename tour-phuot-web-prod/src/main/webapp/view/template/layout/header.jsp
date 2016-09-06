@@ -1,4 +1,8 @@
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <jsp:include page="../../user/form-login.jsp"></jsp:include>
+
 <!-- banner -->
 <div class="banner about-bg">
 	<div class="top-banner about-top-banner">
@@ -26,13 +30,15 @@
 							aria-hidden="true"></i></a></li>
 					<li><a class="facebook" href="#"><i
 							class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+							<c:if test="${pageContext.request.userPrincipal.name != null}">
 					<li><div class="dropdown">
   								<button class="dropbtn">Account</button>
   								<div class="dropdown-content">
 							    <a href="<%=request.getContextPath()%>/userprofile">Account Settings</a>
-							    <a href="#">Log Out</a>
+							    <a href="<c:url value="/logout" />" > Log Out</a>
 							  </div>
-</div></li>
+					</div></li>
+					</c:if>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -60,7 +66,6 @@
 							<li><a href="codes">New&Event</a></li>
 							<li><a href="gallery">Gallery</a></li>
 							<li><a href="contact">Contact</a></li>
-							<div class="clearfix"></div>
 						</ul>
 					</div>
 				</nav>

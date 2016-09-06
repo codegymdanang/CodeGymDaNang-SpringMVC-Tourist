@@ -27,6 +27,7 @@
              authentication-success-handler-ref="loginSuccessHandler"
            	authentication-failure-url="/login"
             always-use-default-target="false" />
+            <logout logout-url="/logout" logout-success-url="/home"></logout>
  
     </http>
 

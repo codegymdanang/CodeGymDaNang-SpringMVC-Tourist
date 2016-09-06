@@ -96,10 +96,10 @@ public class ServiceFriendController  {
 	@RequestMapping(value = "/getUser", method = RequestMethod.POST)
 	public ModelAndView updateprofile_request(HttpServletRequest request,@RequestParam("file") CommonsMultipartFile[] file) throws IllegalStateException, IOException {	
 		 String saveDirectory = request.getServletContext().getRealPath("/")+"/resource/images/";
-		 String a ="";
+		 String image ="";
 		 if (file != null && file.length > 0) {
 	            for (CommonsMultipartFile aFile : file){
-	                  a = aFile.getOriginalFilename();
+	                  image = aFile.getOriginalFilename();
 	                System.out.println("Saving file: " + aFile.getOriginalFilename());
 	                 
 	                if (!aFile.getOriginalFilename().equals("")) {
@@ -109,7 +109,7 @@ public class ServiceFriendController  {
 	        }
 		
 		ModelAndView model = new ModelAndView("homePage");
-		UserEntity u = new UserEntity(request.getParameter("username").toString(),a, request.getParameter("phone").toString(), request.getParameter("location").toString(),1);
+		UserEntity u = new UserEntity(request.getParameter("username").toString(),image, request.getParameter("phone").toString(), request.getParameter("location").toString());
 		user.updateByUsername(u);
 		model.addObject("user", u);
 		return model;
