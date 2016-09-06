@@ -64,5 +64,7 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	public void updatePasswordByUsername(UserEntity user) {
 		friendsRepository.updatePasswordByUsername(user.getUsername(), user.getPassword());
 	}
-	
+	public void updateComment(String username, String comment){
+		friendsRepository.updateComment(username, comment);
+	}
 }

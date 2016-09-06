@@ -15,4 +15,5 @@ public interface UserEntityManager {
 	void updateByUsername(UserEntity user);
 	UserEntity getUserById(int id);
 	void updatePasswordByUsername(UserEntity user);
+	void updateComment(String username, String comment);
 }

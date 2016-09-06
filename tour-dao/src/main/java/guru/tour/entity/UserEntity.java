@@ -45,6 +45,9 @@ public class UserEntity implements Serializable {
 	@Column(name = "phone")
 	private String phone;
 
+	@Column(name = "comment")
+	private String comment;
+	
 	@Column(name = "diadiem")
 	private String diadiem;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "userEntity",cascade=CascadeType.ALL)
@@ -52,6 +55,13 @@ public class UserEntity implements Serializable {
 	@JsonIgnore
 	private List<RatingEntity> list=new ArrayList<RatingEntity>();
 	
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 	
 	public List<RatingEntity> getList() {
 		return list;

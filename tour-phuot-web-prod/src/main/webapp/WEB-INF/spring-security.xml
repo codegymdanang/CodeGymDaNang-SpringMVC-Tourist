@@ -10,6 +10,7 @@
 	 <http use-expressions="true">
         <intercept-url pattern="/" access="permitAll()" />
         <intercept-url pattern="/home" access="permitAll()" />
+        <intercept-url pattern="/comment" access="permitAll()" />
         <intercept-url pattern="/login" access="permitAll()" />
         <intercept-url pattern="/register" access="permitAll()" />
         <intercept-url pattern="/userInfo"

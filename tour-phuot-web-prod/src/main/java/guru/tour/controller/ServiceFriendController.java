@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,7 @@ import guru.tour.service.UserEntityManager;
 @Controller
 @RequestMapping(value = "/")
 public class ServiceFriendController  {
+	Logger log=LoggerFactory.getLogger(ServiceFriendController.class);
 	@Autowired
 	UserEntityManager user;
 	@RequestMapping(value = "/servicefriend", method = RequestMethod.GET)
@@ -135,6 +138,22 @@ public class ServiceFriendController  {
 	}
 	
 
-	
+	@RequestMapping(value = "/comment", method = RequestMethod.GET)
+	public ModelAndView comment(Principal principal) {		
+		ModelAndView model = new ModelAndView("comment");
+//		UserEntity user = (UserEntity)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		log.info(principal.getName());
+	    model.addObject("name", principal.getName());
+		return model;
+	}
+	@RequestMapping(value = "/success", method = RequestMethod.GET)
+	public ModelAndView success(Principal principal,HttpServletRequest request) {		
+		
+		ModelAndView model = new ModelAndView("success");
+		String comment=request.getParameter("comment");
+		user.updateComment(principal.getName(), comment);
+		model.addObject("name", principal.getName());
+		return model;
+	}
 	
 }
