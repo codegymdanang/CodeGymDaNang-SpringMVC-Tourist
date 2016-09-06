@@ -26,6 +26,13 @@
 							aria-hidden="true"></i></a></li>
 					<li><a class="facebook" href="#"><i
 							class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+					<li><div class="dropdown">
+  								<button class="dropbtn">Account</button>
+  								<div class="dropdown-content">
+							    <a href="<%=request.getContextPath()%>/userprofile">Account Settings</a>
+							    <a href="#">Log Out</a>
+							  </div>
+</div></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>

@@ -123,6 +123,9 @@
 	<definition name= "changepassword" extends="definition">
 		<put-attribute name="body" value="/view/user/changepassword.jsp"></put-attribute>
 	</definition>
+	<definition name= "userprofile" extends="definition">
+		<put-attribute name="body" value="/view/user/userprofile.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>  
  
  

@@ -140,7 +140,6 @@ public class ServiceFriendController  {
 	@RequestMapping(value = "/comment", method = RequestMethod.GET)
 	public ModelAndView comment(Principal principal) {		
 		ModelAndView model = new ModelAndView("comment");
-//		UserEntity user = (UserEntity)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		log.info(principal.getName());
 	    model.addObject("name", principal.getName());
 		return model;
@@ -154,5 +153,35 @@ public class ServiceFriendController  {
 		model.addObject("name", principal.getName());
 		return model;
 	}
+	
+	@RequestMapping(value = "/userprofile", method = RequestMethod.GET)
+	public ModelAndView userprofile(Principal principal) {		
+		List<UserEntity> list  = user.getUserByName(principal.getName());
+		UserEntity users= list.get(0);
+		ModelAndView model = new ModelAndView("userprofile");
+		model.addObject("user",users);
+		return model;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
