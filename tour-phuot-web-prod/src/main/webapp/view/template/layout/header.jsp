@@ -1,8 +1,6 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="../../user/form-login.jsp"></jsp:include>
-
 <!-- banner -->
 <div class="banner about-bg">
 	<div class="top-banner about-top-banner">
@@ -18,7 +16,7 @@
 			<div class="top-banner-right">
 				<ul>
 					<li><a class="btn btn-link" href="#" role="button"> <!-- Trigger/Open The Modal -->
-							<button id="myBtn" class="">Login</button>
+							<button id="myBtnOfLogin" class="">Login</button>
 						</a>
 					</li>
 					<li><a class="facebook"
@@ -75,3 +73,6 @@
 	</div>
 </div>
 <!-- //banner -->
+
+
+<jsp:include page="../../user/form-login.jsp"></jsp:include>
