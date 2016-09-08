@@ -46,6 +46,9 @@ public class UserEntity implements Serializable {
 	@Column(name = "phone")
 	private String phone;
 
+	@Column(name = "comment")
+	private String comment;
+	
 	@Column(name = "diadiem")
 	private String diadiem;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "userEntity",cascade=CascadeType.ALL)
@@ -55,6 +58,13 @@ public class UserEntity implements Serializable {
 	@JsonIgnore
 	private List<RatingEntity> list=new ArrayList<RatingEntity>();
 	
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 	
 	//bi-directional many-to-one association to UserSchedule
 		@OneToMany(mappedBy="user",cascade=CascadeType.ALL, fetch=FetchType.LAZY)				
@@ -84,6 +94,11 @@ public class UserEntity implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 
 	public String getUsername() {
@@ -156,6 +171,15 @@ public class UserEntity implements Serializable {
 		this.diadiem =diadiem;
 	}
 	
+	
+	public UserEntity(String username, String image, String phone, String diadiem,int a) {
+		super();
+		this.username = username;
+		this.image = image;
+		this.phone = phone;
+		this.diadiem = diadiem;
+	}
+
 	public UserEntity() {
 		// TODO Auto-generated constructor stub
 	}

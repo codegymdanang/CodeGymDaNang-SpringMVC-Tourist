@@ -3,11 +3,14 @@ package guru.tour.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +26,7 @@ import guru.tour.service.UserEntityManager;
 @Controller
 @RequestMapping(value = "/")
 public class ServiceFriendController  {
+	Logger log=LoggerFactory.getLogger(ServiceFriendController.class);
 	@Autowired
 	UserEntityManager user;
 	@RequestMapping(value = "/servicefriend", method = RequestMethod.GET)
@@ -81,20 +85,21 @@ public class ServiceFriendController  {
 	}
 	
 	@RequestMapping(value = "/updateprofile", method = RequestMethod.GET)
-	public ModelAndView updateprofile() {		
+	public ModelAndView updateprofile(Principal principal) {		
+		List<UserEntity> list  = user.getUserByName(principal.getName());
+		UserEntity users= list.get(0);
 		ModelAndView model = new ModelAndView("updateprofile");
-		model.addObject("user", new UserEntity("hai", "123", null, "01212129827","da nang"));
+		model.addObject("user",users);
 		return model;
 	}
 	
 	@RequestMapping(value = "/getUser", method = RequestMethod.POST)
 	public ModelAndView updateprofile_request(HttpServletRequest request,@RequestParam("file") CommonsMultipartFile[] file) throws IllegalStateException, IOException {	
-		 String saveDirectory = "E:/tour/tour-parent/tour-phuot-web-prod/src/main/webapp/resource/images/";
-		 String path = request.getContextPath()+"/src/main/webapp/resource/images/";
-		 String a ="";
+		 String saveDirectory = request.getServletContext().getRealPath("/")+"/resource/images/";
+		 String image ="";
 		 if (file != null && file.length > 0) {
 	            for (CommonsMultipartFile aFile : file){
-	                  a = aFile.getOriginalFilename();
+	                  image = aFile.getOriginalFilename();
 	                System.out.println("Saving file: " + aFile.getOriginalFilename());
 	                 
 	                if (!aFile.getOriginalFilename().equals("")) {
@@ -104,14 +109,79 @@ public class ServiceFriendController  {
 	        }
 		
 		ModelAndView model = new ModelAndView("homePage");
-		UserEntity u = new UserEntity(request.getParameter("username").toString(), request.getParameter("password").toString(),a, request.getParameter("phone").toString(), request.getParameter("location").toString());
-		user.updateByUsername(u.getUsername(),u.getPassword(),u.getImage(),u.getPhone(),u.getDiadiem());
+		UserEntity u = new UserEntity(request.getParameter("username").toString(),image, request.getParameter("phone").toString(), request.getParameter("location").toString());
+		user.updateByUsername(u);
 		model.addObject("user", u);
-		/*System.err.println(path);*/
+		return model;
+	}
+	
+	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
+	public ModelAndView changepassword(Principal principal) {		
+		List<UserEntity> list  = user.getUserByName(principal.getName());
+		UserEntity users= list.get(0);
+		ModelAndView model = new ModelAndView("changepassword");
+		model.addObject("user",users);
+		return model;
+	}
+	
+	@RequestMapping(value = "/updateprofile", method = RequestMethod.POST)
+	public ModelAndView process_changepassword(HttpServletRequest request,Principal principal) {	
+		String password = request.getParameter("password1");
+		ModelAndView model = new ModelAndView("updateprofile");
+		List<UserEntity> list  = user.getUserByName(principal.getName());
+		UserEntity users= list.get(0);
+		users.setPassword(password);
+		user.updatePasswordByUsername(users);
+		model.addObject("user", users);
 		return model;
 	}
 	
 
+	@RequestMapping(value = "/comment", method = RequestMethod.GET)
+	public ModelAndView comment(Principal principal) {		
+		ModelAndView model = new ModelAndView("comment");
+		log.info(principal.getName());
+	    model.addObject("name", principal.getName());
+		return model;
+	}
+	@RequestMapping(value = "/success", method = RequestMethod.GET)
+	public ModelAndView success(Principal principal,HttpServletRequest request) {		
+		
+		ModelAndView model = new ModelAndView("success");
+		String comment=request.getParameter("comment");
+		user.updateComment(principal.getName(), comment);
+		model.addObject("name", principal.getName());
+		return model;
+	}
+	
+	@RequestMapping(value = "/userprofile", method = RequestMethod.GET)
+	public ModelAndView userprofile(Principal principal) {		
+		List<UserEntity> list  = user.getUserByName(principal.getName());
+		UserEntity users= list.get(0);
+		ModelAndView model = new ModelAndView("userprofile");
+		model.addObject("user",users);
+		return model;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
