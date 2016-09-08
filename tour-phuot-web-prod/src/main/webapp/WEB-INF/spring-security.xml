@@ -10,6 +10,7 @@
 	 <http use-expressions="true">
         <intercept-url pattern="/" access="permitAll()" />
         <intercept-url pattern="/home" access="permitAll()" />
+        <intercept-url pattern="/comment" access="permitAll()" />
         <intercept-url pattern="/login" access="permitAll()" />
         <intercept-url pattern="/register" access="permitAll()" />
         <intercept-url pattern="/userInfo"
@@ -26,6 +27,7 @@
              authentication-success-handler-ref="loginSuccessHandler"
            	authentication-failure-url="/login"
             always-use-default-target="false" />
+            <logout logout-url="/logout" logout-success-url="/home"></logout>
  
     </http>
 
