@@ -12,11 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 @Entity
 @Table(name = "userSchedule")
 public class UserSchedule implements Serializable {
@@ -26,12 +21,22 @@ public class UserSchedule implements Serializable {
 	@Column(name = "id")
 	private int id;
 
+	// bi-directional many-to-one association to User
+	@ManyToOne
+	@JoinColumn(name = "user_id", insertable = false, updatable = false)
+	private UserEntity user;
+
+	// bi-directional many-to-one association to Place
+	@ManyToOne
+	@JoinColumn(name = "place_id", insertable = false, updatable = false)
+	private PlaceEntity place;
+
 	@Column(name = "versionNo")
 	private int versionNo;
-	
+
 	@Column(name = "createdDate")
 	private Date createdDate;
-	
+
 	@Column(name = "updatedDate")
 	private Date updatedDate;
 
@@ -48,62 +53,23 @@ public class UserSchedule implements Serializable {
 	private Date endDay;
 
 	@Column(name = "status")
-	private int status;	 
-	
-//	@Column(name = "place_id")
-//	private int place_id;	 
-	
-//	@Column(name = "user_id")
-//	private int user_id;
-			//bi-directional many-to-one association to Place
-		@ManyToOne
-		@JoinColumn(name = "place_id", insertable=false, updatable=false)
-		 
-		private PlaceEntity place;
+	private int status;
 
-		//bi-directional many-to-one association to User
-		@ManyToOne
-		@JoinColumn(name = "user_id", insertable=false, updatable=false)
-		private UserEntity user;
-		
-		
-		
-//	
-//	
-//	public int getPlace_id() {
-//		return place_id;
-//	}
-//
-//	public void setPlace_id(int place_id) {
-//		this.place_id = place_id;
-//	}
-//
-//	public int getUser_id() {
-//		return user_id;
-//	}
-//
-//	public void setUser_id(int user_id) {
-//		this.user_id = user_id;
-//	}
-
-
-	
-	
 	public PlaceEntity getPlace() {
-			return place;
-		}
+		return place;
+	}
 
-		public void setPlace(PlaceEntity place) {
-			this.place = place;
-		}
+	public void setPlace(PlaceEntity place) {
+		this.place = place;
+	}
 
-		public UserEntity getUser() {
-			return user;
-		}
+	public UserEntity getUser() {
+		return user;
+	}
 
-		public void setUser(UserEntity user) {
-			this.user = user;
-		}
+	public void setUser(UserEntity user) {
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;
@@ -169,8 +135,7 @@ public class UserSchedule implements Serializable {
 		this.endDay = endDay;
 	}
 
-	
-	public UserSchedule(int status) {		
+	public UserSchedule(int status) {
 		this.status = status;
 	}
 
@@ -181,6 +146,5 @@ public class UserSchedule implements Serializable {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
-			
+
 }
