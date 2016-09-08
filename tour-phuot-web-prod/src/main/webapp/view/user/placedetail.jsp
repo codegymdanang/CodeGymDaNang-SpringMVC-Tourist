@@ -64,14 +64,18 @@
 <script type = "text/javascript" language = "javascript">
      var ctx = "<%=request.getContextPath()%>"
       $(document).ready(function() {
-            $.getJSON(ctx+'/fooddata', function(data) {
-            	$.each(data, function( index, value ) {
-                  var row = $("<div class='row'><div class='item'><img src='resource/images/my.jpg' width='100%' height='100%''></div></div><div class='foodname'><a>" + value.name + 
-                		  "</a> </br> <img src='resource/images/heart-review.png'width='30%'></div>"); 
-                    $("#foodData").append(row);
+    	  $.ajax( {
+              url: ctx+'/fooddata',
+              success:function(data) {
+            	  list=data;
+            	  $.each(data, function( index, value ) {
+                    row =  $("<div class='row'><div class='item'><img src='resource/images/"+value.images+"' width='100%' height='100%''></div></div><div class='foodname'><a>" + value.name + 
+          		  "</a> </br> <img src='resource/images/heart-review.png'width='30%'></div>"); 
+                     $("#foodData").append(row);
                  });
-            	});  
-        	
+              },
+              async: true
+           });        	
        });
 </script>
 
