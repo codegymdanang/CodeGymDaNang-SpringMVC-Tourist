@@ -4,7 +4,7 @@ package guru.tour.controller;
 import guru.tour.entity.HotNewsEntity;
 
 import guru.tour.entity.LocationEntity;
-
+import guru.tour.entity.PlaceEntity;
 import guru.tour.exception.HomeException;
 
 import guru.tour.service.HotNewsEntityManager;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -120,15 +121,12 @@ public class HomepageController {
 	@RequestMapping(value = "/searchLocation", method = RequestMethod.GET)
 	public String searchLocation(HttpServletRequest request,ModelMap model) {
 							
-		LocationEntity locationEntity;		
+		LocationEntity locationEntity;
 		locationEntity =locationEntityManager.findByLocation_name(request.getParameter("locationName"));
-		
-		if(locationEntity != null){
-			
-			model.addAttribute("placeName", locationEntity.getName());
-			/*model.addAttribute("locationEntity", locationEntity);*/
-			/*model.put("placeName", locationEntity.getName());*/
-			System.out.println("aaaaaaaaaaa   "+ locationEntity.getName().toString());
+		if(locationEntity != null){			
+			/*List<PlaceEntity> places = locationEntity.getListPlace();*/
+			request.getSession().setAttribute("locationEntity", locationEntity);
+			/*request.getSession().setAttribute("places", places);*/
 			return "location";			
 		}
 		

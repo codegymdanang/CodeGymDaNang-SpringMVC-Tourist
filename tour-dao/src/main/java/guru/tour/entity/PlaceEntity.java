@@ -1,7 +1,10 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +17,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.IndexColumn;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
+
 
 @Entity
 @Table(name ="place")
@@ -41,9 +54,17 @@ public class PlaceEntity implements Serializable {
 	@JsonManagedReference
 	private LocationEntity local;*/
 	
+	@ManyToOne
+	@JoinColumn(name="local_id", insertable = false, updatable = false)
+	private LocationEntity location;
+	
+	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "placeEntity",cascade=CascadeType.ALL)
 	@JsonIgnore
 	private List<AddressEntity> listAddr;
+	
+	
+	
 	public List<AddressEntity> getListAddr() {
 		return listAddr;
 	}
@@ -51,15 +72,30 @@ public class PlaceEntity implements Serializable {
 	public void setListAddr(List<AddressEntity> listAddr) {
 		this.listAddr = listAddr;
 	}
+	
+	//bi-directional many-to-one association to UserSchedule
+		@OneToMany(mappedBy="place",cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
+		private Set<UserSchedule> userSchedules = new HashSet<UserSchedule>();
+		
+		public Set<UserSchedule> getUserSchedules() {
+			return userSchedules;
+		}
 
-	/*public LocationEntity getLocal() {
-		return local;
-	}*/
+		public void setUserSchedules(Set<UserSchedule> userSchedules) {
+			this.userSchedules = userSchedules;
+		}
 
-	/*public void setLocal(LocationEntity local) {
-		this.local = local;
-	}
-	*/
+		
+			
+	public LocationEntity getLocation() {
+			return location;
+		}
+
+		public void setLocation(LocationEntity location) {
+			this.location = location;
+		}
+
+	
 	public PlaceEntity() {
 		super();
 	}
@@ -114,5 +150,4 @@ public class PlaceEntity implements Serializable {
 	public void setLocalID(int localID) {
 		this.localID = localID;
 	}
-	
 }

@@ -4,6 +4,9 @@
 	isELIgnored="false" pageEncoding="UTF-8"%> --%>
 	
 <!DOCTYPE html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="guru.tour.entity.PlaceEntity"%>
+<%@page import="java.util.List"%>
 <html>
 <head >        
     <meta charset="UTF-8">
@@ -59,10 +62,18 @@
                 }
             });
         });
-
+             
     </script>
+    
+    <script type="text/javascript" src="resource/js/userSchedule.js"></script>
 </head>
 <body style="background-color: #d8d8d8;">
+
+<!--start get all place from a location name -->
+	<% HttpSession session2 = request.getSession();
+	ArrayList<PlaceEntity> places = (ArrayList<PlaceEntity>)session2.getAttribute("places");
+	%>
+<!--end get all place from a location name -->  
 <div class="container" style="padding-top: 10px;">
     <div class="row">
     </div>
@@ -97,22 +108,22 @@
         <div id="diadiem" style="display: none">
             <h3>Place</h3>
         <div class="row">
-
+				
                 <div>
                     <div class="col-sm-6 col-md-4">
                        <div class="thumbnail">
-                        	<img src="resource/images/${placeName}.jpg"  alt="...">                                                                      		                      	
+                        	<img src="resource/images/${locationEntity.name}.jpg"  alt="${locationEntity.name}">                                                                      		                      	
                     	</div>
                     	
                     <div style="text-align: center;">
 	                    <div class= "col-sm-4 col-sm-push-2">
-	                    <button> <span class="glyphicon glyphicon-thumbs-down"></span></button>	                                       
+	                    <button id="dislike" > <span class="glyphicon glyphicon-thumbs-down"></span></button>	                                       
 	                    </div>
 	                    <div class= "col-sm-4 ">
-	                    <button><span class="glyphicon glyphicon-eye-open"></span></button>
+	                    <button id="remind"><span class="glyphicon glyphicon-eye-open"></span></button>
 	                    </div>
 	                    <div class= "col-sm-4 col-sm-pull-2">
-	                    <button><span class="glyphicon glyphicon-thumbs-up"></span></button>
+	                    <button id="like"><span class="glyphicon glyphicon-thumbs-up"></span></button>
 	                    </div>                    	                      	                       	 
                     </div>
                 </div>

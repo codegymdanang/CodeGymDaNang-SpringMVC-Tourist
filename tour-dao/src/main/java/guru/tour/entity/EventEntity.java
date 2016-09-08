@@ -32,21 +32,21 @@ public class EventEntity implements Serializable {
 
 	@Column(name = "endday")
 	private Date endday;
-	
+
 	@Column(name = "local_id")
 	private int local_id;
-	
+
 	@Column(name = "add_id")
 	private int address_id;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "local_id", insertable=false, updatable=false)
+	@JoinColumn(name = "local_id", insertable = false, updatable = false)
 	private LocationEntity event_location;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "add_id", insertable=false, updatable=false)
+	@JoinColumn(name = "add_id", insertable = false, updatable = false)
 	private AddressEntity event_add;
-	
+
 	@Override
 	public String toString() {
 		return "EventEntity [id=" + id + ", name=" + name + ", description=" + description + ", startday=" + startday
@@ -109,5 +109,4 @@ public class EventEntity implements Serializable {
 		this.address_id = address_id;
 	}
 
-	
 }

@@ -3,16 +3,15 @@ package guru.tour.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -32,23 +31,28 @@ public class LocationEntity implements Serializable {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "locationEntity")
 	@JsonIgnore
 	private List<FoodEntity> food = new ArrayList<FoodEntity>();
+	
+	
+	//bi-directional many-to-one association to Place
+		@OneToMany(mappedBy="location")
+		private List<PlaceEntity> places;
+		
+	 
 
-	/*
-	 * @OneToMany(fetch = FetchType.EAGER, mappedBy =
-	 * "locationEntity",cascade=CascadeType.ALL)
-	 * 
-	 * @JsonIgnore private List<PlaceEntity> listPlace;
-	 */
+	public List<PlaceEntity> getPlaces() {
+			return places;
+		}
+
+		public void setPlaces(List<PlaceEntity> places) {
+			this.places = places;
+		}
 
 	@OneToMany(mappedBy = "event_location")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@JsonIgnore
 	private List<EventEntity> location_event = new ArrayList<EventEntity>();
 
-	/*
-	 * public List<PlaceEntity> getListPlace() { return listPlace; } public void
-	 * setListPlace(List<PlaceEntity> listPlace) { this.listPlace = listPlace; }
-	 */
+	
 	public int getId() {
 		return id;
 	}
@@ -80,5 +84,8 @@ public class LocationEntity implements Serializable {
 	public void setLocation_event(List<EventEntity> location_event) {
 		this.location_event = location_event;
 	}
+
+
+	
 
 }

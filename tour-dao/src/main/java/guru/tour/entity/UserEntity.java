@@ -2,7 +2,9 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,19 +12,18 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.aspectj.internal.lang.annotation.ajcDeclareSoft;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.IndexColumn;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "user")
@@ -49,10 +50,17 @@ public class UserEntity implements Serializable {
 	private String diadiem;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "userEntity",cascade=CascadeType.ALL)
 	/*@JsonBackReference*/
+
+	@LazyCollection(LazyCollectionOption.FALSE) 
 	@JsonIgnore
 	private List<RatingEntity> list=new ArrayList<RatingEntity>();
 	
 	
+	//bi-directional many-to-one association to UserSchedule
+		@OneToMany(mappedBy="user",cascade=CascadeType.ALL, fetch=FetchType.LAZY)				
+		private Set<UserSchedule> userSchedules = new HashSet<UserSchedule>();
+		
+		
 	public List<RatingEntity> getList() {
 		return list;
 	}
@@ -60,6 +68,15 @@ public class UserEntity implements Serializable {
 	public void setList(List<RatingEntity> list) {
 		this.list = list;
 	}
+	
+	
+		public Set<UserSchedule> getUserSchedules() {
+			return userSchedules;
+		}
+
+		public void setUserSchedules(Set<UserSchedule> userSchedules) {
+			this.userSchedules = userSchedules;
+		}
 
 	public int getId() {
 		return id;
@@ -161,4 +178,5 @@ public class UserEntity implements Serializable {
 //	@JsonIgnore
 //	private List<User_RoleEntity> lists=new ArrayList<User_RoleEntity>();
 //	
+	
 }
