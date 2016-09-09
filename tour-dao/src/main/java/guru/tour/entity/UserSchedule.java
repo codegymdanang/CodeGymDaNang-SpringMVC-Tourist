@@ -55,27 +55,6 @@ public class UserSchedule implements Serializable {
 	@Column(name = "status")
 	private int status;
 
-	
-	public UserSchedule() {
-		super();
-	}
-
-	public UserSchedule(int id, UserEntity user, PlaceEntity place, int versionNo, Date createdDate, Date updatedDate,
-			String createdBy, String updatedBy, Date startDay, Date endDay, int status) {
-		super();
-		this.id = id;
-		this.user = user;
-		this.place = place;
-		this.versionNo = versionNo;
-		this.createdDate = createdDate;
-		this.updatedDate = updatedDate;
-		this.createdBy = createdBy;
-		this.updatedBy = updatedBy;
-		this.startDay = startDay;
-		this.endDay = endDay;
-		this.status = status;
-	}
-
 	public PlaceEntity getPlace() {
 		return place;
 	}
@@ -156,9 +135,9 @@ public class UserSchedule implements Serializable {
 		this.endDay = endDay;
 	}
 
-	public UserSchedule(int status) {
+/*	public UserSchedule(int status) {
 		this.status = status;
-	}
+	}*/
 
 	public int getStatus() {
 		return status;
