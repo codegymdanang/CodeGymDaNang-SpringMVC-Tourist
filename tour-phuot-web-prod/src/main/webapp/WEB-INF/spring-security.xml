@@ -8,6 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	 <http use-expressions="true">
+	 <csrf disabled="true"/>
         <intercept-url pattern="/" access="permitAll()" />
         <intercept-url pattern="/home" access="permitAll()" />
         <intercept-url pattern="/comment" access="permitAll()" />
