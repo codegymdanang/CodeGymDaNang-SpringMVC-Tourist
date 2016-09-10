@@ -15,7 +15,7 @@
 	<!-- It register the beans in context and scan the annotations inside beans 
 		and activate them -->
 	<context:component-scan base-package="guru.tour" />
-	<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<!-- <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/> -->
 	<!-- This allow for dispatching requests to Controllers -->
 
 	<!-- This produces a container-managed EntityManagerFactory; rather than 

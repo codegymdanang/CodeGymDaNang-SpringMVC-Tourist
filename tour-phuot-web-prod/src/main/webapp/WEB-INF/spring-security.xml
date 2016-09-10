@@ -35,6 +35,7 @@
 
     <authentication-manager>
         <authentication-provider>
+        	<password-encoder ref="standardPasswordEncoder"></password-encoder>
 			<jdbc-user-service data-source-ref="dataSource"
 			  users-by-username-query=
 			    "select username,password, enabled from user where username=?"
@@ -43,6 +44,9 @@
 		 </authentication-provider>
     	
     </authentication-manager>
+    <beans:bean id="standardPasswordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+
+    </beans:bean>
     <beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
         <beans:property name="defaultTargetUrl" value="/home"></beans:property>
     </beans:bean>
