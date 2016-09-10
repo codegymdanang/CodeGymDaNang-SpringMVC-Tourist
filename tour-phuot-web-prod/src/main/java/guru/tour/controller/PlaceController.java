@@ -107,7 +107,7 @@ public class PlaceController {
 		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(1);
 		System.out.println(placeEntity.getName());
 		ModelAndView model = new ModelAndView("place");
-		model.addObject("Place", placeEntity);
+		model.addObject("place", placeEntity);
 		List<FoodEntity> foodList = foodEntityManager.getAllFoods();
 		model.addObject("list", foodList);
 		return model;

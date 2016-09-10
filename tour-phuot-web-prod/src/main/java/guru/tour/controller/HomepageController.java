@@ -9,6 +9,7 @@ import guru.tour.exception.HomeException;
 
 import guru.tour.service.HotNewsEntityManager;
 import guru.tour.service.LocationEntityManager;
+import guru.tour.service.PlaceEntityManager;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -40,10 +41,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomepageController {
 
 	
-	@Autowired
+	@Autowired	
 	HotNewsEntityManager hotnews;
 	
 	
+	@Autowired	
+	PlaceEntityManager placeEntityManager;
 
 	@Autowired
 	LocationEntityManager locationEntityManager;
@@ -119,17 +122,32 @@ public class HomepageController {
 	
 /*	searchLocation*/
 	@RequestMapping(value = "/searchLocation", method = RequestMethod.GET)
-	public String searchLocation(HttpServletRequest request,ModelMap model) {
+	public String searchLocation(HttpSession session,HttpServletRequest request,ModelMap model) {
 							
 		LocationEntity locationEntity;
 		locationEntity =locationEntityManager.findByLocation_name(request.getParameter("locationName"));
 		if(locationEntity != null){			
-			/*List<PlaceEntity> places = locationEntity.getListPlace();*/
-			request.getSession().setAttribute("locationEntity", locationEntity);
-			/*request.getSession().setAttribute("places", places);*/
+			/*List<PlaceEntity> places = placeEntityManager.getAllPlaceByLocalId(1);*/
+			List<PlaceEntity> places1 = placeEntityManager.getAll();
+			System.out.println("---------------------: "+ places1.size());
+			List<PlaceEntity> places2 = new ArrayList<PlaceEntity>();
+			for (PlaceEntity placeEntity : places1) {
+				if(placeEntity.getLocalID() == locationEntity.getId())
+				{
+					places2.add(placeEntity);
+				}
+			}
+			System.out.println("---------------------: "+ places2.size());
+			/*request.getSession().setAttribute("locationEntity", locationEntity);*/
+			/*request.getSession().setAttribute("places2", places2);*/
+			/*session.setAttribute("locationEntity", locationEntity);
+			session.setAttribute("places2", places2);			*/
+			model.addAttribute("places2", places2);
+			model.addAttribute("locationEntity", locationEntity);
 			return "location";			
 		}
 		
 		return "HomeError";
 	}	
+	
 }

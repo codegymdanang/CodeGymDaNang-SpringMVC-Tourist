@@ -68,12 +68,7 @@
     <script type="text/javascript" src="resource/js/userSchedule.js"></script>
 </head>
 <body style="background-color: #d8d8d8;">
-
-<!--start get all place from a location name -->
-	<% HttpSession session2 = request.getSession();
-	ArrayList<PlaceEntity> places = (ArrayList<PlaceEntity>)session2.getAttribute("places");
-	%>
-<!--end get all place from a location name -->  
+  
 <div class="container" style="padding-top: 10px;">
     <div class="row">
     </div>
@@ -107,12 +102,15 @@
     </div>
         <div id="diadiem" style="display: none">
             <h3>Place</h3>
+            <h1>Result : ${places2.size()}</h1>
+                        
         <div class="row">
 				
                 <div>
                     <div class="col-sm-6 col-md-4">
                        <div class="thumbnail">
-                        	<img src="resource/images/${locationEntity.name}.jpg"  alt="${locationEntity.name}">                                                                      		                      	
+                        	<img src="resource/images/${places2[0].images}"  alt="${places2[0].images}">  
+                        	                                                                     		                      	
                     	</div>
                     	
                     <div style="text-align: center;">
@@ -129,7 +127,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="resource/images/danang.jpg" alt="...">
+                        <img src="resource/images/${places2[1].images}"  alt="${places2[1].images}">
                     </div>
                     <div style="text-align: center;">
 	                    <div class= "col-sm-4 col-sm-push-2">
@@ -145,7 +143,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="resource/images/danang.jpg" alt="...">
+                        <img src="resource/images/${places2[2].images}"  alt="${places2[2].images}">
                     </div>
                     <div style="text-align: center;">
 	                    <div class= "col-sm-4 col-sm-push-2">

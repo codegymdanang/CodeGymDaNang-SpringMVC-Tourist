@@ -135,9 +135,9 @@ public class UserSchedule implements Serializable {
 		this.endDay = endDay;
 	}
 
-	public UserSchedule(int status) {
+/*	public UserSchedule(int status) {
 		this.status = status;
-	}
+	}*/
 
 	public int getStatus() {
 		return status;
