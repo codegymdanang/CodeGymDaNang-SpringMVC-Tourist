@@ -10,49 +10,53 @@
      http://www.springframework.org/schema/context/spring-context-4.1.xsd  
      http://www.springframework.org/schema/mvc
      http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
-	
+
 	<mvc:annotation-driven />
 	<context:component-scan base-package="guru.tour" />
+	<context:annotation-config />
 
-	
-	
-	<mvc:resources mapping="/resource/**" location="/resource/" cache-period="31556926"></mvc:resources>
-	
-	
-	
-	<!-- <bean id="simpleMappingExceptionResolver" class="guru.tour.exception.MySimpleMappingExceptionResolver">
-		<property name="exceptionMappings">
-			<map>
-				<entry key="Exception" value="generic_error"></entry>
-			</map>
+
+	<mvc:resources mapping="/resource/**" location="/resource/"
+		cache-period="31556926"></mvc:resources>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>messages</value>
 		</property>
-		<property name="defaultErrorView" value="generic_error"/>
-	</bean> -->
-	
+	</bean>
+
+	<!-- <bean id="simpleMappingExceptionResolver" class="guru.tour.exception.MySimpleMappingExceptionResolver"> 
+		<property name="exceptionMappings"> <map> <entry key="Exception" value="generic_error"></entry> 
+		</map> </property> <property name="defaultErrorView" value="generic_error"/> 
+		</bean> -->
+
 	<!-- Configure to plugin JSON as request and response in method handler -->
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="jsonTemplate"/>
+				<ref bean="jsonTemplate" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="multipartResolver"
-        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- max upload size in bytes -->
-        <property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
-         
-        <!-- max size of file in memory (in bytes) -->
-        <property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
- 
-    </bean>
-	
-	<!-- Configure bean to convert JSON to POJO and vice versa -->
-	<!--  Json support-->
-	<bean id="jsonTemplate" name="jsonTemplate" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- max upload size in bytes -->
+		<property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
+
+		<!-- max size of file in memory (in bytes) -->
+		<property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
+
 	</bean>
-	
+
+	<!-- Configure bean to convert JSON to POJO and vice versa -->
+	<!-- Json support -->
+	<bean id="jsonTemplate" name="jsonTemplate"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	</bean>
+
 	<!-- Json support -->
 	<import resource="classpath:/spring-data.xml" />
 	<import resource="spring-security.xml" />

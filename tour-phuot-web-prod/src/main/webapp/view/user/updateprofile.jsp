@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 	<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,48 +9,47 @@
 <title>Update User</title>
 <script src="resource/js/jquery-1.11.1.min.js"></script>
 <script src="resource/js/bootstrap.js"></script>
-	<script>
 
-	function myFunction() {
-	    var pass1 = document.getElementById("password").value;
-	    var pass2 = document.getElementById("confirmpassword").value;
-	    var ok = true;
-	    if (pass1 != pass2) {
-	        //alert("Passwords Do not match");
-	        document.getElementById("password").style.borderColor = "#E34234";
-	        document.getElementById("confirmpassword").style.borderColor = "#E34234";
-	        ok = false;
-	    }
-	 
-	    return ok;
-	}
-    </script>
-
+	<style type="text/css">
+	.error {
+	color: #ff0000;
+	font-style: italic;
+	font-weight: bold;
+}
+	</style>
+		<script type="text/javascript">
+				$(document).ready(function(){
+					var location = document.getElementById('locationhidden').value;
+					$('#location').val(location);
+					});
+			
+			</script>
+	
 </head>
 <body>
 	<div class="container">
 		<h1>Edit Profile</h1>
 		<hr>
-		<form class="form-horizontal" onsubmit="return myFunction()" action="getUser" method="post" enctype="multipart/form-data">
+		<form:form class="form-horizontal"  modelAttribute="userModel" action="getUser" method="post" enctype="multipart/form-data" autocomplete="off">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-3">
 				<div class="text-center">
 					
 				<c:choose>
-    					<c:when  test="${not empty user.image }">
-    					<img src='resource/images/${user.image }' width="150" height="150px" class="avatar img-circle"
+    					<c:when  test="${not empty userModel.image }">
+    					<img src='resource/images/${userModel.image }' width="150" height="150px" class="avatar img-circle" 
 						alt="avatar">
+						<input type="hidden" value="${userModel.image }" name="image"/>
     					</c:when>    
     				<c:otherwise>
-        				<img src='resource/images/medium-default-avatar.png' width="150" height="150px" class="avatar img-circle"
+        				<img src='resource/images/medium-default-avatar.png' width="150" height="150px"  class="avatar img-circle"
 						alt="avatar">
+						<h6>Upload a different photo...</h6>
     				</c:otherwise>
 				</c:choose>
 					
-					<h6>Upload a different photo...</h6>
-
-					<input type="file" class="form-control" id="file" name="file">
+					<input type="file" class="form-control" id="file" name="file" >
 				</div>
 			</div>
 
@@ -60,8 +60,8 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">User Name:</label>
 						<div class="col-lg-8">
-							<label class="form-control" >${user.username }</label>
-							<input class="form-control" type="hidden"  value="${user.username }" name="username">
+							<label class="form-control" >${userModel.username }</label>
+							<input class="form-control" type="hidden"  value="${userModel.username }" name="username">
 						</div>
 					</div>
 					
@@ -69,22 +69,25 @@
 					<div class="form-group">
 						<label class="col-lg-3 control-label">Phone:</label>
 						<div class="col-lg-8">
-							<input class="form-control" type="text" placeholder="Phone" value="${user.phone }" name="phone">
+							<form:input cssClass="form-control" placeholder="Phone" value="${userModel.phone }" name="phone" path="phone"/>
+							<form:errors path="phone" cssClass="error" />
+							
 						</div>
 					</div>
-
+					
 					<div class="form-group">
 						<label class="col-xs-3 control-label">Location</label>
 						<div class="col-xs-5 selectContainer">
+						<input type="hidden" id="locationhidden" value="${userModel.diadiem }"/>
 							<select class="form-control" name="location" id="location">
-								<option value="da nang">Choose your location</option>
+								<option value="null">Choose your location</option>
 								<option value="da nang">Da Nang</option>
 								<option value="ha noi">Ha Noi </option>
 								<option value="hcm">Ho Chi Minh</option>
 							</select>
 						</div>
 					</div>
-
+	
 					<div class="form-group">
 						<label class="col-md-3 control-label"></label>
 						<div class="col-md-8">
@@ -95,7 +98,8 @@
 					</div>
 					</div>
 					</div>
-				</form>
+		
+		</form:form>
 			</div>
 
 	<hr>

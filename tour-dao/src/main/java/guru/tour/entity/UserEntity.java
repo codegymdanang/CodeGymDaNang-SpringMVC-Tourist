@@ -21,10 +21,17 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import guru.tour.validator.Phone;
+
 
 @Entity
 @Table(name = "user")
 public class UserEntity implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
@@ -40,6 +47,7 @@ public class UserEntity implements Serializable {
 	@Column(name = "image")
 	private String image;
 	
+	@Phone
 	@Column(name = "phone")
 	private String phone;
 

@@ -4,15 +4,17 @@ package guru.tour.controller;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -89,12 +91,22 @@ public class ServiceFriendController  {
 		List<UserEntity> list  = user.getUserByName(principal.getName());
 		UserEntity users= list.get(0);
 		ModelAndView model = new ModelAndView("updateprofile");
-		model.addObject("user",users);
+		model.addObject("userModel",users);
 		return model;
 	}
 	
+	
 	@RequestMapping(value = "/getUser", method = RequestMethod.POST)
-	public ModelAndView updateprofile_request(HttpServletRequest request,@RequestParam("file") CommonsMultipartFile[] file) throws IllegalStateException, IOException {	
+	public ModelAndView updateprofile_response(HttpServletRequest request,@RequestParam("file") CommonsMultipartFile[] file,@ModelAttribute("userModel")@Valid UserEntity userModel,
+			BindingResult bindingResult,Principal principal) throws IllegalStateException, IOException {
+		ModelAndView model = new ModelAndView("userprofile");
+		
+		if (bindingResult.hasErrors()) {
+			// handle error
+			log.error("===Got error");
+			model.addObject("userModel", userModel);
+			model.setViewName("updateprofile");
+		} else {
 		 String saveDirectory = request.getServletContext().getRealPath("/")+"/resource/images/";
 		 String image ="";
 		 if (file != null && file.length > 0) {
@@ -107,12 +119,17 @@ public class ServiceFriendController  {
 	                }
 	            }
 	        }
+		 
+		 if(image==""){
+			 image=request.getParameter("image").toString();
+		 }
 		
-		ModelAndView model = new ModelAndView("homePage");
-		UserEntity u = new UserEntity(request.getParameter("username").toString(),image, request.getParameter("phone").toString(), request.getParameter("location").toString());
+		UserEntity u = new UserEntity(request.getParameter("username").toString(),image, request.getParameter("phone").toString(), request.getParameter("location").toString(),1);
 		user.updateByUsername(u);
 		model.addObject("user", u);
+		}
 		return model;
+		
 	}
 	
 	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
@@ -162,13 +179,6 @@ public class ServiceFriendController  {
 		model.addObject("user",users);
 		return model;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
