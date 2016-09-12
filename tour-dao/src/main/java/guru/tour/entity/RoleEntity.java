@@ -1,42 +1,35 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the role database table.
+ * 
+ */
 @Entity
-@Table(name = "role")
+@Table(name="role")
+@NamedQuery(name="RoleEntity.findAll", query="SELECT r FROM RoleEntity r")
 public class RoleEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
-	@Column(name = "role")
+
 	private String role;
 
-	public RoleEntity(int id, String role) {
-		super();
-		this.id = id;
-		this.role = role;
-	}
+	//bi-directional many-to-many association to UserEntity
+	@ManyToMany(mappedBy="roles")
+	private List<UserEntity> users;
 
 	public RoleEntity() {
-		super();
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -44,33 +37,19 @@ public class RoleEntity implements Serializable {
 	}
 
 	public String getRole() {
-		return role;
+		return this.role;
 	}
 
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "role_id"), 
-	inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private List<UserEntity> users;
-//
-//	public List<UserEntity> getEmployees() {
-//		return employees;
-//	}
-//
-//	public void setEmployees(List<UserEntity> employees) {
-//		this.employees = employees;
-//	}
 
 	public List<UserEntity> getUsers() {
-		return users;
+		return this.users;
 	}
 
 	public void setUsers(List<UserEntity> users) {
 		this.users = users;
 	}
-	
+
 }

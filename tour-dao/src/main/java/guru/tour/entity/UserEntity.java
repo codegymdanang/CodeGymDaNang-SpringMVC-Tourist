@@ -1,183 +1,64 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import guru.tour.validator.Phone;
-
-
+/**
+ * The persistent class for the user database table.
+ * 
+ */
 @Entity
-@Table(name = "user")
+@Table(name="user")
+@NamedQuery(name="UserEntity.findAll", query="SELECT u FROM UserEntity u")
 public class UserEntity implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name = "username")
-	private String username;
-	
-	@Column(name = "password")
-	private String password;
-	
-	@Column(name = "image")
+
+	private String comment;
+
+	private String diadiem;
+
+	private byte enabled;
+
 	private String image;
-	
-	@Phone
-	@Column(name = "phone")
+
+	private String password;
+
 	private String phone;
 
-	@Column(name = "comment")
-	private String comment;
-	
-	@Column(name = "diadiem")
-	private String diadiem;
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "userEntity",cascade=CascadeType.ALL)
-	/*@JsonBackReference*/
+	private String username;
 
-	@LazyCollection(LazyCollectionOption.FALSE) 
-	@JsonIgnore
-	private List<RatingEntity> list=new ArrayList<RatingEntity>();
-	
-	//bi-directional many-to-one association to UserSchedule
-	@OneToMany(mappedBy="user",cascade=CascadeType.ALL, fetch=FetchType.LAZY)				
-	private List<UserSchedule> userSchedules;
-	
-	public String getComment() {
-		return comment;
-	}
+	//bi-directional many-to-one association to RatingEntity
+	@OneToMany(mappedBy="user")
+	private List<RatingEntity> ratings;
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	//bi-directional many-to-many association to RoleEntity
+	@ManyToMany
+	@JoinTable(
+		name="user_role"
+		, joinColumns={
+			@JoinColumn(name="user_id")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="role_id")
+			}
+		)
+	private List<RoleEntity> roles;
+
+	public UserEntity() {
 	}
 	
-	
-		
-		
-	public List<RatingEntity> getList() {
-		return list;
-	}
-
-	public void setList(List<RatingEntity> list) {
-		this.list = list;
-	}
-	
-	
-		public List<UserSchedule> getUserSchedules() {
-			return userSchedules;
-		}
-
-		public void setUserSchedules(List<UserSchedule> userSchedules) {
-			this.userSchedules = userSchedules;
-		}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getDiadiem() {
-		return diadiem;
-	}
-
-	public void setDiadiem(String diadiem) {
-		this.diadiem = diadiem;
-	}
-
-	public UserEntity(int id, String username, String password, String image, String phone, String diadiem,
-			List<RatingEntity> list, List<RoleEntity> roles) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.image = image;
-		this.phone = phone;
-		this.diadiem = diadiem;
-		this.list = list;
-		this.roles = roles;
-	}
-
 	public UserEntity(String username, String password, String image, String phone) {
-		super();
 		this.username = username;
 		this.password = password;
 		this.image = image;
 		this.phone = phone;
 	}
-	
-	public UserEntity(String username, String password, String image, String phone,String diadiem) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.image = image;
-		this.phone = phone;
-		this.diadiem =diadiem;
-	}
-	
 	
 	public UserEntity(String username, String image, String phone, String diadiem,int a) {
 		super();
@@ -186,28 +67,99 @@ public class UserEntity implements Serializable {
 		this.phone = phone;
 		this.diadiem = diadiem;
 	}
-
-	public UserEntity() {
-		// TODO Auto-generated constructor stub
-	}
 	
-	@ManyToMany(mappedBy = "users",  fetch=FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<RoleEntity> roles;
+	public int getId() {
+		return this.id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getComment() {
+		return this.comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public String getDiadiem() {
+		return this.diadiem;
+	}
+
+	public void setDiadiem(String diadiem) {
+		this.diadiem = diadiem;
+	}
+
+	public byte getEnabled() {
+		return this.enabled;
+	}
+
+	public void setEnabled(byte enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getImage() {
+		return this.image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public List<RatingEntity> getRatings() {
+		return this.ratings;
+	}
+
+	public void setRatings(List<RatingEntity> ratings) {
+		this.ratings = ratings;
+	}
+
+	public RatingEntity addRating(RatingEntity rating) {
+		getRatings().add(rating);
+		rating.setUser(this);
+
+		return rating;
+	}
+
+	public RatingEntity removeRating(RatingEntity rating) {
+		getRatings().remove(rating);
+		rating.setUser(null);
+
+		return rating;
+	}
 
 	public List<RoleEntity> getRoles() {
-		return roles;
+		return this.roles;
 	}
 
 	public void setRoles(List<RoleEntity> roles) {
 		this.roles = roles;
 	}
-	
-//	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user",cascade=CascadeType.ALL)
-//	/*@JsonBackReference*/
-//	@JsonIgnore
-//	private List<User_RoleEntity> lists=new ArrayList<User_RoleEntity>();
-//	
-	
+
 }

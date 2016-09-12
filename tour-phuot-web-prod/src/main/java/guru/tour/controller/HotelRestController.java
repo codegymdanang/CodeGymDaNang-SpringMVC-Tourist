@@ -39,10 +39,10 @@ public class HotelRestController {
 	@RequestMapping(value = "/hoteldata/new", method = RequestMethod.POST)
 	public ResponseEntity<Void> createhotel(@RequestBody HotelEntity hotel,
 			UriComponentsBuilder ucBuilder) {
-		System.out.println("Creating hotel " + hotel.getName());
+		System.out.println("Creating hotel " + hotel.getHotelName());
 
 		if (hotelmanager.isHotelEntity(hotel)) {
-			System.out.println("A hotelEntity with name " + hotel.getName()
+			System.out.println("A hotelEntity with name " + hotel.getHotelName()
 					+ " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
@@ -50,7 +50,7 @@ public class HotelRestController {
 		hotelmanager.saveHotelEntity(hotel);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/hoteldata/{id}")
-				.buildAndExpand(hotel.getId()).toUri());
+				.buildAndExpand(hotel.getHotelId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
@@ -75,7 +75,7 @@ public class HotelRestController {
 			return new ResponseEntity<HotelEntity>(HttpStatus.NOT_FOUND);
 		}
 
-		currenthotel.setName(hotel.getName());
+		currenthotel.setHotelName(hotel.getHotelName());
 		currenthotel.setDescription(hotel.getDescription());
 		currenthotel.setImages(hotel.getImages());
 

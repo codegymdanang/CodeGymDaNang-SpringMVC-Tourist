@@ -132,7 +132,7 @@ public class HomepageController {
 			System.out.println("---------------------: "+ places1.size());
 			List<PlaceEntity> places2 = new ArrayList<PlaceEntity>();
 			for (PlaceEntity placeEntity : places1) {
-				if(placeEntity.getLocalID() == locationEntity.getId())
+				if(placeEntity.getId() == locationEntity.getLocationId())
 				{
 					places2.add(placeEntity);
 				}

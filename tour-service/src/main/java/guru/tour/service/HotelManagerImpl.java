@@ -17,7 +17,7 @@ public class HotelManagerImpl implements HotelEntityManager {
 	}
 
 	public HotelEntity findById(int id) {
-		return hotelEntityRepository.findById(id);
+		return hotelEntityRepository.findByHotelId(id);
 	}
 
 	public boolean isHotelEntity(HotelEntity hotel) {

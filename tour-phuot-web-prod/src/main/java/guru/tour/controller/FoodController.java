@@ -76,7 +76,7 @@ public class FoodController {
 
 		currentFood.setName(food.getName());
 		currentFood.setDescription(food.getDescription());
-		currentFood.setLocationEntity(food.getLocationEntity());
+		currentFood.setLocation(food.getLocation());
 		currentFood.setImages(food.getImages());
 		currentFood.setPhone(food.getPhone());
 		currentFood.setPrice(food.getPrice());

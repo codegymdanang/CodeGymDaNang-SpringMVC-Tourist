@@ -1,138 +1,128 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+/**
+ * The persistent class for the place database table.
+ * 
+ */
 @Entity
-@Table(name ="place")
+@Table(name="place")
+@NamedQuery(name="PlaceEntity.findAll", query="SELECT p FROM PlaceEntity p")
 public class PlaceEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
-	@Column(name = "name")
-	private String name;
-	@Column(name = "images")
-	private String images;
-	
-	@Column(name = "description")
+
 	private String description;
-	
-	@Column(name = "local_id")
-	private int localID;
-	
-/*	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="local_id",insertable=false, updatable=false)
-	@JsonManagedReference
-	private LocationEntity local;*/
-	
+
+	private String images;
+
+	private String name;
+
+	//bi-directional many-to-one association to AddressEntity
+	@OneToMany(mappedBy="place")
+	private List<AddressEntity> addresses;
+
+	//bi-directional many-to-one association to LocationEntity
 	@ManyToOne
-	@JoinColumn(name="local_id", insertable = false, updatable = false)
+	@JoinColumn(name="local_id")
 	private LocationEntity location;
-	
-	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "placeEntity",cascade=CascadeType.ALL)
-	@JsonIgnore
-	private List<AddressEntity> listAddr;
-	
-	//bi-directional many-to-one association to UserSchedule
-	@OneToMany(mappedBy="place",cascade=CascadeType.ALL, fetch=FetchType.EAGER)	
-	private List<UserSchedule> userSchedules;
-	
-	public List<AddressEntity> getListAddr() {
-		return listAddr;
-	}
 
-	public void setListAddr(List<AddressEntity> listAddr) {
-		this.listAddr = listAddr;
-	}
-			
-		public List<UserSchedule> getUserSchedules() {
-			return userSchedules;
-		}
+	//bi-directional many-to-one association to UserScheduleEntity
+	@OneToMany(mappedBy="place")
+	private List<UserScheduleEntity> userSchedules;
 
-		public void setUserSchedules(List<UserSchedule> userSchedules) {
-			this.userSchedules = userSchedules;
-		}
-
-		
-			
-	public LocationEntity getLocation() {
-			return location;
-		}
-
-		public void setLocation(LocationEntity location) {
-			this.location = location;
-		}
-
-	
 	public PlaceEntity() {
-		super();
 	}
-	
-	public PlaceEntity(int id, String name, String images, String description, int localID) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.images = images;
-		this.description = description;
-		this.localID = localID;
-	}
-
-
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getImages() {
-		return images;
-	}
-
-	public void setImages(String images) {
-		this.images = images;
-	}
-
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public int getLocalID() {
-		return localID;
+	public String getImages() {
+		return this.images;
 	}
 
-	public void setLocalID(int localID) {
-		this.localID = localID;
+	public void setImages(String images) {
+		this.images = images;
 	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<AddressEntity> getAddresses() {
+		return this.addresses;
+	}
+
+	public void setAddresses(List<AddressEntity> addresses) {
+		this.addresses = addresses;
+	}
+
+	public AddressEntity addAddress(AddressEntity address) {
+		getAddresses().add(address);
+		address.setPlace(this);
+
+		return address;
+	}
+
+	public AddressEntity removeAddress(AddressEntity address) {
+		getAddresses().remove(address);
+		address.setPlace(null);
+
+		return address;
+	}
+
+	public LocationEntity getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(LocationEntity location) {
+		this.location = location;
+	}
+
+	public List<UserScheduleEntity> getUserSchedules() {
+		return this.userSchedules;
+	}
+
+	public void setUserSchedules(List<UserScheduleEntity> userSchedules) {
+		this.userSchedules = userSchedules;
+	}
+
+	public UserScheduleEntity addUserSchedule(UserScheduleEntity userSchedule) {
+		getUserSchedules().add(userSchedule);
+		userSchedule.setPlace(this);
+
+		return userSchedule;
+	}
+
+	public UserScheduleEntity removeUserSchedule(UserScheduleEntity userSchedule) {
+		getUserSchedules().remove(userSchedule);
+		userSchedule.setPlace(null);
+
+		return userSchedule;
+	}
+
 }

@@ -5,26 +5,24 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the food database table.
+ * The persistent class for the vehical database table.
  * 
  */
 @Entity
-@Table(name="food")
-@NamedQuery(name="FoodEntity.findAll", query="SELECT f FROM FoodEntity f")
-public class FoodEntity implements Serializable {
+@Table(name="vehical")
+@NamedQuery(name="VehicalEntity.findAll", query="SELECT v FROM VehicalEntity v")
+public class VehicalEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
-	private String description;
-
 	private String images;
 
 	private String name;
 
-	private String phone;
+	private int phone;
 
 	private double price;
 
@@ -33,7 +31,11 @@ public class FoodEntity implements Serializable {
 	@JoinColumn(name="local_id")
 	private LocationEntity location;
 
-	public FoodEntity() {
+	//bi-directional many-to-one association to TypeEntity
+	@ManyToOne
+	private TypeEntity type;
+
+	public VehicalEntity() {
 	}
 
 	public int getId() {
@@ -42,14 +44,6 @@ public class FoodEntity implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public String getImages() {
@@ -68,11 +62,11 @@ public class FoodEntity implements Serializable {
 		this.name = name;
 	}
 
-	public String getPhone() {
+	public int getPhone() {
 		return this.phone;
 	}
 
-	public void setPhone(String phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 
@@ -90,6 +84,14 @@ public class FoodEntity implements Serializable {
 
 	public void setLocation(LocationEntity location) {
 		this.location = location;
+	}
+
+	public TypeEntity getType() {
+		return this.type;
+	}
+
+	public void setType(TypeEntity type) {
+		this.type = type;
 	}
 
 }

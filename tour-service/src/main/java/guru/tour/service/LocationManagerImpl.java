@@ -18,7 +18,7 @@ public class LocationManagerImpl implements LocationEntityManager{
 	}
 
 	public LocationEntity findByLocation_name(String locationName) {
-		return lr.findByName(locationName);
+		return lr.findByLocationName(locationName);
 	}
 	
 }

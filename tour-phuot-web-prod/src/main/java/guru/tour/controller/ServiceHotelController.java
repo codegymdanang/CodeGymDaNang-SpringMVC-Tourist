@@ -60,8 +60,8 @@ public class ServiceHotelController {
 			throw new IOException("IOException, id="+id);
 		}else if(id==10){
 			HotelEntity emp = new HotelEntity();
-			emp.setName("Pankaj");
-			emp.setId(id);
+			emp.setHotelName("Pankaj");
+			emp.setHotelId(id);
 			model.addAttribute("employee", emp);
 			return "hotel";
 		}else {
