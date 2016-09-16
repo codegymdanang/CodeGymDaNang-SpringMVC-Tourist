@@ -18,11 +18,11 @@ public class PlaceEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-
+	@Column(name = "description")
 	private String description;
-
+	@Column(name = "images")
 	private String images;
-
+	@Column(name = "name")
 	private String name;
 
 	//bi-directional many-to-one association to AddressEntity

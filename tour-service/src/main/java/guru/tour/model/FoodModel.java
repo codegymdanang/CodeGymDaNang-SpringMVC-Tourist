@@ -1,40 +1,32 @@
-package guru.tour.entity;
+package guru.tour.model;
 
-import java.io.Serializable;
-import javax.persistence.*;
-
-
-/**
- * The persistent class for the food database table.
- * 
- */
-@Entity
-@Table(name="food")
-@NamedQuery(name="FoodEntity.findAll", query="SELECT f FROM FoodEntity f")
-public class FoodEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+public class FoodModel {
 	private int id;
-	@Column(name = "description")
 	private String description;
-	@Column(name = "images")
 	private String images;
-	@Column(name = "name")
 	private String name;
-	@Column(name = "phone")
 	private String phone;
-	@Column(name = "price")
 	private double price;
+	
+	private LocationModel location;
 
-	//bi-directional many-to-one association to LocationEntity
-	@ManyToOne
-	@JoinColumn(name="local_id")
-	private LocationEntity location;
-
-	public FoodEntity() {
+	public FoodModel() {
+		super();
 	}
+	
+	public FoodModel(int id, String description, String images, String name, String phone, double price,
+			LocationModel location) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.images = images;
+		this.name = name;
+		this.phone = phone;
+		this.price = price;
+		this.location = location;
+	}
+
+
 
 	public int getId() {
 		return this.id;
@@ -84,12 +76,11 @@ public class FoodEntity implements Serializable {
 		this.price = price;
 	}
 
-	public LocationEntity getLocation() {
+	public LocationModel getLocation() {
 		return this.location;
 	}
 
-	public void setLocation(LocationEntity location) {
+	public void setLocation(LocationModel location) {
 		this.location = location;
 	}
-
 }

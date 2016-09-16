@@ -63,9 +63,10 @@
 		
 <script type = "text/javascript" language = "javascript">
      var ctx = "<%=request.getContextPath()%>"
+	 var row;
       $(document).ready(function() {
     	  $.ajax( {
-              url: ctx+'/place',
+              url: ctx+'/fooddata',
               success:function(data) {
             	  list=data;
             	  $.each(data, function( index, value ) {

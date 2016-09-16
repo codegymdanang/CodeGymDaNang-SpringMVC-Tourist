@@ -5,10 +5,15 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import guru.tour.entity.FoodEntity;
+import guru.tour.model.FoodModel;
 @Service
 public interface FoodEntityManager {
 	
 	public List<FoodEntity> getAllFoods();
+	
+	public List<FoodModel> getAllFoodModel();
+	
+	public List<FoodEntity> getFoodByLocationId(int id);
 
 	public FoodEntity findById(int id);
 	

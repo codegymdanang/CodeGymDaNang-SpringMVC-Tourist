@@ -1,22 +1,13 @@
 package guru.tour.controller;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import guru.tour.entity.PlaceEntity;
-import guru.tour.exception.PlaceNotFoundException;
 import guru.tour.service.PlaceEntityManager;
 
 import guru.tour.entity.FoodEntity;
@@ -104,11 +95,16 @@ public class PlaceController {
 	}*/
 	@RequestMapping(value = "/place", method = RequestMethod.GET)
 	public ModelAndView getPlaceByID() throws Exception {
-		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(1);
+		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(2);
 		System.out.println(placeEntity.getName());
+		System.out.println(placeEntity.getDescription());
+		System.out.println(placeEntity.getLocation().getLocationName());
 		ModelAndView model = new ModelAndView("place");
 		model.addObject("place", placeEntity);
-		List<FoodEntity> foodList = foodEntityManager.getAllFoods();
+		List<FoodEntity> foodList = foodEntityManager.getFoodByLocationId(placeEntity.getId());
+		for(FoodEntity food : foodList){
+			System.out.println(food.getName() + food.getPrice());
+		}
 		model.addObject("list", foodList);
 		return model;
 	}
