@@ -1,6 +1,5 @@
 package guru.tour.controller;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,17 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 import guru.tour.entity.PlaceEntity;
 import guru.tour.service.PlaceEntityManager;
 
-import guru.tour.entity.FoodEntity;
-import guru.tour.service.FoodEntityManager;
-
 @Controller
 @RequestMapping(value = "/")
 public class PlaceController {
 	@Autowired
 	private PlaceEntityManager placeEntityManager;
-	
-	@Autowired
-	private FoodEntityManager foodEntityManager;
 	
 //	private static final Logger logger = LoggerFactory.getLogger(PlaceController.class);
 
@@ -101,11 +94,6 @@ public class PlaceController {
 		System.out.println(placeEntity.getLocation().getLocationName());
 		ModelAndView model = new ModelAndView("place");
 		model.addObject("place", placeEntity);
-		List<FoodEntity> foodList = foodEntityManager.getFoodByLocationId(placeEntity.getId());
-		for(FoodEntity food : foodList){
-			System.out.println(food.getName() + food.getPrice());
-		}
-		model.addObject("list", foodList);
 		return model;
 	}
 

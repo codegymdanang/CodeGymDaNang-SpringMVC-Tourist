@@ -25,7 +25,7 @@ public class FoodController {
 	
 	@RequestMapping(value = "/fooddata", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<FoodModel>> listAllFoods() {
-		List<FoodModel> list = foodEntityManager.getAllFoodModel();
+		List<FoodModel> list = foodEntityManager.getFoodByLocationId(2);
 		if (list.isEmpty()) {
 			return new ResponseEntity<List<FoodModel>>(
 					HttpStatus.NO_CONTENT);// You many decide to return

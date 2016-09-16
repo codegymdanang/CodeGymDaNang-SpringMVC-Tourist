@@ -13,7 +13,7 @@ public interface FoodEntityManager {
 	
 	public List<FoodModel> getAllFoodModel();
 	
-	public List<FoodEntity> getFoodByLocationId(int id);
+	public List<FoodModel> getFoodByLocationId(int id);
 
 	public FoodEntity findById(int id);
 	

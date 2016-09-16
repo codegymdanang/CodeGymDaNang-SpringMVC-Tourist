@@ -73,9 +73,15 @@ public class FoodEntityManagerImpl implements FoodEntityManager{
 	}
 
 	@Override
-	public List<FoodEntity> getFoodByLocationId(int id) {
+	public List<FoodModel> getFoodByLocationId(int id) {
 		// TODO Auto-generated method stub
-		return foodEntityRepository.findByLocation(locationRepository.findOne(id));
+		List<FoodModel> listModel = new ArrayList<FoodModel>();
+		List<FoodEntity> listFood = foodEntityRepository.findByLocation(locationRepository.findOne(id));
+		for (FoodEntity list : listFood) {
+			LocationModel location= new LocationModel(list.getLocation().getLocationId(),list.getLocation().getLocationName());
+			listModel.add(new FoodModel(list.getId(), list.getDescription(), list.getImages(), list.getName(), list.getPhone(), list.getPrice(), location));
+		}
+		return listModel;
 	}
 	
 }
