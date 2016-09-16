@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.HotelEntity;
-import guru.tour.entity.HotelEntity;
+import guru.tour.model.HotelModel;
 import guru.tour.service.HotelEntityManager;
 
 @RestController
@@ -55,12 +55,12 @@ public class HotelRestController {
 	}
 	
 	@RequestMapping(value = "/hoteldata/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<HotelEntity>> getallhotel() {
-		List<HotelEntity> hotel = hotelmanager.getAllHotel();
+	public ResponseEntity<List<HotelModel>> getallhotel() {
+		List<HotelModel> hotel = hotelmanager.getAllHotelModel();
 		if (hotel == null) {
-			return new ResponseEntity<List<HotelEntity>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<List<HotelModel>>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<List<HotelEntity>>(hotel, HttpStatus.OK);
+		return new ResponseEntity<List<HotelModel>>(hotel, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/hoteldata/updatehotel/{id}", method = RequestMethod.PUT)

@@ -1,8 +1,18 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 /**
@@ -17,30 +27,27 @@ public class TypeEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id;
 
 	private String name;
 
-	//bi-directional many-to-one association to CommentEntity
 	@OneToMany(mappedBy="type")
 	private List<CommentEntity> comments;
 
-	//bi-directional many-to-one association to HotelEntity
 	@OneToMany(mappedBy="type")
-	private List<HotelEntity> hotels;
+	 	private List<HotelEntity> hotels = new ArrayList<HotelEntity>();
 
-	//bi-directional many-to-one association to VehicalEntity
 	@OneToMany(mappedBy="type")
 	private List<VehicalEntity> vehicals;
 
 	public TypeEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -73,7 +80,7 @@ public class TypeEntity implements Serializable {
 
 		return comment;
 	}
-
+	@OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL, mappedBy = "type")
 	public List<HotelEntity> getHotels() {
 		return this.hotels;
 	}

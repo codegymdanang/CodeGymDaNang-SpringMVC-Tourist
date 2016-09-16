@@ -2,6 +2,12 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.hibernate.annotations.LazyCollectionOption;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,28 +30,11 @@ public class LocationEntity implements Serializable {
 	private String locationName;
 
 	//bi-directional many-to-one association to EventEntity
-	@OneToMany(mappedBy="location")
-	private List<EventEntity> events;
 
-	//bi-directional many-to-one association to FoodEntity
 	@OneToMany(mappedBy="location")
-	private List<FoodEntity> foods;
+ 	private List<HotelEntity> hotels ;
 
-	//bi-directional many-to-one association to HotelEntity
-	@OneToMany(mappedBy="location")
-	private List<HotelEntity> hotels;
 
-	//bi-directional many-to-one association to PlaceEntity
-	@OneToMany(mappedBy="location")
-	private List<PlaceEntity> places;
-
-	//bi-directional many-to-one association to VehicalEntity
-	@OneToMany(mappedBy="location")
-	private List<VehicalEntity> vehicals;
-
-	//bi-directional many-to-one association to WarningEntity
-	@OneToMany(mappedBy="location")
-	private List<WarningEntity> warnings;
 
 	public LocationEntity() {
 	}
@@ -66,50 +55,9 @@ public class LocationEntity implements Serializable {
 		this.locationName = locationName;
 	}
 
-	public List<EventEntity> getEvents() {
-		return this.events;
-	}
 
-	public void setEvents(List<EventEntity> events) {
-		this.events = events;
-	}
 
-	public EventEntity addEvent(EventEntity event) {
-		getEvents().add(event);
-		event.setLocation(this);
-
-		return event;
-	}
-
-	public EventEntity removeEvent(EventEntity event) {
-		getEvents().remove(event);
-		event.setLocation(null);
-
-		return event;
-	}
-
-	public List<FoodEntity> getFoods() {
-		return this.foods;
-	}
-
-	public void setFoods(List<FoodEntity> foods) {
-		this.foods = foods;
-	}
-
-	public FoodEntity addFood(FoodEntity food) {
-		getFoods().add(food);
-		food.setLocation(this);
-
-		return food;
-	}
-
-	public FoodEntity removeFood(FoodEntity food) {
-		getFoods().remove(food);
-		food.setLocation(null);
-
-		return food;
-	}
-
+	@OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL, mappedBy = "location")
 	public List<HotelEntity> getHotels() {
 		return this.hotels;
 	}
@@ -132,70 +80,12 @@ public class LocationEntity implements Serializable {
 		return hotel;
 	}
 
-	public List<PlaceEntity> getPlaces() {
-		return this.places;
-	}
 
-	public void setPlaces(List<PlaceEntity> places) {
-		this.places = places;
-	}
 
-	public PlaceEntity addPlace(PlaceEntity place) {
-		getPlaces().add(place);
-		place.setLocation(this);
 
-		return place;
-	}
 
-	public PlaceEntity removePlace(PlaceEntity place) {
-		getPlaces().remove(place);
-		place.setLocation(null);
 
-		return place;
-	}
 
-	public List<VehicalEntity> getVehicals() {
-		return this.vehicals;
-	}
 
-	public void setVehicals(List<VehicalEntity> vehicals) {
-		this.vehicals = vehicals;
-	}
-
-	public VehicalEntity addVehical(VehicalEntity vehical) {
-		getVehicals().add(vehical);
-		vehical.setLocation(this);
-
-		return vehical;
-	}
-
-	public VehicalEntity removeVehical(VehicalEntity vehical) {
-		getVehicals().remove(vehical);
-		vehical.setLocation(null);
-
-		return vehical;
-	}
-
-	public List<WarningEntity> getWarnings() {
-		return this.warnings;
-	}
-
-	public void setWarnings(List<WarningEntity> warnings) {
-		this.warnings = warnings;
-	}
-
-	public WarningEntity addWarning(WarningEntity warning) {
-		getWarnings().add(warning);
-		warning.setLocation(this);
-
-		return warning;
-	}
-
-	public WarningEntity removeWarning(WarningEntity warning) {
-		getWarnings().remove(warning);
-		warning.setLocation(null);
-
-		return warning;
-	}
 
 }

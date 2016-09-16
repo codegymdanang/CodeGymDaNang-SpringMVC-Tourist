@@ -18,19 +18,26 @@ public class UserEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-
+	
+	@Column(name="comment")
 	private String comment;
-
+	
+	@Column(name="diadiem")
 	private String diadiem;
-
+	
+	@Column(name="enabled")
 	private byte enabled;
-
+	
+	@Column(name="image")
 	private String image;
-
+	
+	@Column(name="password")
 	private String password;
-
+	
+	@Column(name="phone")
 	private String phone;
-
+	
+	@Column(name="username")
 	private String username;
 
 	//bi-directional many-to-one association to RatingEntity
