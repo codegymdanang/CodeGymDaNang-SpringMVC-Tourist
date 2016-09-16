@@ -30,7 +30,7 @@
 	<div class="container">
 		<h1>Edit Profile</h1>
 		<hr>
-		<form:form class="form-horizontal"  modelAttribute="userModel" action="getUser" method="post" enctype="multipart/form-data" autocomplete="off">
+		<form:form class="form-horizontal"  modelAttribute="userModel" action="userprofile" method="post" enctype="multipart/form-data" autocomplete="off">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-3">

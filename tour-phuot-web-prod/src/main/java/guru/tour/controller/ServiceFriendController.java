@@ -96,7 +96,7 @@ public class ServiceFriendController  {
 	}
 	
 	
-	@RequestMapping(value = "/getUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/userprofile", method = RequestMethod.POST)
 	public ModelAndView updateprofile_response(HttpServletRequest request,@RequestParam("file") CommonsMultipartFile[] file,@ModelAttribute("userModel")@Valid UserEntity userModel,
 			BindingResult bindingResult,Principal principal) throws IllegalStateException, IOException {
 		ModelAndView model = new ModelAndView("userprofile");

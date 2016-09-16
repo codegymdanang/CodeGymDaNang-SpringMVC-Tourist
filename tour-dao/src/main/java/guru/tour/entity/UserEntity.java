@@ -2,6 +2,9 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import guru.tour.validator.Phone;
+
 import java.util.List;
 
 
@@ -35,6 +38,7 @@ public class UserEntity implements Serializable {
 	private String password;
 	
 	@Column(name="phone")
+	@Phone
 	private String phone;
 	
 	@Column(name="username")
