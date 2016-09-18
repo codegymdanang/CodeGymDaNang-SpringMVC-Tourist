@@ -23,7 +23,7 @@ public class FoodController {
 	@Autowired
 	FoodEntityManager foodEntityManager;
 	
-	@RequestMapping(value = "/fooddata", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/foodByLocationId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<FoodModel>> listAllFoods() {
 		List<FoodModel> list = foodEntityManager.getFoodByLocationId(2);
 		if (list.isEmpty()) {

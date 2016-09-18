@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.HotelEntity;
+import guru.tour.model.FoodModel;
 import guru.tour.model.HotelModel;
 import guru.tour.service.HotelEntityManager;
 
@@ -34,6 +35,17 @@ public class HotelRestController {
 			return new ResponseEntity<HotelEntity>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<HotelEntity>(hotel, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/hotelByLocatioId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<HotelModel>> listAllFoods() {
+		List<HotelModel> list = hotelmanager.getHotelByLocationId(1);
+		if (list.isEmpty()) {
+			return new ResponseEntity<List<HotelModel>>(
+					HttpStatus.NO_CONTENT);// You many decide to return
+											// HttpStatus.NOT_FOUND
+		}
+		return new ResponseEntity<List<HotelModel>>(list, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/hoteldata/new", method = RequestMethod.POST)

@@ -18,7 +18,7 @@ public class HotelManagerImpl implements HotelEntityManager {
 	HotelEntityRepository hotelEntityRepository;
 	
 	@Autowired
-	LocationRepository location;
+	LocationRepository locationRepository;
 	public List<HotelEntity> getAllHotel() {
 		return hotelEntityRepository.findAll();
 	}
@@ -48,6 +48,20 @@ public class HotelManagerImpl implements HotelEntityManager {
 	@Override
 	public List<HotelModel> getAllHotelModel() {
 		List<HotelEntity> listHotel = getAllHotel();
+		List<HotelModel> listModel = new ArrayList<HotelModel>();
+		
+		for (HotelEntity list : listHotel) {
+			LocationModel location= new LocationModel(list.getLocation().getLocationId(),list.getLocation().getLocationName());
+			TypeModel type= new TypeModel(list.getType().getId(),list.getType().getName());
+			listModel.add(new HotelModel(list.getHotelId(),list.getDescription(),list.getHotelName(),list.getImages(),list.getPhone(),list.getPrice(),location,type));
+		}
+		return listModel;
+	}
+
+	@Override
+	public List<HotelModel> getHotelByLocationId(int id) {
+		// TODO Auto-generated method stub
+		List<HotelEntity> listHotel = hotelEntityRepository.findByLocation(locationRepository.findOne(id));
 		List<HotelModel> listModel = new ArrayList<HotelModel>();
 		
 		for (HotelEntity list : listHotel) {
