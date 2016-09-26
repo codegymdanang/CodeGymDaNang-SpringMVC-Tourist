@@ -15,6 +15,8 @@
 	<!-- It register the beans in context and scan the annotations inside beans 
 		and activate them -->
 	<context:component-scan base-package="guru.tour" />
+	<context:property-placeholder location="classpath:database.properties"
+		order="0" ignore-unresolvable="true" />
 	<!-- <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/> -->
 	<!-- This allow for dispatching requests to Controllers -->
 
@@ -45,10 +47,10 @@
 		the plain old JDBC DriverManager via bean properties -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://www.db4free.net:3306/phuottuor?useSSL=false" />
-		<property name="username" value="phuot" />
-		<property name="password" value="phuot123" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 	</bean>
 
 	<jpa:repositories base-package="guru.tour.repository" />

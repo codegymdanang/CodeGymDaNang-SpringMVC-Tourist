@@ -16,27 +16,26 @@ public class RatingEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id;
 
 	private int number;
 
 	private String service;
 
 	@Column(name="type_id")
-	private int typeId;
+	private String typeId;
 
-	//bi-directional many-to-one association to UserEntity
-	@ManyToOne
-	private UserEntity user;
+	@Column(name="user_id")
+	private String userId;
 
 	public RatingEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -56,20 +55,20 @@ public class RatingEntity implements Serializable {
 		this.service = service;
 	}
 
-	public int getTypeId() {
+	public String getTypeId() {
 		return this.typeId;
 	}
 
-	public void setTypeId(int typeId) {
+	public void setTypeId(String typeId) {
 		this.typeId = typeId;
 	}
 
-	public UserEntity getUser() {
-		return this.user;
+	public String getUserId() {
+		return this.userId;
 	}
 
-	public void setUser(UserEntity user) {
-		this.user = user;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

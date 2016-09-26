@@ -16,16 +16,16 @@ public class FoodEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	@Column(name = "description")
+	private String id;
+
 	private String description;
-	@Column(name = "images")
+
 	private String images;
-	@Column(name = "name")
+
 	private String name;
-	@Column(name = "phone")
+
 	private String phone;
-	@Column(name = "price")
+
 	private double price;
 
 	//bi-directional many-to-one association to LocationEntity
@@ -36,11 +36,11 @@ public class FoodEntity implements Serializable {
 	public FoodEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

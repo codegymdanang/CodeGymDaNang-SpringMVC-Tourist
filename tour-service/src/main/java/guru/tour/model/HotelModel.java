@@ -4,7 +4,7 @@ package guru.tour.model;
 
 
 public class HotelModel {
-	private int hotelId;
+	private String hotelId;
 
 	private String description;
 
@@ -26,7 +26,7 @@ public class HotelModel {
 	}
 	
 	
-	public HotelModel(int hotelId, String description, String hotelName, String images, int phone, double price,
+	public HotelModel(String hotelId, String description, String hotelName, String images, int phone, double price,
 			LocationModel location, TypeModel type) {
 		super();
 		this.hotelId = hotelId;
@@ -40,11 +40,11 @@ public class HotelModel {
 	}
 
 
-	public int getHotelId() {
+	public String getHotelId() {
 		return this.hotelId;
 	}
 
-	public void setHotelId(int hotelId) {
+	public void setHotelId(String hotelId) {
 		this.hotelId = hotelId;
 	}
 

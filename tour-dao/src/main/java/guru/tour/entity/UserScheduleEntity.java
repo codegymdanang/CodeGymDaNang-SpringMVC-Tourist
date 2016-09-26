@@ -6,18 +6,18 @@ import java.util.Date;
 
 
 /**
- * The persistent class for the userSchedule database table.
+ * The persistent class for the userschedule database table.
  * 
  */
 @Entity
-@Table(name="userSchedule")
+@Table(name="userschedule")
 @NamedQuery(name="UserScheduleEntity.findAll", query="SELECT u FROM UserScheduleEntity u")
 public class UserScheduleEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id;
 
 	private String createdBy;
 
@@ -37,23 +37,24 @@ public class UserScheduleEntity implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date updatedDate;
 
-	@Column(name="user_id")
-	private String userId;
-
 	private int versionNo;
 
 	//bi-directional many-to-one association to PlaceEntity
 	@ManyToOne
 	private PlaceEntity place;
 
+	//bi-directional many-to-one association to UserEntity
+	@ManyToOne
+	private UserEntity user;
+
 	public UserScheduleEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -113,14 +114,6 @@ public class UserScheduleEntity implements Serializable {
 		this.updatedDate = updatedDate;
 	}
 
-	public String getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 	public int getVersionNo() {
 		return this.versionNo;
 	}
@@ -135,6 +128,14 @@ public class UserScheduleEntity implements Serializable {
 
 	public void setPlace(PlaceEntity place) {
 		this.place = place;
+	}
+
+	public UserEntity getUser() {
+		return this.user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
 	}
 
 }

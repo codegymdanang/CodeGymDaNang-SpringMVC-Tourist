@@ -10,48 +10,43 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="hotel")
-//@NamedQuery(name="HotelEntity.findAll", query="SELECT h FROM HotelEntity h")
+@NamedQuery(name="HotelEntity.findAll", query="SELECT h FROM HotelEntity h")
 public class HotelEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="hotel_id")
-	private int hotelId;
+	private String hotelId;
 
-	@Column(name = "description")
 	private String description;
 
 	@Column(name="hotel_name")
 	private String hotelName;
 
-	@Column(name = "images")
 	private String images;
-	
-	@Column(name = "phone")
+
 	private int phone;
-	
-	@Column(name = "price")
+
 	private double price;
 
 	//bi-directional many-to-one association to LocationEntity
-	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "location_id")
+	@ManyToOne
+	@JoinColumn(name="location_id")
 	private LocationEntity location;
 
 	//bi-directional many-to-one association to TypeEntity
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="type_id")
+	@ManyToOne
 	private TypeEntity type;
 
 	public HotelEntity() {
 	}
 
-	public int getHotelId() {
+	public String getHotelId() {
 		return this.hotelId;
 	}
 
-	public void setHotelId(int hotelId) {
+	public void setHotelId(String hotelId) {
 		this.hotelId = hotelId;
 	}
 

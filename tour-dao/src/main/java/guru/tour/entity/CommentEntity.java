@@ -16,27 +16,28 @@ public class CommentEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id;
 
 	private String services;
 
 	private String text;
 
-	@Column(name="user_id")
-	private int userId;
-
 	//bi-directional many-to-one association to TypeEntity
 	@ManyToOne
 	private TypeEntity type;
 
+	//bi-directional many-to-one association to UserEntity
+	@ManyToOne
+	private UserEntity user;
+
 	public CommentEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -56,20 +57,20 @@ public class CommentEntity implements Serializable {
 		this.text = text;
 	}
 
-	public int getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
 	public TypeEntity getType() {
 		return this.type;
 	}
 
 	public void setType(TypeEntity type) {
 		this.type = type;
+	}
+
+	public UserEntity getUser() {
+		return this.user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
 	}
 
 }
