@@ -1,6 +1,8 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
+
 import javax.persistence.*;
 
 
@@ -15,9 +17,8 @@ public class HotelEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="hotel_id")
-	private String hotelId;
+	private String hotelId  = UUID.randomUUID().toString();
 
 	private String description;
 

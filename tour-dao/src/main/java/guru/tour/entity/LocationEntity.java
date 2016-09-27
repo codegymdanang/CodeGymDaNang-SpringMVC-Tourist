@@ -3,6 +3,7 @@ package guru.tour.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -16,9 +17,8 @@ public class LocationEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="location_id")
-	private String locationId;
+	private String locationId = UUID.randomUUID().toString();
 
 	@Column(name="location_name")
 	private String locationName;

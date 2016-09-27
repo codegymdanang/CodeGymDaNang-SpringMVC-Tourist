@@ -1,6 +1,8 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
+
 import javax.persistence.*;
 
 
@@ -15,8 +17,7 @@ public class HotNewEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private String hotnewsId;
+	private String hotnewsId  = UUID.randomUUID().toString();
 
 	private String description;
 
