@@ -2,6 +2,8 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,12 +20,28 @@ public class RoleEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-
+	
+	@Column
 	private String role;
+	
+	public RoleEntity(int id, String role) {
+		super();
+		this.id = id;
+		this.role = role;
+	}
 
 	//bi-directional many-to-many association to UserEntity
 	@ManyToMany(mappedBy="roles")
-	private List<UserEntity> users;
+//	@JoinTable(
+//		name="user_role"
+//		, joinColumns={
+//			@JoinColumn(name="role_id")
+//			}
+//		, inverseJoinColumns={
+//			@JoinColumn(name="user_id")
+//			}
+//		)
+	private List<UserEntity> users = new ArrayList<UserEntity>();
 
 	public RoleEntity() {
 	}

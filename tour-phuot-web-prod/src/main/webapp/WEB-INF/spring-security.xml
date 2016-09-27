@@ -1,61 +1,62 @@
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-	
-	 <http use-expressions="true" auto-config="false">
-	 <csrf disabled="true"/>
-        <intercept-url pattern="/" access="permitAll()" />
-        <intercept-url pattern="/home" access="permitAll()" />
-        <intercept-url pattern="/comment" access="permitAll()" />
-        <intercept-url pattern="/login" access="permitAll()" />
-        <intercept-url pattern="/register" access="permitAll()" />
-        <intercept-url pattern="/userInfo"
-            access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-        <intercept-url pattern="/changepassword"
-            access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-            <intercept-url pattern="/updateprofile"
-            access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-            <intercept-url pattern="/userprofile"
-            access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />    
-        <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/other/**" access="isAuthenticated()" />
-        <access-denied-handler error-page="/403" />
-        
+
+	<http use-expressions="true" auto-config="false">
+		<csrf disabled="true" />
+		<intercept-url pattern="/" access="permitAll()" />
+		<intercept-url pattern="/home" access="permitAll()" />
+		<intercept-url pattern="/comment" access="permitAll()" />
+		<intercept-url pattern="/login" access="permitAll()" />
+		<intercept-url pattern="/register" access="permitAll()" />
+		<intercept-url pattern="/userInfo"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<intercept-url pattern="/changepassword"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<intercept-url pattern="/updateprofile"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<intercept-url pattern="/userprofile"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/other/**" access="isAuthenticated()" />
+		<access-denied-handler error-page="/403" />
+
 		<!-- login quy -->
 		<form-login login-page='/login' login-processing-url="/j_spring_security_check"
-           
-           	default-target-url="/home" 
-           	authentication-failure-url="/login"	
-            username-parameter="username"
-            password-parameter="password"/>
-             <!-- authentication-success-handler-ref="loginSuccessHandler"
-           	authentication-failure-url="/login"
-            always-use-default-target="false" /> -->
-            
-            
-            <logout logout-url="/logout" logout-success-url="/home"></logout>
- 
-    </http>
+
+			username-parameter="username" password-parameter="password"
+			authentication-success-handler-ref="loginSuccessHandler"
+			authentication-failure-handler-ref="loginFailureHandler"
+			always-use-default-target="false" />
 
 
-    <authentication-manager>
-        <authentication-provider>
-        	<password-encoder ref="standardPasswordEncoder"></password-encoder>
-			<jdbc-user-service data-source-ref="dataSource"
-			  users-by-username-query=
-			    "select username,password, enabled from user where username=?"
-			    authorities-by-username-query=
-		    	"select u.username, r.role from user_role ur inner join user u on  ur.user_id = u.id inner join role r on ur.role_id = r.id where u.username =?  " />
-		 </authentication-provider>
-    	
-    </authentication-manager>
-    <beans:bean id="standardPasswordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"></beans:bean>
-    <!-- <beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
-        <beans:property name="defaultTargetUrl" value="/home"></beans:property>
-    </beans:bean> -->
+		<logout logout-url="/logout" logout-success-url="/home"></logout>
+
+	</http>
+
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="UserServiceImpl">
+			<password-encoder ref="encoder" />
+		</authentication-provider>
+	</authentication-manager>
+
+
+	<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<beans:constructor-arg name="strength" value="10" />
+	</beans:bean>
+	
+	<beans:bean id="UserServiceImpl"
+	class="guru.tour.user.UserServiceImpl">
+	</beans:bean>
+	
+		<beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
+			<beans:property name="defaultTargetUrl" value="/home"></beans:property>
+		</beans:bean>
+		<beans:bean id="loginFailureHandler" class="guru.tour.security.LoginFailureHandler">
+			<beans:property name="defaultFailureUrl" value="/login" />
+		</beans:bean>
 </beans:beans>

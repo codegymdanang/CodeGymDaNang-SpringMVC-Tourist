@@ -1,11 +1,23 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import guru.tour.validator.Phone;
-
-import java.util.List;
 
 
 /**
@@ -29,7 +41,7 @@ public class UserEntity implements Serializable {
 	private String diadiem;
 	
 	@Column(name="enabled")
-	private byte enabled;
+	private boolean enabled;
 	
 	@Column(name="image")
 	private String image;
@@ -38,7 +50,7 @@ public class UserEntity implements Serializable {
 	private String password;
 	
 	@Column(name="phone")
-	@Phone
+	/*@Phone*/
 	private String phone;
 	
 	@Column(name="username")
@@ -49,7 +61,7 @@ public class UserEntity implements Serializable {
 	private List<RatingEntity> ratings;
 
 	//bi-directional many-to-many association to RoleEntity
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 		name="user_role"
 		, joinColumns={
@@ -59,7 +71,7 @@ public class UserEntity implements Serializable {
 			@JoinColumn(name="role_id")
 			}
 		)
-	private List<RoleEntity> roles;
+	private List<RoleEntity> roles =new ArrayList<RoleEntity>();
 
 	public UserEntity() {
 	}
@@ -71,6 +83,14 @@ public class UserEntity implements Serializable {
 		this.phone = phone;
 	}
 	
+	public UserEntity(boolean enabled, String password, String username, List<RoleEntity> roles) {
+		super();
+		this.enabled = enabled;
+		this.password = password;
+		this.username = username;
+		this.roles = roles;
+	}
+
 	public UserEntity(String username, String image, String phone, String diadiem,int a) {
 		super();
 		this.username = username;
@@ -103,11 +123,11 @@ public class UserEntity implements Serializable {
 		this.diadiem = diadiem;
 	}
 
-	public byte getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(byte enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -168,7 +188,7 @@ public class UserEntity implements Serializable {
 	public List<RoleEntity> getRoles() {
 		return this.roles;
 	}
-
+	
 	public void setRoles(List<RoleEntity> roles) {
 		this.roles = roles;
 	}

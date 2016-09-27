@@ -19,4 +19,9 @@
 			<td>${location.name}</td>
 		</tr>
 	</c:forEach>
+	<c:forEach items="${list2}" var="hotel">
+		<tr>
+			<td>${hotel.hotelName}</td>
+		</tr>
+	</c:forEach>
 </table>

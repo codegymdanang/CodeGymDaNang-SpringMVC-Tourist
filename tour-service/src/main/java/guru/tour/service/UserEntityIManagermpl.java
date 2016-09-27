@@ -67,4 +67,5 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	public void updateComment(String username, String comment){
 		friendsRepository.updateComment(username, comment);
 	}
+
 }

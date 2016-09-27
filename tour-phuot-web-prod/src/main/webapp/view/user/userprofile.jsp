@@ -12,7 +12,41 @@
 <script src="resource/js/bootstrap.js"></script>
 <link rel="stylesheet" href="resource/css/userprofile.css"
 	type="text/css">
+	<script type="text/javascript" language="javascript">
+	$(document).ready(function() {
+		var ctx = "<%=request.getContextPath()%>"
+         $.ajax( {
+                 url:ctx+'/view/user/user_overview.jsp',
+                 success:function(data) {
+                    $('#content').html(data);
+                 }
+              });
+         
+         $("#overview").click(function(event){
+        	 $.ajax( {
+        	 url:ctx+'/view/user/user_overview.jsp',
+             success:function(data) {
+                $('#content').html(data);
+             }
+        	 });
+             });
+         
+        $("#account").click(function(event){
+            $.ajax( {
+                url:ctx+'/view/user/userdetails.jsp',
+                success:function(data) {
+                   $('#content').html(data);
+                }
+             });
+         });
 
+        
+        });
+
+    
+	
+
+	</script>
 </head>
 <body>
 <form  action="userprofile" method="post" >
@@ -34,8 +68,6 @@
 				</c:choose>
 
 				</div>
-				<!-- END SIDEBAR USERPIC -->
-				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
 						${user.username }
@@ -44,84 +76,35 @@
 						HOST
 					</div>
 				</div>
-				<!-- END SIDEBAR USER TITLE -->
-				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
 					<button type="button" class="btn btn-success btn-sm">Follow</button>
 					<button type="button" class="btn btn-danger btn-sm">Message</button>
 				</div>
-				<!-- END SIDEBAR BUTTONS -->
-				<!-- SIDEBAR MENU -->
 				<div class="profile-usermenu">
 					<ul class="nav">
 						<li class="active">
-							<a href="#">
+							<a href="#" id="overview">
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" id="account">
 							<i class="glyphicon glyphicon-user"></i>
 							Account Settings </a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" id="help">
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
 						</li>
 					</ul>
 				</div>
-				<!-- END MENU -->
 			</div>
 		</div>
-		<div class="col-sm-9">
-            <div class="profile-content-center">
-      <div class="row">
-     
-          <div class="panel panel-info">
-            <div class="panel-body">
-              <div class="row">
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Date of Birth</td>
-                        <td>01/24/1995</td>
-                      </tr>
-                   
-                         <tr>
-                             <tr>
-                        <td>Gender</td>
-                        <td>Male</td>
-                      </tr>
-                        <tr>
-                        <td> Address</td>
-                        <td>${user.diadiem }</td>
-                      </tr>
-                      <tr>
-                        <td>Email</td>
-                        <td><a href="mailto:info@support.com">info@support.com</a></td>
-                      </tr>
-                      <tr>
-                        <td>Phone Number</td>
-                        <td>123-4567-890(Landline)<br><br>${user.phone }(Mobile)
-                        </td>
-                           
-                      </tr>
-                     
-                    </tbody>
-                  </table>
-                  
-                  <a href="<%=request.getContextPath()%>/updateprofile" class="btn btn-primary">Update Profile</a> &nbsp;             
-					                  
-                  <a href="<%=request.getContextPath()%>/changepassword" class="btn btn-primary">Change Password</a>
-                </div>
-              </div>
-            </div>
+		<input type="hidden" id="hiddenphone" value="${user.phone }">
+		<input type="hidden" id="hiddendiadiem" value="${user.diadiem }">
+		<div class="col-sm-9" id="content">
             
-          </div>
-        </div>
-      </div>
     </div>
             </div>
 		</div>
