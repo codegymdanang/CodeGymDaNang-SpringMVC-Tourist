@@ -12,16 +12,9 @@
 
 
 
-<!-- The Modal -->
-<div id="myModalOfLogin" class="modal">
 
-	<!-- Modal content -->
-	<div class="modal-content">
-
-		<div class="box">
 
 			<div class="row">
-				<span class="close">×</span>
 
 				<div class="image">
 					<div class="col-md-6">
@@ -94,12 +87,8 @@
 				</div>
 
 			</div>
-		</div>
-	</div>
-
-</div>
-
-<script>
+	
+<!-- <script>
 	// Get the modal
 	var modal = document.getElementById('myModalOfLogin');
 
@@ -126,5 +115,5 @@
 		}
 	}
 </script>
-
+ -->
 

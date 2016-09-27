@@ -17,22 +17,22 @@ public class RoleEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id;
 
 	private String role;
 
-	//bi-directional many-to-many association to UserEntity
-	@ManyToMany(mappedBy="roles")
-	private List<UserEntity> users;
+	//bi-directional many-to-one association to User_RoleEntity
+	@OneToMany(mappedBy="role")
+	private List<User_RoleEntity> userRoles;
 
 	public RoleEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -44,12 +44,26 @@ public class RoleEntity implements Serializable {
 		this.role = role;
 	}
 
-	public List<UserEntity> getUsers() {
-		return this.users;
+	public List<User_RoleEntity> getUserRoles() {
+		return this.userRoles;
 	}
 
-	public void setUsers(List<UserEntity> users) {
-		this.users = users;
+	public void setUserRoles(List<User_RoleEntity> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	public User_RoleEntity addUserRole(User_RoleEntity userRole) {
+		getUserRoles().add(userRole);
+		userRole.setRole(this);
+
+		return userRole;
+	}
+
+	public User_RoleEntity removeUserRole(User_RoleEntity userRole) {
+		getUserRoles().remove(userRole);
+		userRole.setRole(null);
+
+		return userRole;
 	}
 
 }

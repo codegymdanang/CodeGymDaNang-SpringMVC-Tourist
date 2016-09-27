@@ -16,7 +16,7 @@ public class DetailprofileEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id;
 
 	private String favorite;
 
@@ -27,11 +27,11 @@ public class DetailprofileEntity implements Serializable {
 	public DetailprofileEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -16,7 +16,7 @@ public class VehicalEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id;
 
 	private String images;
 
@@ -38,11 +38,11 @@ public class VehicalEntity implements Serializable {
 	public VehicalEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

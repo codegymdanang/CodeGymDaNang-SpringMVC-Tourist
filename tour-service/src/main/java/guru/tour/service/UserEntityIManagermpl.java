@@ -50,10 +50,10 @@ public class UserEntityIManagermpl implements UserEntityManager{
         }
         return false;
 	}
-	public List<UserEntity> getAllViaDiaDiem(String diadiem) {
+	/*public List<UserEntity> getAllViaDiaDiem(String diadiem) {
 		// TODO Auto-generated method stub
 	 return friendsRepository.findByRoles_IdAndDiadiem(3,diadiem);
-	}
+	}*/
 	public void updateByUsername(UserEntity user) {
 		friendsRepository.updateUsername(user.getUsername(), user.getImage(), user.getPhone(), user.getDiadiem());
 	}

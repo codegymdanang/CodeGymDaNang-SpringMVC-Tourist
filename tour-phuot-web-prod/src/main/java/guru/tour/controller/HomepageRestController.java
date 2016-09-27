@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import guru.tour.entity.HotNewsEntity;
+import guru.tour.entity.HotNewEntity;
 import guru.tour.entity.LocationEntity;
-import guru.tour.entity.UserSchedule;
+import guru.tour.entity.UserScheduleEntity;
 import guru.tour.service.HotNewsEntityManager;
 import guru.tour.service.LocationEntityManager;
 import guru.tour.service.UserScheduleEntityManager;
@@ -36,35 +36,35 @@ public class HomepageRestController {
 	// HotNews--------------------------------------------------------
 
 	@RequestMapping(value = "/homedata/", method = RequestMethod.GET)
-	public ResponseEntity<List<HotNewsEntity>> listAllHotnews() {
-		List<HotNewsEntity> list = hotNewsEntityManager.getAllHotNews();
+	public ResponseEntity<List<HotNewEntity>> listAllHotnews() {
+		List<HotNewEntity> list = hotNewsEntityManager.getAllHotNews();
 		if (list.isEmpty()) {
-			return new ResponseEntity<List<HotNewsEntity>>(
+			return new ResponseEntity<List<HotNewEntity>>(
 					HttpStatus.NO_CONTENT);// You many decide to return
 											// HttpStatus.NOT_FOUND
 		}
-		return new ResponseEntity<List<HotNewsEntity>>(list, HttpStatus.OK);
+		return new ResponseEntity<List<HotNewEntity>>(list, HttpStatus.OK);
 	}
 
 	// -------------------Retrieve Single Hotnews Entity by
 	// id--------------------------------------------------------
 
 	@RequestMapping(value = "/homedata/{id}", method = RequestMethod.GET)
-	public ResponseEntity<HotNewsEntity> getHotnew(@PathVariable("id") int id) {
+	public ResponseEntity<HotNewEntity> getHotnew(@PathVariable("id") String id) {
 		System.out.println("Fetching Hotnew with id " + id);
-		HotNewsEntity hotnew = hotNewsEntityManager.findById(id);
+		HotNewEntity hotnew = hotNewsEntityManager.findByHotnewsId(id);
 		if (hotnew == null) {
 			System.out.println("Hotnew with id " + id + " not found");
-			return new ResponseEntity<HotNewsEntity>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<HotNewEntity>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<HotNewsEntity>(hotnew, HttpStatus.OK);
+		return new ResponseEntity<HotNewEntity>(hotnew, HttpStatus.OK);
 	}
 
 	// -------------------Create a
 	// Hotnew--------------------------------------------------------
 
 	@RequestMapping(value = "/homedata/createHotnew", method = RequestMethod.POST)
-	public ResponseEntity<Void> createHotnew(@RequestBody HotNewsEntity hotnew,
+	public ResponseEntity<Void> createHotnew(@RequestBody HotNewEntity hotnew,
 			UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating Hotnew " + hotnew.getName());
 
@@ -86,15 +86,15 @@ public class HomepageRestController {
 	// --------------------------------------------------------
 
 	@RequestMapping(value = "/homedata/updateHotnew/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<HotNewsEntity> updateHotnews(
-			@PathVariable("id") int id, @RequestBody HotNewsEntity hotnew) {
+	public ResponseEntity<HotNewEntity> updateHotnews(
+			@PathVariable("id") String id, @RequestBody HotNewEntity hotnew) {
 		System.out.println("Updating Hotnew " + id);
 
-		HotNewsEntity currentHotnew = hotNewsEntityManager.findById(id);
+		HotNewEntity currentHotnew = hotNewsEntityManager.findByHotnewsId(id);
 
 		if (currentHotnew == null) {
 			System.out.println("Hotnew with id " + id + " not found");
-			return new ResponseEntity<HotNewsEntity>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<HotNewEntity>(HttpStatus.NOT_FOUND);
 		}
 
 		currentHotnew.setName(hotnew.getName());
@@ -102,25 +102,25 @@ public class HomepageRestController {
 		currentHotnew.setImage(hotnew.getImage());
 
 		hotNewsEntityManager.updateHotnew(currentHotnew);
-		return new ResponseEntity<HotNewsEntity>(currentHotnew, HttpStatus.OK);
+		return new ResponseEntity<HotNewEntity>(currentHotnew, HttpStatus.OK);
 	}
 
 	// ------------------- Delete a User
 	// --------------------------------------------------------
 
 	@RequestMapping(value = "/homedata/deleteHotnew/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<HotNewsEntity> deleteHotnew(@PathVariable("id") int id) {
+	public ResponseEntity<HotNewEntity> deleteHotnew(@PathVariable("id") String id) {
 		System.out.println("Fetching & Deleting Hotnew with id " + id);
 
-		HotNewsEntity user = hotNewsEntityManager.findById(id);
+		HotNewEntity user = hotNewsEntityManager.findByHotnewsId(id);
 		if (user == null) {
 			System.out.println("Unable to delete. Hotnew with id " + id
 					+ " not found");
-			return new ResponseEntity<HotNewsEntity>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<HotNewEntity>(HttpStatus.NOT_FOUND);
 		}
 
 		hotNewsEntityManager.deleteHotnewById(id);
-		return new ResponseEntity<HotNewsEntity>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<HotNewEntity>(HttpStatus.NO_CONTENT);
 	}
 	
 	/*try*/
@@ -128,7 +128,7 @@ public class HomepageRestController {
 		// Hotnew--------------------------------------------------------
 
 		@RequestMapping(value = "/homedata/like", method = RequestMethod.POST)
-		public ResponseEntity<Void> like(@RequestBody UserSchedule userSchedule,
+		public ResponseEntity<Void> like(@RequestBody UserScheduleEntity userSchedule,
 				UriComponentsBuilder ucBuilder) {
 						
 			userScheduleEnityManager.saveUserScheduleEntity(userSchedule);

@@ -29,13 +29,14 @@
 		<!-- login quy -->
 		<form-login login-page='/login' login-processing-url="/j_spring_security_check"
            
-           	default-target-url="/home" 
-           	authentication-failure-url="/login"	
+          
             username-parameter="username"
-            password-parameter="password"/>
-             <!-- authentication-success-handler-ref="loginSuccessHandler"
+            password-parameter="password"
+             authentication-success-handler-ref="loginSuccessHandler"
            	authentication-failure-url="/login"
-            always-use-default-target="false" /> -->
+            always-use-default-target="false" />
+             	<!-- default-target-url="/home" 
+           	authentication-failure-url="/login"	 -->
             
             
             <logout logout-url="/logout" logout-success-url="/home"></logout>
@@ -55,7 +56,7 @@
     	
     </authentication-manager>
     <beans:bean id="standardPasswordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"></beans:bean>
-    <!-- <beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
+    <beans:bean id="loginSuccessHandler" class="guru.tour.security.LoginSuccessHandler">
         <beans:property name="defaultTargetUrl" value="/home"></beans:property>
-    </beans:bean> -->
+    </beans:bean>
 </beans:beans>

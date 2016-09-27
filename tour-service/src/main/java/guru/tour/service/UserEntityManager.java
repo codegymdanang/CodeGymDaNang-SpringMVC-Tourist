@@ -10,7 +10,7 @@ public interface UserEntityManager {
 	List<UserEntity> getUserByPhone(String phone);
 	UserEntity saveUser(UserEntity user);
 	List<UserEntity> getAll();
-	List<UserEntity> getAllViaDiaDiem(String diadiem);
+	//List<UserEntity> getAllViaDiaDiem(String diadiem);
 	boolean isUserExist(UserEntity userEntity);
 	void updateByUsername(UserEntity user);
 	UserEntity getUserById(int id);

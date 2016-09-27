@@ -10,13 +10,13 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="hotnews")
-@NamedQuery(name="HotnewEntity.findAll", query="SELECT h FROM HotnewEntity h")
-public class HotnewEntity implements Serializable {
+@NamedQuery(name="HotNewEntity.findAll", query="SELECT h FROM HotNewEntity h")
+public class HotNewEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int hotnewsId;
+	private String hotnewsId;
 
 	private String description;
 
@@ -24,14 +24,13 @@ public class HotnewEntity implements Serializable {
 
 	private String name;
 
-	public HotnewEntity() {
-	}
+	
 
-	public int getHotnewsId() {
+	public String getHotnewsId() {
 		return this.hotnewsId;
 	}
 
-	public void setHotnewsId(int hotnewsId) {
+	public void setHotnewsId(String hotnewsId) {
 		this.hotnewsId = hotnewsId;
 	}
 
@@ -57,6 +56,28 @@ public class HotnewEntity implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public HotNewEntity() {
+		super();
+	}
+
+	public HotNewEntity(String hotnewsId, String name) {
+		this.hotnewsId = hotnewsId;
+		this.name = name;
+	}
+
+	public HotNewEntity(String name, String description, String image) {
+		this.name = name;
+		this.description = description;
+		this.image = image;
+	}
+
+	public HotNewEntity(String hotnewsId, String name, String description, String image) {
+		this.hotnewsId = hotnewsId;
+		this.description = description;
+		this.name = name;
+		this.image = image;
+
 	}
 
 }

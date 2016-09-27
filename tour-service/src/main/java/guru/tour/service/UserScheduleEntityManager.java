@@ -1,9 +1,9 @@
 package guru.tour.service;
 
-import guru.tour.entity.UserSchedule;
+import guru.tour.entity.UserScheduleEntity;
 
 public interface UserScheduleEntityManager {
 
-	public void saveUserScheduleEntity(UserSchedule userSchedule);
+	public void saveUserScheduleEntity(UserScheduleEntity userSchedule);
 
 }
