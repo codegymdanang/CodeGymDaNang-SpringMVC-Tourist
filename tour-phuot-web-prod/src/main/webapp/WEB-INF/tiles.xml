@@ -46,6 +46,12 @@
 	<definition name="users" extends="definition">
 		<put-attribute name="body" value="/view/user/users.jsp" />
 	</definition>
+	<definition name="comment" extends="definition">
+		<put-attribute name="body" value="/view/user/comment.jsp" />
+	</definition>
+	<definition name="success" extends="definition">
+		<put-attribute name="body" value="/view/user/successt.jsp" />
+	</definition>
 	<definition name="findfriend" extends="definition">
 		<put-attribute name="body" value="/view/user/findfriend.jsp" />
 	</definition>
@@ -113,6 +119,12 @@
 	</definition>
 	<definition name= "updateprofile" extends="definition">
 		<put-attribute name="body" value="/view/user/updateprofile.jsp"></put-attribute>
+	</definition>
+	<definition name= "changepassword" extends="definition">
+		<put-attribute name="body" value="/view/user/changepassword.jsp"></put-attribute>
+	</definition>
+	<definition name= "userprofile" extends="definition">
+		<put-attribute name="body" value="/view/user/userprofile.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>  
  

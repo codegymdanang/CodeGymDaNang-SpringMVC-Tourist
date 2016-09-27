@@ -4,6 +4,9 @@
 	isELIgnored="false" pageEncoding="UTF-8"%> --%>
 	
 <!DOCTYPE html>
+<%@page import="java.util.ArrayList"%>
+<%@page import="guru.tour.entity.PlaceEntity"%>
+<%@page import="java.util.List"%>
 <html>
 <head >        
     <meta charset="UTF-8">
@@ -59,10 +62,13 @@
                 }
             });
         });
-
+             
     </script>
+    
+    <script type="text/javascript" src="resource/js/userSchedule.js"></script>
 </head>
 <body style="background-color: #d8d8d8;">
+  
 <div class="container" style="padding-top: 10px;">
     <div class="row">
     </div>
@@ -96,29 +102,32 @@
     </div>
         <div id="diadiem" style="display: none">
             <h3>Place</h3>
+            <h1>Result : ${places2.size()}</h1>
+                        
         <div class="row">
-
+				
                 <div>
                     <div class="col-sm-6 col-md-4">
                        <div class="thumbnail">
-                        	<img src="resource/images/${placeName}.jpg"  alt="...">                                                                      		                      	
+                        	<img src="resource/images/${places2[0].images}"  alt="${places2[0].images}">  
+                        	                                                                     		                      	
                     	</div>
                     	
                     <div style="text-align: center;">
 	                    <div class= "col-sm-4 col-sm-push-2">
-	                    <button> <span class="glyphicon glyphicon-thumbs-down"></span></button>	                                       
+	                    <button id="dislike" > <span class="glyphicon glyphicon-thumbs-down"></span></button>	                                       
 	                    </div>
 	                    <div class= "col-sm-4 ">
-	                    <button><span class="glyphicon glyphicon-eye-open"></span></button>
+	                    <button id="remind"><span class="glyphicon glyphicon-eye-open"></span></button>
 	                    </div>
 	                    <div class= "col-sm-4 col-sm-pull-2">
-	                    <button><span class="glyphicon glyphicon-thumbs-up"></span></button>
+	                    <button id="like"><span class="glyphicon glyphicon-thumbs-up"></span></button>
 	                    </div>                    	                      	                       	 
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="resource/images/danang.jpg" alt="...">
+                        <img src="resource/images/${places2[1].images}"  alt="${places2[1].images}">
                     </div>
                     <div style="text-align: center;">
 	                    <div class= "col-sm-4 col-sm-push-2">
@@ -134,7 +143,7 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="resource/images/danang.jpg" alt="...">
+                        <img src="resource/images/${places2[2].images}"  alt="${places2[2].images}">
                     </div>
                     <div style="text-align: center;">
 	                    <div class= "col-sm-4 col-sm-push-2">

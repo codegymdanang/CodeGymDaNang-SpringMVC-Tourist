@@ -26,23 +26,36 @@ import guru.tour.service.UserEntityManager;
 @RunWith(MockitoJUnitRunner.class)
 public class UserEntityIManagermplTest {
 
-	@Mock
+	//@Mock
 	private PasswordEncoder passEncode;
 
-	@Mock
+	//@Mock
 	private ServiceFriendsRepository friendsRepository;
 	
 	@InjectMocks
 	private UserEntityManager userEntityIManager = new UserEntityIManagermpl();
 	@Before
 	public void initMocks() {
+		passEncode = mock(PasswordEncoder.class);
+		friendsRepository = mock(ServiceFriendsRepository.class);
 		MockitoAnnotations.initMocks(this);
 	}
 	
 	@Test
 	public void shouldEncodePassword() {
 		
-		when(passEncode.encode(any(CharSequence.class))).thenReturn("encrypted");
+		when(passEncode.encode(any(CharSequence.class))).thenAnswer(new Answer<String>() {
+
+			public String answer(InvocationOnMock invocation) throws Throwable {
+				// TODO Auto-generated method stub
+				String oldPassword = (String)invocation.getArguments()[0];
+				if("plain".equals(oldPassword)) {
+					return "encrypted";
+				}
+			
+				return "abc";
+			}
+		});
 		when(friendsRepository.save(any(UserEntity.class))).thenAnswer(new Answer<UserEntity>() {
 
 			public UserEntity answer(InvocationOnMock invocation) throws Throwable {

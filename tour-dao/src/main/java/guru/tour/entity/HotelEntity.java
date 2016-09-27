@@ -1,107 +1,114 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the hotel database table.
+ * 
+ */
 @Entity
-@Table(name = "hotel")
+@Table(name="hotel")
+//@NamedQuery(name="HotelEntity.findAll", query="SELECT h FROM HotelEntity h")
 public class HotelEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue( strategy=GenerationType.AUTO )
-	@Column(name = "hotel_id")
-	private int id;
-	@Column(name = "hotel_name")
-	private String name;
-	@Column(name = "price")
-	private double price;
-	@Column(name = "images")
-	private String images;
-	@Column(name = "phone")
-	private int phone;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="hotel_id")
+	private int hotelId;
+
 	@Column(name = "description")
 	private String description;
+
+	@Column(name="hotel_name")
+	private String hotelName;
+
+	@Column(name = "images")
+	private String images;
 	
-	@ManyToOne
-	@JoinColumn(name="location_id")
-	private LocationEntity lc;
+	@Column(name = "phone")
+	private int phone;
 	
-	@ManyToOne
+	@Column(name = "price")
+	private double price;
+
+	//bi-directional many-to-one association to LocationEntity
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "location_id")
+	private LocationEntity location;
+
+	//bi-directional many-to-one association to TypeEntity
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="type_id")
-	private TypeEntity typeEntity;
+	private TypeEntity type;
+
 	public HotelEntity() {
-		super();
 	}
-	public HotelEntity(int id, String name, double price, String images, int phone, String description,
-			LocationEntity lc, TypeEntity typeEntity) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.images = images;
-		this.phone = phone;
-		this.description = description;
-		this.lc = lc;
-		this.typeEntity = typeEntity;
+
+	public int getHotelId() {
+		return this.hotelId;
 	}
-	public int getId() {
-		return id;
+
+	public void setHotelId(int hotelId) {
+		this.hotelId = hotelId;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public String getImages() {
-		return images;
-	}
-	public void setImages(String images) {
-		this.images = images;
-	}
-	public int getPhone() {
-		return phone;
-	}
-	public void setPhone(int phone) {
-		this.phone = phone;
-	}
+
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public LocationEntity getLc() {
-		return lc;
-	}
-	public void setLc(LocationEntity lc) {
-		this.lc = lc;
-	}
-	public TypeEntity getTypeEntity() {
-		return typeEntity;
-	}
-	public void setTypeEntity(TypeEntity typeEntity) {
-		this.typeEntity = typeEntity;
+
+	public String getHotelName() {
+		return this.hotelName;
 	}
 
-	
-		
-	
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
+	}
+
+	public String getImages() {
+		return this.images;
+	}
+
+	public void setImages(String images) {
+		this.images = images;
+	}
+
+	public int getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+
+	public double getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public LocationEntity getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(LocationEntity location) {
+		this.location = location;
+	}
+
+	public TypeEntity getType() {
+		return this.type;
+	}
+
+	public void setType(TypeEntity type) {
+		this.type = type;
+	}
+
 }

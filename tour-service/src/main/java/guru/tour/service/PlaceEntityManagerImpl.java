@@ -47,5 +47,12 @@ public class PlaceEntityManagerImpl implements PlaceEntityManager{
 	public PlaceEntity getPlaceByName(String placeName ) {
 		return pl.findByName(placeName);
 	}
+
 	
+
+	/*@Override
+	public List<PlaceEntity> getAllPlaceByLocalId(int local_id) {	
+		return pl.getAllPlaceByLocalId(local_id);
+	}
+	*/
 }

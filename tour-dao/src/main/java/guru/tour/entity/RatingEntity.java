@@ -1,93 +1,75 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+/**
+ * The persistent class for the rating database table.
+ * 
+ */
 @Entity
-@Table(name = "rating")
+@Table(name="rating")
+@NamedQuery(name="RatingEntity.findAll", query="SELECT r FROM RatingEntity r")
 public class RatingEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
-	@Column(name="service")
-	private String service;
-	
-	@Column(name="number")
+
 	private int number;
-	
+
+	private String service;
+
 	@Column(name="type_id")
-	private int type_id;
-	
-	@Column(name="user_id")
-	private int user_id;
+	private int typeId;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="user_id",insertable=false, updatable=false)
-	/*@JsonManagedReference*/
-	private UserEntity userEntity;
-	
-	
-	public UserEntity getUserEntity() {
-		return userEntity;
-	}
+	//bi-directional many-to-one association to UserEntity
+	@ManyToOne
+	private UserEntity user;
 
-	public void setUserEntity(UserEntity userEntity) {
-		this.userEntity = userEntity;
+	public RatingEntity() {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getService() {
-		return service;
-	}
-
-	public void setService(String service) {
-		this.service = service;
-	}
-
 	public int getNumber() {
-		return number;
+		return this.number;
 	}
 
 	public void setNumber(int number) {
 		this.number = number;
 	}
 
-	public int getType_id() {
-		return type_id;
+	public String getService() {
+		return this.service;
 	}
 
-	public void setType_id(int type_id) {
-		this.type_id = type_id;
+	public void setService(String service) {
+		this.service = service;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public int getTypeId() {
+		return this.typeId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
 	}
-	
-	
+
+	public UserEntity getUser() {
+		return this.user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
+	}
+
 }

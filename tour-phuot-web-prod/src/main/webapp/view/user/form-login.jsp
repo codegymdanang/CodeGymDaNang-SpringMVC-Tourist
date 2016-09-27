@@ -3,17 +3,17 @@
 	href="resource/css/form-login-css.css">
 </head>
 
-<div class="top">
-	<a class="btn btn-link" href="#" role="button"> <!-- Trigger/Open The Modal -->
+<!-- <div class="top">
+	<a class="btn btn-link" href="#" role="button"> Trigger/Open The Modal
 		<button id="myBtn" class="">Login</button>
 	</a>
 
-</div>
+</div> -->
 
 
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModalOfLogin" class="modal">
 
 	<!-- Modal content -->
 	<div class="modal-content">
@@ -101,10 +101,10 @@
 
 <script>
 	// Get the modal
-	var modal = document.getElementById('myModal');
+	var modal = document.getElementById('myModalOfLogin');
 
 	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
+	var btn = document.getElementById("myBtnOfLogin");
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];

@@ -11,6 +11,4 @@ public interface LocationEntityManager {
 	public List<LocationEntity> getLocation();
 
 	public LocationEntity findByLocation_name(String locationName);
-	
-
 }

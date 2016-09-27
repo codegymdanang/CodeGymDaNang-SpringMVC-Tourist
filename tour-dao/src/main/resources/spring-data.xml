@@ -15,25 +15,12 @@
 	<!-- It register the beans in context and scan the annotations inside beans 
 		and activate them -->
 	<context:component-scan base-package="guru.tour" />
-	<bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<!-- <bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/> -->
 	<!-- This allow for dispatching requests to Controllers -->
-
-	<!-- This helps in mapping the logical view names to directly view files 
-		under a certain pre-configured directory -->
-
-	<!-- This resolves messages from resource bundles for different locales -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="messages" />
-	</bean>
-
-	<!-- To validate the posted add employee form -->
-	<!-- <bean id="employeeValidator" class="com.howtodoinjava.demo.validator.EmployeeValidator" 
-		/> -->
 
 	<!-- This produces a container-managed EntityManagerFactory; rather than 
 		application-managed EntityManagerFactory as in case of LocalEntityManagerFactoryBean -->
-	<bean id="entityManagerFactoryBean"
+	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- This makes /META-INF/persistence.xml is no longer necessary -->
@@ -42,13 +29,13 @@
 			Hibernate's persistence provider and EntityManager extension interface -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-				<property name="generateDdl" value="true"></property>
+				<property name="generateDdl" value="false"></property>
 				<property name="showSql" value="true"></property>
 			</bean>
 		</property>
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+			<!-- 	<prop key="hibernate.hbm2ddl.auto">create</prop> -->
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
 			</props>
 		</property>
@@ -59,7 +46,7 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://www.db4free.net:3306/phuottuor" />
+		<property name="url" value="jdbc:mysql://www.db4free.net:3306/phuottuor?useSSL=false" />
 		<property name="username" value="phuot" />
 		<property name="password" value="phuot123" />
 	</bean>
@@ -70,7 +57,7 @@
 		through JtaTransactionManager) is necessary for accessing multiple transactional 
 		resources within the same transaction. -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactoryBean" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
 	<!-- responsible for registering the necessary Spring components that power 

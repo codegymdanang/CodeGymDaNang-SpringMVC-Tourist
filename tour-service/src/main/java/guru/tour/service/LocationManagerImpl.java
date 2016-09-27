@@ -14,14 +14,11 @@ public class LocationManagerImpl implements LocationEntityManager{
 	LocationRepository lr;
 	
 	public List<LocationEntity> getLocation() {
-		// TODO Auto-generated method stub
 		return lr.findAll();
 	}
 
 	public LocationEntity findByLocation_name(String locationName) {
-		// TODO Auto-generated method stub
-		return lr.findByName(locationName);
+		return lr.findByLocationName(locationName);
 	}
-
 	
 }

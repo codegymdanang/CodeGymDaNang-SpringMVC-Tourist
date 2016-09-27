@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.HotelEntity;
-import guru.tour.entity.HotelEntity;
+import guru.tour.model.FoodModel;
+import guru.tour.model.HotelModel;
 import guru.tour.service.HotelEntityManager;
 
 @RestController
@@ -35,14 +36,25 @@ public class HotelRestController {
 		}
 		return new ResponseEntity<HotelEntity>(hotel, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/hotelByLocatioId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<HotelModel>> listAllFoods() {
+		List<HotelModel> list = hotelmanager.getHotelByLocationId(1);
+		if (list.isEmpty()) {
+			return new ResponseEntity<List<HotelModel>>(
+					HttpStatus.NO_CONTENT);// You many decide to return
+											// HttpStatus.NOT_FOUND
+		}
+		return new ResponseEntity<List<HotelModel>>(list, HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/hoteldata/new", method = RequestMethod.POST)
 	public ResponseEntity<Void> createhotel(@RequestBody HotelEntity hotel,
 			UriComponentsBuilder ucBuilder) {
-		System.out.println("Creating hotel " + hotel.getName());
+		System.out.println("Creating hotel " + hotel.getHotelName());
 
 		if (hotelmanager.isHotelEntity(hotel)) {
-			System.out.println("A hotelEntity with name " + hotel.getName()
+			System.out.println("A hotelEntity with name " + hotel.getHotelName()
 					+ " already exist");
 			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
 		}
@@ -50,17 +62,17 @@ public class HotelRestController {
 		hotelmanager.saveHotelEntity(hotel);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(ucBuilder.path("/hoteldata/{id}")
-				.buildAndExpand(hotel.getId()).toUri());
+				.buildAndExpand(hotel.getHotelId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/hoteldata/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<HotelEntity>> getallhotel() {
-		List<HotelEntity> hotel = hotelmanager.getAllHotel();
+	public ResponseEntity<List<HotelModel>> getallhotel() {
+		List<HotelModel> hotel = hotelmanager.getAllHotelModel();
 		if (hotel == null) {
-			return new ResponseEntity<List<HotelEntity>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<List<HotelModel>>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<List<HotelEntity>>(hotel, HttpStatus.OK);
+		return new ResponseEntity<List<HotelModel>>(hotel, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/hoteldata/updatehotel/{id}", method = RequestMethod.PUT)
@@ -75,7 +87,7 @@ public class HotelRestController {
 			return new ResponseEntity<HotelEntity>(HttpStatus.NOT_FOUND);
 		}
 
-		currenthotel.setName(hotel.getName());
+		currenthotel.setHotelName(hotel.getHotelName());
 		currenthotel.setDescription(hotel.getDescription());
 		currenthotel.setImages(hotel.getImages());
 

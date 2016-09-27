@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.FoodEntity;
+import guru.tour.model.FoodModel;
 import guru.tour.service.FoodEntityManager;
 
 @Controller
@@ -21,15 +23,15 @@ public class FoodController {
 	@Autowired
 	FoodEntityManager foodEntityManager;
 	
-	@RequestMapping(value = "/fooddata", method = RequestMethod.GET)
-	public ResponseEntity<List<FoodEntity>> listAllFoods() {
-		List<FoodEntity> list = foodEntityManager.getAllFoods();
+	@RequestMapping(value = "/foodByLocationId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<FoodModel>> listAllFoods() {
+		List<FoodModel> list = foodEntityManager.getFoodByLocationId(2);
 		if (list.isEmpty()) {
-			return new ResponseEntity<List<FoodEntity>>(
+			return new ResponseEntity<List<FoodModel>>(
 					HttpStatus.NO_CONTENT);// You many decide to return
 											// HttpStatus.NOT_FOUND
 		}
-		return new ResponseEntity<List<FoodEntity>>(list, HttpStatus.OK);
+		return new ResponseEntity<List<FoodModel>>(list, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/fooddata/{id}", method = RequestMethod.GET)
@@ -76,7 +78,7 @@ public class FoodController {
 
 		currentFood.setName(food.getName());
 		currentFood.setDescription(food.getDescription());
-		currentFood.setLocationEntity(food.getLocationEntity());
+		currentFood.setLocation(food.getLocation());
 		currentFood.setImages(food.getImages());
 		currentFood.setPhone(food.getPhone());
 		currentFood.setPrice(food.getPrice());

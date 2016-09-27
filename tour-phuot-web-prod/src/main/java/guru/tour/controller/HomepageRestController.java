@@ -17,8 +17,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.HotNewsEntity;
 import guru.tour.entity.LocationEntity;
+import guru.tour.entity.UserSchedule;
 import guru.tour.service.HotNewsEntityManager;
 import guru.tour.service.LocationEntityManager;
+import guru.tour.service.UserScheduleEntityManager;
 
 @RestController
 public class HomepageRestController {
@@ -26,7 +28,8 @@ public class HomepageRestController {
 	@Autowired
 	HotNewsEntityManager hotNewsEntityManager;
 	
-
+	@Autowired
+	UserScheduleEntityManager userScheduleEnityManager;
 	
 
 	// -------------------Retrieve All
@@ -119,6 +122,21 @@ public class HomepageRestController {
 		hotNewsEntityManager.deleteHotnewById(id);
 		return new ResponseEntity<HotNewsEntity>(HttpStatus.NO_CONTENT);
 	}
+	
+	/*try*/
+	// -------------------Create a
+		// Hotnew--------------------------------------------------------
+
+		@RequestMapping(value = "/homedata/like", method = RequestMethod.POST)
+		public ResponseEntity<Void> like(@RequestBody UserSchedule userSchedule,
+				UriComponentsBuilder ucBuilder) {
+						
+			userScheduleEnityManager.saveUserScheduleEntity(userSchedule);
+			
+			return new ResponseEntity<Void>( HttpStatus.CREATED);
+		}
+
+	/*try*/
 
 
 }

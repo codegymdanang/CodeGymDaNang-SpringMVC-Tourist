@@ -1,113 +1,101 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the event database table.
+ * 
+ */
 @Entity
-@Table(name = "event")
+@Table(name="event")
+@NamedQuery(name="EventEntity.findAll", query="SELECT e FROM EventEntity e")
 public class EventEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
-	@Column(name = "name")
-	private String name;
-
-	@Column(name = "description")
 	private String description;
 
-	@Column(name = "startday")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date endday;
+
+	private String name;
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date startday;
 
-	@Column(name = "endday")
-	private Date endday;
-	
-	@Column(name = "local_id")
-	private int local_id;
-	
-	@Column(name = "add_id")
-	private int address_id;
-	
+	//bi-directional many-to-one association to LocationEntity
 	@ManyToOne
-	@JoinColumn(name = "local_id", insertable=false, updatable=false)
-	private LocationEntity event_location;
-	
+	@JoinColumn(name="local_id")
+	private LocationEntity location;
+
+	//bi-directional many-to-one association to AddressEntity
 	@ManyToOne
-	@JoinColumn(name = "add_id", insertable=false, updatable=false)
-	private AddressEntity event_add;
-	
-	@Override
-	public String toString() {
-		return "EventEntity [id=" + id + ", name=" + name + ", description=" + description + ", startday=" + startday
-				+ ", endday=" + endday + ", local_id=" + local_id + "]";
+	@JoinColumn(name="add_id")
+	private AddressEntity address;
+
+	public EventEntity() {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public Date getStartday() {
-		return startday;
-	}
-
-	public void setStartday(Date startday) {
-		this.startday = startday;
-	}
-
 	public Date getEndday() {
-		return endday;
+		return this.endday;
 	}
 
 	public void setEndday(Date endday) {
 		this.endday = endday;
 	}
 
-	public int getLocal_id() {
-		return local_id;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setLocal_id(int local_id) {
-		this.local_id = local_id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getAddress_id() {
-		return address_id;
+	public Date getStartday() {
+		return this.startday;
 	}
 
-	public void setAddress_id(int address_id) {
-		this.address_id = address_id;
+	public void setStartday(Date startday) {
+		this.startday = startday;
 	}
 
-	
+	public LocationEntity getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(LocationEntity location) {
+		this.location = location;
+	}
+
+	public AddressEntity getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
+
 }

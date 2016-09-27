@@ -98,7 +98,7 @@ public class PlaceRestController {
 			return new ResponseEntity<PlaceEntity>(HttpStatus.NOT_FOUND);
 		}
 		currentPlace.setName(p.getName());
-		currentPlace.setLocalID(p.getLocalID());
+		currentPlace.setId(p.getId());
 		currentPlace.setImages(p.getImages());
 		currentPlace.setDescription(p.getDescription());
 		placeEntityManager.updatePlace(currentPlace);

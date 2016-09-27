@@ -1,84 +1,91 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import org.hibernate.annotations.LazyCollection;
+import javax.persistence.*;
+
 import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * The persistent class for the location database table.
+ * 
+ */
 @Entity
-@Table(name = "location")
+@Table(name="location")
+@NamedQuery(name="LocationEntity.findAll", query="SELECT l FROM LocationEntity l")
 public class LocationEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
-	@Column(name = "location_id")
-	private int id;
-	@Column(name = "location_name")
-	private String name;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="location_id")
+	private int locationId;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "locationEntity")
-	@JsonIgnore
-	private List<FoodEntity> food = new ArrayList<FoodEntity>();
+	@Column(name="location_name")
+	private String locationName;
 
-	/*
-	 * @OneToMany(fetch = FetchType.EAGER, mappedBy =
-	 * "locationEntity",cascade=CascadeType.ALL)
-	 * 
-	 * @JsonIgnore private List<PlaceEntity> listPlace;
-	 */
+	//bi-directional many-to-one association to EventEntity
 
-	@OneToMany(mappedBy = "event_location")
-	@LazyCollection(LazyCollectionOption.FALSE)
-	@JsonIgnore
-	private List<EventEntity> location_event = new ArrayList<EventEntity>();
+	@OneToMany(mappedBy="location")
+ 	private List<HotelEntity> hotels ;
 
-	/*
-	 * public List<PlaceEntity> getListPlace() { return listPlace; } public void
-	 * setListPlace(List<PlaceEntity> listPlace) { this.listPlace = listPlace; }
-	 */
-	public int getId() {
-		return id;
+
+
+	public LocationEntity() {
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getLocationId() {
+		return this.locationId;
 	}
 
-	public String getName() {
-		return name;
+	public void setLocationId(int locationId) {
+		this.locationId = locationId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getLocationName() {
+		return this.locationName;
 	}
 
-	public List<FoodEntity> getFood() {
-		return food;
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
 	}
 
-	public void setFood(List<FoodEntity> food) {
-		this.food = food;
+
+
+	@OneToMany(fetch = FetchType.LAZY,cascade=CascadeType.ALL, mappedBy = "location")
+	public List<HotelEntity> getHotels() {
+		return this.hotels;
 	}
 
-	public List<EventEntity> getLocation_event() {
-		return location_event;
+	public void setHotels(List<HotelEntity> hotels) {
+		this.hotels = hotels;
 	}
 
-	public void setLocation_event(List<EventEntity> location_event) {
-		this.location_event = location_event;
+	public HotelEntity addHotel(HotelEntity hotel) {
+		getHotels().add(hotel);
+		hotel.setLocation(this);
+
+		return hotel;
 	}
+
+	public HotelEntity removeHotel(HotelEntity hotel) {
+		getHotels().remove(hotel);
+		hotel.setLocation(null);
+
+		return hotel;
+	}
+
+
+
+
+
+
+
+
 
 }
