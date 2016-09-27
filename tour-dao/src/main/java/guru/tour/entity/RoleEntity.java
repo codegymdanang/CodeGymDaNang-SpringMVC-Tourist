@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -18,39 +19,28 @@ public class RoleEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	
-	@Column
+	private String id = UUID.randomUUID().toString();
+
 	private String role;
 	
-	public RoleEntity(int id, String role) {
+	public RoleEntity(String id, String role) {
 		super();
 		this.id = id;
 		this.role = role;
 	}
 
-	//bi-directional many-to-many association to UserEntity
-	@ManyToMany(mappedBy="roles")
-//	@JoinTable(
-//		name="user_role"
-//		, joinColumns={
-//			@JoinColumn(name="role_id")
-//			}
-//		, inverseJoinColumns={
-//			@JoinColumn(name="user_id")
-//			}
-//		)
-	private List<UserEntity> users = new ArrayList<UserEntity>();
+	//bi-directional many-to-one association to User_RoleEntity
+	@OneToMany(mappedBy="role")
+	private List<User_RoleEntity> userRoles;
 
 	public RoleEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -62,12 +52,26 @@ public class RoleEntity implements Serializable {
 		this.role = role;
 	}
 
-	public List<UserEntity> getUsers() {
-		return this.users;
+	public List<User_RoleEntity> getUserRoles() {
+		return this.userRoles;
 	}
 
-	public void setUsers(List<UserEntity> users) {
-		this.users = users;
+	public void setUserRoles(List<User_RoleEntity> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	public User_RoleEntity addUserRole(User_RoleEntity userRole) {
+		getUserRoles().add(userRole);
+		userRole.setRole(this);
+
+		return userRole;
+	}
+
+	public User_RoleEntity removeUserRole(User_RoleEntity userRole) {
+		getUserRoles().remove(userRole);
+		userRole.setRole(null);
+
+		return userRole;
 	}
 
 }

@@ -135,6 +135,7 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -193,6 +194,13 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 		</dependency>
+
+
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>

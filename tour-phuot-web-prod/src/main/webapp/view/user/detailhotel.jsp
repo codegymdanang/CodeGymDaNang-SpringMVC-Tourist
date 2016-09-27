@@ -24,4 +24,5 @@
 			<td>${hotel.hotelName}</td>
 		</tr>
 	</c:forEach>
+
 </table>

@@ -74,13 +74,13 @@ public class ServiceFriendController  {
 		System.out.println("ten: "+button);
 		List<UserEntity> users=null;
 		ModelAndView model=null;
-		if(button.equals("timdiadiem")){
-			users=user.getAllViaDiaDiem(request.getParameter("search"));
-			 model = new ModelAndView("users");
-		}else{
-			users=user.getUserByName(request.getParameter("name"));
-			 model = new ModelAndView("users");
-		}
+//		if(button.equals("timdiadiem")){
+//			users=user.getAllViaDiaDiem(request.getParameter("search"));
+//			 model = new ModelAndView("users");
+//		}else{
+//			users=user.getUserByName(request.getParameter("name"));
+//			 model = new ModelAndView("users");
+//		}
 		
 		model.addObject("users", users);
 		return model;

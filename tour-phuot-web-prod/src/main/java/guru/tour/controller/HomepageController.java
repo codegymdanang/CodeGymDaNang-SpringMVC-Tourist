@@ -1,16 +1,6 @@
 package guru.tour.controller;
 
 
-import guru.tour.entity.HotNewsEntity;
-
-import guru.tour.entity.LocationEntity;
-import guru.tour.entity.PlaceEntity;
-import guru.tour.exception.HomeException;
-
-import guru.tour.service.HotNewsEntityManager;
-import guru.tour.service.LocationEntityManager;
-import guru.tour.service.PlaceEntityManager;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,17 +12,22 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.servlet.ModelAndView;
+
+import guru.tour.entity.HotNewEntity;
+import guru.tour.entity.LocationEntity;
+import guru.tour.entity.PlaceEntity;
+import guru.tour.exception.HomeException;
+import guru.tour.service.HotNewsEntityManager;
+import guru.tour.service.LocationEntityManager;
+import guru.tour.service.PlaceEntityManager;
 
 
 
@@ -58,31 +53,31 @@ public class HomepageController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homepage() throws Exception {
 		// returning list hotnew and event,place data load into homepage
-		List<HotNewsEntity> list = new ArrayList<HotNewsEntity>();
+		List<HotNewEntity> list = new ArrayList<HotNewEntity>();
 		list = hotnews.getAllHotNews();
 		if (list.isEmpty() == true) {
-			throw new HomeException(1);
+			throw new HomeException("1");
 		}
-		for (HotNewsEntity hotNewsEntity : list) {
+		for (HotNewEntity hotNewsEntity : list) {
 			System.out.println(hotNewsEntity.getHotnewsId() + " " + hotNewsEntity.getName() + "- "+ hotNewsEntity.getDescription()+" "+hotNewsEntity.getImage());				
 		}
 		return "homePage";
 	}
 	@RequestMapping(value = "/home/{id}", method = RequestMethod.GET)
-	public String getEmployee(@PathVariable("id") int id, Model model)
+	public String getEmployee(@PathVariable("id") String id, Model model)
 			throws Exception {
 		// deliberately throwing different types of exception
-		if (id == 1) {
+		if (id == "1") {
 			throw new HomeException(id);
-		} else if (id == 2) {
+		} else if (id == "2") {
 			throw new SQLException("SQLException, id=" + id);
-		} else if (id == 3) {
+		} else if (id == "3") {
 			throw new IOException("IOException, id=" + id);
-		} else if (id == 10) {
-			List<HotNewsEntity> list = new ArrayList<HotNewsEntity>();
+		} else if (id == "10") {
+			List<HotNewEntity> list = new ArrayList<HotNewEntity>();
 			list = hotnews.getAllHotNews();
 			if (list.isEmpty() == true) {
-				throw new HomeException(1);
+				throw new HomeException("1");
 			}
 			
 			return "homePage";

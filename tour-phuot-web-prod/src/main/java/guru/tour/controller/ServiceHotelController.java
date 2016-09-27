@@ -49,11 +49,11 @@ public class ServiceHotelController {
 		return "detailhotel";
 	}
 
-	@RequestMapping(value="/hotel/{id}", method=RequestMethod.GET)
-	public String getEmployee(@PathVariable("id") int id, Model model) throws Exception{
+	/*@RequestMapping(value="/hotel/{id}", method=RequestMethod.GET)
+	public String getEmployee(@PathVariable("id") String hotelid, Model model) throws Exception{
 		//deliberately throwing different types of exception
-		if(id==1){
-			throw new HotelNotFoundException(id);
+		if(hotelid=='1'){
+			throw new HotelNotFoundException(id)
 		}else if(id==2){
 			throw new SQLException("SQLException, id="+id);
 		}else if(id==3){
@@ -61,14 +61,14 @@ public class ServiceHotelController {
 		}else if(id==10){
 			HotelEntity emp = new HotelEntity();
 			emp.setHotelName("Pankaj");
-			emp.setHotelId(id);
+			emp.setHotelId();
 			model.addAttribute("employee", emp);
 			return "hotel";
 		}else {
 			throw new Exception("Generic Exception, id="+id);
 		}
 		
-	}
+	}*/
 	
 	@ExceptionHandler(HotelNotFoundException.class)
 	public ModelAndView handleEmployeeNotFoundException(HttpServletRequest request, Exception ex){

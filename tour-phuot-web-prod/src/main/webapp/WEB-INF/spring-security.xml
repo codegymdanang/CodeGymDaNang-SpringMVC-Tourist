@@ -26,16 +26,17 @@
 
 		<!-- login quy -->
 		<form-login login-page='/login' login-processing-url="/j_spring_security_check"
-
 			username-parameter="username" password-parameter="password"
 			authentication-success-handler-ref="loginSuccessHandler"
 			authentication-failure-handler-ref="loginFailureHandler"
 			always-use-default-target="false" />
 
+            <logout logout-url="/logout" logout-success-url="/home"></logout>
+ 
+    </http>
 
-		<logout logout-url="/logout" logout-success-url="/home"></logout>
 
-	</http>
+
 
 
 	<authentication-manager>
@@ -59,4 +60,5 @@
 		<beans:bean id="loginFailureHandler" class="guru.tour.security.LoginFailureHandler">
 			<beans:property name="defaultFailureUrl" value="/login" />
 		</beans:bean>
+
 </beans:beans>

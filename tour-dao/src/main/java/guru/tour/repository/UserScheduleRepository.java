@@ -1,10 +1,9 @@
-/*package guru.tour.repository;
+package guru.tour.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import guru.tour.entity.UserSchedule;
+import guru.tour.entity.UserScheduleEntity;
 
-public interface UserScheduleRepository extends JpaRepository<UserSchedule, Integer>  {
+public interface UserScheduleRepository extends JpaRepository<UserScheduleEntity, String>  {
 
 }
-*/

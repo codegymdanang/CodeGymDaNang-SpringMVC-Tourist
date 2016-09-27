@@ -1,7 +1,7 @@
 package guru.tour.model;
 
 public class FoodModel {
-	private int id;
+	private String id;
 	private String description;
 	private String images;
 	private String name;
@@ -14,7 +14,7 @@ public class FoodModel {
 		super();
 	}
 	
-	public FoodModel(int id, String description, String images, String name, String phone, double price,
+	public FoodModel(String id, String description, String images, String name, String phone, double price,
 			LocationModel location) {
 		super();
 		this.id = id;
@@ -28,11 +28,11 @@ public class FoodModel {
 
 
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

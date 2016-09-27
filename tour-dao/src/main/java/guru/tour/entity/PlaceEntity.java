@@ -3,6 +3,7 @@ package guru.tour.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -16,13 +17,12 @@ public class PlaceEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	@Column(name = "description")
+	private String id  = UUID.randomUUID().toString();
+
 	private String description;
-	@Column(name = "images")
+
 	private String images;
-	@Column(name = "name")
+
 	private String name;
 
 	//bi-directional many-to-one association to AddressEntity
@@ -36,16 +36,16 @@ public class PlaceEntity implements Serializable {
 
 	//bi-directional many-to-one association to UserScheduleEntity
 	@OneToMany(mappedBy="place")
-	private List<UserScheduleEntity> userSchedules;
+	private List<UserScheduleEntity> userschedules;
 
 	public PlaceEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -103,26 +103,26 @@ public class PlaceEntity implements Serializable {
 		this.location = location;
 	}
 
-	public List<UserScheduleEntity> getUserSchedules() {
-		return this.userSchedules;
+	public List<UserScheduleEntity> getUserschedules() {
+		return this.userschedules;
 	}
 
-	public void setUserSchedules(List<UserScheduleEntity> userSchedules) {
-		this.userSchedules = userSchedules;
+	public void setUserschedules(List<UserScheduleEntity> userschedules) {
+		this.userschedules = userschedules;
 	}
 
-	public UserScheduleEntity addUserSchedule(UserScheduleEntity userSchedule) {
-		getUserSchedules().add(userSchedule);
-		userSchedule.setPlace(this);
+	public UserScheduleEntity addUserschedule(UserScheduleEntity userschedule) {
+		getUserschedules().add(userschedule);
+		userschedule.setPlace(this);
 
-		return userSchedule;
+		return userschedule;
 	}
 
-	public UserScheduleEntity removeUserSchedule(UserScheduleEntity userSchedule) {
-		getUserSchedules().remove(userSchedule);
-		userSchedule.setPlace(null);
+	public UserScheduleEntity removeUserschedule(UserScheduleEntity userschedule) {
+		getUserschedules().remove(userschedule);
+		userschedule.setPlace(null);
 
-		return userSchedule;
+		return userschedule;
 	}
 
 }

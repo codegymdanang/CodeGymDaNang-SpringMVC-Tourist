@@ -2,20 +2,20 @@ package guru.tour.service;
 
 import java.util.List;
 
-import guru.tour.entity.HotNewsEntity;
+import guru.tour.entity.HotNewEntity;
 
 public interface HotNewsEntityManager {
-	public List<HotNewsEntity> getAllHotNews();
+	public List<HotNewEntity> getAllHotNews();
 
-	public HotNewsEntity findById(int id);
+	public HotNewEntity findByHotnewsId(String id);
 
-	public void saveHotNewsEntity(HotNewsEntity hotnew);
+	public void saveHotNewsEntity(HotNewEntity hotnew);
 
-	public boolean isHotNewsEntity(HotNewsEntity hotnew);
+	public boolean isHotNewsEntity(HotNewEntity hotnew);
 
-	public void updateHotnew(HotNewsEntity currentHotnew);
+	public void updateHotnew(HotNewEntity currentHotnew);
 	
-	public void deleteHotnewById(int id);
+	public void deleteHotnewById(String id);
 
 	public void deleteAllHotnews();
 

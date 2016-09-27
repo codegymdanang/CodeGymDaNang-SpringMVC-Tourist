@@ -6,9 +6,9 @@ import guru.tour.entity.HotelEntity;
 
 public class LocationModel {
 
-	private int locationId;
+	private String locationId;
 	private String locationName;
-	public LocationModel(int locationId, String locationName) {
+	public LocationModel(String locationId, String locationName) {
 		super();
 		this.locationId = locationId;
 		this.locationName = locationName;
@@ -16,10 +16,10 @@ public class LocationModel {
 	public LocationModel() {
 		super();
 	}
-	public int getLocationId() {
+	public String getLocationId() {
 		return locationId;
 	}
-	public void setLocationId(int locationId) {
+	public void setLocationId(String locationId) {
 		this.locationId = locationId;
 	}
 	public String getLocationName() {

@@ -1,3 +1,4 @@
+
 package guru.tour.entity;
 
 import java.io.Serializable;
@@ -12,37 +13,58 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import java.io.Serializable;
+import java.util.UUID;
+
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the user_role database table.
+ * 
+ */
 @Entity
 @Table(name="user_role")
-public class User_RoleEntity implements Serializable{
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "role_id")
-	private RoleEntity role;
-	
+@NamedQuery(name="User_RoleEntity.findAll", query="SELECT u FROM User_RoleEntity u")
+public class User_RoleEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
-    
-    
-    
-	public UserEntity getUser() {
-		return user;
+	@Id
+	private String id = UUID.randomUUID().toString();
+
+	//bi-directional many-to-one association to RoleEntity
+	@ManyToOne
+	private RoleEntity role;
+
+	//bi-directional many-to-one association to UserEntity
+	@ManyToOne
+	private UserEntity user;
+
+	public User_RoleEntity() {
 	}
-	
-	public void setUser(UserEntity user) {
-		this.user = user;
+
+	public String getId() {
+		return this.id;
 	}
-	
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public RoleEntity getRole() {
-		return role;
+		return this.role;
 	}
+
 	public void setRole(RoleEntity role) {
 		this.role = role;
 	}
-	
+
+	public UserEntity getUser() {
+		return this.user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
+	}
+
 }

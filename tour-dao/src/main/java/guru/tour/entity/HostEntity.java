@@ -3,6 +3,7 @@ package guru.tour.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -16,8 +17,7 @@ public class HostEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private String id = UUID.randomUUID().toString();
 
 	private String images;
 
@@ -32,11 +32,11 @@ public class HostEntity implements Serializable {
 	public HostEntity() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
