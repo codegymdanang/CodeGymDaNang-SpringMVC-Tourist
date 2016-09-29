@@ -1,10 +1,20 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * The persistent class for the user database table.
@@ -18,24 +28,46 @@ public class UserEntity implements Serializable {
 
 	@Id
 	private String id = UUID.randomUUID().toString();
-
+	
+	@Column
 	private String comment;
-
+	
+	@Column
 	private String diadiem;
-
-	private byte enabled;
-
+	
+	@Column(name="enabled")
+	private boolean enabled;
+	
+	@Column(name="image")
 	private String image;
 
+	@Column
 	private String password;
-
+	
+	@Column(name="phone")
 	private String phone;
-
+	
+	@Column
 	private String username;
 
 	//bi-directional many-to-one association to CommentEntity
 	@OneToMany(mappedBy="user")
 	private List<CommentEntity> comments;
+
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+		name="user_role"
+		, joinColumns={
+			@JoinColumn(name="user_id")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="role_id")
+			}
+		)
+	private List<RoleEntity> roles =new ArrayList<RoleEntity>();
+	public List<RoleEntity> getRoles() {
+		return roles;
+	}
 
 	//bi-directional many-to-one association to UserPostEntity
 	@OneToMany(mappedBy="user")
@@ -59,6 +91,14 @@ public class UserEntity implements Serializable {
 		this.phone = phone;
 	}
 	
+	public UserEntity(boolean enabled, String password, String username, List<RoleEntity> roles) {
+		super();
+		this.enabled = enabled;
+		this.password = password;
+		this.username = username;
+		this.roles = roles;
+	}
+
 	public UserEntity(String username, String image, String phone, String diadiem,int a) {
 		super();
 		this.username = username;
@@ -91,11 +131,11 @@ public class UserEntity implements Serializable {
 		this.diadiem = diadiem;
 	}
 
-	public byte getEnabled() {
+	public boolean getEnabled() {
 		return this.enabled;
 	}
 
-	public void setEnabled(byte enabled) {
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -156,7 +196,10 @@ public class UserEntity implements Serializable {
 	public List<UserPostEntity> getUserPosts() {
 		return this.userPosts;
 	}
-
+	
+	public void setRoles(List<RoleEntity> roles) {
+		this.roles = roles;
+	}
 	public void setUserPosts(List<UserPostEntity> userPosts) {
 		this.userPosts = userPosts;
 	}

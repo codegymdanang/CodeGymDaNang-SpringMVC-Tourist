@@ -50,7 +50,7 @@
     	        }
 	         else if (this.value == 'C') {
     	        	for (i = 0; i < list2.length; i++) { 
-    	        	    if(list2[i].price <200000)
+    	        	    if(list2[i].price >200000)
     	        	    	list2.splice( i, 1 );
     	        	}
     	        }

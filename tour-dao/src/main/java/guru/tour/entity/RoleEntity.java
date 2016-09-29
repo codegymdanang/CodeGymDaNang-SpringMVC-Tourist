@@ -2,6 +2,8 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,6 +22,12 @@ public class RoleEntity implements Serializable {
 	private String id = UUID.randomUUID().toString();
 
 	private String role;
+	
+	public RoleEntity(String id, String role) {
+		super();
+		this.id = id;
+		this.role = role;
+	}
 
 	//bi-directional many-to-one association to User_RoleEntity
 	@OneToMany(mappedBy="role")

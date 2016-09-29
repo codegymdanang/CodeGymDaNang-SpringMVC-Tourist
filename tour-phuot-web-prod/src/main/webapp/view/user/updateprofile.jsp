@@ -18,12 +18,33 @@
 }
 	</style>
 		<script type="text/javascript">
-				$(document).ready(function(){
+			$(document).ready(function(){
 					var location = document.getElementById('locationhidden').value;
 					$('#location').val(location);
-					});
-			
+			});
+			 function showMyImage(fileInput) {
+			        var files = fileInput.files;
+			        for (var i = 0; i < files.length; i++) {           
+			            var file = files[i];
+			            var imageType = /image.*/;     
+			            if (!file.type.match(imageType)) {
+			                continue;
+			            }           
+			            var img=document.getElementById("image");            
+			            img.file = file;    
+			            var reader = new FileReader();
+			            reader.onload = (function(aImg) { 
+			                return function(e) { 
+			                    aImg.src = e.target.result; 
+			                }; 
+			            })(img);
+			            reader.readAsDataURL(file);
+			        }    
+			    }
+		
+				
 			</script>
+			
 	
 </head>
 <body>
@@ -38,18 +59,18 @@
 					
 				<c:choose>
     					<c:when  test="${not empty userModel.image }">
-    					<img src='resource/images/${userModel.image }' width="150" height="150px" class="avatar img-circle" 
+    					<img src='resource/images/${userModel.image }' width="150" height="150px" class="avatar img-circle" id="image" 
 						alt="avatar">
 						<input type="hidden" value="${userModel.image }" name="image"/>
     					</c:when>    
     				<c:otherwise>
-        				<img src='resource/images/medium-default-avatar.png' width="150" height="150px"  class="avatar img-circle"
+        				<img src='resource/images/medium-default-avatar.png' width="150" height="150px"  class="avatar img-circle" id="image"
 						alt="avatar">
 						<h6>Upload a different photo...</h6>
     				</c:otherwise>
 				</c:choose>
 					
-					<input type="file" class="form-control" id="file" name="file" >
+					<input type="file" class="form-control" id="file" name="file" accept="image/*"  onchange="showMyImage(this);">
 				</div>
 			</div>
 
