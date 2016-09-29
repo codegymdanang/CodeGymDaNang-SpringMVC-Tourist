@@ -65,6 +65,10 @@ public class UserEntity implements Serializable {
 			}
 		)
 	private List<RoleEntity> roles =new ArrayList<RoleEntity>();
+	public List<RoleEntity> getRoles() {
+		return roles;
+	}
+
 	//bi-directional many-to-one association to UserPostEntity
 	@OneToMany(mappedBy="user")
 	private List<UserPostEntity> userPosts;
