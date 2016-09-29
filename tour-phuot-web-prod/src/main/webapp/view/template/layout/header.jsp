@@ -15,8 +15,8 @@
 			</div>
 			<div class="top-banner-right">
 				<ul>
-					<li><a class="btn btn-link" href="#" role="button"> <!-- Trigger/Open The Modal -->
-							<button id="myBtnOfLogin" class="">Login</button>
+					<li><a class="btn btn-link" href="login" role="button"> <!-- Trigger/Open The Modal -->
+							<button id="myBtnOfLogin" >LOGIN</button>
 						</a>
 					</li>
 					<li><a class="facebook"

@@ -1,3 +1,7 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <head>
 <link rel="stylesheet" type="text/css"
 	href="resource/css/form-login-css.css">
@@ -11,10 +15,9 @@
 </div> -->
 
 
-
-
-
-			<div class="row">
+<div class="container" align="center">
+	<div id="login_arround">
+	<!-- 	<div class="row">
 
 				<div class="image">
 					<div class="col-md-6">
@@ -22,11 +25,12 @@
 							height="300px">
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6"> -->
 					<div class="namelogin">
 
-						<h4>Login</h4>
+						<h3>LOGIN</h3>	
 					</div>
+					<hr>
 					<form
 						action="<%=request.getContextPath()%>/j_spring_security_check"
 						method="post">
@@ -40,9 +44,7 @@
 							</div>
 
 							<div class="col-md-6">
-								<p class="p1">
 									<a class="text_right" href="find">Forgotten account?</a>
-								</p>
 							</div>
 						</div>
 
@@ -51,7 +53,14 @@
 						<!-- </div> -->
 					</form>
 
-
+		<br/>
+		  <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+		    <div class=" " style="color: red;">
+		          <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>
+		
+		      <c:remove var = "SPRING_SECURITY_LAST_EXCEPTION" scope = "session" />
+		    </div>
+		  </c:if>
 					<div class="logo">
 						<div class="row">
 							<div class="col-md-6">
@@ -71,9 +80,7 @@
 											height="25">
 									</div>
 								</a>
-								<!--    <a href="#"><img src="image/i_face.png" width="30" height="30"> </a>
-                        <a href="#"><img src="image/i_google.png" width="30" height="30"> </a>
-                        <a href="#"><img src="image/i_twi.png" width="30" height="30"></a> -->
+								
 							</div>
 							<div class="col-md-6">
 								<p class="p1">
@@ -84,10 +91,14 @@
 						</div>
 					</div>
 
-				</div>
+			<!-- 	</div> -->
 
 			</div>
 	
+</div>
+
+
+			
 <!-- <script>
 	// Get the modal
 	var modal = document.getElementById('myModalOfLogin');

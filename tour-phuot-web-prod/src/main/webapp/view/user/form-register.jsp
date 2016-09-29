@@ -6,9 +6,9 @@
 
 </head>
 
-
-				<div class="login">
-					<div class="name-login">
+	<div class="container" align="center">
+		<div id="register_arround">
+					<div class="name-register">
 						<h3>JOIN TOURSTUDENT NOW</h3>
 					</div>
 					<br>
@@ -39,11 +39,6 @@
 						<button type="submit" id="join" class="btn btn-info btn-xs">JOIN
 							TOURSTUDENT</button>
 
-
-
-
-
-
 					</form>
-				</div>
-		
+		</div>
+	</div>

@@ -1,41 +1,4 @@
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 #my_register {
     height: 40px;
     text-align: center;
@@ -44,13 +7,6 @@
     border-radius: 4px;
 }
 
-h3 {
-    font-size: 20px;
-	position: absolute;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-bottom: 10px;
-}
 .register {
 	background-image: url("..resource/images/login/background.jpg");
     background-size: 100% 100%;
@@ -59,24 +15,15 @@ h3 {
     width: 100%;
     height: 700px;
 }
-.top_register {
-    height: 70px;
-    /*width: 100%;*/
-    text-align: right;
-    background: #34495e;
-    /*position: relative;*/
-    /*display: flex;*/
-}
-.login{
-    text-align: center;
-    /*box-shadow: 1px 1px 1px black;*/
-    border-radius: 5px;
-    background-color: #ffffff;
-    position: relative;
-    height: 400px;
-    width: 100%;
 
+#register_arround{
+    width: 400px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
+
 .name-login {
     text-align: left;
     font-size: 20px;
@@ -84,13 +31,7 @@ h3 {
 
 }
 
-/*.regbar {*/
-    /*height: 60px;*/
-    /*width: 100%;*/
-    /*color: #204d74;*/
-    /*position: static;*/
-    /*text-align: right;*/
-/*}*/
+
 
 input[type=text], select {
     width: 90%;
@@ -136,26 +77,9 @@ input[type=password], select {
 
 }
 
-/*.first-name {*/
-    /*width: 100%;*/
-    /*padding: 10px 10px;*/
-    /*margin: 8px 0;*/
-    /*margin-left: 10px;*/
-    /*display: inline-block;*/
-    /*border: 1px solid #ccc;*/
-    /*border-radius: 4px;*/
-    /*box-sizing: border-box;*/
-/*}*/
-.last-name {
-    /*display: inline-block;*/
-    /*border: 1px solid #ccc;*/
-    /*border-radius: 4px;*/
-    /*box-sizing: border-box;*/
-    /*margin-right: 10px;*/
-}
-.name-login {
+.name-register {
     color: #2ecc71;
-    margin-left: 30px;
+    text-align: center;
 }
 #day-form-date{
     width: 20%;
