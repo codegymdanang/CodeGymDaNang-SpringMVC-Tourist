@@ -1,9 +1,7 @@
 package guru.tour.user;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -12,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import guru.tour.entity.RoleEntity;
 import guru.tour.entity.UserEntity;
-@SuppressWarnings({ "serial", "deprecation" })
+@SuppressWarnings({ "serial" })
 public class Account implements UserDetails{
 	
 	UserEntity user;
