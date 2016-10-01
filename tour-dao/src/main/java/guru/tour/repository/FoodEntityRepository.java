@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import guru.tour.entity.FoodEntity;
 import guru.tour.entity.LocationEntity;
 
-public interface FoodEntityRepository extends JpaRepository<FoodEntity, Integer> {
+public interface FoodEntityRepository extends JpaRepository<FoodEntity, String> {
 	public List<FoodEntity> findByLocation(LocationEntity localId);
 }

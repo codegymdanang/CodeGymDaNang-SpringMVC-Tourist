@@ -22,8 +22,6 @@ public class Account implements UserDetails{
 		this.user = user;
 	}
 	
-	
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
@@ -66,7 +64,7 @@ public class Account implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return true;
+		return user.getEnabled();
 	}
 
 

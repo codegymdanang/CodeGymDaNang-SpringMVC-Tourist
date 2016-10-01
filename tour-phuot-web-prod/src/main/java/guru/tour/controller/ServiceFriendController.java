@@ -42,7 +42,7 @@ public class ServiceFriendController  {
 		System.out.println("Search: "+search);
 		List<UserEntity> users=null;
 		if(search.equalsIgnoreCase("Name")){
-			 users= user.getUserByName(request.getParameter("name"));
+			 users= user.findUserContainingName(request.getParameter("name"));
 		}else{
 			 users= user.getUserByPhone(request.getParameter("name"));
 		}
@@ -88,8 +88,7 @@ public class ServiceFriendController  {
 	
 	@RequestMapping(value = "/updateprofile", method = RequestMethod.GET)
 	public ModelAndView updateprofile(Principal principal) {		
-		List<UserEntity> list  = user.getUserByName(principal.getName());
-		UserEntity users= list.get(0);
+		UserEntity users  = user.getUserByName(principal.getName());
 		ModelAndView model = new ModelAndView("updateprofile");
 		model.addObject("userModel",users);
 		return model;
@@ -134,8 +133,7 @@ public class ServiceFriendController  {
 	
 	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
 	public ModelAndView changepassword(Principal principal) {		
-		List<UserEntity> list  = user.getUserByName(principal.getName());
-		UserEntity users= list.get(0);
+		UserEntity users  = user.getUserByName(principal.getName());
 		ModelAndView model = new ModelAndView("changepassword");
 		model.addObject("user",users);
 		return model;
@@ -145,8 +143,7 @@ public class ServiceFriendController  {
 	public ModelAndView process_changepassword(HttpServletRequest request,Principal principal) {	
 		String password = request.getParameter("password1");
 		ModelAndView model = new ModelAndView("updateprofile");
-		List<UserEntity> list  = user.getUserByName(principal.getName());
-		UserEntity users= list.get(0);
+		UserEntity users  = user.getUserByName(principal.getName());
 		users.setPassword(password);
 		user.updatePasswordByUsername(users);
 		model.addObject("user", users);
@@ -173,8 +170,7 @@ public class ServiceFriendController  {
 	
 	@RequestMapping(value = "/userprofile", method = RequestMethod.GET)
 	public ModelAndView userprofile(Principal principal) {		
-		List<UserEntity> list  = user.getUserByName(principal.getName());
-		UserEntity users= list.get(0);
+		UserEntity users  = user.getUserByName(principal.getName());
 		ModelAndView model = new ModelAndView("userprofile");
 		model.addObject("user",users);
 		return model;

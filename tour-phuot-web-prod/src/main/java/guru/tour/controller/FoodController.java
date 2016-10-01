@@ -25,7 +25,7 @@ public class FoodController {
 	
 	@RequestMapping(value = "/foodByLocationId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<FoodModel>> listAllFoods() {
-		List<FoodModel> list = foodEntityManager.getFoodByLocationId(2);
+		List<FoodModel> list = foodEntityManager.getFoodByLocationId("2");
 		if (list.isEmpty()) {
 			return new ResponseEntity<List<FoodModel>>(
 					HttpStatus.NO_CONTENT);// You many decide to return
@@ -35,7 +35,7 @@ public class FoodController {
 	}
 	
 	@RequestMapping(value = "/fooddata/{id}", method = RequestMethod.GET)
-	public ResponseEntity<FoodEntity> getFood(@PathVariable("id") int id){
+	public ResponseEntity<FoodEntity> getFood(@PathVariable("id") String id){
 		System.out.println("Fetching Food with id " + id);
 		FoodEntity hotnew = foodEntityManager.findById(id);
 		if (hotnew == null) {
@@ -66,7 +66,7 @@ public class FoodController {
 	
 	@RequestMapping(value = "/updateFood/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<FoodEntity> updateHotnews(
-			@PathVariable("id") int id, @RequestBody FoodEntity food) {
+			@PathVariable("id") String id, @RequestBody FoodEntity food) {
 		System.out.println("Updating Food " + id);
 
 		FoodEntity currentFood = foodEntityManager.findById(id);
@@ -88,7 +88,7 @@ public class FoodController {
 	}
 	
 	@RequestMapping(value = "/fooddata/deleteFood/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<FoodEntity> deleteFood(@PathVariable("id") int id) {
+	public ResponseEntity<FoodEntity> deleteFood(@PathVariable("id") String id) {
 		System.out.println("Fetching & Deleting Food with id " + id);
 
 		FoodEntity user = foodEntityManager.findById(id);

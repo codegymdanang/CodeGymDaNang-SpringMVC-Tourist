@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import guru.tour.entity.UserEntity;
 
 @Transactional(readOnly=true)
-public interface ServiceFriendsRepository extends JpaRepository<UserEntity, Integer>{
-	public List<UserEntity> findByUsername(String name);
+public interface ServiceFriendsRepository extends JpaRepository<UserEntity, String>{
+	public UserEntity findByUsername(String name);
 	public List<UserEntity> findByPhone(String phone);
 	//List<UserEntity> findByRoles_IdAndDiadiem(Integer roleId,String diadiem);
 	public List<UserEntity> findByUsernameContaining(String name);

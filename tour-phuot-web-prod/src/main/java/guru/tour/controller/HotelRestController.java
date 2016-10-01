@@ -27,7 +27,7 @@ public class HotelRestController {
 	HotelEntityManager hotelmanager;
 	
 	@RequestMapping(value = "/hoteldata/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<HotelEntity> gethotel(@PathVariable("id") int id) {
+	public ResponseEntity<HotelEntity> gethotel(@PathVariable("id") String id) {
 		System.out.println("Fetching hotel with id " + id);
 		HotelEntity hotel = hotelmanager.findById(id);
 		if (hotel == null) {
@@ -39,7 +39,7 @@ public class HotelRestController {
 	
 	@RequestMapping(value = "/hotelByLocatioId", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<HotelModel>> listAllFoods() {
-		List<HotelModel> list = hotelmanager.getHotelByLocationId(1);
+		List<HotelModel> list = hotelmanager.getHotelByLocationId("1");
 		if (list.isEmpty()) {
 			return new ResponseEntity<List<HotelModel>>(
 					HttpStatus.NO_CONTENT);// You many decide to return
@@ -77,7 +77,7 @@ public class HotelRestController {
 	
 	@RequestMapping(value = "/hoteldata/updatehotel/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<HotelEntity> updatehotels(
-			@PathVariable("id") int id, @RequestBody HotelEntity hotel) {
+			@PathVariable("id") String id, @RequestBody HotelEntity hotel) {
 		
 		System.out.println("Updating hotel " + id);
 		HotelEntity currenthotel = hotelmanager.findById(id);
@@ -97,7 +97,7 @@ public class HotelRestController {
 
 
 	@RequestMapping(value = "/hoteldata/deletehotel/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<HotelEntity> deletehotel(@PathVariable("id") int id) {
+	public ResponseEntity<HotelEntity> deletehotel(@PathVariable("id") String id) {
 		System.out.println("Fetching & Deleting hotel with id " + id);
 
 		HotelEntity user = hotelmanager.findById(id);

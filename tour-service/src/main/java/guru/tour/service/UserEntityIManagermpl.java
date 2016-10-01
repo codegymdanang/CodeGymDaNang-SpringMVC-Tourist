@@ -16,9 +16,9 @@ public class UserEntityIManagermpl implements UserEntityManager{
 
 	@Autowired
 	ServiceFriendsRepository friendsRepository;
-	public List<UserEntity> getUserByName(String name) {
+	public UserEntity getUserByName(String name) {
 		// TODO Auto-generated method stub
-		return friendsRepository.findByUsernameContaining(name);
+		return friendsRepository.findByUsername(name);
 	}
 	public List<UserEntity> getUserByPhone(String phone) {
 		// TODO Auto-generated method stub
@@ -66,6 +66,11 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	}
 	public void updateComment(String username, String comment){
 		friendsRepository.updateComment(username, comment);
+	}
+	@Override
+	public List<UserEntity> findUserContainingName(String name) {
+		// TODO Auto-generated method stub
+		return friendsRepository.findByUsernameContaining(name);
 	}
 
 }

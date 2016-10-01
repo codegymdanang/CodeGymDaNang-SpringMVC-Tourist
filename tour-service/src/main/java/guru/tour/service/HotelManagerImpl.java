@@ -23,7 +23,7 @@ public class HotelManagerImpl implements HotelEntityManager {
 		return hotelEntityRepository.findAll();
 	}
 
-	public HotelEntity findById(int id) {
+	public HotelEntity findById(String id) {
 		return hotelEntityRepository.findByHotelId(id);
 	}
 
@@ -37,7 +37,7 @@ public class HotelManagerImpl implements HotelEntityManager {
 		 hotelEntityRepository.save(hotel);
 	}
 
-	public void deletehotelById(int id) {
+	public void deletehotelById(String id) {
 		hotelEntityRepository.delete(id);
 	}
 
@@ -59,7 +59,7 @@ public class HotelManagerImpl implements HotelEntityManager {
 	}
 
 	@Override
-	public List<HotelModel> getHotelByLocationId(int id) {
+	public List<HotelModel> getHotelByLocationId(String id) {
 		// TODO Auto-generated method stub
 		List<HotelEntity> listHotel = hotelEntityRepository.findByLocation(locationRepository.findOne(id));
 		List<HotelModel> listModel = new ArrayList<HotelModel>();

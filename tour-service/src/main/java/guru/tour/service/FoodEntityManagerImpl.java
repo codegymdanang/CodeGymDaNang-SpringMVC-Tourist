@@ -24,7 +24,7 @@ public class FoodEntityManagerImpl implements FoodEntityManager{
 		return foodEntityRepository.findAll();
 	}
 
-	public FoodEntity findById(int id) {
+	public FoodEntity findById(String id) {
 		// TODO Auto-generated method stub
 		return foodEntityRepository.findOne(id);
 	}
@@ -49,7 +49,7 @@ public class FoodEntityManagerImpl implements FoodEntityManager{
 		
 	}
 
-	public void deleteFoodById(int id) {
+	public void deleteFoodById(String id) {
 		// TODO Auto-generated method stub
 		foodEntityRepository.delete(id);
 		
@@ -73,7 +73,7 @@ public class FoodEntityManagerImpl implements FoodEntityManager{
 	}
 
 	@Override
-	public List<FoodModel> getFoodByLocationId(int id) {
+	public List<FoodModel> getFoodByLocationId(String id) {
 		// TODO Auto-generated method stub
 		List<FoodModel> listModel = new ArrayList<FoodModel>();
 		List<FoodEntity> listFood = foodEntityRepository.findByLocation(locationRepository.findOne(id));

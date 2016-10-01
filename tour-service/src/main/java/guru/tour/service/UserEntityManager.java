@@ -6,7 +6,7 @@ import java.util.List;
 import guru.tour.entity.UserEntity;
 
 public interface UserEntityManager {
-	List<UserEntity> getUserByName(String name);
+	UserEntity getUserByName(String name);
 	List<UserEntity> getUserByPhone(String phone);
 	UserEntity saveUser(UserEntity user);
 	List<UserEntity> getAll();
@@ -16,4 +16,5 @@ public interface UserEntityManager {
 	UserEntity getUserById(int id);
 	void updatePasswordByUsername(UserEntity user);
 	void updateComment(String username, String comment);
+	List<UserEntity> findUserContainingName(String name);
 }

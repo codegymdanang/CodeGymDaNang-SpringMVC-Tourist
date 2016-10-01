@@ -13,9 +13,9 @@ public interface FoodEntityManager {
 	
 	public List<FoodModel> getAllFoodModel();
 	
-	public List<FoodModel> getFoodByLocationId(int id);
+	public List<FoodModel> getFoodByLocationId(String id);
 
-	public FoodEntity findById(int id);
+	public FoodEntity findById(String id);
 	
 	public void saveFoodsEntity(FoodEntity food);
 
@@ -23,7 +23,7 @@ public interface FoodEntityManager {
 
 	public void updateFood(FoodEntity currentFood);
 	
-	public void deleteFoodById(int id);
+	public void deleteFoodById(String id);
 
 	public void deleteAllFoods();
 }
