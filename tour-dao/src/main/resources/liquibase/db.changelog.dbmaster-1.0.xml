@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd"
+logicalFilePath="db.changelog.dbmaster-1.0.xml">
+    <changeSet author="Bin (generated)" id="1475314413146-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="address">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="place_id" type="VARCHAR(36)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="comment">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="services" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="detailprofile">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language" type="VARCHAR(45)"/>
+            <column name="favorite" type="VARCHAR(45)"/>
+            <column name="hobby" type="VARCHAR(45)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="event">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="add_id" type="VARCHAR(36)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="endday" type="datetime(6)"/>
+            <column name="local_id" type="VARCHAR(36)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="startday" type="datetime(6)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-5" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="food">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="images" type="VARCHAR(255)"/>
+            <column name="local_id" type="VARCHAR(36)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="price" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-6" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="host">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="images" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="phone" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-7" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="hotel">
+            <column name="hotel_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="images" type="VARCHAR(255)"/>
+            <column name="hotel_name" type="VARCHAR(255)"/>
+            <column name="phone" type="INT"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="location_id" type="VARCHAR(36)"/>
+            <column name="type_id" type="VARCHAR(36)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-8" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="hotnews">
+            <column name="hotnewsId" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-9" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="location">
+            <column name="location_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location_name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-10" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="place">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="images" type="VARCHAR(255)"/>
+            <column name="local_id" type="VARCHAR(36)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-11" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="posts">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-12" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="profile">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="duration" type="VARCHAR(255)"/>
+            <column name="id_host" type="VARCHAR(36)"/>
+            <column name="price" type="VARCHAR(255)"/>
+            <column name="summary" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-13" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="rating">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="number" type="INT"/>
+            <column name="service" type="VARCHAR(255)"/>
+            <column name="type_id" type="VARCHAR(36)"/>
+            <column name="user_id" type="VARCHAR(36)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-14" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="role">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-15" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="type">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-16" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="user">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(45)"/>
+            <column name="phone" type="VARCHAR(11)"/>
+            <column name="diadiem" type="VARCHAR(45)"/>
+            <column defaultValueNumeric="1" name="enabled" type="BIT"/>
+            <column name="comment" type="VARCHAR(5000)"/>
+            <column defaultValueNumeric="1" name="accountNonExpired" type="BIT"/>
+            <column defaultValueNumeric="1" name="accountNonLocked" type="BIT"/>
+            <column defaultValueNumeric="1" name="credentialsNonExpired" type="BIT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-17" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="user_attempts">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attempts" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastModified" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-18" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="user_posts">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_user" type="VARCHAR(36)"/>
+            <column name="id_post" type="VARCHAR(36)"/>
+            <column name="comment" type="VARCHAR(4000)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-19" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="user_role">
+            <column name="role_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-20" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="userschedule">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdBy" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdDate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="endDay" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="startDay" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updatedBy" type="VARCHAR(255)"/>
+            <column name="updatedDate" type="date"/>
+            <column name="versionNo" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="place_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-21" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="vehical">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="images" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="local_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-22" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="warning">
+            <column name="id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="local_id" type="VARCHAR(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-23" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="address"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-24" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="comment"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-25" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="detailprofile"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-26" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="event"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-27" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="food"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-28" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="host"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-29" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="hotel_id" constraintName="PRIMARY" tableName="hotel"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-30" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="hotnewsId" constraintName="PRIMARY" tableName="hotnews"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-31" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="location_id" constraintName="PRIMARY" tableName="location"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-32" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="place"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-33" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="posts"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-34" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="profile"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-35" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="rating"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-36" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="role"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-37" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="type"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-38" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-39" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="user_posts"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-40" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="user_role"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-41" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="userschedule"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-42" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="vehical"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-43" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addPrimaryKey columnNames="id" constraintName="PRIMARY" tableName="warning"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-44" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="accountNonExpired" constraintName="accountNonExpired_UNIQUE" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-45" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="accountNonLocked" constraintName="accountNonLocked_UNIQUE" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-46" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="credentialsNonExpired" constraintName="credentialsNonExpired_UNIQUE" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-47" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addUniqueConstraint columnNames="username" constraintName="username_UNIQUE" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-48" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FK3okhavlsypg4p7sn8i5uo5ov8" tableName="profile">
+            <column name="id_host"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-49" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FK67s51cnq7o3nlcjh6pm27dqxb" tableName="hotel">
+            <column name="location_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-50" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FK6vwdf01tai0r4mfau1pj27pd" tableName="event">
+            <column name="local_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-51" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FK8i7tu62vbqm0lgoqveobu7e6" tableName="place">
+            <column name="local_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-52" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FKhchxqmdwh6mcm2pyg1osdnf3u" tableName="event">
+            <column name="add_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-53" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FKht4dfmlf7qysgajohcax0e24j" tableName="address">
+            <column name="place_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-54" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FKkyatocda8ysv9859ub0hvwhxn" tableName="hotel">
+            <column name="type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-55" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="FKq4q2w3jfra510axayx7wfb4w6" tableName="food">
+            <column name="local_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-56" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_UserAttemps_USer_idx" tableName="user_attempts">
+            <column name="username"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-57" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_comment_type_idx" tableName="comment">
+            <column name="type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-58" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_comment_type_idx1" tableName="comment">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-59" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_idpost_idx" tableName="user_posts">
+            <column name="id_post"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-60" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_idrole_userrole_idx" tableName="user_role">
+            <column name="role_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-61" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_iduser_idx" tableName="user_posts">
+            <column name="id_user"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-62" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_place_id" tableName="userschedule">
+            <column name="place_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-63" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_user_id_idx" tableName="userschedule">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-64" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_user_idx" tableName="user_role">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-65" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_vehical_local_idx" tableName="vehical">
+            <column name="local_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-66" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_vehical_type_idx" tableName="vehical">
+            <column name="type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-67" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_warning_local_idx" tableName="warning">
+            <column name="local_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-68" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="id_host" baseTableName="profile" constraintName="FK3okhavlsypg4p7sn8i5uo5ov8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="host"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-69" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="location_id" baseTableName="hotel" constraintName="FK67s51cnq7o3nlcjh6pm27dqxb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="location_id" referencedTableName="location"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-70" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="local_id" baseTableName="event" constraintName="FK6vwdf01tai0r4mfau1pj27pd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="location_id" referencedTableName="location"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-71" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="local_id" baseTableName="place" constraintName="FK8i7tu62vbqm0lgoqveobu7e6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="location_id" referencedTableName="location"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-72" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="add_id" baseTableName="event" constraintName="FKhchxqmdwh6mcm2pyg1osdnf3u" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="address"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-73" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="place_id" baseTableName="address" constraintName="FKht4dfmlf7qysgajohcax0e24j" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="place"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-74" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="hotel" constraintName="FKkyatocda8ysv9859ub0hvwhxn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="type"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-75" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="local_id" baseTableName="food" constraintName="FKq4q2w3jfra510axayx7wfb4w6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="location_id" referencedTableName="location"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-76" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="username" baseTableName="user_attempts" constraintName="fk_UserAttemps_USer" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="username" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-77" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="comment" constraintName="fk_comment_type" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="type"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-78" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="id_post" baseTableName="user_posts" constraintName="fk_idpost" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="posts"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-79" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role" constraintName="fk_idrole_userrole" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-80" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="id_user" baseTableName="user_posts" constraintName="fk_iduser" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-81" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="comment" constraintName="fk_iduser_comment" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-82" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role" constraintName="fk_iduser_userrole" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-83" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="place_id" baseTableName="userschedule" constraintName="fk_place_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="place"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-84" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="userschedule" constraintName="fk_user_id_userschuedule" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-85" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="local_id" baseTableName="vehical" constraintName="fk_vehical_local" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="location_id" referencedTableName="location"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-86" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="vehical" constraintName="fk_vehical_type" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="type"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475314413146-87" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="local_id" baseTableName="warning" constraintName="fk_warning_local" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="location_id" referencedTableName="location"/>
+    </changeSet>
+</databaseChangeLog>
+

@@ -32,4 +32,9 @@ public interface ServiceFriendsRepository extends JpaRepository<UserEntity, Stri
 	@Transactional
 	@Query("UPDATE UserEntity u SET u.comment = :comment  WHERE u.username = :username")
 	public void updateComment(@Param("username")String username, @Param("comment")String comment);
+	
+	@Modifying
+	@Transactional
+	@Query("UPDATE UserEntity u SET u.accountNonLocked = :accountNonLocked WHERE u.username = :username")
+	public void updateLocked(@Param("username")String username, @Param("accountNonLocked")boolean accountNonLocked);
 }

@@ -38,6 +38,15 @@ public class UserEntity implements Serializable {
 	@Column(name="enabled")
 	private boolean enabled;
 	
+	@Column(name="accountNonExpired")
+	private boolean accountNonExpired;
+	
+	@Column(name="accountNonLocked")
+	private boolean accountNonLocked;
+	
+	@Column(name="credentialsNonExpired")
+	private boolean credentialsNonExpired;
+	
 	@Column(name="image")
 	private String image;
 
@@ -49,8 +58,7 @@ public class UserEntity implements Serializable {
 	
 	@Column
 	private String username;
-
-	//bi-directional many-to-one association to CommentEntity
+	
 	@OneToMany(mappedBy="user")
 	private List<CommentEntity> comments;
 
@@ -262,4 +270,29 @@ public class UserEntity implements Serializable {
 		return userschedule;
 	}
 
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
+	}
+
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
+	public boolean isAccountNonLocked() {
+		return accountNonLocked;
+	}
+
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return credentialsNonExpired;
+	}
+
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
+	
+	
 }

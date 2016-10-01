@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd"
+logicalFilePath="db.changelog.dbmaster-1.1.xml">
+       <changeSet author="Bin (generated)" id="1475315448918-1">
+        <modifyDataType columnName="accountNonExpired" newDataType="varchar(1)" tableName="user"/>
+        <addDefaultValue columnDataType="varchar(1)" columnName="accountNonExpired" defaultValue="1" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475315448918-2">
+        <modifyDataType columnName="accountNonLocked" newDataType="varchar(1)" tableName="user"/>
+        <addDefaultValue columnDataType="varchar(1)" columnName="accountNonLocked" defaultValue="1" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475315448918-3">
+        <modifyDataType columnName="credentialsNonExpired" newDataType="varchar(1)" tableName="user"/>
+        <addDefaultValue columnDataType="varchar(1)" columnName="credentialsNonExpired" defaultValue="1" tableName="user"/>
+    </changeSet>
+    <changeSet author="Bin (generated)" id="1475315448918-4">
+        <modifyDataType columnName="enabled" newDataType="varchar(1)" tableName="user"/>
+        <addDefaultValue columnDataType="varchar(1)" columnName="enabled" defaultValue="1" tableName="user"/>
+    </changeSet>
+</databaseChangeLog>
+
