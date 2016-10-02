@@ -49,9 +49,9 @@ public class FoodControllerTest {
 	@Test
 	public void shouldReturnNotFoundWhenFoodEntityNull() {
 		
-		when(foodEntityManager.findById(anyInt())).thenReturn(null);
+		when(foodEntityManager.findById(anyString())).thenReturn(null);
 		
-		ResponseEntity<FoodEntity> response = foodController.updateHotnews(1, prepareFoodEntity());
+		ResponseEntity<FoodEntity> response = foodController.updateHotnews("1", prepareFoodEntity());
 		Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 	
@@ -64,13 +64,13 @@ public class FoodControllerTest {
 //		when(foodEntityManager.findById(1)).thenReturn(new FoodEntity());
 //		when(foodEntityManager.findById(2)).thenReturn(new FoodEntity());
 //		
-		when(foodEntityManager.findById(anyInt())).thenAnswer(new Answer<FoodEntity>() {
+		when(foodEntityManager.findById(anyString())).thenAnswer(new Answer<FoodEntity>() {
 
 			@Override
 			public FoodEntity answer(InvocationOnMock invocation) throws Throwable {
-				int id = (int)invocation.getArguments()[0];
+				String id = (String)invocation.getArguments()[0];
 				for(FoodEntity foodEntity : foodEntities) {
-					if(Integer.valueOf(foodEntity.getId()) == id) {
+					if(String.valueOf(foodEntity.getId()) == id) {
 						return foodEntity;
 					}
 				}
@@ -78,7 +78,7 @@ public class FoodControllerTest {
 			}
 		});
 		ArgumentCaptor<FoodEntity> foodEntityArgumentCaptor = ArgumentCaptor.forClass(FoodEntity.class);
-		ResponseEntity<FoodEntity> response = foodController.updateHotnews(1, prepareFoodEntity());
+		ResponseEntity<FoodEntity> response = foodController.updateHotnews("1", prepareFoodEntity());
 		verify(foodEntityManager, times(1)).updateFood(foodEntityArgumentCaptor.capture());
 		
 		FoodEntity saveFoodEntity = foodEntityArgumentCaptor.getValue();

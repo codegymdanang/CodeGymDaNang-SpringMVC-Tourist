@@ -7,11 +7,21 @@
 
 	<http use-expressions="true" auto-config="false">
 		<csrf disabled="true" />
-		<intercept-url pattern="/" access="permitAll()" />
+		<!-- <intercept-url pattern="/*" access="isAuthenticated() " /> -->
 		<intercept-url pattern="/home" access="permitAll()" />
-		<intercept-url pattern="/comment" access="permitAll()" />
+		<intercept-url pattern="/comment" access="isAuthenticated()" />
 		<intercept-url pattern="/login" access="permitAll()" />
 		<intercept-url pattern="/register" access="permitAll()" />
+		
+		<intercept-url pattern="/hotel" access="permitAll()" />
+		<intercept-url pattern="/place" access="permitAll()" />
+		<intercept-url pattern="/changepassword" access="isAuthenticated()" />
+		<intercept-url pattern="/food" access="permitAll()" />
+		<intercept-url pattern="/profile" access="isAuthenticated()" />
+		<intercept-url pattern="/servicefriend" access="isAuthenticated()" />
+		<intercept-url pattern="/location" access="permitAll()" />
+		
+		
 		<intercept-url pattern="/userInfo"
 			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
 		<intercept-url pattern="/changepassword"
@@ -20,8 +30,8 @@
 			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
 		<intercept-url pattern="/userprofile"
 			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/other/**" access="isAuthenticated()" />
+			
+		
 		<access-denied-handler error-page="/403" />
 
 		<!-- login quy -->

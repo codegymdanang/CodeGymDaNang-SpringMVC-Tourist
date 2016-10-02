@@ -30,7 +30,7 @@ public class HomepageRestControllerTest {
 		Mockito.when(hotNewsEntityManager.getAllHotNews()).thenReturn(new ArrayList<HotNewEntity>());
 
 		ResponseEntity<List<HotNewEntity>> response = homepageRestController.listAllHotnews();
-		Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.ACCEPTED);
+		Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
 
 	}
 
