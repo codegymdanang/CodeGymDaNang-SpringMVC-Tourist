@@ -16,7 +16,7 @@ public interface ServiceFriendsRepository extends JpaRepository<UserEntity, Stri
 	public List<UserEntity> findByPhone(String phone);
 	//List<UserEntity> findByRoles_IdAndDiadiem(Integer roleId,String diadiem);
 	public List<UserEntity> findByUsernameContaining(String name);
-	public UserEntity findById(int id);
+	public UserEntity findById(String id);
 	
 	@Modifying
 	@Transactional

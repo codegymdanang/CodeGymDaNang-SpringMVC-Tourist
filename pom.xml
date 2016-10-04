@@ -19,7 +19,6 @@
 		<module>tour-service</module>
 		<module>tour-bo-web</module>
 		<module>tour-phuot-web-prod</module>
-		<module>tour-web</module>
 	</modules>
 
 	<dependencies>
@@ -40,7 +39,6 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -49,7 +47,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>

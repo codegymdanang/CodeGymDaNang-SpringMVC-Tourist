@@ -13,7 +13,7 @@ public interface UserEntityManager {
 	//List<UserEntity> getAllViaDiaDiem(String diadiem);
 	boolean isUserExist(UserEntity userEntity);
 	void updateByUsername(UserEntity user);
-	UserEntity getUserById(int id);
+	UserEntity getUserById(String id);
 	void updatePasswordByUsername(UserEntity user);
 	void updateComment(String username, String comment);
 	List<UserEntity> findUserContainingName(String name);

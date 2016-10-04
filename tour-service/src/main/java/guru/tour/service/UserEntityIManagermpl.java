@@ -57,7 +57,7 @@ public class UserEntityIManagermpl implements UserEntityManager{
 	public void updateByUsername(UserEntity user) {
 		friendsRepository.updateUsername(user.getUsername(), user.getImage(), user.getPhone(), user.getDiadiem());
 	}
-	public UserEntity getUserById(int id) {
+	public UserEntity getUserById(String id) {
 		// TODO Auto-generated method stub
 		return friendsRepository.findById(id);
 	}

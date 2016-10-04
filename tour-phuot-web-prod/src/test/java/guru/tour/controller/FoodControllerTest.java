@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 
 import static org.mockito.Mockito.*;
@@ -21,8 +20,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import guru.tour.entity.FoodEntity;
+import guru.tour.model.FoodModel;
 import guru.tour.service.FoodEntityManager;
-import sun.misc.FpUtils;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FoodControllerTest {
@@ -46,12 +45,29 @@ public class FoodControllerTest {
 		foodEntities.add(foodEntity1);
 		foodEntities.add(foodEntity2);
 	}
+	
+	@Test
+	public void shouldReturnNoContentWhenFoodEntityNull() {
+		
+		when(foodEntityManager.getFoodByLocationId("3")).thenReturn(null);
+		
+		ResponseEntity<List<FoodModel>> response = foodController.listAllFoods();
+		Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+	}
+	
 	@Test
 	public void shouldReturnNotFoundWhenFoodEntityNull() {
 		
 		when(foodEntityManager.findById(anyString())).thenReturn(null);
 		
 		ResponseEntity<FoodEntity> response = foodController.updateHotnews("1", prepareFoodEntity());
+		Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+	}
+	
+	@Test
+	public void shouldReturnNotFoundWhenFoodNullDelete(){
+		when(foodEntityManager.findById(anyString())).thenReturn(null);
+		ResponseEntity<FoodEntity> response = foodController.deleteFood("1");
 		Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 	
