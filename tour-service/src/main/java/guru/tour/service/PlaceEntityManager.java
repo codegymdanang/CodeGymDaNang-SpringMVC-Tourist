@@ -7,7 +7,7 @@ import guru.tour.entity.PlaceEntity;
 public interface PlaceEntityManager {
 	public List<PlaceEntity> getAll();
 
-	public PlaceEntity getPlaceByID(int i);
+	public PlaceEntity getPlaceByID(String id);
 	
 	public boolean isPlaceExist(PlaceEntity p);
 	
@@ -15,7 +15,7 @@ public interface PlaceEntityManager {
 	
 	public PlaceEntity updatePlace(PlaceEntity p);
 	
-	public void deletePlace(int id);
+	public void deletePlace(String id);
 
 	public PlaceEntity getPlaceByName(String placeName);
 

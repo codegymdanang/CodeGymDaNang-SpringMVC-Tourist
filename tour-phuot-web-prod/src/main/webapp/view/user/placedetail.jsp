@@ -70,8 +70,9 @@
               success:function(data) {
             	  list=data;
             	  $.each(data, function( index, value ) {
-                    row =  $("<div class='row'><div class='item'><img src='resource/images/"+value.images+"' width='100%' height='100%''></div></div><div class='foodname'><a>" + value.name + 
-          		  "</a> </br> <img src='resource/images/heart-review.png' width='30%'></div>"); 
+                    row =  $("<div class='row'><div class='item'><img src='resource/images/"
+                    + value.images+"' width='100%' height='100%''></div></div><div class='foodname'><a>" 
+                    + value.name + "</a> </br> <img src='resource/images/heart-review.png' width='30%'></div>"); 
                      $("#foodData").append(row);
                  });
               },
@@ -82,9 +83,9 @@
               success:function(data) {
             	  list=data;
             	  $.each(data, function( index, value ) {
-                    row =  $("<div class='row'><div class='item'><img src='resource/images/" + value.images
-                    		+ "' width='100%' height='100%'></div></div><div class='foodname'><a>"+
-                    		value.hotelName+"</a> </br> <img src='resource/images/star.png' width='30%'></div>"); 
+                    row =  $("<div class='row'><div class='item'><img src='resource/images/"
+                    + value.images + "' width='100%' height='100%'></div></div><div class='foodname'><a>"
+                    + value.hotelName+"</a> </br> <img src='resource/images/star.png' width='30%'></div>"); 
                     $("#hotelData").append(row);
                  });
               },
@@ -233,7 +234,7 @@
 			<div class="col-md-3">
 				<div class='food'><h3>Hotel</h3>
 					<span id = "hotelData"></span>
-					<div class="foodname">
+					<div class="hotelname">
 						<br> <a>More >></a>
 					</div>
 				</div>

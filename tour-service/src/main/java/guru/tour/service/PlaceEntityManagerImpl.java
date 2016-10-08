@@ -17,7 +17,7 @@ public class PlaceEntityManagerImpl implements PlaceEntityManager{
 		return pl.findAll();
 	}
 
-	public PlaceEntity getPlaceByID(int i) {
+	public PlaceEntity getPlaceByID(String i) {
 		// TODO Auto-generated method stub
 		return pl.findById(i);
 	}
@@ -40,8 +40,8 @@ public class PlaceEntityManagerImpl implements PlaceEntityManager{
 		return pl.save(p);
 	}
 
-	public void deletePlace(int id) {
-		pl.delete(id);
+	public void deletePlace(String id) {
+		pl.delete(Integer.parseInt(id));
 	}
 
 	public PlaceEntity getPlaceByName(String placeName ) {

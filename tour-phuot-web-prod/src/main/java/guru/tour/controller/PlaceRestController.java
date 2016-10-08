@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import guru.tour.entity.FoodEntity;
 import guru.tour.entity.PlaceEntity;
-import guru.tour.service.FoodEntityManager;
 import guru.tour.service.PlaceEntityManager;
 
 @RestController
@@ -61,16 +58,16 @@ public class PlaceRestController {
 			throw new Exception("Generic Exception, id=" + id);
 		}
 	}*/
-//	@RequestMapping(value = "/place", method = RequestMethod.POST)
-//	public ResponseEntity getPlaceByID() throws Exception {
-//		PlaceEntity placeEntity = placeEntityManager.getPlaceByID(1);
-//		System.out.println(placeEntity.getName());
-//		ModelAndView model = new ModelAndView("place");
-//		model.addObject("Place", placeEntity);
-//		List<FoodEntity> foodList = foodEntityManager.findAll();
-//		model.addObject("list", foodList);
-//		return new ResponseEntity(model, HttpStatus.OK);
-//	}
+	@RequestMapping(value = "/place", method = RequestMethod.GET)
+	public ModelAndView getPlaceByID() throws Exception {
+		PlaceEntity placeEntity = placeEntityManager.getPlaceByID("2");
+		System.out.println(placeEntity.getName());
+		System.out.println(placeEntity.getDescription());
+		System.out.println(placeEntity.getLocation().getLocationName());
+		ModelAndView model = new ModelAndView("place");
+		model.addObject("place", placeEntity);
+		return model;
+	}
 	@RequestMapping(value = "/allPlace", method = RequestMethod.GET)
     public ResponseEntity<List<PlaceEntity>> listAllUsers() {
         List<PlaceEntity> list = placeEntityManager.getAll();
@@ -92,7 +89,7 @@ public class PlaceRestController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 	@RequestMapping(value="/updatePlace/{id}", method = RequestMethod.POST)
-	public ResponseEntity<PlaceEntity> updatePlace(@PathVariable("id") int id, @RequestBody PlaceEntity p){
+	public ResponseEntity<PlaceEntity> updatePlace(@PathVariable("id") String id, @RequestBody PlaceEntity p){
 		PlaceEntity currentPlace = placeEntityManager.getPlaceByID(id);
 		if(currentPlace == null){
 			return new ResponseEntity<PlaceEntity>(HttpStatus.NOT_FOUND);
@@ -105,7 +102,7 @@ public class PlaceRestController {
 		return new ResponseEntity<PlaceEntity>(currentPlace, HttpStatus.OK);
 	}
 	@RequestMapping(value="/place/{id}", method = RequestMethod.POST)
-	public ResponseEntity<PlaceEntity> deletePlace(@PathVariable("id") int id, @RequestBody PlaceEntity p){
+	public ResponseEntity<PlaceEntity> deletePlace(@PathVariable("id") String id, @RequestBody PlaceEntity p){
 		PlaceEntity currentPlace = placeEntityManager.getPlaceByID(id);
 		if(currentPlace == null){
 			return new ResponseEntity<PlaceEntity>(HttpStatus.NOT_FOUND);
