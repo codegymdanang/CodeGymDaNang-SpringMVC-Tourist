@@ -87,7 +87,7 @@ public class UserEntity implements Serializable {
 
 	//bi-directional many-to-one association to UserScheduleEntity
 	@OneToMany(mappedBy="user")
-	private List<UserScheduleEntity> userschedules;
+	private List<UserSchedule> userschedules;
 
 	public UserEntity() {
 	}
@@ -248,22 +248,22 @@ public class UserEntity implements Serializable {
 		return userRole;
 	}
 
-	public List<UserScheduleEntity> getUserschedules() {
+	public List<UserSchedule> getUserschedules() {
 		return this.userschedules;
 	}
 
-	public void setUserschedules(List<UserScheduleEntity> userschedules) {
+	public void setUserschedules(List<UserSchedule> userschedules) {
 		this.userschedules = userschedules;
 	}
 
-	public UserScheduleEntity addUserschedule(UserScheduleEntity userschedule) {
+	public UserSchedule addUserschedule(UserSchedule userschedule) {
 		getUserschedules().add(userschedule);
 		userschedule.setUser(this);
 
 		return userschedule;
 	}
 
-	public UserScheduleEntity removeUserschedule(UserScheduleEntity userschedule) {
+	public UserSchedule removeUserschedule(UserSchedule userschedule) {
 		getUserschedules().remove(userschedule);
 		userschedule.setUser(null);
 

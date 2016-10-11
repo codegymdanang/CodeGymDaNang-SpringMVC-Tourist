@@ -1,5 +1,12 @@
 package guru.tour.controller;
 
+import guru.tour.entity.HotNewEntity;
+import guru.tour.entity.LocationEntity;
+import guru.tour.entity.PlaceEntity;
+import guru.tour.exception.HomeException;
+import guru.tour.service.HotNewsEntityManager;
+import guru.tour.service.LocationEntityManager;
+import guru.tour.service.PlaceEntityManager;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,38 +24,26 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.servlet.ModelAndView;
-
-import guru.tour.entity.HotNewEntity;
-import guru.tour.entity.LocationEntity;
-import guru.tour.entity.PlaceEntity;
-import guru.tour.exception.HomeException;
-import guru.tour.service.HotNewsEntityManager;
-import guru.tour.service.LocationEntityManager;
-import guru.tour.service.PlaceEntityManager;
-
-
 
 @Controller
 @RequestMapping(value = "/")
 public class HomepageController {
 
-	
-	@Autowired	
+	@Autowired
 	HotNewsEntityManager hotnews;
-	
-	
-	@Autowired	
+
+	@Autowired
 	PlaceEntityManager placeEntityManager;
 
 	@Autowired
 	LocationEntityManager locationEntityManager;
 
-
-	private static final Logger logger = LoggerFactory
-			.getLogger(HomepageController.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomepageController.class);
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homepage() throws Exception {
@@ -59,13 +54,14 @@ public class HomepageController {
 			throw new HomeException("1");
 		}
 		for (HotNewEntity hotNewsEntity : list) {
-			System.out.println(hotNewsEntity.getHotnewsId() + " " + hotNewsEntity.getName() + "- "+ hotNewsEntity.getDescription()+" "+hotNewsEntity.getImage());				
+			System.out.println(hotNewsEntity.getHotnewsId() + " " + hotNewsEntity.getName() + "- "
+					+ hotNewsEntity.getDescription() + " " + hotNewsEntity.getImage());
 		}
 		return "homePage";
 	}
+
 	@RequestMapping(value = "/home/{id}", method = RequestMethod.GET)
-	public String getEmployee(@PathVariable("id") String id, Model model)
-			throws Exception {
+	public String getEmployee(@PathVariable("id") String id, Model model) throws Exception {
 		// deliberately throwing different types of exception
 		if (id == "1") {
 			throw new HomeException(id);
@@ -79,7 +75,7 @@ public class HomepageController {
 			if (list.isEmpty() == true) {
 				throw new HomeException("1");
 			}
-			
+
 			return "homePage";
 		} else {
 			throw new Exception("Generic Exception, id=" + id);
@@ -88,8 +84,7 @@ public class HomepageController {
 	}
 
 	@ExceptionHandler(HomeException.class)
-	public ModelAndView handleEmployeeNotFoundException(
-			HttpServletRequest request, Exception ex) {
+	public ModelAndView handleEmployeeNotFoundException(HttpServletRequest request, Exception ex) {
 		logger.error("Requested URL=" + request.getRequestURL());
 		logger.error("Exception Raised=" + ex);
 
@@ -112,37 +107,19 @@ public class HomepageController {
 
 		return "contact";
 	}
-	
-	
-	
-/*	searchLocation*/
+
+	/* searchLocation */
 	@RequestMapping(value = "/searchLocation", method = RequestMethod.GET)
-	public String searchLocation(HttpSession session,HttpServletRequest request,ModelMap model) {
-							
+	public String searchLocation(HttpSession session, HttpServletRequest request, ModelMap model) {
+
 		LocationEntity locationEntity;
-		locationEntity =locationEntityManager.findByLocation_name(request.getParameter("locationName"));
-		if(locationEntity != null){			
-			/*List<PlaceEntity> places = placeEntityManager.getAllPlaceByLocalId(1);*/
-			List<PlaceEntity> places1 = placeEntityManager.getAll();
-			System.out.println("---------------------: "+ places1.size());
-			List<PlaceEntity> places2 = new ArrayList<PlaceEntity>();
-			for (PlaceEntity placeEntity : places1) {
-				if(placeEntity.getId() == locationEntity.getLocationId())
-				{
-					places2.add(placeEntity);
-				}
-			}
-			System.out.println("---------------------: "+ places2.size());
-			/*request.getSession().setAttribute("locationEntity", locationEntity);*/
-			/*request.getSession().setAttribute("places2", places2);*/
-			/*session.setAttribute("locationEntity", locationEntity);
-			session.setAttribute("places2", places2);			*/
+		locationEntity = locationEntityManager.findByLocation_name(request.getParameter("locationName"));
+		List<PlaceEntity> places2 = placeEntityManager.getAllPlaceByLocalId(locationEntity.getLocationId());
+		if (places2.size() > 0) {
 			model.addAttribute("places2", places2);
-			model.addAttribute("locationEntity", locationEntity);
-			return "location";			
+			return "location";
 		}
-		
 		return "HomeError";
-	}	
-	
+	}
+
 }

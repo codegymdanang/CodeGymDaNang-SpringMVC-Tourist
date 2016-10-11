@@ -19,6 +19,6 @@ public interface PlaceEntityManager {
 
 	public PlaceEntity getPlaceByName(String placeName);
 
-	/*public List<PlaceEntity> getAllPlaceByLocalId(int local_id);*/
+	public List<PlaceEntity> getAllPlaceByLocalId(String local_id);
 	
 }
