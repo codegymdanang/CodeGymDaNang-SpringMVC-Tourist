@@ -22,7 +22,7 @@ public class PostEntity implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to UserPostEntity
-	@OneToMany(mappedBy="post")
+//	@OneToMany(mappedBy="post")
 	private List<UserPostEntity> userPosts;
 
 	public PostEntity() {

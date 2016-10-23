@@ -5,14 +5,13 @@ import java.util.UUID;
 
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the user_posts database table.
  * 
  */
 @Entity
-@Table(name="user_posts")
-@NamedQuery(name="UserPostEntity.findAll", query="SELECT u FROM UserPostEntity u")
+@Table(name = "user_posts")
+@NamedQuery(name = "UserPostEntity.findAll", query = "SELECT u FROM UserPostEntity u")
 public class UserPostEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -21,14 +20,14 @@ public class UserPostEntity implements Serializable {
 
 	private String comment;
 
-	//bi-directional many-to-one association to PostEntity
+	// bi-directional many-to-one association to PostEntity
 	@ManyToOne
-	@JoinColumn(name="id_post")
+	@JoinColumn(name = "id_post", insertable = true, updatable = true)
 	private PostEntity post;
 
-	//bi-directional many-to-one association to UserEntity
+	// bi-directional many-to-one association to UserEntity
 	@ManyToOne
-	@JoinColumn(name="id_user")
+//	@JoinColumn(name = "id_user", insertable = true, updatable = true)
 	private UserEntity user;
 
 	public UserPostEntity() {
@@ -58,11 +57,11 @@ public class UserPostEntity implements Serializable {
 		this.post = post;
 	}
 
-	public UserEntity getUser() {
+	public UserEntity getUserPost() {
 		return this.user;
 	}
 
-	public void setUser(UserEntity user) {
+	public void setUserPost(UserEntity user) {
 		this.user = user;
 	}
 

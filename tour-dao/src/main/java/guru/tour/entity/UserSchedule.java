@@ -27,8 +27,8 @@ public class UserSchedule implements Serializable {
 	private String id = UUID.randomUUID().toString();
 
 	@ManyToOne
-	@JoinColumn(name = "user_id", insertable = false, updatable = false)
-	private UserEntity userSchedule;
+//	@JoinColumn(name = "user_id", insertable = false, updatable = false)
+	private UserEntity user;
 
 	@ManyToOne
 	@JoinColumn(name = "place_id", insertable = true, updatable = false)
@@ -82,11 +82,11 @@ public class UserSchedule implements Serializable {
 	}
 
 	public UserEntity getUser() {
-		return userSchedule;
+		return user;
 	}
 
 	public void setUser(UserEntity user) {
-		this.userSchedule = user;
+		this.user = user;
 	}
 
 	public String getId() {

@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="user")
 @NamedQuery(name="UserEntity.findAll", query="SELECT u FROM UserEntity u")
-public class UserEntity implements Serializable {
+public class UserEntity extends AbstractAuditableEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -59,7 +59,7 @@ public class UserEntity implements Serializable {
 	@Column
 	private String username;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="userComments")
 	private List<CommentEntity> comments;
 
 	@ManyToMany(fetch=FetchType.EAGER)
@@ -72,14 +72,23 @@ public class UserEntity implements Serializable {
 			@JoinColumn(name="role_id")
 			}
 		)
-	private List<RoleEntity> roles =new ArrayList<RoleEntity>();
+	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
 	public List<RoleEntity> getRoles() {
 		return roles;
 	}
 
 	//bi-directional many-to-one association to UserPostEntity
-	@OneToMany(mappedBy="user")
-	private List<UserPostEntity> userPosts;
+//	@ManyToMany(fetch=FetchType.EAGER)
+//	@JoinTable(
+//		name="user_posts"
+//		, joinColumns={
+//			@JoinColumn(name="id_user")
+//			}
+//		, inverseJoinColumns={
+//			@JoinColumn(name="id_post")
+//			}
+//		)
+//	private List<UserPostEntity> userPosts = new ArrayList<UserPostEntity>();
 
 	//bi-directional many-to-one association to User_RoleEntity
 	@OneToMany(mappedBy="user")
@@ -200,31 +209,32 @@ public class UserEntity implements Serializable {
 
 		return comment;
 	}
-
-	public List<UserPostEntity> getUserPosts() {
-		return this.userPosts;
-	}
 	
 	public void setRoles(List<RoleEntity> roles) {
 		this.roles = roles;
 	}
-	public void setUserPosts(List<UserPostEntity> userPosts) {
-		this.userPosts = userPosts;
-	}
 
-	public UserPostEntity addUserPost(UserPostEntity userPost) {
-		getUserPosts().add(userPost);
-		userPost.setUser(this);
+//	public List<UserPostEntity> getUserPosts() {
+//		return this.userPosts;
+//	}
+//	
+//	public void setUserPosts(List<UserPostEntity> userPosts) {
+//		this.userPosts = userPosts;
+//	}
 
-		return userPost;
-	}
-
-	public UserPostEntity removeUserPost(UserPostEntity userPost) {
-		getUserPosts().remove(userPost);
-		userPost.setUser(null);
-
-		return userPost;
-	}
+//	public UserPostEntity addUserPost(UserPostEntity userPost) {
+//		getUserPosts().add(userPost);
+//		userPost.setUserPost(this);
+//
+//		return userPost;
+//	}
+//
+//	public UserPostEntity removeUserPost(UserPostEntity userPost) {
+//		getUserPosts().remove(userPost);
+//		userPost.setUserPost(null);
+//
+//		return userPost;
+//	}
 
 	public List<User_RoleEntity> getUserRoles() {
 		return this.userRoles;
@@ -236,14 +246,14 @@ public class UserEntity implements Serializable {
 
 	public User_RoleEntity addUserRole(User_RoleEntity userRole) {
 		getUserRoles().add(userRole);
-		userRole.setUser(this);
+		userRole.setUserRoles(this);
 
 		return userRole;
 	}
 
 	public User_RoleEntity removeUserRole(User_RoleEntity userRole) {
 		getUserRoles().remove(userRole);
-		userRole.setUser(null);
+		userRole.setUserRoles(null);
 
 		return userRole;
 	}
@@ -294,5 +304,31 @@ public class UserEntity implements Serializable {
 		this.credentialsNonExpired = credentialsNonExpired;
 	}
 	
-	
+	@Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(this.getClass().getName() + "-");
+        sb.append("  id=" + getId());
+        sb.append("  username=" + username);
+        sb.append("  phone=" + phone);
+        sb.append("  diadiem=" + diadiem);
+
+        sb.append("  roles=[");
+
+        if (roles != null) {
+            for (RoleEntity role : roles) {
+                sb.append(role.toString());
+            }
+        }
+
+        sb.append("]");
+
+        sb.append("  lastUpdated=" + getLastUpdated());
+        sb.append("  lastUpdateBy=" + getLastUpdateUser());
+        sb.append("  created=" + getCreated());
+        sb.append("  createdBy=" + getCreateUser());
+
+        return sb.toString();
+    }
 }
