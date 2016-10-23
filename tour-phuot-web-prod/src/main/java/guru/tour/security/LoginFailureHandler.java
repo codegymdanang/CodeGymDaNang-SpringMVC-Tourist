@@ -12,7 +12,8 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import guru.tour.entity.User_AttemptsEntity;
+
+import guru.tour.entity.UserAttemptEntity;
 import guru.tour.service.UserAttemptsManager;
 import guru.tour.service.UserEntityManager;
 
@@ -29,7 +30,7 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
 		String name = request.getParameter("username");
-		User_AttemptsEntity user = attemptsManager.geAttemptsEntity(name);
+		UserAttemptEntity user = attemptsManager.geAttemptsEntity(name);
 		if (userManager.getUserByName(name) == null)
 			exception = new BadCredentialsException("Username or Password wrong");
 		else if (!attemptsManager.isExists(name))

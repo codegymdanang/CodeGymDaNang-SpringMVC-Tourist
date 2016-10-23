@@ -12,12 +12,12 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="detailprofile")
-@NamedQuery(name="DetailprofileEntity.findAll", query="SELECT d FROM DetailprofileEntity d")
-public class DetailprofileEntity implements Serializable {
+@NamedQuery(name="DetailProfileEntity.findAll", query="SELECT d FROM DetailProfileEntity d")
+public class DetailProfileEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id  = UUID.randomUUID().toString();
+	private String id = UUID.randomUUID().toString();
 
 	private String favorite;
 
@@ -25,7 +25,7 @@ public class DetailprofileEntity implements Serializable {
 
 	private String language;
 
-	public DetailprofileEntity() {
+	public DetailProfileEntity() {
 	}
 
 	public String getId() {

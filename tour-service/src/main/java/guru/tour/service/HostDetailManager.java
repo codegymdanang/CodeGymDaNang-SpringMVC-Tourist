@@ -2,8 +2,8 @@ package guru.tour.service;
 
 import java.util.List;
 
-import guru.tour.entity.HostDetailEntity;
+import guru.tour.entity.ProfileEntity;
 
 public interface HostDetailManager {
-	public List<HostDetailEntity> getAllHost();
+	public List<ProfileEntity> getAllHost();
 }

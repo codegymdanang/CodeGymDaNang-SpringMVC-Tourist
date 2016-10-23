@@ -2,9 +2,11 @@ package guru.tour.service;
 
 import java.util.Calendar;
 import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import guru.tour.entity.User_AttemptsEntity;
+
+import guru.tour.entity.UserAttemptEntity;
 import guru.tour.repository.ServiceFriendsRepository;
 import guru.tour.repository.UserAttemptsRepository;
 
@@ -19,7 +21,7 @@ public class UserAttemptsManagerImpl implements UserAttemptsManager {
 
 	@Override
 	public void insertAttempts(String username) {
-		uar.save(new User_AttemptsEntity(username, 0, new Date()));
+		uar.save(new UserAttemptEntity(username, 0, new Date()));
 	}
 
 	@Override
@@ -39,7 +41,7 @@ public class UserAttemptsManagerImpl implements UserAttemptsManager {
 	}
 
 	@Override
-	public User_AttemptsEntity geAttemptsEntity(String name) {
+	public UserAttemptEntity geAttemptsEntity(String name) {
 		return uar.findByUsername(name);
 	}
 

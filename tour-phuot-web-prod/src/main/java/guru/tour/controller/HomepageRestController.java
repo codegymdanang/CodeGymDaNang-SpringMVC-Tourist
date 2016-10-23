@@ -15,7 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.HotNewEntity;
 import guru.tour.entity.PlaceEntity;
-import guru.tour.entity.UserSchedule;
+import guru.tour.entity.UserScheduleEntity;
 import guru.tour.model.UserScheduleModel;
 import guru.tour.service.HotNewsEntityManager;
 import guru.tour.service.PlaceEntityManager;
@@ -125,7 +125,7 @@ public class HomepageRestController {
 
 		if (placeEntity != null) {
 			System.out.println("Kiem tra thay place ton tai");
-			UserSchedule userSchedule = new UserSchedule(placeEntity, userScheduleModel.getStatus());
+			UserScheduleEntity userSchedule = new UserScheduleEntity(placeEntity, userScheduleModel.getStatus());
 			userScheduleEnityManager.saveUserScheduleEntity(userSchedule);
 			System.out.println("okkkkkkkkk");
 		}

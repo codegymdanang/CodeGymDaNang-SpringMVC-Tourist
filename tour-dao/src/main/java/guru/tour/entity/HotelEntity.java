@@ -18,7 +18,7 @@ public class HotelEntity implements Serializable {
 
 	@Id
 	@Column(name="hotel_id")
-	private String hotelId  = UUID.randomUUID().toString();
+	private String hotelId = UUID.randomUUID().toString();
 
 	private String description;
 

@@ -1,20 +1,10 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
  * The persistent class for the user database table.
@@ -28,100 +18,95 @@ public class UserEntity implements Serializable {
 
 	@Id
 	private String id = UUID.randomUUID().toString();
-	
-	@Column
-	private String comment;
-	
-	@Column
-	private String diadiem;
-	
-	@Column(name="enabled")
-	private boolean enabled;
-	
-	@Column(name="accountNonExpired")
+
 	private boolean accountNonExpired;
-	
-	@Column(name="accountNonLocked")
+
 	private boolean accountNonLocked;
-	
-	@Column(name="credentialsNonExpired")
+
+	private String comment;
+
 	private boolean credentialsNonExpired;
-	
-	@Column(name="image")
+
+	private String diadiem;
+
+	private boolean enabled;
+
 	private String image;
 
-	@Column
 	private String password;
-	
-	@Column(name="phone")
+
 	private String phone;
-	
-	@Column
+
 	private String username;
-	
+
+	//bi-directional many-to-one association to CommentEntity
 	@OneToMany(mappedBy="user")
 	private List<CommentEntity> comments;
 
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(
-		name="user_role"
-		, joinColumns={
-			@JoinColumn(name="user_id")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="role_id")
-			}
-		)
-	private List<RoleEntity> roles =new ArrayList<RoleEntity>();
-	public List<RoleEntity> getRoles() {
-		return roles;
-	}
+	//bi-directional many-to-one association to UserAttemptEntity
+//	@OneToMany(mappedBy="user")
+//	private List<UserAttemptEntity> userAttempts;
 
 	//bi-directional many-to-one association to UserPostEntity
 	@OneToMany(mappedBy="user")
 	private List<UserPostEntity> userPosts;
 
-	//bi-directional many-to-one association to User_RoleEntity
-	@OneToMany(mappedBy="user")
-	private List<User_RoleEntity> userRoles;
+	//bi-directional many-to-one association to UserRoleEntity
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+        name="user_role"
+        , joinColumns={
+            @JoinColumn(name="user_id")
+            }
+        , inverseJoinColumns={
+            @JoinColumn(name="role_id")
+            }
+        )
+	private List<RoleEntity> roles;
+	
 
 	//bi-directional many-to-one association to UserScheduleEntity
 	@OneToMany(mappedBy="user")
-	private List<UserSchedule> userschedules;
+	private List<UserScheduleEntity> userschedules;
 
 	public UserEntity() {
 	}
-	
-	public UserEntity(String username, String password, String image, String phone) {
-		this.username = username;
-		this.password = password;
-		this.image = image;
-		this.phone = phone;
-	}
-	
-	public UserEntity(boolean enabled, String password, String username, List<RoleEntity> roles) {
-		super();
-		this.enabled = enabled;
-		this.password = password;
-		this.username = username;
-		this.roles = roles;
-	}
 
-	public UserEntity(String username, String image, String phone, String diadiem,int a) {
-		super();
-		this.username = username;
-		this.image = image;
-		this.phone = phone;
-		this.diadiem = diadiem;
-	}
+    
+    public UserEntity(String username, String password, String image, String phone) {
+        this.username = username;
+        this.password = password;
+        this.image = image;
+        this.phone = phone;
+    }
+    
+  
 
-	public String getId() {
+    public UserEntity(String username, String image, String phone, String diadiem,int a) {
+        super();
+        this.username = username;
+        this.image = image;
+        this.phone = phone;
+        this.diadiem = diadiem;
+    }
+
+    
+    public UserEntity(boolean enabled, String password, String username, List<RoleEntity> roles) {
+        super();
+        this.enabled = enabled;
+        this.password = password;
+        this.username = username;
+        this.roles = roles;
+    }
+    public String getId() {
 		return this.id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
+
 
 	public String getComment() {
 		return this.comment;
@@ -130,21 +115,12 @@ public class UserEntity implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
 	public String getDiadiem() {
 		return this.diadiem;
 	}
 
 	public void setDiadiem(String diadiem) {
 		this.diadiem = diadiem;
-	}
-
-	public boolean getEnabled() {
-		return this.enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
 	}
 
 	public String getImage() {
@@ -201,13 +177,18 @@ public class UserEntity implements Serializable {
 		return comment;
 	}
 
+//	public List<UserAttemptEntity> getUserAttempts() {
+//		return this.userAttempts;
+//	}
+//
+//	public void setUserAttempts(List<UserAttemptEntity> userAttempts) {
+//		this.userAttempts = userAttempts;
+//	}
+
 	public List<UserPostEntity> getUserPosts() {
 		return this.userPosts;
 	}
-	
-	public void setRoles(List<RoleEntity> roles) {
-		this.roles = roles;
-	}
+
 	public void setUserPosts(List<UserPostEntity> userPosts) {
 		this.userPosts = userPosts;
 	}
@@ -226,73 +207,77 @@ public class UserEntity implements Serializable {
 		return userPost;
 	}
 
-	public List<User_RoleEntity> getUserRoles() {
-		return this.userRoles;
-	}
 
-	public void setUserRoles(List<User_RoleEntity> userRoles) {
-		this.userRoles = userRoles;
-	}
+	public List<RoleEntity> getRoles() {
+        return roles;
+    }
 
-	public User_RoleEntity addUserRole(User_RoleEntity userRole) {
-		getUserRoles().add(userRole);
-		userRole.setUser(this);
 
-		return userRole;
-	}
+    public void setRoles(List<RoleEntity> roles) {
+        this.roles = roles;
+    }
 
-	public User_RoleEntity removeUserRole(User_RoleEntity userRole) {
-		getUserRoles().remove(userRole);
-		userRole.setUser(null);
 
-		return userRole;
-	}
-
-	public List<UserSchedule> getUserschedules() {
+    public List<UserScheduleEntity> getUserschedules() {
 		return this.userschedules;
 	}
 
-	public void setUserschedules(List<UserSchedule> userschedules) {
+	public void setUserschedules(List<UserScheduleEntity> userschedules) {
 		this.userschedules = userschedules;
 	}
 
-	public UserSchedule addUserschedule(UserSchedule userschedule) {
+	public UserScheduleEntity addUserschedule(UserScheduleEntity userschedule) {
 		getUserschedules().add(userschedule);
 		userschedule.setUser(this);
 
 		return userschedule;
 	}
 
-	public UserSchedule removeUserschedule(UserSchedule userschedule) {
+	public UserScheduleEntity removeUserschedule(UserScheduleEntity userschedule) {
 		getUserschedules().remove(userschedule);
 		userschedule.setUser(null);
 
 		return userschedule;
 	}
 
-	public boolean isAccountNonExpired() {
-		return accountNonExpired;
-	}
 
-	public void setAccountNonExpired(boolean accountNonExpired) {
-		this.accountNonExpired = accountNonExpired;
-	}
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
 
-	public boolean isAccountNonLocked() {
-		return accountNonLocked;
-	}
 
-	public void setAccountNonLocked(boolean accountNonLocked) {
-		this.accountNonLocked = accountNonLocked;
-	}
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
 
-	public boolean isCredentialsNonExpired() {
-		return credentialsNonExpired;
-	}
 
-	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-		this.credentialsNonExpired = credentialsNonExpired;
-	}
-	
-	
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+
+
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
 }

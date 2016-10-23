@@ -17,7 +17,7 @@ public class HotNewEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String hotnewsId  = UUID.randomUUID().toString();
+	private String hotnewsId = UUID.randomUUID().toString();
 
 	private String description;
 
@@ -25,7 +25,8 @@ public class HotNewEntity implements Serializable {
 
 	private String name;
 
-	
+	public HotNewEntity() {
+	}
 
 	public String getHotnewsId() {
 		return this.hotnewsId;
@@ -57,28 +58,6 @@ public class HotNewEntity implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-	public HotNewEntity() {
-		super();
-	}
-
-	public HotNewEntity(String hotnewsId, String name) {
-		this.hotnewsId = hotnewsId;
-		this.name = name;
-	}
-
-	public HotNewEntity(String name, String description, String image) {
-		this.name = name;
-		this.description = description;
-		this.image = image;
-	}
-
-	public HotNewEntity(String hotnewsId, String name, String description, String image) {
-		this.hotnewsId = hotnewsId;
-		this.description = description;
-		this.name = name;
-		this.image = image;
-
 	}
 
 }

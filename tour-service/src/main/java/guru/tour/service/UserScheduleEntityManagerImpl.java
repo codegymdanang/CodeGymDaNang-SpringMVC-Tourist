@@ -3,7 +3,7 @@ package guru.tour.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import guru.tour.entity.UserSchedule;
+import guru.tour.entity.UserScheduleEntity;
 import guru.tour.repository.UserScheduleRepository;
 
 
@@ -14,7 +14,7 @@ public class UserScheduleEntityManagerImpl implements UserScheduleEntityManager{
 	UserScheduleRepository userScheduleRepository;
 	
 	@Override
-	public void saveUserScheduleEntity(UserSchedule userSchedule) {
+	public void saveUserScheduleEntity(UserScheduleEntity userSchedule) {
 		userScheduleRepository.save(userSchedule);
 		
 	}

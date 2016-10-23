@@ -19,10 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import guru.tour.entity.HostDetailEntity;
-import guru.tour.entity.ServiceHostEntity;
+import guru.tour.entity.HostEntity;
+import guru.tour.entity.ProfileEntity;
 import guru.tour.exception.HostNotFoundException;
-import guru.tour.exception.HotelNotFoundException;
 import guru.tour.service.HostDetailManager;
 import guru.tour.service.ServiceHostEntityManager;
 
@@ -36,20 +35,20 @@ public class ServiceHostController {
 	@Autowired
 	HostDetailManager manager;
 
-	List<ServiceHostEntity> images;
+	List<HostEntity> images;
 
 	@RequestMapping(value = "/servicehost", method = RequestMethod.GET)
 	public String service_host(ModelMap save) {
-		List<ServiceHostEntity> imagesSG = hostmanager.findByName("SAI GON");
+		List<HostEntity> imagesSG = hostmanager.findByName("SAI GON");
 		save.addAttribute("imagesSG", imagesSG);
 
-		List<ServiceHostEntity> imagesHN = hostmanager.findByName("HA NOI");
+		List<HostEntity> imagesHN = hostmanager.findByName("HA NOI");
 		save.addAttribute("imagesHN", imagesHN);
 
-		List<ServiceHostEntity> imagesQN = hostmanager.findByName("QUANG NAM");
+		List<HostEntity> imagesQN = hostmanager.findByName("QUANG NAM");
 		save.addAttribute("imagesQN", imagesQN);
 
-		List<ServiceHostEntity> imagesDN = hostmanager.findByName("DA NANG");
+		List<HostEntity> imagesDN = hostmanager.findByName("DA NANG");
 		save.addAttribute("imagesDN", imagesDN);
 
 		images = hostmanager.getAllHost();
@@ -60,7 +59,7 @@ public class ServiceHostController {
 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String profile(ModelMap m) {
-		List<HostDetailEntity> list = manager.getAllHost();
+		List<ProfileEntity> list = manager.getAllHost();
 		m.addAttribute("list", images);
 		m.addAttribute("list", list);
 		return "profile";
@@ -80,9 +79,9 @@ public class ServiceHostController {
 		}else if(id==3){
 			throw new IOException("IOException, id="+id);
 		}else if(id==10){
-			ServiceHostEntity host = new ServiceHostEntity();
+			HostEntity host = new HostEntity();
 			host.setName("DaNang");
-			host.setId(id);
+//			host.setId(id);
 			model.addAttribute("host", host);
 			return "home";
 		}else {

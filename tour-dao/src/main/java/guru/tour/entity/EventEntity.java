@@ -17,7 +17,7 @@ public class EventEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id  = UUID.randomUUID().toString();
+	private String id = UUID.randomUUID().toString();
 
 	private String description;
 
@@ -29,15 +29,15 @@ public class EventEntity implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startday;
 
-	//bi-directional many-to-one association to LocationEntity
-	@ManyToOne
-	@JoinColumn(name="local_id")
-	private LocationEntity location;
-
 	//bi-directional many-to-one association to AddressEntity
 	@ManyToOne
 	@JoinColumn(name="add_id")
 	private AddressEntity address;
+
+	//bi-directional many-to-one association to LocationEntity
+	@ManyToOne
+	@JoinColumn(name="local_id")
+	private LocationEntity location;
 
 	public EventEntity() {
 	}
@@ -82,20 +82,20 @@ public class EventEntity implements Serializable {
 		this.startday = startday;
 	}
 
-	public LocationEntity getLocation() {
-		return this.location;
-	}
-
-	public void setLocation(LocationEntity location) {
-		this.location = location;
-	}
-
 	public AddressEntity getAddress() {
 		return this.address;
 	}
 
 	public void setAddress(AddressEntity address) {
 		this.address = address;
+	}
+
+	public LocationEntity getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(LocationEntity location) {
+		this.location = location;
 	}
 
 }

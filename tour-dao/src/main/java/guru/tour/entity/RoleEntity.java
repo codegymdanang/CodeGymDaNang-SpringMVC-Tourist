@@ -2,8 +2,6 @@ package guru.tour.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,21 +20,24 @@ public class RoleEntity implements Serializable {
 	private String id = UUID.randomUUID().toString();
 
 	private String role;
-	
-	public RoleEntity(String id, String role) {
-		super();
-		this.id = id;
-		this.role = role;
-	}
 
-	//bi-directional many-to-one association to User_RoleEntity
-	@OneToMany(mappedBy="role")
-	private List<User_RoleEntity> userRoles;
+	//bi-directional many-to-one association to UserRoleEntity
+	@ManyToMany(mappedBy="roles", fetch = FetchType.LAZY)
+	private List<UserEntity> users;
 
 	public RoleEntity() {
 	}
 
-	public String getId() {
+	/**
+     * @param string
+     * @param string2
+     */
+    public RoleEntity(String id, String name) {
+        this.id = id;
+        this.role = name;
+    }
+
+    public String getId() {
 		return this.id;
 	}
 
@@ -52,26 +53,12 @@ public class RoleEntity implements Serializable {
 		this.role = role;
 	}
 
-	public List<User_RoleEntity> getUserRoles() {
-		return this.userRoles;
-	}
+    public List<UserEntity> getUsers() {
+        return users;
+    }
 
-	public void setUserRoles(List<User_RoleEntity> userRoles) {
-		this.userRoles = userRoles;
-	}
-
-	public User_RoleEntity addUserRole(User_RoleEntity userRole) {
-		getUserRoles().add(userRole);
-		userRole.setRole(this);
-
-		return userRole;
-	}
-
-	public User_RoleEntity removeUserRole(User_RoleEntity userRole) {
-		getUserRoles().remove(userRole);
-		userRole.setRole(null);
-
-		return userRole;
-	}
+    public void setUsers(List<UserEntity> users) {
+        this.users = users;
+    }
 
 }

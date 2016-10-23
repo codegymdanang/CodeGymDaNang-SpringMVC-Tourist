@@ -1,17 +1,4 @@
-
 package guru.tour.entity;
-
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -25,8 +12,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="user_role")
-@NamedQuery(name="User_RoleEntity.findAll", query="SELECT u FROM User_RoleEntity u")
-public class User_RoleEntity implements Serializable {
+@NamedQuery(name="UserRoleEntity.findAll", query="SELECT u FROM UserRoleEntity u")
+public class UserRoleEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -40,7 +27,7 @@ public class User_RoleEntity implements Serializable {
 	@ManyToOne
 	private UserEntity user;
 
-	public User_RoleEntity() {
+	public UserRoleEntity() {
 	}
 
 	public String getId() {

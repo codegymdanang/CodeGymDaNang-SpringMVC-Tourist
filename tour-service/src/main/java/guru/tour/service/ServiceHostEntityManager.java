@@ -2,9 +2,9 @@ package guru.tour.service;
 
 import java.util.List;
 
-import guru.tour.entity.ServiceHostEntity;
+import guru.tour.entity.HostEntity;
 
 public interface ServiceHostEntityManager {
-	public List<ServiceHostEntity> findByName(String name);
-	public List<ServiceHostEntity> getAllHost();
+	public List<HostEntity> findByName(String name);
+	public List<HostEntity> getAllHost();
 }
