@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import guru.tour.entity.ServiceHostEntity;
+import guru.tour.entity.HostEntity;
 
-public interface ServiceHostEntityRepository extends JpaRepository<ServiceHostEntity, String>{
-	public List<ServiceHostEntity> findByName(String name);
+public interface ServiceHostEntityRepository extends JpaRepository<HostEntity, String>{
+	public List<HostEntity> findByName(String name);
 }

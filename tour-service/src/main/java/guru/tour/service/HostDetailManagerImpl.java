@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import guru.tour.entity.HostDetailEntity;
-import guru.tour.repository.HostDetailEntityRepository;
+import guru.tour.entity.ProfileEntity;
+import guru.tour.repository.ProfileRepository;
 
 @Service
 public class HostDetailManagerImpl implements HostDetailManager{
 	
 	@Autowired
-	HostDetailEntityRepository shdJPA;
+	ProfileRepository shdJPA;
 	
-	public List<HostDetailEntity> getAllHost() {
+	public List<ProfileEntity> getAllHost() {
 		return shdJPA.findAll();
 	}
 	

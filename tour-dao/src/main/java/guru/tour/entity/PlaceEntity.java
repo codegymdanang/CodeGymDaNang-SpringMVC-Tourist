@@ -17,12 +17,12 @@ public class PlaceEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id =  UUID.randomUUID().toString();
-	@Column(name = "description")
+	private String id = UUID.randomUUID().toString();
+
 	private String description;
-	@Column(name = "images")
+
 	private String images;
-	@Column(name = "name")
+
 	private String name;
 
 	//bi-directional many-to-one association to AddressEntity
@@ -36,7 +36,7 @@ public class PlaceEntity implements Serializable {
 
 	//bi-directional many-to-one association to UserScheduleEntity
 	@OneToMany(mappedBy="place")
-	private List<UserSchedule> userSchedules;
+	private List<UserScheduleEntity> userschedules;
 
 	public PlaceEntity() {
 	}
@@ -103,26 +103,26 @@ public class PlaceEntity implements Serializable {
 		this.location = location;
 	}
 
-	public List<UserSchedule> getUserSchedules() {
-		return this.userSchedules;
+	public List<UserScheduleEntity> getUserschedules() {
+		return this.userschedules;
 	}
 
-	public void setUserSchedules(List<UserSchedule> userSchedules) {
-		this.userSchedules = userSchedules;
+	public void setUserschedules(List<UserScheduleEntity> userschedules) {
+		this.userschedules = userschedules;
 	}
 
-	public UserSchedule addUserSchedule(UserSchedule userSchedule) {
-		getUserSchedules().add(userSchedule);
-		userSchedule.setPlace(this);
+	public UserScheduleEntity addUserschedule(UserScheduleEntity userschedule) {
+		getUserschedules().add(userschedule);
+		userschedule.setPlace(this);
 
-		return userSchedule;
+		return userschedule;
 	}
 
-	public UserSchedule removeUserSchedule(UserSchedule userSchedule) {
-		getUserSchedules().remove(userSchedule);
-		userSchedule.setPlace(null);
+	public UserScheduleEntity removeUserschedule(UserScheduleEntity userschedule) {
+		getUserschedules().remove(userschedule);
+		userschedule.setPlace(null);
 
-		return userSchedule;
+		return userschedule;
 	}
 
 }

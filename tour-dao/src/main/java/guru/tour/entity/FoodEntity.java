@@ -17,7 +17,7 @@ public class FoodEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String id  = UUID.randomUUID().toString();
+	private String id = UUID.randomUUID().toString();
 
 	private String description;
 
