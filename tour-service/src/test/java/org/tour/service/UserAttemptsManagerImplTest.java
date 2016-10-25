@@ -15,7 +15,8 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import guru.tour.entity.User_AttemptsEntity;
+
+import guru.tour.entity.UserAttemptEntity;
 import guru.tour.repository.ServiceFriendsRepository;
 import guru.tour.repository.UserAttemptsRepository;
 import guru.tour.service.UserAttemptsManager;
@@ -35,12 +36,12 @@ public class UserAttemptsManagerImplTest {
 	
 	@Test
 	public void shouldSaveTheUserAttempts(){
-		ArgumentCaptor<User_AttemptsEntity> usArgumentCaptor = ArgumentCaptor.forClass(User_AttemptsEntity.class);	
+		ArgumentCaptor<UserAttemptEntity> usArgumentCaptor = ArgumentCaptor.forClass(UserAttemptEntity.class);	
 		attemptsManager.insertAttempts(prepareEntity().getUsername());
 	
 		verify(userAttemptsRepository, times(1)).save(usArgumentCaptor.capture());
 		
-		User_AttemptsEntity result = usArgumentCaptor.getValue();
+		UserAttemptEntity result = usArgumentCaptor.getValue();
 		
 		Assertions.assertThat(result.equals(prepareEntity()));
 		
@@ -60,15 +61,15 @@ public class UserAttemptsManagerImplTest {
 	
 	@Test
 	public void ShouldReturnUserAttempts(){
-		when(userAttemptsRepository.findByUsername(anyString())).thenReturn(new User_AttemptsEntity("bin", 2, new Date()));
+		when(userAttemptsRepository.findByUsername(anyString())).thenReturn(new UserAttemptEntity("bin", 2, new Date()));
 		
-		User_AttemptsEntity user = attemptsManager.geAttemptsEntity("bin");
+		UserAttemptEntity user = attemptsManager.geAttemptsEntity("bin");
 		
 		Assertions.assertThat(user.equals(prepareEntity()));
 	}
 	
-	private User_AttemptsEntity prepareEntity(){
-		return new User_AttemptsEntity("bin", 2, new Date());
+	private UserAttemptEntity prepareEntity(){
+		return new UserAttemptEntity("bin", 2, new Date());
 	}
 
 	
