@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.HotelEntity;
-import guru.tour.model.FoodModel;
 import guru.tour.model.HotelModel;
 import guru.tour.service.HotelEntityManager;
 

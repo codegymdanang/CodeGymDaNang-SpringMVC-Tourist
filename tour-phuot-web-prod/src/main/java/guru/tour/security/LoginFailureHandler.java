@@ -32,22 +32,16 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 		User_AttemptsEntity user = attemptsManager.geAttemptsEntity(name);
 		if (userManager.getUserByName(name) == null)
 			exception = new BadCredentialsException("Username or Password wrong");
-		else if (!attemptsManager.isExists(name))
+		else if (!attemptsManager.isExists(name)){
 			attemptsManager.insertAttempts(name);
-		else if (user.getAttempts() >= 3) {
-			if (attemptsManager.isTimeUp(user.getLastModified())){
-				attemptsManager.resetAttempts(name);
-				exception = new LockedException("Account is Unlocked ,Please Login Again ");
-			}
-			else {
+			exception = new BadCredentialsException("Username or Password wrong");
+		}else if (user.getAttempts() >= 3) {
 				attemptsManager.lockUser(name);
 				exception = new LockedException("Account is Locked from " +  new SimpleDateFormat("HH:mm dd-MM-yyyy").format(user.getLastModified()));
-			}
 		} else {
 			attemptsManager.updateAttempts(name);
 			exception = new BadCredentialsException("Username or Password wrong");
 		}
-		
 		
 		exception.printStackTrace();
 		super.onAuthenticationFailure(request, response, exception);
