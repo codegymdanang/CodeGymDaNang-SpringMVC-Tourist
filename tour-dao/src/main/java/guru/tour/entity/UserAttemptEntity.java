@@ -42,6 +42,12 @@ public class UserAttemptEntity implements Serializable {
         this.attempts = attempts;
         this.lastModified = lastModified;
     }
+    
+    public UserAttemptEntity( String username, int attempts) {
+		super();
+		this.username = username;
+		this.attempts = attempts;
+	}
 
     public int getId() {
 		return this.id;
