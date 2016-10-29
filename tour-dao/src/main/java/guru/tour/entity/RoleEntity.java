@@ -37,7 +37,12 @@ public class RoleEntity implements Serializable {
         this.role = name;
     }
 
-    public String getId() {
+    public RoleEntity(String id) {
+		super();
+		this.id = id;
+	}
+
+	public String getId() {
 		return this.id;
 	}
 

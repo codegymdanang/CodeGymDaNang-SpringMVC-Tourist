@@ -3,6 +3,7 @@ package guru.tour.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -16,53 +17,49 @@ public class PostEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString();
+	
+	@Column(name = "name")
+	private String name;
 
-    private String name;
 
-    //bi-directional many-to-one association to UserPostEntity
-    @OneToMany(mappedBy="post")
-    private List<UserPostEntity> userPosts;
+	
+	@ManyToOne
+	@JoinColumn(name="id_titles")
+	private Titles title;
+	
+	public String getId() {
+		return id;
+	}
 
-    public PostEntity() {
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getId() {
-        return this.id;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return this.name;
-    }
+	public PostEntity(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public PostEntity() {
+		super();
+	}
 
-    public List<UserPostEntity> getUserPosts() {
-        return this.userPosts;
-    }
+	public Titles getTitle() {
+		return title;
+	}
 
-    public void setUserPosts(List<UserPostEntity> userPosts) {
-        this.userPosts = userPosts;
-    }
-
-    public UserPostEntity addUserPost(UserPostEntity userPost) {
-        getUserPosts().add(userPost);
-        userPost.setPost(this);
-
-        return userPost;
-    }
-
-    public UserPostEntity removeUserPost(UserPostEntity userPost) {
-        getUserPosts().remove(userPost);
-        userPost.setPost(null);
-
-        return userPost;
-    }
-
+	public void setTitle(Titles title) {
+		this.title = title;
+	}
+		
 }

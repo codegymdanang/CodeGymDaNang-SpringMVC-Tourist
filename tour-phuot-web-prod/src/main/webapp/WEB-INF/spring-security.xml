@@ -12,7 +12,7 @@
 		<intercept-url pattern="/comment" access="isAuthenticated()" />
 		<intercept-url pattern="/login" access="permitAll()" />
 		<intercept-url pattern="/register" access="permitAll()" />
-		
+		<intercept-url pattern="/demoComment2" access="permitAll()" />
 		<intercept-url pattern="/hotel" access="permitAll()" />
 		<intercept-url pattern="/place" access="permitAll()" />
 		<intercept-url pattern="/changepassword" access="isAuthenticated()" />

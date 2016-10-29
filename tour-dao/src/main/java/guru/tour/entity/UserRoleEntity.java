@@ -54,4 +54,10 @@ public class UserRoleEntity implements Serializable {
 		this.user = user;
 	}
 
+	public UserRoleEntity(RoleEntity role, UserEntity user) {
+		super();
+		this.role = role;
+		this.user = user;
+	}
+
 }

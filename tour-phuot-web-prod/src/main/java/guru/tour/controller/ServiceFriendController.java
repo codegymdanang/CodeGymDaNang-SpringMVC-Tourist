@@ -12,6 +12,8 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,7 +24,9 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import guru.tour.entity.UserEntity;
+import guru.tour.entity.UserPostEntity;
 import guru.tour.service.UserEntityManager;
+import guru.tour.service.User_PostsManager;
 
 
 @Controller
@@ -31,6 +35,11 @@ public class ServiceFriendController  {
 	Logger log=LoggerFactory.getLogger(ServiceFriendController.class);
 	@Autowired
 	UserEntityManager user;
+	
+	@Autowired
+	User_PostsManager user_posts;
+	
+	
 	@RequestMapping(value = "/servicefriend", method = RequestMethod.GET)
 	public ModelAndView serviceFriends() {		
 		ModelAndView model = new ModelAndView("servicefriend");
@@ -173,6 +182,21 @@ public class ServiceFriendController  {
 		UserEntity users  = user.getUserByName(principal.getName());
 		ModelAndView model = new ModelAndView("userprofile");
 		model.addObject("user",users);
+		return model;
+	}
+	
+	@RequestMapping(value = "/demoComment2", method = RequestMethod.GET)
+	public ModelAndView demoComment2(@RequestParam("id_post") int id_post) {	
+		ModelAndView model = new ModelAndView("comment2");
+		
+		UserEntity user = (UserEntity)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		Page<UserPostEntity> pageRequest=user_posts.findById_Post(String.valueOf(id_post), 0, 2);
+		int currentIndex=pageRequest.getNumber();
+		int totalPage=pageRequest.getTotalPages()-1;
+		model.addObject("totalPage", totalPage);
+		model.addObject("currentIndex", currentIndex);
+		model.addObject("id_post", id_post);
+		model.addObject("userModel", new UserPostEntity());
 		return model;
 	}
 	

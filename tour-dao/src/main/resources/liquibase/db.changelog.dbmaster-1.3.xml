@@ -13,5 +13,28 @@ logicalFilePath="db.changelog.dbmaster-1.3.xml">
     <changeSet author="HP (generated)" id="1477378659607-3">
         <dropUniqueConstraint constraintName="credentialsNonExpired_UNIQUE" tableName="user"/>
     </changeSet>
+    <changeSet author="HP (generated)" id="1477588693912-1" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createTable tableName="titles">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="HP (generated)" id="1477588693912-2" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addColumn tableName="posts">
+            <column name="id_titles" type="INT(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="HP (generated)" id="1477588693912-3" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <createIndex indexName="fk_id_titles_posts_idx" tableName="posts">
+            <column name="id_titles"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="HP (generated)" id="1477588693912-4" objectQuotingStrategy="QUOTE_ALL_OBJECTS">
+        <addForeignKeyConstraint baseColumnNames="id_titles" baseTableName="posts" constraintName="fk_id_titles_posts" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="titles"/>
+    </changeSet>
 </databaseChangeLog>
 

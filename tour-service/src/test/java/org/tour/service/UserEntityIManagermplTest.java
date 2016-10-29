@@ -20,7 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import guru.tour.entity.UserEntity;
 import guru.tour.repository.ServiceFriendsRepository;
-import guru.tour.service.UserEntityIManagermpl;
+import guru.tour.service.UserEntityManagerImpl;
 import guru.tour.service.UserEntityManager;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -33,7 +33,7 @@ public class UserEntityIManagermplTest {
 	private ServiceFriendsRepository friendsRepository;
 	
 	@InjectMocks
-	private UserEntityManager userEntityIManager = new UserEntityIManagermpl();
+	private UserEntityManager userEntityIManager = new UserEntityManagerImpl();
 	@Before
 	public void initMocks() {
 		passEncode = mock(PasswordEncoder.class);

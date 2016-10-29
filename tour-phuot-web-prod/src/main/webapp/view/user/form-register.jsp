@@ -28,11 +28,11 @@
 								placeholder="Phone">
 						</div>
 						<label class="checkbox-inline"> <input type="checkbox"
-							id="inlineCheckbox1" value="admin" name="role1"> admin
+							id="inlineCheckbox1" value="1" name="role1"> admin
 						</label> <label class="checkbox-inline"> <input type="checkbox"
-							id="inlineCheckbox2" value="user" name="role1"> user
+							id="inlineCheckbox2" value="2" name="role1"> user
 						</label> <label class="checkbox-inline"> <input type="checkbox"
-							id="inlineCheckbox3" value="tour guide" name="role1"> tour guide
+							id="inlineCheckbox3" value="3" name="role1"> tour guide
 						</label>
 						<br>
 						

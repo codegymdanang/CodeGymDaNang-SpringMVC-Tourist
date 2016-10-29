@@ -13,9 +13,14 @@
 	<definition name="definitionHome"  extends="definition">
 		<put-attribute name="header" value="/view/template/layout/headerHome.jsp" />		
 	</definition>
+	
 
 	<definition name="homePage" extends="definitionHome">
 		<put-attribute name="body" value="/view/user/home.jsp" />
+	</definition>
+	
+	<definition name="comment2" extends="definitionHome">
+		<put-attribute name="body" value="/view/user/comment2.jsp" />
 	</definition>
 	
 	<definition name="about" extends="definition">

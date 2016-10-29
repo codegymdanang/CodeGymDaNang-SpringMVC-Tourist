@@ -9,12 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import guru.tour.entity.UserEntity;
 import guru.tour.service.UserEntityManager;
+import guru.tour.service.UserRoleImp;
 
 @Controller
 @RequestMapping(value = "/")
 public class LoginController {
 	@Autowired
 	UserEntityManager user;
+	
+	@Autowired
+	UserRoleImp userRole;
+	
+	
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "login";
@@ -36,8 +42,11 @@ public class LoginController {
 		String image=request.getParameter("image");
 		String role=request.getParameter("role1");
 		
-		UserEntity userEntity=new UserEntity(username,password,image,phone);
+		UserEntity userEntity=new UserEntity(true, true, true, true, image, password, phone, username);
 		user.saveUser(userEntity);
+		
+		UserEntity userEntity2=user.getUserByName(username);
+		userRole.saveUserRole(role, userEntity2.getId());
 		return "success";
 	}
 }

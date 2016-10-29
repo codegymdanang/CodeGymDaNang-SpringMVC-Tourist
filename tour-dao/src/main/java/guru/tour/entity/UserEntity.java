@@ -48,8 +48,8 @@ public class UserEntity implements Serializable {
 //  private List<UserAttemptEntity> userAttempts;
 
     //bi-directional many-to-one association to UserPostEntity
-    @OneToMany(mappedBy="user")
-    private List<UserPostEntity> userPosts;
+    /*@OneToMany(mappedBy="user")
+    private List<UserPostEntity> userPosts;*/
 
     //bi-directional many-to-one association to UserRoleEntity
     
@@ -83,7 +83,21 @@ public class UserEntity implements Serializable {
     
   
 
-    public UserEntity(String username, String image, String phone, String diadiem,int a) {
+    public UserEntity(boolean accountNonExpired, boolean accountNonLocked, boolean credentialsNonExpired,
+			boolean enabled, String image, String password, String phone, String username) {
+		super();
+		this.accountNonExpired = accountNonExpired;
+		this.accountNonLocked = accountNonLocked;
+		this.credentialsNonExpired = credentialsNonExpired;
+		this.enabled = enabled;
+		this.image = image;
+		this.password = password;
+		this.phone = phone;
+		this.username = username;
+	}
+
+
+	public UserEntity(String username, String image, String phone, String diadiem,int a) {
         super();
         this.username = username;
         this.image = image;
@@ -99,7 +113,13 @@ public class UserEntity implements Serializable {
         this.username = username;
         this.roles = roles;
     }
-    public String getId() {
+    public UserEntity(String id) {
+		super();
+		this.id = id;
+	}
+
+
+	public String getId() {
         return this.id;
     }
 
@@ -177,13 +197,13 @@ public class UserEntity implements Serializable {
         return comment;
     }
 
-    public List<UserPostEntity> getUserPosts() {
+   /* public List<UserPostEntity> getUserPosts() {
         return this.userPosts;
     }
 
     public void setUserPosts(List<UserPostEntity> userPosts) {
         this.userPosts = userPosts;
-    }
+    }*/
 
     public List<RoleEntity> getRoles() {
         return roles;

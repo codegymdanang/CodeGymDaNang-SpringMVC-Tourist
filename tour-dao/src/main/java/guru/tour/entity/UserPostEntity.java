@@ -1,6 +1,8 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.UUID;
+
 import javax.persistence.*;
 
 
@@ -15,53 +17,70 @@ public class UserPostEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
-    private String comment;
+    @Column(name = "id_user")
+	private String id_user;
+	
+	@Column(name = "id_post")
+	private String idPost;
+	
+	@Column(name = "comment")
+	private String comment;
+	
+	
 
-    //bi-directional many-to-one association to PostEntity
-    @ManyToOne
-    @JoinColumn(name="id_post")
-    private PostEntity post;
+	
+	public UserPostEntity(String id, String id_user, String id_post, String comment) {
+		super();
+		this.id = id;
+		this.id_user = id_user;
+		this.idPost = id_post;
+		this.comment = comment;
+	}
 
-    //bi-directional many-to-one association to UserEntity
-    @ManyToOne
-    @JoinColumn(name="id_user")
-    private UserEntity user;
+	public UserPostEntity() {
+		super();
+	}
 
-    public UserPostEntity() {
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getId() {
-        return this.id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getId_user() {
+		return id_user;
+	}
 
-    public String getComment() {
-        return this.comment;
-    }
+	public void setId_user(String id_user) {
+		this.id_user = id_user;
+	}
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+	public String getId_post() {
+		return idPost;
+	}
 
-    public PostEntity getPost() {
-        return this.post;
-    }
+	public void setId_post(String id_post) {
+		this.idPost = id_post;
+	}
 
-    public void setPost(PostEntity post) {
-        this.post = post;
-    }
+	public String getComment() {
+		return comment;
+	}
 
-    public UserEntity getUser() {
-        return this.user;
-    }
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
+	public String getIdPost() {
+		return idPost;
+	}
+
+	public void setIdPost(String idPost) {
+		this.idPost = idPost;
+	}
 
 }

@@ -10,7 +10,7 @@ import guru.tour.entity.UserEntity;
 import guru.tour.repository.ServiceFriendsRepository;
 
 @Service
-public class UserEntityIManagermpl implements UserEntityManager{
+public class UserEntityManagerImpl implements UserEntityManager{
 	@Autowired
 	private PasswordEncoder passEncode;
 
@@ -72,5 +72,6 @@ public class UserEntityIManagermpl implements UserEntityManager{
 		// TODO Auto-generated method stub
 		return friendsRepository.findByUsernameContaining(name);
 	}
+
 
 }

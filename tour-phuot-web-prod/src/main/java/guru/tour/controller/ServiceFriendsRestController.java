@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import guru.tour.entity.UserEntity;
+import guru.tour.entity.UserPostEntity;
 import guru.tour.service.UserEntityManager;
+import guru.tour.service.User_PostsManager;
 
 
 @RestController
@@ -28,6 +32,10 @@ import guru.tour.service.UserEntityManager;
 public class ServiceFriendsRestController {
 	@Autowired
 	UserEntityManager user;
+	
+	@Autowired
+	User_PostsManager user_posts;
+	
 	
 	@RequestMapping(value = "/findPhone/{phone}", method = RequestMethod.GET)
 	public ResponseEntity<List<UserEntity>> findPhone(@PathVariable("phone") String phone) {
@@ -64,6 +72,24 @@ public class ServiceFriendsRestController {
  
         user.saveUser(userEntity);
         return new ResponseEntity<String>("Create successful",HttpStatus.CREATED);
+    }
+	
+	@RequestMapping(value = "/addComment", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> addComment(@RequestBody UserPostEntity user_post,UriComponentsBuilder ucBuilder) {
+    	
+		UserPostEntity user_postEntity=user_posts.saveUser_Posts(user_post);
+    	
+    	
+    	
+    	return new ResponseEntity<UserPostEntity>(user_postEntity, HttpStatus.OK)  ;
+    }
+    @RequestMapping(value = "/getAllComment/{id}/{page}", method = RequestMethod.GET)
+    public ResponseEntity<Page<UserPostEntity>> getComment(@PathVariable("id") String id,@PathVariable("page") int page) {
+		Page<UserPostEntity> pageRequest=user_posts.findById_Post(id, page, 2);
+
+		List<UserPostEntity> userPosts=pageRequest.getContent();
+    	return new ResponseEntity<Page<UserPostEntity>>(pageRequest, HttpStatus.OK)  ;
     }
 	
 }
