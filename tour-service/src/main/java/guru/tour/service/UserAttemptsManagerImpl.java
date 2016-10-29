@@ -21,7 +21,8 @@ public class UserAttemptsManagerImpl implements UserAttemptsManager {
 
 	@Override
 	public void insertAttempts(String username) {
-		uar.save(new UserAttemptEntity(username, 0, new Date()));
+		uar.save(new UserAttemptEntity(username, 1, new Date()));
+
 	}
 
 	@Override

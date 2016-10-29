@@ -8,12 +8,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import guru.tour.entity.UserEntity;
+import guru.tour.service.UserAttemptsManager;
 import guru.tour.service.UserEntityManager;
 
 public class UserServiceImpl implements UserDetailsService {
 
 	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-
+	
+	@Autowired
+	UserAttemptsManager attemptsManager;
 	@Autowired
 	UserEntityManager userManager;
 
@@ -24,9 +27,14 @@ public class UserServiceImpl implements UserDetailsService {
 			throw new UsernameNotFoundException("No such user: " + username);
 		else {
 			Account acc = new Account(userEntity);
-			logger.info("========== User Info: {}", acc.toString());
+			logger.info("========== User Info: ", acc.toString());
+			if (attemptsManager.isTimeUp(attemptsManager.geAttemptsEntity(username).getLastModified()))
+				attemptsManager.resetAttempts(username);
 			return acc;
 		}
 	}
-
+	
 }
+	
+
+

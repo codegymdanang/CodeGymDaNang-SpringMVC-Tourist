@@ -1,4 +1,4 @@
-package test;
+package org.tour.service;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
