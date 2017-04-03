@@ -18,7 +18,7 @@ public class UserAttemptEntity implements Serializable {
 
 
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private int attempts = 0;

@@ -1,5 +1,6 @@
 package guru.tour.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="titles")
-public class Titles {
+public class Titles implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

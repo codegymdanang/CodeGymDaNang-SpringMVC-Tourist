@@ -80,7 +80,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 </head>
 
-<body ng-app="Application" ng-controller="Controller">
+<body>
 	<table width="100%">
 		<tr>
 			<td colspan="2"><tiles:insertAttribute name="header" /></td>

@@ -18,6 +18,7 @@
 
 	<mvc:resources mapping="/resource/**" location="/resource/"
 		cache-period="31556926"></mvc:resources>
+		
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">

@@ -1,6 +1,7 @@
 package guru.tour.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.*;
@@ -28,9 +29,18 @@ public class UserPostEntity implements Serializable {
 	@Column(name = "comment")
 	private String comment;
 	
+	@Column(name = "datetime")
+	private Date datetime;
 	
 
-	
+	public UserPostEntity(String id_user, String idPost, String comment, Date datetime) {
+		super();
+		this.id_user = id_user;
+		this.idPost = idPost;
+		this.comment = comment;
+		this.datetime = datetime;
+	}
+
 	public UserPostEntity(String id, String id_user, String id_post, String comment) {
 		super();
 		this.id = id;
@@ -39,6 +49,8 @@ public class UserPostEntity implements Serializable {
 		this.comment = comment;
 	}
 
+	
+	
 	public UserPostEntity() {
 		super();
 	}
@@ -83,4 +95,11 @@ public class UserPostEntity implements Serializable {
 		this.idPost = idPost;
 	}
 
+	public Date getDatetime() {
+		return datetime;
+	}
+	
+	public void setDatetime(Date datetime) {
+		this.datetime = datetime;
+	}
 }

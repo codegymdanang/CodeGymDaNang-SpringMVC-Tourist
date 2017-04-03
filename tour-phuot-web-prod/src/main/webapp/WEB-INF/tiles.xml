@@ -19,7 +19,7 @@
 		<put-attribute name="body" value="/view/user/home.jsp" />
 	</definition>
 	
-	<definition name="comment2" extends="definitionHome">
+	<definition name="comment2" extends="definition">
 		<put-attribute name="body" value="/view/user/comment2.jsp" />
 	</definition>
 	
@@ -130,6 +130,12 @@
 	</definition>
 	<definition name= "userprofile" extends="definition">
 		<put-attribute name="body" value="/view/user/userprofile.jsp"></put-attribute>
+	</definition>
+	<definition name= "post" extends="definition">
+		<put-attribute name="body" value="/view/user/post.jsp"></put-attribute>
+	</definition>
+	<definition name= "comment3" extends="definition">
+		<put-attribute name="body" value="/view/user/comment3.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>  
  
